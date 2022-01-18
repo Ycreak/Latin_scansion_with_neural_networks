@@ -1,0 +1,1252 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nty/global//global/global}
+  \entry{}{book}{}
+  \endentry
+
+  \entry{Aland1985}{book}{}
+    \name{author}{1}{}{%
+      {{hash=AK}{%
+         family={Aland},
+         familyi={A\bibinitperiod},
+         given={K.},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AK1}
+    \strng{fullhash}{AK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{title}{Synopsis Quattuor Evangeliorum}
+    \list{location}{1}{%
+      {Stuttgart}%
+    }
+    \field{year}{1985}
+  \endentry
+
+  \entry{Argyle1964}{incollection}{}
+    \name{author}{1}{}{%
+      {{hash=AA}{%
+         family={Argyle},
+         familyi={A\bibinitperiod},
+         given={A.W.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \name{editor}{1}{}{%
+      {{hash=BA}{%
+         family={Bellinzoni},
+         familyi={B\bibinitperiod},
+         given={A.J.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AA1}
+    \strng{fullhash}{AA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{booktitle}{The Two-Source Hypothesis: A Critical Appraisal}
+    \field{pages}{371\bibrangedash 379}
+    \field{title}{Evidence for the View that St. Luke used St. Matthew's
+  Gospel}
+    \field{year}{1964}
+  \endentry
+
+  \entry{Augustine}{incollection}{}
+    \name{author}{1}{}{%
+      {{hash=AS}{%
+         family={Augustine},
+         familyi={A\bibinitperiod},
+         given={St},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \name{editor}{1}{}{%
+      {{hash=SP}{%
+         family={Schaff},
+         familyi={S\bibinitperiod},
+         given={P.},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AS1}
+    \strng{fullhash}{AS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{booktitle}{Nicene and Post-Nicene Fathers: Series I/Volume VI}
+    \field{title}{The Harmony of the Gospels}
+    \list{location}{1}{%
+      {Oxford}%
+    }
+    \field{year}{1885}
+  \endentry
+
+  \entry{Barrett1942}{incollection}{}
+    \name{author}{1}{}{%
+      {{hash=BC}{%
+         family={Barret},
+         familyi={B\bibinitperiod},
+         given={C.K.},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \name{editor}{1}{}{%
+      {{hash=BA}{%
+         family={Bellinzoni},
+         familyi={B\bibinitperiod},
+         given={A.J.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BC1}
+    \strng{fullhash}{BC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{The Two-Source Hypothesis: A Critical Appraisal}
+    \field{pages}{259\bibrangedash 268}
+    \field{title}{Q: A Reexamination}
+    \field{year}{1942-1943}
+  \endentry
+
+  \entry{Bellinzoni1985}{book}{}
+    \name{author}{1}{}{%
+      {{hash=BA}{%
+         family={Bellinzoni},
+         familyi={B\bibinitperiod},
+         given={A.J.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BA1}
+    \strng{fullhash}{BA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{The Two-Source Hypothesis}
+    \list{location}{1}{%
+      {Georgia, US}%
+    }
+    \field{year}{1985}
+  \endentry
+
+  \entry{Bradby1956}{incollection}{}
+    \name{author}{1}{}{%
+      {{hash=BE}{%
+         family={Bradby},
+         familyi={B\bibinitperiod},
+         given={E.L.},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \name{editor}{1}{}{%
+      {{hash=BA}{%
+         family={Bellinzoni},
+         familyi={B\bibinitperiod},
+         given={A.J.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BE1}
+    \strng{fullhash}{BE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{The Two-Source Hypothesis: A Critical Appraisal}
+    \field{pages}{287\bibrangedash 293}
+    \field{title}{In Defence Of Q}
+    \field{year}{1956}
+  \endentry
+
+  \entry{Carlson1999}{online}{}
+    \name{author}{1}{}{%
+      {{hash=CS}{%
+         family={Carlson},
+         familyi={C\bibinitperiod},
+         given={S.C.},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CS1}
+    \strng{fullhash}{CS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{The Two Source Hypothesis}
+    \verb{url}
+    \verb https://web.archive.org/web/20080515022301/http://www.mindspring.com/
+    \verb ~scarlson/synopt/2sh/index.htm
+    \endverb
+    \field{year}{1999}
+    \field{urlday}{06}
+    \field{urlmonth}{02}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{Carlson}{online}{}
+    \name{author}{1}{}{%
+      {{hash=CS}{%
+         family={Carlson},
+         familyi={C\bibinitperiod},
+         given={S.C.},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CS1}
+    \strng{fullhash}{CS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{The Two Source Hypothesis}
+    \verb{url}
+    \verb https://web.archive.org/web/20080515022301/http://www.mindspring.com/
+    \verb ~scarlson/synopt/2sh/index.htm
+    \endverb
+    \field{year}{1999}
+    \field{urlday}{10}
+    \field{urlmonth}{07}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{Dalen-Oskam2005}{article}{}
+    \name{author}{2}{}{%
+      {{hash=vDOK}{%
+         prefix={van},
+         prefixi={v\bibinitperiod},
+         family={Dalen-Oskam},
+         familyi={D\bibinithyphendelim O\bibinitperiod},
+         given={K.},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=vZJ}{%
+         prefix={van},
+         prefixi={v\bibinitperiod},
+         family={Zundert},
+         familyi={Z\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DOKvZJv1}
+    \strng{fullhash}{DOKvZJv1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{pages}{212\bibrangedash 231}
+    \field{title}{De list van het lexicon. Auteursonderscheiding met behulp van
+  computer-ondersteunde woordenschatanalyse}
+    \field{volume}{10}
+    \field{journaltitle}{Nederlandse Letterkunde.}
+    \field{year}{2005}
+  \endentry
+
+  \entry{Damerau1975}{article}{}
+    \name{author}{1}{}{%
+      {{hash=DF}{%
+         family={Damerau},
+         familyi={D\bibinitperiod},
+         given={F.J.},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DF1}
+    \strng{fullhash}{DF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{pages}{271}
+    \field{title}{The use of function word frequencies as indicators of style}
+    \field{volume}{9}
+    \field{journaltitle}{Computers and the Humanities}
+    \field{year}{1975}
+  \endentry
+
+  \entry{Deneire2018}{article}{}
+    \name{author}{1}{}{%
+      {{hash=DT}{%
+         family={Deneire},
+         familyi={D\bibinitperiod},
+         given={T.},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DT1}
+    \strng{fullhash}{DT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{pages}{239\bibrangedash 270}
+    \field{title}{Filelfo, Cicero and epistolary style : a computational study}
+    \field{volume}{289}
+    \field{journaltitle}{Brill's studies in intellectual history}
+    \field{year}{2018}
+  \endentry
+
+  \entry{Downing1964}{article}{}
+    \name{author}{1}{}{%
+      {{hash=DF}{%
+         family={Downing},
+         familyi={D\bibinitperiod},
+         given={F.G.},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DF2}
+    \strng{fullhash}{DF2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{pages}{169\bibrangedash 181}
+    \field{title}{Towards the Rehabilitation of Q}
+    \field{volume}{11}
+    \field{journaltitle}{NTS}
+    \field{year}{1964-1965}
+  \endentry
+
+  \entry{Dungan1970}{incollection}{}
+    \name{author}{1}{}{%
+      {{hash=DD}{%
+         family={Dungan},
+         familyi={D\bibinitperiod},
+         given={D.L.},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \name{editor}{1}{}{%
+      {{hash=BA}{%
+         family={Bellinzoni},
+         familyi={B\bibinitperiod},
+         given={A.J.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DD1}
+    \strng{fullhash}{DD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{booktitle}{The Two-Source Hypothesis: A Critical Appraisal}
+    \field{pages}{427\bibrangedash 433}
+    \field{title}{Critique of the Q Hypothesis}
+    \field{year}{1970}
+  \endentry
+
+  \entry{StyloManual}{book}{}
+    \name{author}{3}{}{%
+      {{hash=EM}{%
+         family={Eder},
+         familyi={E\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=RJ}{%
+         family={Rybicki},
+         familyi={R\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Kestemont},
+         familyi={K\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{EMRJKM1}
+    \strng{fullhash}{EMRJKM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{title}{'Stylo': a package for stylometric analysis}
+    \field{year}{2017}
+  \endentry
+
+  \entry{Eichhorn1794}{article}{}
+    \name{author}{1}{}{%
+      {{hash=EJ}{%
+         family={Eichhorn},
+         familyi={E\bibinitperiod},
+         given={J.G.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{EJ1}
+    \strng{fullhash}{EJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{pages}{766}
+    \field{title}{\"Uber die drei ersten Evangelisten}
+    \field{volume}{5}
+    \field{journaltitle}{Allgemeine Bibliothek der biblischen Literatur}
+    \field{year}{1794}
+  \endentry
+
+  \entry{Engelbrecht1996}{article}{}
+    \name{author}{1}{}{%
+      {{hash=EJ}{%
+         family={Engelbrecht},
+         familyi={E\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{EJ2}
+    \strng{fullhash}{EJ2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{pages}{89\bibrangedash 101}
+    \field{title}{Challenging the two-source hypothesis: how successful are the
+  commentaries?}
+    \field{volume}{30(1)}
+    \field{journaltitle}{Neotestamentica}
+    \field{year}{1996}
+  \endentry
+
+  \entry{Farmer1975}{incollection}{}
+    \name{author}{1}{}{%
+      {{hash=FW}{%
+         family={Farmer},
+         familyi={F\bibinitperiod},
+         given={W.R.},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \name{editor}{1}{}{%
+      {{hash=BA}{%
+         family={Bellinzoni},
+         familyi={B\bibinitperiod},
+         given={A.J.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FW1}
+    \strng{fullhash}{FW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{booktitle}{The Two-Source Hypothesis: A Critical Appraisal}
+    \field{pages}{397\bibrangedash 408}
+    \field{title}{A Fresh Approach to Q}
+    \field{year}{1975}
+  \endentry
+
+  \entry{Farrer1955}{incollection}{}
+    \name{author}{1}{}{%
+      {{hash=FA}{%
+         family={Farrer},
+         familyi={F\bibinitperiod},
+         given={A.M.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \name{editor}{1}{}{%
+      {{hash=BA}{%
+         family={Bellinzoni},
+         familyi={B\bibinitperiod},
+         given={A.J.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FA1}
+    \strng{fullhash}{FA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{booktitle}{The Two-Source Hypothesis: A Critical Appraisal}
+    \field{pages}{321\bibrangedash 356}
+    \field{title}{On Dispensing with Q}
+    \field{year}{1985}
+  \endentry
+
+  \entry{Fitzmyer1970}{incollection}{}
+    \name{author}{1}{}{%
+      {{hash=FJ}{%
+         family={Fitzmyer},
+         familyi={F\bibinitperiod},
+         given={J.A.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \name{editor}{1}{}{%
+      {{hash=BA}{%
+         family={Bellinzoni},
+         familyi={B\bibinitperiod},
+         given={A.J.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FJ1}
+    \strng{fullhash}{FJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{booktitle}{The Two-Source Hypothesis: A Critical Appraisal}
+    \field{pages}{245\bibrangedash 257}
+    \field{title}{Luke's Use Of Q}
+    \field{year}{1970}
+  \endentry
+
+  \entry{Goodacre2003}{online}{}
+    \name{author}{1}{}{%
+      {{hash=GM}{%
+         family={Goodacre},
+         familyi={G\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GM1}
+    \strng{fullhash}{GM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{title}{Ten Reasons to Question Q}
+    \verb{url}
+    \verb https://web.archive.org/web/20081015182345/http://ntgateway.com/Q/ten
+    \verb .htm
+    \endverb
+    \field{year}{1997}
+    \field{urlday}{06}
+    \field{urlmonth}{02}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{Goodacre}{online}{}
+    \name{author}{1}{}{%
+      {{hash=GM}{%
+         family={Goodacre},
+         familyi={G\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GM1}
+    \strng{fullhash}{GM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{title}{Ten Reasons to Question Q}
+    \verb{url}
+    \verb https://web.archive.org/web/20081015182345/http://ntgateway.com/Q/ten
+    \verb .htm
+    \endverb
+    \field{year}{1997}
+    \field{urlday}{11}
+    \field{urlmonth}{07}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{Griesbach1978}{incollection}{}
+    \name{author}{1}{}{%
+      {{hash=GJ}{%
+         family={Griesbach},
+         familyi={G\bibinitperiod},
+         given={J.J.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \name{editor}{2}{}{%
+      {{hash=OB}{%
+         family={Orchard},
+         familyi={O\bibinitperiod},
+         given={B.},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=LT}{%
+         family={Longstaff},
+         familyi={L\bibinitperiod},
+         given={T.R.W.},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GJ1}
+    \strng{fullhash}{GJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{booktitle}{J.J. Griesbach: Synoptic and Text - Critical Studies
+  1776–1976}
+    \field{pages}{74\bibrangedash 102}
+    \field{title}{A Demonstration that Mark was Written after Matthew and Luke}
+    \field{volume}{34}
+    \field{year}{1978}
+  \endentry
+
+  \entry{Grieve2002}{book}{}
+    \name{author}{1}{}{%
+      {{hash=GJ}{%
+         family={Grieve},
+         familyi={G\bibinitperiod},
+         given={J.W.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GJ2}
+    \strng{fullhash}{GJ2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{title}{Quantitative Authorship Attribution: A History and an
+  Evaluation of Techniques}
+    \field{year}{2002}
+  \endentry
+
+  \entry{Hawkins1911}{incollection}{}
+    \name{author}{1}{}{%
+      {{hash=HJ}{%
+         family={Hawkins},
+         familyi={H\bibinitperiod},
+         given={J.C.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \name{editor}{1}{}{%
+      {{hash=SW}{%
+         family={Sanday},
+         familyi={S\bibinitperiod},
+         given={W.},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HJ1}
+    \strng{fullhash}{HJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{booktitle}{Oxford Studies in the Synoptic Gospels}
+    \field{edition}{2}
+    \field{pages}{29\bibrangedash 59}
+    \field{title}{Three Limitations to St. Luke's Use of St. Mark's Gospel: The
+  Disuse of the Markan Source in St. Luke ix. 51-xviii. 13}
+    \field{year}{1911}
+  \endentry
+
+  \entry{Holmes1985}{article}{}
+    \name{author}{1}{}{%
+      {{hash=HD}{%
+         family={Holmes},
+         familyi={H\bibinitperiod},
+         given={D.},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HD1}
+    \strng{fullhash}{HD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{pages}{111\bibrangedash 117}
+    \field{title}{The Evolution of Stylometry in Humanities Scholarship}
+    \field{volume}{13}
+    \field{journaltitle}{Literary and Linguistic Computing}
+    \field{year}{1998}
+  \endentry
+
+  \entry{Honore1986}{article}{}
+    \name{author}{1}{}{%
+      {{hash=HA}{%
+         family={Honoré},
+         familyi={H\bibinitperiod},
+         given={A.M.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HA1}
+    \strng{fullhash}{HA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{pages}{95\bibrangedash 147}
+    \field{title}{A Statistical Study of the Synoptic Problem}
+    \field{volume}{10}
+    \field{journaltitle}{Novum Testamentum}
+    \field{year}{1986}
+  \endentry
+
+  \entry{Inglis}{online}{}
+    \name{author}{1}{}{%
+      {{hash=ID}{%
+         family={Inglis},
+         familyi={I\bibinitperiod},
+         given={D.},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ID1}
+    \strng{fullhash}{ID1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{I}
+    \field{sortinithash}{I}
+    \field{title}{Tricky NT Textual Issues}
+    \verb{url}
+    \verb https://sites.google.com/site/inglisonmarcion/Home/the-synoptic-probl
+    \verb em/the-making-of-the-double-tradition
+    \endverb
+    \field{urlday}{06}
+    \field{urlmonth}{07}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{Kestemont2014}{article}{}
+    \name{author}{3}{}{%
+      {{hash=KM}{%
+         family={Kestemont},
+         familyi={K\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=MS}{%
+         family={Moens},
+         familyi={M\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=DJ}{%
+         family={Deploige},
+         familyi={D\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KMMSDJ1}
+    \strng{fullhash}{KMMSDJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{pages}{199\bibrangedash 224}
+    \field{title}{Collaborative Authorship in the Twelfth Century: A
+  Stylometric Study of Hildegard of Bingen and Guibert of Gembloux}
+    \field{volume}{30}
+    \field{journaltitle}{DSH}
+    \field{year}{2014}
+  \endentry
+
+  \entry{Kloppenborg2000}{book}{}
+    \name{author}{1}{}{%
+      {{hash=KJ}{%
+         family={Kloppenborg},
+         familyi={K\bibinitperiod},
+         given={J.S.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KJ1}
+    \strng{fullhash}{KJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{title}{Excavating Q: The History and Setting of the Sayings Gospel}
+    \list{location}{1}{%
+      {Minneapolis, US}%
+    }
+    \field{year}{2000}
+  \endentry
+
+  \entry{Kummel1973}{incollection}{}
+    \name{author}{1}{}{%
+      {{hash=KW}{%
+         family={K\"ummel},
+         familyi={K\bibinitperiod},
+         given={W.G.},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \name{editor}{1}{}{%
+      {{hash=BA}{%
+         family={Bellinzoni},
+         familyi={B\bibinitperiod},
+         given={A.J.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KW1}
+    \strng{fullhash}{KW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{booktitle}{The Two-Source Hypothesis: A Critical Appraisal}
+    \field{pages}{227\bibrangedash 243}
+    \field{title}{In Support of Q}
+    \field{year}{1973}
+  \endentry
+
+  \entry{Lummis1915}{book}{}
+    \name{author}{1}{}{%
+      {{hash=LE}{%
+         family={Lummis},
+         familyi={L\bibinitperiod},
+         given={E.W.},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LE1}
+    \strng{fullhash}{LE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{title}{How Was Luke Written: Considerations Affecting the
+  Two-Document Theory with Special Reference to the Phenomenon of Order in the
+  Non-Markan Matter Common to Matthew and Luke}
+    \list{location}{1}{%
+      {Cambridge}%
+    }
+    \field{year}{1915}
+  \endentry
+
+  \entry{Marxen1968}{book}{}
+    \name{author}{1}{}{%
+      {{hash=MW}{%
+         family={Marxsen},
+         familyi={M\bibinitperiod},
+         given={W.},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MW1}
+    \strng{fullhash}{MW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{title}{Introduction to the New Testament: An Approach to its
+  Problems}
+    \list{location}{1}{%
+      {Michigan, US}%
+    }
+    \field{year}{1968}
+  \endentry
+
+  \entry{Smith1888}{article}{}
+    \name{author}{1}{}{%
+      {{hash=MCaWS}{%
+         family={Mascol},
+         familyi={M\bibinitperiod},
+         given={C.\bibnamedelima (a.k.a. W.B.\bibnamedelima Smith)},
+         giveni={C\bibinitperiod\bibinitdelim a\bibinitperiod\bibinitdelim
+  W\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MCaWS1}
+    \strng{fullhash}{MCaWS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{pages}{452\bibrangedash 460 and 539\bibrangedash 546}
+    \field{title}{Curves of Pauline and Pseudo-Pauline Style I\&II}
+    \field{volume}{30}
+    \field{journaltitle}{Unitarian Review}
+    \field{year}{1888}
+  \endentry
+
+  \entry{Montserrat}{online}{}
+    \name{author}{1}{}{%
+      {{hash=MJ}{%
+         family={Montserrat},
+         familyi={M\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MJ1}
+    \strng{fullhash}{MJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{title}{Two-Source Hypothesis}
+    \verb{url}
+    \verb http://www.hypotyposeis.org/synoptic-problem/2004/09/two-source-hypot
+    \verb hesis.html
+    \endverb
+    \field{year}{2005}
+    \field{urlday}{06}
+    \field{urlmonth}{02}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{Perseus}{online}{}
+    \name{author}{1}{}{%
+      {{hash=PDL}{%
+         family={Perseus},
+         familyi={P\bibinitperiod},
+         given={Digital\bibnamedelima Library},
+         giveni={D\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PDL1}
+    \strng{fullhash}{PDL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{title}{Perseus Vocabulary Tool}
+    \verb{url}
+    \verb http://www.perseus.tufts.edu/hopper/help/vocab
+    \endverb
+    \field{year}{2007}
+    \field{urlday}{18}
+    \field{urlmonth}{05}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{Petrie1959}{article}{}
+    \name{author}{1}{}{%
+      {{hash=PS}{%
+         family={Petrie},
+         familyi={P\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PS1}
+    \strng{fullhash}{PS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{pages}{28\bibrangedash 33}
+    \field{title}{'Q' is Only What You Make It}
+    \field{volume}{3}
+    \field{journaltitle}{Novum Testamentum}
+    \field{year}{1959}
+  \endentry
+
+  \entry{Sanders1968}{incollection}{}
+    \name{author}{1}{}{%
+      {{hash=SE}{%
+         family={Sanders},
+         familyi={S\bibinitperiod},
+         given={E.P.},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \name{editor}{1}{}{%
+      {{hash=BA}{%
+         family={Bellinzoni},
+         familyi={B\bibinitperiod},
+         given={A.J.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SE1}
+    \strng{fullhash}{SE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{booktitle}{The Two-Source Hypothesis: A Critical Appraisal}
+    \field{pages}{409\bibrangedash 426}
+    \field{title}{The Argument from Order and the Relationship between Matthew
+  and Luke}
+    \field{year}{1968}
+  \endentry
+
+  \entry{Sanders1969}{book}{}
+    \name{author}{1}{}{%
+      {{hash=SE}{%
+         family={Sanders},
+         familyi={S\bibinitperiod},
+         given={E.P.},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SE1}
+    \strng{fullhash}{SE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{The Tendencies of the Synoptic Tradition}
+    \list{location}{1}{%
+      {Cambridge}%
+    }
+    \field{year}{1969}
+  \endentry
+
+  \entry{Simpson1965}{article}{}
+    \name{author}{1}{}{%
+      {{hash=SR}{%
+         family={Simpson},
+         familyi={S\bibinitperiod},
+         given={R.T.},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SR1}
+    \strng{fullhash}{SR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{pages}{273\bibrangedash 284}
+    \field{title}{The Major Agreements of Matthew and Luke Against Mark}
+    \field{volume}{12}
+    \field{journaltitle}{NTS}
+    \field{year}{1965-1966}
+  \endentry
+
+  \entry{Streeter1924}{incollection}{}
+    \name{author}{1}{}{%
+      {{hash=SB}{%
+         family={Streeter},
+         familyi={S\bibinitperiod},
+         given={B.H.},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \name{editor}{1}{}{%
+      {{hash=BA}{%
+         family={Bellinzoni},
+         familyi={B\bibinitperiod},
+         given={A.J.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SB1}
+    \strng{fullhash}{SB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{booktitle}{The Two-Source Hypothesis: A Critical Appraisal}
+    \field{pages}{221\bibrangedash 225}
+    \field{title}{The Document Q}
+    \field{year}{1985}
+  \endentry
+
+  \entry{Streeter1924Book}{book}{}
+    \name{author}{1}{}{%
+      {{hash=SB}{%
+         family={Streeter},
+         familyi={S\bibinitperiod},
+         given={B.H.},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SB1}
+    \strng{fullhash}{SB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{The Four Gospels: A Study of Origins, Treating of the
+  Manuscript Tradition, Sources, Authorship, \& Dates}
+    \list{location}{1}{%
+      {Virginia, US}%
+    }
+    \field{year}{1924}
+  \endentry
+
+  \entry{Styler1962}{incollection}{}
+    \name{author}{1}{}{%
+      {{hash=SG}{%
+         family={Styler},
+         familyi={S\bibinitperiod},
+         given={G.M.},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \name{editor}{1}{}{%
+      {{hash=MC}{%
+         family={Moule},
+         familyi={M\bibinitperiod},
+         given={C.F.D.},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SG1}
+    \strng{fullhash}{SG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{booktitle}{The Birth of the New Testament}
+    \field{pages}{223\bibrangedash 232}
+    \field{title}{The Priority of Mark}
+    \field{year}{1962}
+  \endentry
+
+  \entry{Taylor1959}{incollection}{}
+    \name{author}{1}{}{%
+      {{hash=TV}{%
+         family={Taylor},
+         familyi={T\bibinitperiod},
+         given={V.},
+         giveni={V\bibinitperiod},
+      }}%
+    }
+    \name{editor}{1}{}{%
+      {{hash=BA}{%
+         family={Bellinzoni},
+         familyi={B\bibinitperiod},
+         given={A.J.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TV1}
+    \strng{fullhash}{TV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{booktitle}{The Two-Source Hypothesis: A Critical Appraisal}
+    \field{pages}{295\bibrangedash 317}
+    \field{title}{The Original Order of Q}
+    \field{year}{1959}
+  \endentry
+
+  \entry{Tyson1985}{incollection}{}
+    \name{author}{1}{}{%
+      {{hash=TJ}{%
+         family={Tyson},
+         familyi={T\bibinitperiod},
+         given={J.B.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \name{editor}{1}{}{%
+      {{hash=BA}{%
+         family={Bellinzoni},
+         familyi={B\bibinitperiod},
+         given={A.J.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TJ1}
+    \strng{fullhash}{TJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{booktitle}{The Two-Source Hypothesis: A Critical Appraisal}
+    \field{pages}{437\bibrangedash 452}
+    \field{title}{The Two-Source Hypothesis: A Critical Appraisal}
+    \field{year}{1985}
+  \endentry
+
+  \entry{Watson2009}{article}{}
+    \name{author}{1}{}{%
+      {{hash=WF}{%
+         family={Watson},
+         familyi={W\bibinitperiod},
+         given={F.},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WF1}
+    \strng{fullhash}{WF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{pages}{397\bibrangedash 415}
+    \field{title}{Q as Hypothesis: A Study in Methodology}
+    \field{volume}{55}
+    \field{journaltitle}{New Testament Studies}
+    \field{year}{2009}
+  \endentry
+
+  \entry{Westcott1885}{book}{}
+    \name{author}{2}{}{%
+      {{hash=WB}{%
+         family={Westcott},
+         familyi={W\bibinitperiod},
+         given={B.F.},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=HF}{%
+         family={Hort},
+         familyi={H\bibinitperiod},
+         given={F.J.A.},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WBHF1}
+    \strng{fullhash}{WBHF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{The New Testament in the Original Greek}
+    \list{location}{1}{%
+      {Cambridge}%
+    }
+    \field{year}{1885}
+  \endentry
+
+  \entry{Woods1886}{article}{}
+    \name{author}{1}{}{%
+      {{hash=WF}{%
+         family={Woods},
+         familyi={W\bibinitperiod},
+         given={F.H.},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WF2}
+    \strng{fullhash}{WF2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{pages}{59\bibrangedash 104}
+    \field{title}{The Origin and Mutual Relations of the Synoptic Gospels}
+    \field{volume}{II}
+    \field{journaltitle}{Studia Bibblica et Ecclesiastica}
+    \field{year}{1886}
+  \endentry
+\enddatalist
+\endinput

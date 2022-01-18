@@ -1,0 +1,54 @@
+First four lines of Aeneid
+
+[1. 0. 0. 1. 0. 0. 1. 1. 1. 1. 1. 0. 0. 1. 1.
+[1. 0. 0. 1. 1. 1. 0. 0. 1. 1. 1. 0. 0. 1. 1.
+[1. 0. 0. 1. 1. 1. 1. 1. 1. 1. 1. 1. 0. 0. 1. 1.
+[1. 0. 0. 1. 1. 1. 0. 0. 1. 1. 1. 0. 0. 1. 1.
+
+Expected : [1. 	0. 	0. 	1. 	0. 	0. 	1. 	1.	 1. 1.  1.  0.  0. 1. 1. 	1. 1. 1. 1. 1.]
+Predicted: [1, 	0, 	0, 	1, 	0, 	1, 	1, 	1,	 1, 1,  1,  0,  0, 1, 1, 	1, 1, 1, 1, 1]
+Line 1		ar 	ma 	vi 	rum	que	ca 	no 	troi ae qui pri mus ab or is 	PADDING
+
+Expected : [1. 0. 0. 1. 1. 1. 0. 0. 1. 1. 1. 0. 0. 1. 1. 1. 1. 1. 1. 1.]
+Predicted: [1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1]
+Line 2		Italiam, fato profugus, Laviniaque venit
+
+
+Expected : [1. 0. 0. 1.  1.  1. 1. 1. 1.  1.  1.  1. 0.  0. 1. 1. 		1. 1. 1. 1.]
+Predicted: [1, 0, 0, 1,  0,  1, 1, 0, 1,  1,  1,  1, 0,  0, 1, 1,   	1, 1, 1, 1]
+Line 3		li to ra mul tum il le et ter ris iac ta tus et al to   	PADDING
+
+
+Expected : [1. 0. 0. 1. 1. 1. 0. 0. 1. 1. 1. 0. 0. 1. 1. 1. 1. 1. 1. 1.]
+Predicted: [1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1]
+Line 4		vi superum saevae memorem Iunonis ob iram;
+
+
+Expected : [1. 0. 0. 1. 1. 1. 1. 1. 1. 1. 1. 0. 0. 1. 1. 1. 1. 1. 1. 1.]
+Predicted: [1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1]
+Line 5		multa quoque et bello passus, dum conderet urbem,
+
+
+Expected : [1. 1. 1. 0. 0. 1. 0. 0. 1. 0. 0. 1. 0. 0. 1. 1. 1. 1. 1. 1.]
+Predicted: [1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1]
+Line 6		inferretque deos Latio, genus unde Latinum,
+
+
+Expected : [1. 1. 1. 0. 0. 1. 1. 1. 1. 1. 1. 0. 0. 1. 1. 1. 1. 1. 1. 1.]
+Predicted: [1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1]
+Line 7		Albanique patres, atque altae moenia Romae.
+
+
+Expected : [1. 0. 0. 1. 1. 1. 0. 0. 1. 1. 1. 0. 0. 1. 1. 1. 1. 1. 1. 1.]
+Predicted: [1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1]
+Line 8		Musa, mihi causas memora, quo numine laeso,
+
+
+Expected : [1. 0. 0. 1. 1. 1. 0. 0. 1. 1. 1. 0. 0. 1. 1. 1. 1. 1. 1. 1.]
+Predicted: [1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1]
+Line 9		quidve dolens, regina deum tot volvere casus
+
+
+Expected : [1. 1. 1. 0. 0. 1. 0. 0. 1. 0. 0. 1. 0. 0. 1. 1. 1. 1. 1. 1.]
+Predicted: [1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1]
+Line 10		insignem pietate virum, tot adire labores

@@ -1,1 +1,3 @@
-# Latin_scansion_with_neural_networks
+# LatinScansionModel
+
+You also need python-lxml

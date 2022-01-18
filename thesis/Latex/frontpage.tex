@@ -1,0 +1,81 @@
+\setlength{\textheight}{24.7cm}
+\setlength{\textwidth}{16cm}
+\setlength{\unitlength}{1mm}
+\setlength{\topskip}{1truecm}
+\topmargin 280mm \advance \topmargin -\textheight
+\divide \topmargin by 2 \advance \topmargin -1in
+\headheight 0pt \headsep 0pt
+\leftmargin 210mm \advance \leftmargin -\textwidth
+\divide \leftmargin by 2 \advance \leftmargin -1in
+\oddsidemargin \leftmargin \evensidemargin \leftmargin
+\parindent=0pt
+\frenchspacing
+
+\newcommand{\bree}[1]{\makebox[4.1cm][l]{#1:}}
+
+% \begin{document}
+
+%No page number
+\thispagestyle{empty}
+% \sf 
+
+\begin{tabular}[t]{p{3.5cm}@{\hspace{4mm}\vrule width 1.5pt\hspace{4mm}}l}
+%Logo Leiden University
+\makebox(20,0)[t]{\includegraphics{UL_PMS-kleur.eps}}
+&
+\begin{minipage}[t]{12cm}
+\begin{Huge}
+\vspace*{0.4cm}
+\textbf{}
+\\[2ex]
+\textbf{Master Computer Science}
+\end{Huge}
+
+\vspace*{4cm}
+
+\begin{Large}
+% --> Here your title
+\hfill Finding Sound in Written Latin Epic
+% \hspace*{2cm} {\small About Latin Poetry Scansion with Artificial Intelligence}
+
+\hfill
+
+\vspace*{5.5cm}
+
+
+%% --> Add your data here!
+\bree{Name}%
+Luuk Nolden
+\\
+\bree{Student ID}%
+1370898
+\\[1ex]
+\bree{Date}%
+13-04-2022
+\\[1ex]
+\bree{Specialisation}%
+Data Science
+\\[1ex]
+\bree{1st supervisor}%
+Suzan Verberne
+\\ 
+\bree{2nd supervisor}%
+Matthew Payne
+\end{Large}
+
+\begin{large}
+\vspace*{2.5cm}
+Master's Thesis in Computer Science
+
+\vspace*{5mm}
+Leiden Institute of Advanced Computer Science (LIACS)\\
+Leiden University\\
+Niels Bohrweg 1\\
+2333 CA Leiden\\
+The Netherlands
+\end{large}
+
+\end{minipage}
+\end{tabular}
+
+\fontfamily{cmr}

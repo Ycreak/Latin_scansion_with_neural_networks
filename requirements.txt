@@ -1,0 +1,13 @@
+pandas
+gensim
+configparser
+bs4
+cltk
+keras
+tensorflow
+matplotlib
+progress
+seaborn
+sklearn_crfsuite
+lxml
+flair

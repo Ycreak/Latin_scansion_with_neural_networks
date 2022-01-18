@@ -1,0 +1,11 @@
+elsision -> separate long from short
+compare current string with next string?
+
+never three short syllables
+Aeneid, 1:12. "an" is short? but is long by "ti"
+Aeneid, 1:203. "an" scanned completely wrong. for - sa - net
+				2:506. for si ta net pri a mi
+
+Syllabifier -> forsitan et priami -> for si ta net pri a mi
+
+Syllabify a line, not a word

@@ -1,0 +1,56 @@
+\clearpage
+\section{Analysis and Results}\label{analysis_results}
+\lipsum[4]
+
+\sisetup{table-format=4.2} 
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|l|S|S|S|S|} 
+		\hline 
+		\multirow{2}{*}{\# of class} &\multirow{2}{*}{label} & \multicolumn{2}{c|}{Trained Data} &\multicolumn{2}{c|}{New Data}\\ \cline{3-6}
+		&  &{Prec.} & {Rec.} & {Prec.}  & {Rec.} \\ \hline 
+		\multirow{3}{*}{3} 
+			& long & 60.6 & 100.0 & ??   & ??    \\   \cline{2-6} 
+			& short & 0.0 & 0.0 & ??   &  ??  \\   \cline{2-6} 
+			& elision & 0.0 & 0.0 & ??   & ??  \\   \hline 
+		\multicolumn{2}{|c|}{Average} & 36.7 & 60.6 & ?? & ?? \\ \hline 
+	\end{tabular}
+	\caption{Scores for the base line (predict everything as long)}
+\end{table}
+
+\sisetup{table-format=4.2} 
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|l|S|S|S|S|} 
+		\hline 
+		\multirow{2}{*}{\# of class} &\multirow{2}{*}{label} & \multicolumn{2}{c|}{Trained Data} &\multicolumn{2}{c|}{New Data}\\ \cline{3-6}
+		&  &{Prec.} & {Rec.} & {Prec.}  & {Rec.} \\ \hline 
+		\multirow{3}{*}{3} 
+			& long & 69.7 & 94.1 & ??   & ??    \\   \cline{2-6} 
+			& short & 73.2 & 37.2 & ??   &  ??  \\   \cline{2-6} 
+			& elision & 100.0 & 0.0 & ??   & ??  \\   \hline 
+		\multicolumn{2}{|c|}{Average} & 81.0 & 72.0 & ?? & ?? \\ \hline 
+	\end{tabular}
+	\caption{Scores for the hidden markov model}
+\end{table}
+
+\sisetup{table-format=4.2} 
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|l|S|S|S|S|} 
+		\hline 
+		\multirow{2}{*}{\# of class} &\multirow{2}{*}{label} & \multicolumn{2}{c|}{Trained Data} &\multicolumn{2}{c|}{New Data}\\ \cline{3-6}
+		&  &{Prec.} & {Rec.} & {Prec.}  & {Rec.} \\ \hline 
+		\multirow{3}{*}{3} 
+			& long & 94.4 & 91.0 & ??   & ??    \\   \cline{2-6} 
+			& short & 85.3 & 91.0 & ??   &  ??  \\   \cline{2-6} 
+			& elision & 96.1 & 93.1 & ??   & ??  \\   \hline 
+		\multicolumn{2}{|c|}{Average} & 91.2 & 91.0 & ?? & ?? \\ \hline 
+	\end{tabular}
+	\caption{Scores for the crf sequence labeler}
+\end{table}
+
+\section{CRF Sequence Labeling}
+Feature based on position from the end (to find fifth and sixth foot): using position from last syllable index is overfitting on hexameters.
+Would we call a foot a named entity?
+

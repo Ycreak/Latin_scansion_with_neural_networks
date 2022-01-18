@@ -1,0 +1,32 @@
+\section{Skeleton}
+
+\textit{Can a neural network learn to scan Hexameters?}\\
+
+1. Approach using HMM
+2. Approach using CRF
+3. Approach using LSTM
+4. Approach using ELECTRA
+
+What is the effect of different genres and different authors?
+  Better results when directly relevant? epic, love, story
+  Time of authors? Iuvenal vs Virgil?
+    normalise results. same corpus size ovid compared to same size virgil
+    idea: cluster same length texts: agglomerative clustering: create tree from Kestemont
+
+What is the effect of different word representations?
+  Strings, hashes, syllable embeddings, char/syll/word embeddings
+  Different context windows (5), dimensions (100-300), no mincount 
+  fasttext (autovocab), glove, word2vec
+    cluster these vectors using PCA: are clusters logial and relevant to our task? syntactical and semantical?
+
+Qualitative research
+  qualitative approach: why these mistakes? why does crf do this particular syllable wrongly?
+
+\textit{How well do these networks generalise to other meters?}
+Elegiac, Iambic trimeter, anapest, trochaic tetrameter, polymetrum, hendycasyllabi
+
+
+
+
+
+

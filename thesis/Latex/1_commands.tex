@@ -1,0 +1,9 @@
+% \newcommand{\quickwordcount}[1]{%
+%   \immediate\write18{texcount -1 -sum -merge #1.tex > #1-words.sum }%
+%   \input{#1-words.sum}%
+% }
+
+\newcommand{\quickwordcount}[1]{%
+  \immediate\write18{texcount -1 -sum -merge -q #1.tex output.bbl > #1-words.sum }%
+  \input{#1-words.sum} words%
+}

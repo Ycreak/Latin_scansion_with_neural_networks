@@ -1,0 +1,4 @@
+1. Meer teksten nog?
+2. CRF toont aan dat meer teksten niet werkt?
+3. Welke representatie?
+4. Kan ik gewichten meegeven aan de features? 

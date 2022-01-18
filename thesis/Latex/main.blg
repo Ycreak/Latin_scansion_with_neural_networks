@@ -1,0 +1,76 @@
+This is BibTeX, Version 0.99d (TeX Live 2020/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: biblatex.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: main-blx.bib
+Database file #2: biblio.bib
+Repeated entry---line 7 of file biblio.bib
+ : @article{
+ :          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 16 of file biblio.bib
+ : @incollection{
+ :               ,
+I'm skipping whatever remains of this entry
+Reallocated field_info (elt_size=4) to 10040 items from 5000.
+Biblatex version: 3.16
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--Missing citation key
+You've used 49 entries,
+            6393 wiz_defined-function locations,
+            1488 strings with 14177 characters,
+and the built_in function-call counts, 243312 in all, are:
+= -- 12702
+> -- 11284
+< -- 1500
++ -- 10769
+- -- 7854
+* -- 14305
+:= -- 26826
+add.period$ -- 0
+call.type$ -- 49
+change.case$ -- 535
+chr.to.int$ -- 474
+cite$ -- 95
+duplicate$ -- 25425
+empty$ -- 21369
+format.name$ -- 2523
+if$ -- 45506
+int.to.chr$ -- 0
+int.to.str$ -- 136
+missing$ -- 0
+newline$ -- 1239
+num.names$ -- 2122
+pop$ -- 16290
+preamble$ -- 1
+purify$ -- 663
+quote$ -- 0
+skip$ -- 8575
+stack$ -- 0
+substring$ -- 18920
+swap$ -- 6602
+text.length$ -- 1396
+text.prefix$ -- 48
+top$ -- 1
+type$ -- 1654
+warning$ -- 1
+while$ -- 3257
+width$ -- 0
+write$ -- 1191
+(There were 2 error messages)
