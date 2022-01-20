@@ -47,20 +47,26 @@ class LSTM_model():
         self.num_epochs = FLAGS.epochs
         self.split_size = FLAGS.split
         
-        # self.combine_sequence_label_lists()
-        # exit(0)
+        self.combine_sequence_label_lists('PROP', 'PROP-ele')
+        self.combine_sequence_label_lists('TIB', 'TIB-ele')
+
+        exit(0)
 
         # self.run_idx_lstm_single_text(util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'VERG-aene.pickle'))
 
         # tib = util.Pickle_read(util.cf.get('Pickle', 'path_pedecerto_df'),'pedecerto_df_TIB-ele3.pickle')
         # print(tib['length'].value_counts())   
         # exit(0)
+        
+        # Quickly create models
+        # train_texts = ['VERG-aene.pickle', 'CATVLL-carm.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle', 'HEX-all.pickle', 'ELE-all.pickle', 'HEX_ELE-all.pickle', 'TIB-ele.pickle', 'PROP-ele.pickle', 'OV-ele.pickle']
+        # test_texts = ['PERS-satu.pickle']
 
         if FLAGS.exp_hexameter:
             train_texts = ['VERG-aene.pickle', 'CATVLL-carm.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle']
             test_texts = ['VERG-aene.pickle', 'CATVLL-carm.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle']
 
-            train_texts = ['VERG-aene.pickle']
+            # train_texts = ['VERG-aene.pickle']
             # test_texts = ['VERG-aene.pickle']
             self.do_experiment(train_texts, test_texts)
 
@@ -144,11 +150,12 @@ class LSTM_model():
 
 
 
-    def combine_sequence_label_lists(self):
+    def combine_sequence_label_lists(self, key, name):
         # TO COMBINE LISTS
-        my_list = sorted(util.Create_files_list  (util.cf.get('Pickle', 'path_sequence_labels'), 'OV'))
+        name = name + '.pickle'
+        my_list = sorted(util.Create_files_list  (util.cf.get('Pickle', 'path_sequence_labels'), key))
         temp = util.merge_sequence_label_lists(my_list, util.cf.get('Pickle', 'path_sequence_labels'))
-        util.Pickle_write(util.cf.get('Pickle', 'path_sequence_labels'), 'OV_ele.pickle', temp)
+        util.Pickle_write(util.cf.get('Pickle', 'path_sequence_labels'), name, temp)
 
     def print_length_sequence_label_files(self):
         # TO FIND LENGTH
