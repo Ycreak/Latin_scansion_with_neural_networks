@@ -47,10 +47,10 @@ class LSTM_model():
         self.num_epochs = FLAGS.epochs
         self.split_size = FLAGS.split
         
-        self.combine_sequence_label_lists('PROP', 'PROP-ele')
-        self.combine_sequence_label_lists('TIB', 'TIB-ele')
+        # self.combine_sequence_label_lists('PROP', 'PROP-ele')
+        # self.combine_sequence_label_lists('TIB', 'TIB-ele')
 
-        exit(0)
+        # exit(0)
 
         # self.run_idx_lstm_single_text(util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'VERG-aene.pickle'))
 
@@ -59,8 +59,11 @@ class LSTM_model():
         # exit(0)
         
         # Quickly create models
-        # train_texts = ['VERG-aene.pickle', 'CATVLL-carm.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle', 'HEX-all.pickle', 'ELE-all.pickle', 'HEX_ELE-all.pickle', 'TIB-ele.pickle', 'PROP-ele.pickle', 'OV-ele.pickle']
-        # test_texts = ['PERS-satu.pickle']
+        train_texts = ['VERG-aene.pickle', 'CATVLL-carm.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle', 'HEX-all.pickle', 'ELE-all.pickle', 'HEX_ELE-all.pickle', 'TIB-ele.pickle', 'PROP-ele.pickle', 'OV-ele.pickle']
+        test_texts = ['PERS-satu.pickle']
+        self.do_experiment(train_texts, test_texts)
+        exit(0)
+
 
         if FLAGS.exp_hexameter:
             train_texts = ['VERG-aene.pickle', 'CATVLL-carm.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle']
