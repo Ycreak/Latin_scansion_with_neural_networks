@@ -60,7 +60,7 @@ class LSTM_model():
             train_texts = ['VERG-aene.pickle', 'CATVLL-carm.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle']
             test_texts = ['VERG-aene.pickle', 'CATVLL-carm.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle']
 
-            # train_texts = ['VERG-aene.pickle']
+            train_texts = ['VERG-aene.pickle']
             # test_texts = ['VERG-aene.pickle']
             self.do_experiment(train_texts, test_texts)
 
@@ -296,8 +296,9 @@ class LSTM_model():
                                     X = X_train,
                                     y = y_train,
                                     epochs = self.num_epochs,
-                                    create_model = True,
-                                    save_model = False)
+                                    create_model = FLAGS.create_model,
+                                    save_model = FLAGS.save_model,
+                                    model_name = train_text.split('.')[0])
 
             for test_text in test_texts:
                 sequence_labels_test_text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), test_text)
@@ -460,7 +461,7 @@ class LSTM_model():
         loss, accuracy = model.evaluate(X, y, verbose=self.FLAGS.verbose)
         return loss, accuracy
 
-    def get_model(self, max_len, num_syllables, num_labels, X, y, epochs, create_model, save_model):
+    def get_model(self, max_len, num_syllables, num_labels, X, y, epochs, create_model, save_model, model_name='default'):
         """Returns the LSTM model from the given parameters. Also allows a model to be loaded from disk
 
         Args:
@@ -475,6 +476,8 @@ class LSTM_model():
         Returns:
             object: lstm model
         """
+        path = './models/lstm/' + model_name    # Get model path name for saving or loading
+        
         if create_model:
             # Initiate the model structure
             input = Input(shape=(max_len,))
@@ -491,21 +494,13 @@ class LSTM_model():
             model.compile(optimizer="rmsprop", loss="categorical_crossentropy", metrics=["accuracy"])
             history = model.fit(X, y, batch_size=32, epochs=epochs, verbose=1)
             
-            if save_model: model.save('./model')
-
-            # util.create_line_plot(
-            #     plots = (history.history['accuracy'],),
-            #     ylabel = 'Accuracy',
-            #     xlabel = 'Epoch',
-            #     plot_titles = ['train'],
-            #     title = 'LSTM accuracy',
-            #     plotname = 'lstm_accuracy'
-            # )
+            if save_model: 
+                model.save(path)
 
             return model        
         
         else:
-            return keras.models.load_model('./model')
+            return keras.models.load_model(path)
 
 
 
@@ -544,7 +539,7 @@ class LSTM_model():
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--create_model", action="store_true", help="specify whether to create the model: if not specified, we load from disk")
-    # p.add_argument("--create_dataset", action="store_true", help="specify whether to create the dataset: if not specified, we load from disk")
+    p.add_argument("--save_model", action="store_true", help="specify whether to save the model: if not specified, we do not save")
     p.add_argument("--exp_hexameter", action="store_true", help="specify whether to run the hexameter LSTM experiment")
     p.add_argument("--exp_transfer", action="store_true", help="specify whether to run the hexameter transerability LSTM experiment")
     p.add_argument("--exp_elegiac", action="store_true", help="specify whether to run the hexameter genre LSTM experiment")
