@@ -33,27 +33,6 @@ class CRF_sequence_labeling:
         self.hexameter_heatmap()
         # self.crf_improvement_heatmap()
 
-    def convert_pedecerto_dataframes_to_sequence_labeling_list(self, source, destination):
-        """Converts all pedecerto dataframes in the given location to sequence labeling lists.
-        Saves these to disk in the specified location.
-
-        Args:
-            source (string): source location of the pedecerto dataframes
-            destination (string): destination location of the pedecerto dataframes
-        """        
-        texts = util.Create_files_list(source, '.pickle')
-        for text in texts:
-            df = util.Pickle_read(source, text)
-            # Convert the integer labels to string labels (like sequence labeling likes)
-            df = util.convert_syllable_labels(df)
-            # convert the current file to a sequence labeling list
-            sequence_label_list = self.convert_pedecerto_to_sequence_labeling(df)
-            # extract the name of the file to be used for pickle saving
-            text_name = text.split('.')[0]
-            text_name = text.split('_')[-1]
-            # And write it to the location specified
-            util.Pickle_write(destination, text_name, sequence_label_list)
-
     def predict_model(self, model, X, y):
         """ Predicts labels y given the model and examples X. Returns the metric report.
 
@@ -151,8 +130,8 @@ class CRF_sequence_labeling:
         features = {
             'bias': 1.0,
             '0:syllable' : word, # just take the entire syllable
-            # '0:last_3_char': word[-2:], # Take last 2 characters
-            # '0:last_2_char': word[-1:], # Take last 1 characters
+            '0:last_3_char': word[-2:], # Take last 2 characters
+            '0:last_2_char': word[-1:], # Take last 1 characters
         }
         # Check if we are at the beginning of the sentence
         if i == 0:
@@ -162,53 +141,21 @@ class CRF_sequence_labeling:
             previous_word = sent[i-1][0]
             features.update({
                 '-1:word': previous_word,
-                # '-1:last_1_char': previous_word[-1:],
-                # '-1:last_2_char': previous_word[-2:],
+                '-1:last_1_char': previous_word[-1:],
+                '-1:last_2_char': previous_word[-2:],
             })
         # Gather features from the next word
         if i < len(sent)-1:
             next_word = sent[i+1][0]
             features.update({
                 '+1:word': next_word,
-                # '+1:first_1_char': next_word[:1],
-                # '+1:first_2_char': next_word[:2],
+                '+1:first_1_char': next_word[:1],
+                '+1:first_2_char': next_word[:2],
             })
         else:
             features['EOS'] = True # This will be an anceps
 
         return features
-
-    def convert_pedecerto_to_sequence_labeling(self, df) -> list:
-        """Converts the given pedecerto dataframe to a list with sequence labels. More specifically,
-        one list with multiple lists is returned. Each sublist represents a sentence with syllable and label.
-        Such sublist looks as follows: [(syllable, label),(syllable, label), (syllable, label)]
-
-        Args:
-            df (dataframe): of a text in the pedecerto format
-
-        Returns:
-            list: with sequence labels (to serve as input for sequence labeling tasks)
-        """              
-        # Create a list to store all texts in
-        all_sentences_list = []
-        # get the integers for all titles to loop through
-        all_titles = df['title'].unique()
-        for title in Bar('Converting Pedecerto to CRF').iter(all_titles):
-            # Get only lines from this book
-            title_df = df.loc[df['title'] == title]
-            # Per book, process the lines
-            all_lines = title_df['line'].unique()
-            for line in all_lines:
-                line_df = title_df[title_df["line"] == line]
-
-                length_list = line_df['length'].to_numpy()
-                syllable_list = line_df['syllable'].to_numpy()
-                # join them into 2d array and transpose it to get the correct crf format:
-                combined_list = np.array((syllable_list,length_list)).T
-                # Append all to the list which we will return later
-                all_sentences_list.append(combined_list)
-
-        return all_sentences_list
 
     def kfold_model(self, sequence_labels, X, y, splits):
         """Performs a kfold cross validation of a CRF model fitted and trained on the given data
@@ -246,29 +193,6 @@ class CRF_sequence_labeling:
 
         return result
 
-    def merge_crf_dataframes(self, texts, path):
-        """Merges the given lists (contained in sequence labeling pickles) on the given path.
-        Outputs one list with all sentences of the given texts in sequence labeling format.
-        Useful when merging all metamorphoses for example.
-
-        Args:
-            texts (list): of sequence labeling pickled files
-            path (string): where these pickled files are stored
-
-        Returns:
-            list: of merged texts
-        """        
-        # Create a starting list from the last entry using pop
-        merged_list = util.Pickle_read(path, texts.pop())
-        # merge all other texts into this initial list
-        for text_list_id in texts:
-            # from the list with texts
-            text_list = util.Pickle_read(path, text_list_id)
-            # take every sentence and add it to the merged_list
-            for sentence_numpy in text_list:
-                merged_list.append(sentence_numpy)
-        return merged_list 
-
     ###############
     # EXPERIMENTS #
     ###############
@@ -279,13 +203,13 @@ class CRF_sequence_labeling:
         df_short = pd.DataFrame(columns = column_names)
         df_elision = pd.DataFrame(columns = column_names)
 
-        ovid_elegiac_df = self.merge_crf_dataframes(util.Create_files_list(util.cf.get('Pickle', 'df_crf_path_elegiac'), 'OV'), util.cf.get('Pickle', 'df_crf_path_elegiac'))
-        tib_elegiac_df = self.merge_crf_dataframes(util.Create_files_list(util.cf.get('Pickle', 'df_crf_path_elegiac'), 'TIB'), util.cf.get('Pickle', 'df_crf_path_elegiac'))
-        prop_elegiac_df = self.merge_crf_dataframes(util.Create_files_list(util.cf.get('Pickle', 'df_crf_path_elegiac'), 'PROP'), util.cf.get('Pickle', 'df_crf_path_elegiac'))
+        ovid_elegiac_df = util.merge_sequence_label_lists(util.Create_files_list(util.cf.get('Pickle', 'df_crf_path_elegiac'), 'OV'), util.cf.get('Pickle', 'df_crf_path_elegiac'))
+        tib_elegiac_df = util.merge_sequence_label_lists(util.Create_files_list(util.cf.get('Pickle', 'df_crf_path_elegiac'), 'TIB'), util.cf.get('Pickle', 'df_crf_path_elegiac'))
+        prop_elegiac_df = util.merge_sequence_label_lists(util.Create_files_list(util.cf.get('Pickle', 'df_crf_path_elegiac'), 'PROP'), util.cf.get('Pickle', 'df_crf_path_elegiac'))
 
         verg_df = util.Pickle_read(util.cf.get('Pickle', 'df_crf_path_hexameter'), 'VERG-aene.pickle')
-        hexameter_df = self.merge_crf_dataframes(util.Create_files_list(util.cf.get('Pickle', 'df_crf_path_hexameter'), '.pickle'), util.cf.get('Pickle', 'df_crf_path_hexameter'))
-        elegiac_df = self.merge_crf_dataframes(util.Create_files_list(util.cf.get('Pickle', 'df_crf_path_elegiac'), '.pickle'), util.cf.get('Pickle', 'df_crf_path_elegiac'))
+        hexameter_df = util.merge_sequence_label_lists(util.Create_files_list(util.cf.get('Pickle', 'df_crf_path_hexameter'), '.pickle'), util.cf.get('Pickle', 'df_crf_path_hexameter'))
+        elegiac_df = util.merge_sequence_label_lists(util.Create_files_list(util.cf.get('Pickle', 'df_crf_path_elegiac'), '.pickle'), util.cf.get('Pickle', 'df_crf_path_elegiac'))
         
         # First, use Aneid to predict Ovid and Tibullus
         predictor_texts = [('verg',verg_df), ('hex',hexameter_df), ('eleg',elegiac_df)]

@@ -190,17 +190,75 @@ def convert_pedecerto_to_sequence_labeling(df) -> list:
 
     return all_sentences_list    
 
+def convert_pedecerto_dataframes_to_sequence_labeling_list(self, source, destination):
+    """Converts all pedecerto dataframes in the given location to sequence labeling lists.
+    Saves these to disk in the specified location.
+
+    Args:
+        source (string): source location of the pedecerto dataframes
+        destination (string): destination location of the pedecerto dataframes
+    """        
+    texts = Create_files_list(source, '.pickle')
+    for text in texts:
+        df = Pickle_read(source, text)
+        # Convert the integer labels to string labels (like sequence labeling likes)
+        df = convert_syllable_labels(df)
+        # convert the current file to a sequence labeling list
+        sequence_label_list = convert_pedecerto_to_sequence_labeling(df)
+        # extract the name of the file to be used for pickle saving
+        text_name = text.split('.')[0]
+        text_name = text.split('_')[-1]
+        # And write it to the location specified
+        Pickle_write(destination, text_name, sequence_label_list)
+
+def convert_pedecerto_to_sequence_labeling(self, df) -> list:
+    """Converts the given pedecerto dataframe to a list with sequence labels. More specifically,
+    one list with multiple lists is returned. Each sublist represents a sentence with syllable and label.
+    Such sublist looks as follows: [(syllable, label),(syllable, label), (syllable, label)]
+
+    Args:
+        df (dataframe): of a text in the pedecerto format
+
+    Returns:
+        list: with sequence labels (to serve as input for sequence labeling tasks)
+    """              
+    # Create a list to store all texts in
+    all_sentences_list = []
+    # get the integers for all titles to loop through
+    all_titles = df['title'].unique()
+    for title in Bar('Converting Pedecerto to CRF').iter(all_titles):
+        # Get only lines from this book
+        title_df = df.loc[df['title'] == title]
+        # Per book, process the lines
+        all_lines = title_df['line'].unique()
+        for line in all_lines:
+            line_df = title_df[title_df["line"] == line]
+
+            length_list = line_df['length'].to_numpy()
+            syllable_list = line_df['syllable'].to_numpy()
+            # join them into 2d array and transpose it to get the correct crf format:
+            combined_list = np.array((syllable_list,length_list)).T
+            # Append all to the list which we will return later
+            all_sentences_list.append(combined_list)
+
+    return all_sentences_list
+
 if __name__ == "__main__":
-    df = pd.read_csv('./texts/iambic/agamemnon_labels_4.csv')
-    sequence_label_list = convert_pedecerto_to_sequence_labeling(df)
-
-    new_list = []
-
-    # Remove trailing spaces
-    for line in sequence_label_list:
-        if line[-1][0] == '-' and line[-1][1] == 'space':
-            new_list.append(line[:-1])
-        else:
-            new_list.append(line)
     
-    Pickle_write(cf.get('Pickle', 'path_sequence_labels'), 'SEN_aga.pickle', new_list)    
+
+
+
+    # Create the Trimeter dataset
+    # df = pd.read_csv('./texts/iambic/agamemnon_labels_4.csv')
+    # sequence_label_list = convert_pedecerto_to_sequence_labeling(df)
+
+    # new_list = []
+
+    # # Remove trailing spaces
+    # for line in sequence_label_list:
+    #     if line[-1][0] == '-' and line[-1][1] == 'space':
+    #         new_list.append(line[:-1])
+    #     else:
+    #         new_list.append(line)
+    
+    # Pickle_write(cf.get('Pickle', 'path_sequence_labels'), 'SEN_aga.pickle', new_list)    
