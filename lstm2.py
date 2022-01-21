@@ -59,10 +59,10 @@ class LSTM_model():
         # exit(0)
         
         # Quickly create models
-        train_texts = ['VERG-aene.pickle', 'CATVLL-carm.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle', 'HEX-all.pickle', 'ELE-all.pickle', 'HEX_ELE-all.pickle', 'TIB-ele.pickle', 'PROP-ele.pickle', 'OV-ele.pickle']
-        test_texts = ['PERS-satu.pickle']
-        self.do_experiment(train_texts, test_texts)
-        exit(0)
+        # train_texts = ['VERG-aene.pickle', 'CATVLL-carm.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle', 'HEX-all.pickle', 'ELE-all.pickle', 'HEX_ELE-all.pickle', 'TIB-ele.pickle', 'PROP-ele.pickle', 'OV-ele.pickle']
+        # test_texts = ['PERS-satu.pickle']
+        # self.do_experiment(train_texts, test_texts)
+        # exit(0)
 
 
         if FLAGS.exp_hexameter:
@@ -71,19 +71,19 @@ class LSTM_model():
 
             # train_texts = ['VERG-aene.pickle']
             # test_texts = ['VERG-aene.pickle']
-            self.do_experiment(train_texts, test_texts)
+            self.do_experiment(train_texts, test_texts, exp_name='hexameter')
 
         if FLAGS.exp_transfer:
             # Here we test whether training on elegiac and hexameter gives better results
             train_texts = ['VERG-aene.pickle', 'HEX-all.pickle', 'ELE-all.pickle', 'HEX_ELE-all.pickle']
             test_texts = ['VERG-aene.pickle', 'OV-ele.pickle', 'SEN-aga.pickle', 'HEX-all.pickle', 'ELE-all.pickle', 'HEX_ELE-all.pickle']
-            self.do_experiment(train_texts, test_texts)
+            self.do_experiment(train_texts, test_texts, exp_name='transfer')
 
         if FLAGS.exp_elegiac:
             # Pick all the elegiac texts and let Virgil do his best :D
             train_texts = ['VERG-aene.pickle', 'TIB-ele.pickle', 'PROP-ele.pickle', 'OV-ele.pickle']
             test_texts = ['VERG-aene.pickle','TIB-ele.pickle', 'PROP-ele.pickle', 'OV-ele.pickle']
-            self.do_experiment(train_texts, test_texts)
+            self.do_experiment(train_texts, test_texts, exp_name='elegiac')
 
         if FLAGS.exp_train_test:
             train_texts = ['VERG-aene.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle']
@@ -278,7 +278,7 @@ class LSTM_model():
             print('SYLLABLES SCANNED WRONGLY: ', syllable_incorrect_counter)
             print('PERCENTAGE WRONG: {0}%'.format(score_syllables)) # This also counts spaces: needs fixing
 
-    def do_experiment(self, train_texts, test_texts):
+    def do_experiment(self, train_texts, test_texts, exp_name='default'):
         # import matplotlib.pyplot as plt        
         
         column_names = ["predictor", "predictee", "score"]
@@ -331,6 +331,8 @@ class LSTM_model():
                 df_short = df_short.append(new_line_short, ignore_index=True)    
                 df_elision = df_elision.append(new_line_elision, ignore_index=True)   
 
+        time = datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
+
         heatmap_data = pd.pivot_table(df_long, values='score', index=['predictor'], columns='predictee')
         myplot = plt.figure(figsize=(16,10))
         myplot = plt.subplot(2, 2, 1)
@@ -338,8 +340,8 @@ class LSTM_model():
                         xlabel = 'predictee',
                         ylabel = 'predictor',
                         title = 'Long',
-                        filename = 'scansionaccuracy_hexameter_long.png',
-                        path = './plots/hexameter_experiment/')
+                        filename = '{0}-long-{2}.png'.format(exp_name, time),
+                        path = './plots/experiments/')
 
         heatmap_data = pd.pivot_table(df_short, values='score', index=['predictor'], columns='predictee')
         myplot = plt.subplot(2, 2, 2)        
@@ -347,8 +349,8 @@ class LSTM_model():
                         xlabel = 'predictee',
                         ylabel = 'predictor',
                         title = 'Short',
-                        filename = 'scansionaccuracy_hexameter_short.png',
-                        path = './plots/hexameter_experiment/')
+                        filename = '{0}-short-{2}.png'.format(exp_name, time),
+                        path = './plots/experiments/')
 
         heatmap_data = pd.pivot_table(df_elision, values='score', index=['predictor'], columns='predictee')
         myplot = plt.subplot(2, 2, 3)
@@ -356,15 +358,15 @@ class LSTM_model():
                         xlabel = 'predictee',
                         ylabel = 'predictor',
                         title = 'Elision',
-                        filename = 'scansionaccuracy_hexameter_elision.png',
-                        path = './plots/hexameter_experiment/')
+                        filename = '{0}-elision-{2}.png'.format(exp_name, time),
+                        path = './plots/experiments/')
 
         
         # self.hello().subplot(2, 2, 4)
         # myplot = myplot.tight_layout()
         myplot.subplots_adjust(wspace=0.5, hspace=0.5)
-        time = datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
-        full_file_name = '{0}{1}_{2}.png'.format('./plots/hexameter_experiment/', 'LSTM', time)
+        # time = datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
+        full_file_name = '{0}{1}_{2}.png'.format('./plots/experiments/', 'LSTM', time)
         # myplot.show()
         myplot.savefig(full_file_name)        
 
