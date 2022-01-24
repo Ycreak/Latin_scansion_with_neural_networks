@@ -19,8 +19,8 @@ class Pedecerto_parser:
   """  
   def __init__(self, source, destination):   
     # Create pandas dataframe
-    column_names = ["title", "line", "syllable", "length"]
-    df = pd.DataFrame(columns = column_names) 
+    # column_names = ["title", "line", "syllable", "length"]
+    # df = pd.DataFrame(columns = column_names) 
     
     # Create a folder to store files that are already processed
     processed_folder = source + 'processed/'
@@ -31,13 +31,14 @@ class Pedecerto_parser:
     # Add all entries to process to a list
     entries = util.Create_files_list(source, 'xml')
     # Process all entries added to the list
+
     for entry in entries:
       with open(source + entry) as fh:
         # for each text, an individual dataframe will be created and saved as pickle
-        new_text_df = copy.deepcopy(df)
+        # new_text_df = copy.deepcopy(df)
         text_name = entry.split('.')[0]
         
-        pickle_name = 'pedecerto_df_' + text_name + '.pickle'
+        pickle_name = text_name + '.pickle'
 
         # Use beautiful soup to process the xml
         soupedEntry = BeautifulSoup(fh,"xml")
@@ -47,7 +48,9 @@ class Pedecerto_parser:
         # Clean the lines (done by MQDQ)
         soupedEntry = util.clean(soupedEntry('line'))
 
-        book_string = ""
+        # book_string = ""
+
+        text_sequence_label_list = []
 
         # for line in range(len(soupedEntry)):
         for line in Bar('Processing {0}, {1}'.format(author, text_title)).iter(range(len(soupedEntry))):
@@ -58,52 +61,56 @@ class Pedecerto_parser:
           # Process the entry. It will append the line to the df
           if not soupedEntry[line]['name'].isdigit(): # We only want lines that are certain
             continue
+          if soupedEntry[line]['pattern'] == 'not scanned': # These lines we also skip
+            continue
           if soupedEntry[line]['meter'] == "H" or soupedEntry[line]['meter'] == "P": # We only want hexameters or pentameters
-            line_df = self.process_line(soupedEntry[line], book_title)
-            new_text_df = new_text_df.append(line_df, ignore_index=True) # If I greatly improve my own code, am I a wizard, or a moron?
-            # print(new_text_df)
-            # exit(0)
+            line_sequence_label_list, success = self.process_line(soupedEntry[line], book_title)
+            if success:
+              # Only add the line if no errors occurred.
+              text_sequence_label_list.append(line_sequence_label_list)
+
+            # new_text_df = new_text_df.append(line_df, ignore_index=True) # If I greatly improve my own code, am I a wizard, or a moron?
           else:
             continue # interestingly, some pedecerto xml files use "metre" instead of "meter"
 
         # Clean the lines that did not succeed
-        new_text_df = self.clean_generated_df(new_text_df)
+        # new_text_df = self.clean_generated_df(new_text_df)
 
-        util.Pickle_write(destination, pickle_name, new_text_df)
+        util.Pickle_write(destination, pickle_name, text_sequence_label_list)
         # Move the file to the processed folder
         os.rename(source + entry, processed_folder + entry)
 
 
-  def clean_generated_df(self, df):
-    """ Processes all lines in the given df and deletes the line if there is an ERROR reported
-    This would have happened if a word could not be syllabified by the Pedecerto syllabifier.
+  # def clean_generated_df(self, df):
+  #   """ Processes all lines in the given df and deletes the line if there is an ERROR reported
+  #   This would have happened if a word could not be syllabified by the Pedecerto syllabifier.
 
-    Args:
-        df (dataframe): with lines containing errors
+  #   Args:
+  #       df (dataframe): with lines containing errors
 
-    Returns:
-        dataframe: with alle lines containing errors stripped away
-    """    
-    if 'ERROR' in df['syllable'].unique():
-      # Clean if needed, otherwise just return the dataframe
-      all_titles = df['title'].unique()
+  #   Returns:
+  #       dataframe: with alle lines containing errors stripped away
+  #   """    
+  #   if 'ERROR' in df['syllable'].unique():
+  #     # Clean if needed, otherwise just return the dataframe
+  #     all_titles = df['title'].unique()
 
-      for title in all_titles:
-          print('Cleaning title', title)
-          # Get only lines from this book
-          title_df = df.loc[df['title'] == title]          
-          all_lines = title_df['line'].unique()
-          # Per book, process the lines
-          for line in all_lines:
-              line_df = title_df[title_df["line"] == line]
-              if 'ERROR' in line_df['syllable'].values:
-                  # Now delete this little dataframe from the main dataframe
-                  keys = list(line_df.columns.values)
-                  i1 = df.set_index(keys).index
-                  i2 = line_df.set_index(keys).index
-                  df = df[~i1.isin(i2)]
+  #     for title in all_titles:
+  #         print('Cleaning title', title)
+  #         # Get only lines from this book
+  #         title_df = df.loc[df['title'] == title]          
+  #         all_lines = title_df['line'].unique()
+  #         # Per book, process the lines
+  #         for line in all_lines:
+  #             line_df = title_df[title_df["line"] == line]
+  #             if 'ERROR' in line_df['syllable'].values:
+  #                 # Now delete this little dataframe from the main dataframe
+  #                 keys = list(line_df.columns.values)
+  #                 i1 = df.set_index(keys).index
+  #                 i2 = line_df.set_index(keys).index
+  #                 df = df[~i1.isin(i2)]
 
-    return df
+  #   return df
 
   def process_line(self, given_line, book_title):
     """Processes a given XML pedecerto line. Puts syllable and length in a dataframe.
@@ -114,10 +121,14 @@ class Pedecerto_parser:
         book_title (str): title of the current book (Book 1)
 
     Returns:
-        dataframe: with syllables and their lenght (and some other information)
+        list: with syllable label tuples for the entire given sentence
+        boolean: whether the process of creating the sentence was successful
     """      
     column_names = ["title", "line", "syllable", "length"]
     df = pd.DataFrame(columns = column_names)
+
+    # Create a list in which we will save the sequence_labels for every syllable
+    line_sequence_label_list = []
 
     current_line = given_line['name']
 
@@ -128,9 +139,10 @@ class Pedecerto_parser:
       try:
         word_syllable_list = pedecerto._syllabify_word(w)
       except:
-        new_line = {'title': int(book_title), 'line': int(current_line), 'syllable': 'ERROR', 'length': -1}
-        df = df.append(new_line, ignore_index=True)
-        return df
+        # new_line = {'title': int(book_title), 'line': int(current_line), 'syllable': 'ERROR', 'length': -1}
+        # df = df.append(new_line, ignore_index=True)
+        # Could not syllabify. Notify the calling function to not add this line to the set
+        return line_sequence_label_list, False
 
       # And get its scansion
       scansion = w["sy"]
@@ -152,28 +164,29 @@ class Pedecerto_parser:
 
           # Interpret length based on pedecerto encoding (could be done much quicker)
           if feet_pos.isupper():
-            length = 1
+            length = 'long'
           elif feet_pos.islower():
-            length = 0
-        # No scansions available? Elision. Denote with 2
+            length = 'short'
+        # No scansions available? Elision.
         else:
-          length = 2 # Luckily elision happens only at the end of a word
+          length = 'elision' # Luckily elision happens only at the end of a word
 
         # Keep track of performed operations
         number_of_scansions -= 1
 
         # Append to dataframe
-        new_line = {'title': int(book_title), 'line': int(current_line), 'syllable': current_syllable, 'length': int(length)}
-        df = df.append(new_line, ignore_index=True)
+        line_sequence_label_list.append((current_syllable, length))
+        # new_line = {'title': int(book_title), 'line': int(current_line), 'syllable': current_syllable, 'length': int(length)}
+        # df = df.append(new_line, ignore_index=True)
 
       # At the end of the word, we add a space, unless it is the last word of the given line
-      new_line = {'title': int(book_title), 'line': int(current_line), 'syllable': '-', 'length': 'space'}
-      df = df.append(new_line, ignore_index=True)      
+      line_sequence_label_list.append(('-', 'space'))
 
-    # Really dumb, but we dont need a space after the last word, so drop the last row of the dataframe
-    df.drop(df.tail(1).index,inplace=True)
+      # new_line = {'title': int(book_title), 'line': int(current_line), 'syllable': '-', 'length': 'space'}
+      # df = df.append(new_line, ignore_index=True)      
 
-    return df
+    # Really dumb, but we dont need a space after the last word, so drop the last row of the list
+    return line_sequence_label_list[:-1], True # Boolean to denote success of syllabification
 
         # TO GET PLAIN TEXT FILES FROM THE PEDECERTO XML
         # # for line in range(len(soupedEntry)):

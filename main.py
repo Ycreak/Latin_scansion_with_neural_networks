@@ -32,6 +32,14 @@ p.add_argument('--pedecerto_conversion', action="store_true",
                 help='converts the pedecerto XML files stored in pedecerto/xml_files into labeled dataframes')
 p.add_argument('--sequence_labels_conversion', action="store_true", 
                help='converts the pedecerto dataframes stored in pedecerto/df_pedecerto into sequence labeling lists')
+p.add_argument('--combine_author_files', action="store_true", 
+               help='')
+p.add_argument('--create_hexameter_set', action="store_true", 
+               help='')
+p.add_argument('--create_elegiac_set', action="store_true", 
+               help='')               
+p.add_argument('--create_hexameter_elegiac_set', action="store_true", 
+               help='')
 FLAGS = p.parse_args()
 
 ''' This functionality will take all pedecerto XML files stored in ./pedecerto/xml_files and turn them into
@@ -40,15 +48,41 @@ as the ground truth for the neural network models in the rest of this program. T
 in pickle format in ./pedecerto/pedecerto_df. Processed files will be moved to the processed subdirectory.
 '''
 if FLAGS.pedecerto_conversion:
-    print('Converting pedecerto XML into pedecerto dataframes with scansion labels')
+    print('Converting pedecerto XML into sequence label lists')
     from pedecerto.textparser import Pedecerto_parser
     pedecerto_parse = Pedecerto_parser(source = util.cf.get('Pedecerto', 'path_xml_files'),
-                                       destination = util.cf.get('Pickle', 'path_pedecerto_df'))
+                                       destination = util.cf.get('Pickle', 'path_sequence_labels'))
 
-if FLAGS.sequence_labels_conversion:
-    print('Converting pedecerto dataframes into sequence labeling lists')
-    util.convert_pedecerto_dataframes_to_sequence_labeling_list(source = util.cf.get('Pickle', 'path_pedecerto_df'),
-                                                                     destination = util.cf.get('Pickle', 'path_sequence_labels'))
+if FLAGS.combine_author_files:
+    # Combine the following lists
+    tibullus = ['TIB-ele1', 'TIB-ele2', 'TIB-ele3']
+    util.combine_sequence_label_lists(tibullus, 'TIB-ele', util.cf.get('Pickle', 'path_sequence_labels'))
+
+    propertius = ['PROP-ele1', 'PROP-ele2', 'PROP-ele3', 'PROP-ele4']
+    util.combine_sequence_label_lists(propertius, 'PROP-ele', util.cf.get('Pickle', 'path_sequence_labels'))
+
+    ovidius = ['OV-amo1', 'OV-amo2', 'OV-amo3', 'OV-epis', 'OV-fast', 'OV-ibis', 'OV-medi', 'OV-pon1', 'OV-pon2',
+               'OV-pon3', 'OV-pon4', 'OV-tri1', 'OV-tri2', 'OV-tri3', 'OV-tri4', 'OV-tri5']
+    util.combine_sequence_label_lists(ovidius, 'OV-ele', util.cf.get('Pickle', 'path_sequence_labels'))   
+
+# Provide which texts should be used as the hexameter and elegiac train sets
+hexameter_texts = ['VERG-aene', 'CATVLL-carm', 'IVV-satu', 'LVCR-rena', 'OV-meta', 'PERS-satu']
+elegiac_texts = ['TIB-ele', 'PROP-ele', 'OV-ele']
+
+if FLAGS.create_hexameter_set:
+    util.combine_sequence_label_lists(hexameter_texts, 'HEX-all', util.cf.get('Pickle', 'path_sequence_labels'))
+
+if FLAGS.create_elegiac_set:
+    util.combine_sequence_label_lists(elegiac_texts, 'ELE-all', util.cf.get('Pickle', 'path_sequence_labels'))
+
+if FLAGS.create_hexameter_elegiac_set:
+    hexameter_elegiac = hexameter_texts + elegiac_texts
+    util.combine_sequence_label_lists(hexameter_elegiac, 'HEX_ELE-all', util.cf.get('Pickle', 'path_sequence_labels'))
+
+
+
+# temp = util.Pickle_read(util.cf.get('Pedecerto', 'path_xml_files'), 'VERG-aene.pickle')
+# print(temp[:3])
 
 exit(0)
 

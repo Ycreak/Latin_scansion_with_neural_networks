@@ -11,3 +11,4 @@ seaborn
 sklearn_crfsuite
 lxml
 flair
+fuzzywuzzy

@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+	<head>
+		<author>Accius</author>
+		<title>carminum fragmenta</title>
+		<resp>
+			<institution>Università degli Studi di Udine</institution>
+			<institution>Università "Ca' Foscari" di Venezia</institution>
+			<orgName>Pedecerto. Digital Latin Metre <link>http://www.pedecerto.eu</link></orgName>
+			<persName>Emanuela Colombi</persName>
+			<persName>Luca Mondin</persName>
+			<persName>Luigi Tessarolo</persName>
+			<persName>Andrea Bacianini</persName>
+		</resp>
+		<rights>
+			<licence>http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode</licence>
+		</rights>
+	</head>
+	<body>
+		<division title="1">
+			<line name="1" meter="H" pattern="DDDS">
+				<word sy="1A1b" wb="CF">Maia</word>
+				<word sy="1c2A" wb="CM">nemus</word>
+				<word sy="2b2c3A" wb="CM">retinens</word>
+				<word sy="3b3c4A" wb="CM">grauido</word>
+				<word sy="4T5A5b" wb="CF">concepit</word>
+				<word sy="5c" wb="DI">in</word>
+				<word sy="6A6X">aluo</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="2">
+			<line name="1" meter="H" pattern="SDDS">
+				<word sy="1A1T2A" wb="CM">Calones</word>
+				<word sy="2b2c3A3b" wb="CF">famulique</word>
+				<word sy="3c4A4T5A" wb="CM">metellique</word>
+				<word sy="5b5c6A6X">caculaeque</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="3">
+			<line name="1" meter="H" pattern="DSSS">
+				<word sy="1A1b1c" wb="DI">Maxima</word>
+				<word sy="2A" wb="CM">pars</word>
+				<word sy="2T3A" wb="CM">Graium</word>
+				<word sy="3T4A" mf="SY">Saturno</word>
+				<word sy="4T" wb="DI">et</word>
+				<word sy="5A5b" mf="SY">maxime</word>
+				<word sy="5c6A6X">Athenae</word>
+			</line>
+			<line name="2" meter="H" pattern="DDDD">
+				<word sy="1A1b1c2A" wb="CM">Conficiunt</word>
+				<word sy="2b2c" wb="DI">sacra,</word>
+				<word sy="3A" wb="CM">quae</word>
+				<word sy="3b3c" mf="SY">Cronia</word>
+				<word sy="4A" mf="SY">esse</word>
+				<word sy="4b4c5A5b" wb="CF">iterantur</word>
+				<word sy="5c" wb="DI">ab</word>
+				<word sy="6A6X">illis,</word>
+			</line>
+			<line name="3" meter="H" pattern="DDDS">
+				<word sy="1A1b" wb="CF">Eumque</word>
+				<word sy="1c2A" wb="CM">diem</word>
+				<word sy="2b2c3A" wb="CM">celebrant:</word>
+				<word sy="3b" wb="CF">per</word>
+				<word sy="3c4A" wb="CM">agros</word>
+				<word sy="4T5A5b" wb="CF">urbesque</word>
+				<word sy="5c" mf="SY">fere</word>
+				<word sy="6A6X">omnes</word>
+			</line>
+			<line name="4" meter="H" pattern="SDSD">
+				<word sy="1A1T2A" wb="CM">Exercent</word>
+				<word sy="2b2c3A" wb="CM">epulis</word>
+				<word sy="3T4A" wb="CM">laeti</word>
+				<word sy="4b4c5A5b" wb="CF">famulosque</word>
+				<word sy="5c6A6X">procurant</word>
+			</line>
+			<line name="5" meter="H" pattern="DSDS">
+				<word sy="1A1b" wb="CF">Quisque</word>
+				<word sy="1c2A" wb="CM">suos,</word>
+				<word sy="2T3A" mf="SY">nosterque</word>
+				<word sy="3b3c4A" wb="CM">itidem</word>
+				<word sy="" mf="PE">est</word>
+				<word sy="4T" wb="DI">mos</word>
+				<word sy="5A5b5c" wb="DI">traditus</word>
+				<word sy="6A6X">illinc</word>
+			</line>
+			<line name="6" meter="H" pattern="SDDD">
+				<word sy="1A" mf="SY">Iste,</word>
+				<word sy="1T" wb="DI">ut</word>
+				<word sy="2A" wb="CM">cum</word>
+				<word sy="2b2c3A" wb="CM">dominis</word>
+				<word sy="3b3c4A" wb="CM" mf="HI">famuli</word>
+				<word sy="4b4c5A5b" wb="CF">epulentur</word>
+				<word sy="5c6A6X">ibidem.</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="4">
+			<line name="1" meter="H" pattern="DDSS">
+				<word sy="1A1b1c" wb="DI" mf="DS">Fraxinus</word>
+				<word sy="2A2b" wb="CF">fixa</word>
+				<word sy="2c3A" wb="CM">ferox</word>
+				<word sy="3T4A" mf="SY">infensa</word>
+				<word sy="4T5A5b5c" wb="DI">infinditur</word>
+				<word sy="6A6X">ossis</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="5">
+			<line name="1" meter="H" pattern="not scanned">
+				<word>Vt</word>
+				<word>quam</word>
+				<word>fragilissimus</word>
+				<word>aluos</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="7">
+			<line name="1" meter="I">
+				<word>Placare</word>
+				<word>hostem</word>
+				<word>ferocem</word>
+				<word>inimiciterque</word>
+				<word>accensum</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="8">
+			<line name="1" meter="I">
+				<word>...</word>
+				<word>sapientiaeque</word>
+				<word>inuictae</word>
+				<word>gratia</word>
+				<word>atque</word>
+				<word>honoris</word>
+			</line>
+			<line name="2" meter="I">
+				<word>Patera</word>
+				<word>Nestorem</word>
+				<word>mactauit</word>
+				<word>aurea.</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="9">
+			<line name="1" meter="G">
+				<word>Audax</word>
+				<word>falsidica,</word>
+				<word>gnati</word>
+				<word>mater</word>
+				<word>pessimi,</word>
+			</line>
+			<line name="2" meter="G">
+				<word>Odibilis,</word>
+				<word>natura</word>
+				<word>impos,</word>
+				<word>excors,</word>
+				<word>ecfera.</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="10">
+			<line name="1" meter="I">
+				<word>Vt</word>
+				<word>dum</word>
+				<word>uelint</word>
+				<word>breuitatem</word>
+				<word>consequi</word>
+				<word>uerborum,</word>
+			</line>
+			<line name="2" meter="I">
+				<word>Aliter</word>
+				<word>ac</word>
+				<word>sit</word>
+				<word>relatum</word>
+				<word>redhostiant</word>
+				<word>responsum.</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="11">
+			<line name="1" meter="I">
+				<word>Sed</word>
+				<word>Euripidis,</word>
+				<word>qui</word>
+				<word>choros</word>
+				<word>temerius</word>
+				<word>in</word>
+				<word>fabulis</word>
+				<word>...</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="12">
+			<line name="1" meter="I">
+				<word>Actoribus</word>
+				<word>manuleos</word>
+				<word>baltea</word>
+				<word>machaeras</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="13">
+			<line name="1" meter="I">
+				<word>Nam</word>
+				<word>quam</word>
+				<word>uaria</word>
+				<word>sint</word>
+				<word>genera</word>
+				<word>poematorum,</word>
+				<word>Baebi,</word>
+				<word>quamque</word>
+			</line>
+			<line name="2" meter="I">
+				<word>Longe</word>
+				<word>distincta</word>
+				<word>alia</word>
+				<word>ab</word>
+				<word>aliis,</word>
+				<word>nosce.</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="14">
+			<line name="1" meter="I">
+				<word>Vectigalia</word>
+				<word>legerant</word>
+				<word>uestra</word>
+				<word>et</word>
+				<word>seruantur</word>
+				<word>statim</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="15">
+			<line name="1" meter="I">
+				<word>Et</word>
+				<word>magnificissimei</word>
+				<word>excelsissimeique</word>
+				<word>honore</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="17">
+			<line name="1" meter="V">
+				<word>Nam</word>
+				<word>nec</word>
+				<word>Geminei</word>
+				<word>lenones</word>
+				<word>nec</word>
+				<word>Condalium</word>
+				<word>nec</word>
+				<word>Plauti</word>
+				<word>Anus</word>
+			</line>
+			<line name="2" meter="V">
+				<word>Nec</word>
+				<word>Bis</word>
+				<word>compressa</word>
+				<word>nec</word>
+				<word>Boeotia</word>
+				<word>umquam</word>
+				<word>fuit,</word>
+				<word>neque</word>
+				<word>adeo</word>
+			</line>
+			<line name="3" meter="V">
+				<word>Agroecus</word>
+				<word>neque</word>
+				<word>Commorientes</word>
+				<word>Macci</word>
+				<word>Titi.</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="19">
+			<line name="1" meter="I">
+				<word>Non</word>
+				<word>ergo</word>
+				<word>aquila,</word>
+				<word>ita</word>
+				<word>uti</word>
+				<word>praedicant,</word>
+				<word>sciciderat</word>
+				<word>pectus</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="20">
+			<line name="1" meter="I">
+				<word>Vnde</word>
+				<word>omnia</word>
+				<word>perdisci</word>
+				<word>ac</word>
+				<word>percipi</word>
+				<word>queuntur</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="21">
+			<line name="1" meter="G">
+				<word>Bene</word>
+				<word>proscissas</word>
+				<word>†cossigerare†</word>
+				<word>ordine</word>
+			</line>
+			<line name="2" meter="G">
+				<word>Porcas</word>
+				<word>bidenti</word>
+				<word>ferro</word>
+				<word>recta</word>
+				<word>†dereuere</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="22">
+			<line name="1" meter="T">
+				<word>Et</word>
+				<word>cuncta</word>
+				<word>fieri</word>
+				<word>cetera</word>
+			</line>
+			<line name="2" meter="T">
+				<word>Imbecilla</word>
+				<word>&lt;ob&gt;</word>
+				<word>ponderitatem</word>
+				<word>grauitatemque</word>
+				<word>nominis</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="23">
+			<line name="1" meter="T">
+				<word>Describere</word>
+				<word>in</word>
+				<word>theatro</word>
+				<word>perperos</word>
+			</line>
+			<line name="2" meter="T">
+				<word>Popularis</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="24">
+			<line name="1" meter="T">
+				<word>Et</word>
+				<word>eo</word>
+				<word>plectuntur</word>
+				<word>poetae</word>
+				<word>quam</word>
+				<word>suo</word>
+				<word>uitio</word>
+				<word>saepius</word>
+			</line>
+			<line name="2" meter="T">
+				<word>&lt;Aut&gt;</word>
+				<word>ductabilitate</word>
+				<word>nimia</word>
+				<word>uestra</word>
+				<word>aut</word>
+				<word>perperitudine</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="25">
+			<line name="1" meter="G">
+				<word>Sicinnistas</word>
+				<word>(ait)</word>
+				<word>nebuloso</word>
+				<word>nomine;</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="26">
+			<line name="1" meter="H" pattern="not scanned">
+				<word>It</word>
+				<word>nigrum</word>
+				<word>campis</word>
+				<word>agmen</word>
+				<word>...</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="27">
+			<line name="1" meter="T">
+				<word>Personas</word>
+				<word>distortis</word>
+				<word>oribus</word>
+				<word>deformis</word>
+				<word>miriones</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="32">
+			<line name="1" meter="H" pattern="not scanned">
+				<word>Illum</word>
+				<word>defendere</word>
+				<word>nixi</word>
+				<word>sunt</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+		<division title="33">
+			<line name="1" meter="V">
+				<word>Obliuio</word>
+				<word>lauet</word>
+				<word>qui</word>
+				<word>incidit</word>
+				<word>inuidendum</word>
+			</line>
+			<line name="" meter="">
+				<word></word>
+			</line>
+		</division>
+	</body>
+</document>

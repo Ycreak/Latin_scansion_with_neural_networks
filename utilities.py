@@ -25,6 +25,8 @@ import seaborn as sn
 from progress.bar import Bar
 import pandas as pd
 
+from fuzzywuzzy import fuzz
+
 # Read the config file for later use
 cf = configparser.ConfigParser()
 cf.read("config.ini")
@@ -242,6 +244,36 @@ def convert_pedecerto_to_sequence_labeling(df) -> list:
             all_sentences_list.append(combined_list)
 
     return all_sentences_list
+
+def combine_sequence_label_lists(list_with_file_names, output_name, path):
+    """Simple function to combine sequence label lists in pickle format.
+
+    Args:
+        list_with_file_names (list): with file names (no extension!) to be processed. Should be in the 
+        path_sequence_labels folder.
+        output_name (string): destination name to be saved as
+    """    
+    # Add the pickle extension to our given files
+    list_with_file_names = [x+'.pickle' for x in list_with_file_names]    
+    # And to the output name
+    output_name = output_name + '.pickle'
+    merged_list = merge_sequence_label_lists(list_with_file_names, path)
+    Pickle_write(cf.get('Pickle', 'path_sequence_labels'), output_name, merged_list)
+
+def get_string_similarity(a, b):
+    """ Returns the ratio of similarity between the two given strings
+
+    Args:
+        a (str): first string to be compared
+        b (str): second string to be compared
+
+    Returns:
+        integer: of ratio of similarity between to arguments (value between 0 and 100)
+    """     
+    # remove punctuation and capitalisation
+    # a = a.translate(str.maketrans('', '', string.punctuation)).lower()
+    # b = b.translate(str.maketrans('', '', string.punctuation)).lower()
+    return fuzz.token_sort_ratio(a,b) 
 
 if __name__ == "__main__":
     

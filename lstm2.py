@@ -46,30 +46,36 @@ class LSTM_model():
 
         self.num_epochs = FLAGS.epochs
         self.split_size = FLAGS.split
-        
-        # self.combine_sequence_label_lists('PROP', 'PROP-ele')
-        # self.combine_sequence_label_lists('TIB', 'TIB-ele')
 
-        # exit(0)
+        # To make the LSTM with integer hashing working, we need to make a list of all syllables from all the texts we are looking at    
+        all_sequence_label_pickles = util.Create_files_list(util.cf.get('Pickle', 'path_sequence_labels'), 'pickle') # Find all pickle files
+        sequence_labels_all_set = util.merge_sequence_label_lists(all_sequence_label_pickles, util.cf.get('Pickle', 'path_sequence_labels')) # Merge them into one big file list
+        all_text_syllables = self.retrieve_syllables_from_sequence_label_list(sequence_labels_all_set)
+        # We need to extract the max sentence length over all these texts to get the padding correct later
+        max_sentence_length = self.retrieve_max_sentence_length(sequence_labels_all_set)       
+        # And we need to create a list of all unique syllables for our word2idx one-hot encoding
+        unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING)
+        word2idx, label2idx = self.create_idx_dictionaries(unique_syllables, self.LABELS)            
 
-
-        # tib = util.Pickle_read(util.cf.get('Pickle', 'path_pedecerto_df'),'pedecerto_df_TIB-ele3.pickle')
-        # print(tib['length'].value_counts())   
-        # exit(0)
-        
+        # With that out of the way, we can start the LSTM process
+        print('done')
         # Quickly create models
-        # train_texts = ['VERG-aene.pickle', 'CATVLL-carm.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle', 'HEX-all.pickle', 'ELE-all.pickle', 'HEX_ELE-all.pickle', 'TIB-ele.pickle', 'PROP-ele.pickle', 'OV-ele.pickle']
-        # test_texts = ['PERS-satu.pickle']
-        # self.do_experiment(train_texts, test_texts)
-        # exit(0)
+        train_texts = ['VERG-aene.pickle', 'HEX-all.pickle', 'ELE-all.pickle', 'HEX_ELE-all.pickle']
+        test_texts = ['PERS-satu.pickle']
+        # all_texts = train_texts + test_texts
+        # sequence_labels_all_set = util.merge_sequence_label_lists(all_texts, util.cf.get('Pickle', 'path_sequence_labels'))
 
-        # all_text_syllables = self.retrieve_syllables_from_sequence_label_list(util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'HEX_ELE-all.pickle'))
-        # max_sentence_length = self.retrieve_max_sentence_length(util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'HEX_ELE-all.pickle'))       
+        self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='boethius', plot_title='Scanning Unseen Texts')
+
+        exit(0)
+        # all_text_syllables = self.retrieve_syllables_from_sequence_label_list(util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'VERG-aene.pickle'))
+        # max_sentence_length = self.retrieve_max_sentence_length(util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'VERG-aene.pickle'))       
         # unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING)
         # word2idx, label2idx = self.create_idx_dictionaries(unique_syllables, self.LABELS)
 
-        # self.run_idx_lstm_single_text(util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'VERG-aene.pickle'),
-        #                               max_sentence_length, unique_syllables, word2idx, label2idx)
+        # text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'VERG-aene.pickle')
+        # self.run_idx_lstm_single_text(text, max_sentence_length, unique_syllables, word2idx, label2idx)
+        # exit(0)
 
         if FLAGS.exp_hexameter:
             train_texts = ['VERG-aene.pickle', 'CATVLL-carm.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle']
@@ -78,7 +84,8 @@ class LSTM_model():
 
         if FLAGS.exp_transfer_boeth:
             train_texts = ['VERG-aene.pickle', 'HEX-all.pickle', 'ELE-all.pickle', 'HEX_ELE-all.pickle']
-            test_texts = ['BOETH-cons.pickle']
+            test_texts = ['BOETH-cons.pickle', 'ACC-frag.pickle', 'AVSON-ordo.pickle', 'ENN-anna.pickle', 'HOR-arpo.pickle',
+                          'LVCAN-phar.pickle', 'RVFIN-orat.pickle', 'STAT-theb.pickle', 'VERG-eclo.pickle']
             
             all_texts = train_texts + test_texts
             sequence_labels_all_set = util.merge_sequence_label_lists(all_texts, util.cf.get('Pickle', 'path_sequence_labels'))
@@ -88,7 +95,7 @@ class LSTM_model():
             unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING)
             word2idx, label2idx = self.create_idx_dictionaries(unique_syllables, self.LABELS)            
             
-            self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='boethius', plot_title='Scanning Boethius')
+            self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='boethius', plot_title='Scanning Unseen Texts')
 
         if FLAGS.exp_transfer:
             # Here we test whether training on elegiac and hexameter gives better results
@@ -173,7 +180,7 @@ class LSTM_model():
     def combine_sequence_label_lists(self, key, name):
         # TO COMBINE LISTS
         name = name + '.pickle'
-        my_list = sorted(util.Create_files_list  (util.cf.get('Pickle', 'path_sequence_labels'), key))
+        my_list = sorted(util.Create_files_list(util.cf.get('Pickle', 'path_sequence_labels'), key))
         temp = util.merge_sequence_label_lists(my_list, util.cf.get('Pickle', 'path_sequence_labels'))
         util.Pickle_write(util.cf.get('Pickle', 'path_sequence_labels'), name, temp)
 
