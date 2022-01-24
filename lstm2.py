@@ -52,7 +52,6 @@ class LSTM_model():
 
         # exit(0)
 
-        # self.run_idx_lstm_single_text(util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'VERG-aene.pickle'))
 
         # tib = util.Pickle_read(util.cf.get('Pickle', 'path_pedecerto_df'),'pedecerto_df_TIB-ele3.pickle')
         # print(tib['length'].value_counts())   
@@ -64,14 +63,32 @@ class LSTM_model():
         # self.do_experiment(train_texts, test_texts)
         # exit(0)
 
+        # all_text_syllables = self.retrieve_syllables_from_sequence_label_list(util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'HEX_ELE-all.pickle'))
+        # max_sentence_length = self.retrieve_max_sentence_length(util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'HEX_ELE-all.pickle'))       
+        # unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING)
+        # word2idx, label2idx = self.create_idx_dictionaries(unique_syllables, self.LABELS)
+
+        # self.run_idx_lstm_single_text(util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'VERG-aene.pickle'),
+        #                               max_sentence_length, unique_syllables, word2idx, label2idx)
 
         if FLAGS.exp_hexameter:
             train_texts = ['VERG-aene.pickle', 'CATVLL-carm.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle']
             test_texts = ['VERG-aene.pickle', 'CATVLL-carm.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle']
+            self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='hexameter', plot_title='Hexameter Texts')
 
-            # train_texts = ['VERG-aene.pickle']
-            # test_texts = ['VERG-aene.pickle']
-            self.do_experiment(train_texts, test_texts, exp_name='hexameter')
+        if FLAGS.exp_transfer_boeth:
+            train_texts = ['VERG-aene.pickle', 'HEX-all.pickle', 'ELE-all.pickle', 'HEX_ELE-all.pickle']
+            test_texts = ['BOETH-cons.pickle']
+            
+            all_texts = train_texts + test_texts
+            sequence_labels_all_set = util.merge_sequence_label_lists(all_texts, util.cf.get('Pickle', 'path_sequence_labels'))
+
+            all_text_syllables = self.retrieve_syllables_from_sequence_label_list(sequence_labels_all_set)
+            max_sentence_length = self.retrieve_max_sentence_length(sequence_labels_all_set)       
+            unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING)
+            word2idx, label2idx = self.create_idx_dictionaries(unique_syllables, self.LABELS)            
+            
+            self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='boethius', plot_title='Scanning Boethius')
 
         if FLAGS.exp_transfer:
             # Here we test whether training on elegiac and hexameter gives better results
@@ -167,15 +184,16 @@ class LSTM_model():
             current_text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), text)
             print(text, len(current_text))
 
-    def run_idx_lstm_single_text(self, text, do_evaluate=True, do_metric_report=True, do_confusion_matrix=True, print_stats=True):        
+    def run_idx_lstm_single_text(self, text, max_sentence_length, unique_syllables, word2idx, label2idx, 
+                                 do_evaluate=True, do_metric_report=True, do_confusion_matrix=True, print_stats=True):        
         # Retrieve meta data
-        all_text_syllables = self.retrieve_syllables_from_sequence_label_list(text)
-        max_sentence_length = self.retrieve_max_sentence_length(text)
-        unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING) # needs to be sorted for word2idx consistency!
+        # all_text_syllables = self.retrieve_syllables_from_sequence_label_list(text)
+        # max_sentence_length = self.retrieve_max_sentence_length(text)
+        # unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING) # needs to be sorted for word2idx consistency!
 
-        # Create dictionary
-        word2idx = {w: i for i, w in enumerate(unique_syllables)}
-        label2idx = {t: i for i, t in enumerate(self.LABELS)}
+        # # Create dictionary
+        # word2idx = {w: i for i, w in enumerate(unique_syllables)}
+        # label2idx = {t: i for i, t in enumerate(self.LABELS)}
         # now we map the sentences and labels to a sequence of numbers
         X = [[word2idx[w[0]] for w in s] for s in text]  # key 0 are labels
         y = [[label2idx[w[1]] for w in s] for s in text] # key 1 are labels
@@ -193,8 +211,8 @@ class LSTM_model():
                                 X = X_train,
                                 y = y_train,
                                 epochs = self.num_epochs,
-                                create_model = FLAGS.create_model,
-                                save_model = True)
+                                create_model = True,
+                                save_model = FLAGS.save_model)
         
         if do_evaluate:
             loss, accuracy = self.evaluate_model(model, X_test, y_test)
@@ -228,6 +246,13 @@ class LSTM_model():
             sentence_incorrect_counter = 0
             syllable_incorrect_counter = 0
             
+            X = X_test
+            y = y_test
+
+            # from collections import Counter
+            # result = Counter(x for xs in y for x in set(xs))
+            # print('RESULT', result)
+
             # Make a prediction over the whole dataset
             y_pred = model.predict(X)
             y_pred = np.argmax(y_pred, axis=-1)
@@ -251,7 +276,7 @@ class LSTM_model():
                     # while 'PADDING' in syllable_list: syllable_list.remove('PADDING')    
 
 
-                    print('syllables : ', syllable_list)
+                    # print('syllables : ', syllable_list)
                     # print('prediction: ', y_pred_current)
                     # print('truth:      ', y_true_current)
                     # also, for latinists, print the scansion
@@ -261,24 +286,26 @@ class LSTM_model():
                     while 4 in y_pred_labels: y_pred_labels.remove(4)    # padding.
                     while 4 in y_train_labels: y_train_labels.remove(4)    
 
-                    print('prediction: ', y_pred_labels)
-                    print('truth     : ', y_train_labels)
+                    # print('prediction: ', y_pred_labels)
+                    # print('truth     : ', y_train_labels)
                     
-                    print('\n##########################\n')
+                    # print('\n##########################\n')
                     # count the sentence as incorrect
                     sentence_incorrect_counter += 1
                     
+
+
             # after all scrutiny, print the final statistics                    
             score_sentences = round(sentence_incorrect_counter/len(X)*100,2)
-            score_syllables = round(syllable_incorrect_counter/len(all_text_syllables)*100,2)
+            # score_syllables = round(syllable_incorrect_counter/len(all_text_syllables)*100,2)
 
             print('SENTENCES SCANNED WRONGLY: ', sentence_incorrect_counter)
             print('PERCENTAGE WRONG: {0}%'.format(score_sentences))
             
             print('SYLLABLES SCANNED WRONGLY: ', syllable_incorrect_counter)
-            print('PERCENTAGE WRONG: {0}%'.format(score_syllables)) # This also counts spaces: needs fixing
+            # print('PERCENTAGE WRONG: {0}%'.format(score_syllables)) # This also counts spaces: needs fixing
 
-    def do_experiment(self, train_texts, test_texts, exp_name='default'):
+    def do_experiment(self, train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='default', plot_title='default'):
         # import matplotlib.pyplot as plt        
         
         column_names = ["predictor", "predictee", "score"]
@@ -287,13 +314,13 @@ class LSTM_model():
         df_elision = pd.DataFrame(columns = column_names)
 
         # Merge the training and test texts and retrieve from it all data we need to get the model working
-        all_texts = train_texts + test_texts
-        sequence_labels_all_set = util.merge_sequence_label_lists(all_texts, util.cf.get('Pickle', 'path_sequence_labels'))
+        # all_texts = train_texts + test_texts
+        # sequence_labels_all_set = util.merge_sequence_label_lists(all_texts, util.cf.get('Pickle', 'path_sequence_labels'))
 
-        all_text_syllables = self.retrieve_syllables_from_sequence_label_list(sequence_labels_all_set)
-        max_sentence_length = self.retrieve_max_sentence_length(sequence_labels_all_set)
-        unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING)
-        word2idx, label2idx = self.create_idx_dictionaries(unique_syllables, self.LABELS)
+        # all_text_syllables = self.retrieve_syllables_from_sequence_label_list(sequence_labels_all_set)
+        # max_sentence_length = self.retrieve_max_sentence_length(sequence_labels_all_set)
+        # unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING)
+        # word2idx, label2idx = self.create_idx_dictionaries(unique_syllables, self.LABELS)
 
         for train_text in train_texts:
 
@@ -331,7 +358,7 @@ class LSTM_model():
                 df_short = df_short.append(new_line_short, ignore_index=True)    
                 df_elision = df_elision.append(new_line_elision, ignore_index=True)   
 
-        time = datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
+        # time = datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
 
         heatmap_data = pd.pivot_table(df_long, values='score', index=['predictor'], columns='predictee')
         myplot = plt.figure(figsize=(16,10))
@@ -339,8 +366,8 @@ class LSTM_model():
         myplot = util.create_heatmap(dataframe = heatmap_data,
                         xlabel = 'predictee',
                         ylabel = 'predictor',
-                        title = 'Long',
-                        filename = '{0}-long-{2}.png'.format(exp_name, time),
+                        title = 'Label Accuracy -- {0} -- Long'.format(plot_title),
+                        filename = '{0}-long'.format(exp_name),
                         path = './plots/experiments/')
 
         heatmap_data = pd.pivot_table(df_short, values='score', index=['predictor'], columns='predictee')
@@ -348,8 +375,8 @@ class LSTM_model():
         myplot = util.create_heatmap(dataframe = heatmap_data,
                         xlabel = 'predictee',
                         ylabel = 'predictor',
-                        title = 'Short',
-                        filename = '{0}-short-{2}.png'.format(exp_name, time),
+                        title = 'Label Accuracy -- {0} -- Short'.format(plot_title),
+                        filename = '{0}-short'.format(exp_name),
                         path = './plots/experiments/')
 
         heatmap_data = pd.pivot_table(df_elision, values='score', index=['predictor'], columns='predictee')
@@ -357,18 +384,18 @@ class LSTM_model():
         myplot = util.create_heatmap(dataframe = heatmap_data,
                         xlabel = 'predictee',
                         ylabel = 'predictor',
-                        title = 'Elision',
-                        filename = '{0}-elision-{2}.png'.format(exp_name, time),
+                        title = 'Label Accuracy -- {0} -- Elision'.format(plot_title),
+                        filename = '{0}-elision'.format(exp_name),
                         path = './plots/experiments/')
 
         
         # self.hello().subplot(2, 2, 4)
         # myplot = myplot.tight_layout()
-        myplot.subplots_adjust(wspace=0.5, hspace=0.5)
+        # myplot.subplots_adjust(wspace=0.5, hspace=0.5)
         # time = datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
-        full_file_name = '{0}{1}_{2}.png'.format('./plots/experiments/', 'LSTM', time)
+        # full_file_name = '{0}{1}_{2}.png'.format('./plots/experiments/', 'LSTM', time)
         # myplot.show()
-        myplot.savefig(full_file_name)        
+        # myplot.savefig(full_file_name)        
 
     def hello(self):
         x = np.array([0, 1, 2, 3])
@@ -556,6 +583,8 @@ if __name__ == "__main__":
     p.add_argument("--exp_transfer", action="store_true", help="specify whether to run the hexameter transerability LSTM experiment")
     p.add_argument("--exp_elegiac", action="store_true", help="specify whether to run the hexameter genre LSTM experiment")
     p.add_argument("--exp_train_test", action="store_true", help="specify whether to run the train/test split LSTM experiment")
+    p.add_argument("--exp_transfer_boeth", action="store_true", help="specify whether to run the Boeth LSTM experiment")
+
     p.add_argument("--verbose", action="store_true", help="specify whether to run the code in verbose mode")
     p.add_argument('--epochs', default=25, type=int, help='number of epochs')
     p.add_argument("--split", type=util.restricted_float, default=0.2, help="specify the split size of train/test sets")

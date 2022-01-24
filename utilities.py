@@ -110,9 +110,9 @@ def create_heatmap(dataframe ,xlabel, ylabel, title, filename, vmin=None, vmax=N
     
     path = path
     time = datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
-    full_file_name = '{0}{1}_{2}.png'.format(path, filename, time)
+    full_file_name = '{0}{1}_{2}.png'.format(path, time, filename)
 
-    # sn.set(font_scale=1.4)
+    sn.set(font_scale=1.4)
     # sn.heatmap(dataframe, annot=True, fmt='g', annot_kws={"size": 16}, cmap='Blues', vmin=vmin, vmax=vmax)
     sn.heatmap(dataframe, annot=True, fmt='g', cmap='Blues', vmin=vmin, vmax=vmax, cbar=False)
 
@@ -190,7 +190,7 @@ def convert_pedecerto_to_sequence_labeling(df) -> list:
 
     return all_sentences_list    
 
-def convert_pedecerto_dataframes_to_sequence_labeling_list(self, source, destination):
+def convert_pedecerto_dataframes_to_sequence_labeling_list(source, destination):
     """Converts all pedecerto dataframes in the given location to sequence labeling lists.
     Saves these to disk in the specified location.
 
@@ -211,7 +211,7 @@ def convert_pedecerto_dataframes_to_sequence_labeling_list(self, source, destina
         # And write it to the location specified
         Pickle_write(destination, text_name, sequence_label_list)
 
-def convert_pedecerto_to_sequence_labeling(self, df) -> list:
+def convert_pedecerto_to_sequence_labeling(df) -> list:
     """Converts the given pedecerto dataframe to a list with sequence labels. More specifically,
     one list with multiple lists is returned. Each sublist represents a sentence with syllable and label.
     Such sublist looks as follows: [(syllable, label),(syllable, label), (syllable, label)]
@@ -245,7 +245,7 @@ def convert_pedecerto_to_sequence_labeling(self, df) -> list:
 
 if __name__ == "__main__":
     
-
+    pass
 
 
     # Create the Trimeter dataset

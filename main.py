@@ -28,7 +28,7 @@ import argparse
 import utilities as util
 
 p = argparse.ArgumentParser(description='Argument parser for the LatinScansionModel')
-p.add_argument('--pedecerto-conversion', action="store_true",
+p.add_argument('--pedecerto_conversion', action="store_true",
                 help='converts the pedecerto XML files stored in pedecerto/xml_files into labeled dataframes')
 p.add_argument('--sequence_labels_conversion', action="store_true", 
                help='converts the pedecerto dataframes stored in pedecerto/df_pedecerto into sequence labeling lists')
