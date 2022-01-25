@@ -32,7 +32,6 @@ class LSTM_model():
     metric_report = True
     confusion_matrix = True
 
-    single_text = False
     evaluate = False
 
     TRAINING_TEXTS = ['VERG-aene.pickle']
@@ -47,6 +46,8 @@ class LSTM_model():
         self.num_epochs = FLAGS.epochs
         self.split_size = FLAGS.split
 
+        # self.print_length_sequence_label_files()
+
         # To make the LSTM with integer hashing working, we need to make a list of all syllables from all the texts we are looking at    
         all_sequence_label_pickles = util.Create_files_list(util.cf.get('Pickle', 'path_sequence_labels'), 'pickle') # Find all pickle files
         sequence_labels_all_set = util.merge_sequence_label_lists(all_sequence_label_pickles, util.cf.get('Pickle', 'path_sequence_labels')) # Merge them into one big file list
@@ -60,22 +61,28 @@ class LSTM_model():
         # With that out of the way, we can start the LSTM process
         print('done')
         # Quickly create models
-        train_texts = ['VERG-aene.pickle', 'HEX-all.pickle', 'ELE-all.pickle', 'HEX_ELE-all.pickle']
-        test_texts = ['PERS-satu.pickle']
+        # train_texts = ['VERG-aene.pickle', 'HEX-all.pickle', 'ELE-all.pickle', 'HEX_ELE-all.pickle']
+        # test_texts = ['PERS-satu.pickle']
         # all_texts = train_texts + test_texts
         # sequence_labels_all_set = util.merge_sequence_label_lists(all_texts, util.cf.get('Pickle', 'path_sequence_labels'))
 
-        self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='boethius', plot_title='Scanning Unseen Texts')
+        # self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='training', plot_title='Training Texts')
 
-        exit(0)
+        # exit(0)
         # all_text_syllables = self.retrieve_syllables_from_sequence_label_list(util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'VERG-aene.pickle'))
         # max_sentence_length = self.retrieve_max_sentence_length(util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'VERG-aene.pickle'))       
         # unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING)
         # word2idx, label2idx = self.create_idx_dictionaries(unique_syllables, self.LABELS)
 
-        # text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'VERG-aene.pickle')
-        # self.run_idx_lstm_single_text(text, max_sentence_length, unique_syllables, word2idx, label2idx)
         # exit(0)
+
+        if FLAGS.single_text:
+            text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'SEN-aga.pickle')
+            self.run_idx_lstm_single_text(text, 
+                                          do_evaluate=True, 
+                                          do_metric_report=True, 
+                                          do_confusion_matrix=True, 
+                                          print_stats=False)
 
         if FLAGS.exp_hexameter:
             train_texts = ['VERG-aene.pickle', 'CATVLL-carm.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle']
@@ -85,23 +92,15 @@ class LSTM_model():
         if FLAGS.exp_transfer_boeth:
             train_texts = ['VERG-aene.pickle', 'HEX-all.pickle', 'ELE-all.pickle', 'HEX_ELE-all.pickle']
             test_texts = ['BOETH-cons.pickle', 'ACC-frag.pickle', 'AVSON-ordo.pickle', 'ENN-anna.pickle', 'HOR-arpo.pickle',
-                          'LVCAN-phar.pickle', 'RVFIN-orat.pickle', 'STAT-theb.pickle', 'VERG-eclo.pickle']
-            
-            all_texts = train_texts + test_texts
-            sequence_labels_all_set = util.merge_sequence_label_lists(all_texts, util.cf.get('Pickle', 'path_sequence_labels'))
-
-            all_text_syllables = self.retrieve_syllables_from_sequence_label_list(sequence_labels_all_set)
-            max_sentence_length = self.retrieve_max_sentence_length(sequence_labels_all_set)       
-            unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING)
-            word2idx, label2idx = self.create_idx_dictionaries(unique_syllables, self.LABELS)            
+                          'LVCAN-phar.pickle', 'RVFIN-orat.pickle', 'STAT-theb.pickle', 'VERG-eclo.pickle']          
             
             self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='boethius', plot_title='Scanning Unseen Texts')
 
         if FLAGS.exp_transfer:
             # Here we test whether training on elegiac and hexameter gives better results
             train_texts = ['VERG-aene.pickle', 'HEX-all.pickle', 'ELE-all.pickle', 'HEX_ELE-all.pickle']
-            test_texts = ['VERG-aene.pickle', 'OV-ele.pickle', 'SEN-aga.pickle', 'HEX-all.pickle', 'ELE-all.pickle', 'HEX_ELE-all.pickle']
-            self.do_experiment(train_texts, test_texts, exp_name='transfer')
+            test_texts = ['SEN-aga.pickle']
+            self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='seneca', plot_title='Scanning Iambic Trimeter')
 
         if FLAGS.exp_elegiac:
             # Pick all the elegiac texts and let Virgil do his best :D
@@ -191,16 +190,16 @@ class LSTM_model():
             current_text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), text)
             print(text, len(current_text))
 
-    def run_idx_lstm_single_text(self, text, max_sentence_length, unique_syllables, word2idx, label2idx, 
+    def run_idx_lstm_single_text(self, text, 
                                  do_evaluate=True, do_metric_report=True, do_confusion_matrix=True, print_stats=True):        
         # Retrieve meta data
-        # all_text_syllables = self.retrieve_syllables_from_sequence_label_list(text)
-        # max_sentence_length = self.retrieve_max_sentence_length(text)
-        # unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING) # needs to be sorted for word2idx consistency!
+        all_text_syllables = self.retrieve_syllables_from_sequence_label_list(text)
+        max_sentence_length = self.retrieve_max_sentence_length(text)
+        unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING) # needs to be sorted for word2idx consistency!
 
         # # Create dictionary
-        # word2idx = {w: i for i, w in enumerate(unique_syllables)}
-        # label2idx = {t: i for i, t in enumerate(self.LABELS)}
+        word2idx = {w: i for i, w in enumerate(unique_syllables)}
+        label2idx = {t: i for i, t in enumerate(self.LABELS)}
         # now we map the sentences and labels to a sequence of numbers
         X = [[word2idx[w[0]] for w in s] for s in text]  # key 0 are labels
         y = [[label2idx[w[1]] for w in s] for s in text] # key 1 are labels
@@ -234,16 +233,19 @@ class LSTM_model():
             confusion_matrix = self.create_confusion_matrix(model, X_test, y_test)
             df_confusion_matrix = pd.DataFrame(confusion_matrix, index = ['long', 'short', 'elision', 'space', 'padding'],
                                             columns = ['long', 'short', 'elision', 'space', 'padding'])
-            # Drop the padding labels, as we don't need them (lstm scans them without confusion)
+            # Drop the padding labels, as we don't need them (lstm scans them without confusion): delete both row and column
             df_confusion_matrix = df_confusion_matrix.drop('padding')
-            df_confusion_matrix = df_confusion_matrix.drop(columns=['padding'])
+            df_confusion_matrix = df_confusion_matrix.drop(columns=['padding', 'space'])
+
+            df_confusion_matrix = df_confusion_matrix.drop('space')
+            # df_confusion_matrix = df_confusion_matrix.drop(columns=['padding'])
 
             util.create_heatmap(dataframe = df_confusion_matrix,
                                 xlabel = 'TRUTH', 
                                 ylabel =  'PREDICTED',
                                 title = 'CONFUSION MATRIX',
-                                filename = 'confusion_matrix_lstm_aeneid',
-                                vmax = 500
+                                filename = 'confusion_matrix_lstm_single_text',
+                                # vmax = 500
                                 ) 
         #################
         # TEMP PRINTING #
@@ -586,6 +588,7 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--create_model", action="store_true", help="specify whether to create the model: if not specified, we load from disk")
     p.add_argument("--save_model", action="store_true", help="specify whether to save the model: if not specified, we do not save")
+    p.add_argument("--single_text", action="store_true", help="specify whether to run the single text LSTM function")
     p.add_argument("--exp_hexameter", action="store_true", help="specify whether to run the hexameter LSTM experiment")
     p.add_argument("--exp_transfer", action="store_true", help="specify whether to run the hexameter transerability LSTM experiment")
     p.add_argument("--exp_elegiac", action="store_true", help="specify whether to run the hexameter genre LSTM experiment")

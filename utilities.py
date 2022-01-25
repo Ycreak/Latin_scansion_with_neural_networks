@@ -260,37 +260,22 @@ def combine_sequence_label_lists(list_with_file_names, output_name, path):
     merged_list = merge_sequence_label_lists(list_with_file_names, path)
     Pickle_write(cf.get('Pickle', 'path_sequence_labels'), output_name, merged_list)
 
-def get_string_similarity(a, b):
-    """ Returns the ratio of similarity between the two given strings
-
-    Args:
-        a (str): first string to be compared
-        b (str): second string to be compared
-
-    Returns:
-        integer: of ratio of similarity between to arguments (value between 0 and 100)
-    """     
-    # remove punctuation and capitalisation
-    # a = a.translate(str.maketrans('', '', string.punctuation)).lower()
-    # b = b.translate(str.maketrans('', '', string.punctuation)).lower()
-    return fuzz.token_sort_ratio(a,b) 
-
 if __name__ == "__main__":
     
     pass
 
 
     # Create the Trimeter dataset
-    # df = pd.read_csv('./texts/iambic/agamemnon_labels_4.csv')
-    # sequence_label_list = convert_pedecerto_to_sequence_labeling(df)
+    df = pd.read_csv('./texts/iambic/agamemnon_labels_4.csv')
+    sequence_label_list = convert_pedecerto_to_sequence_labeling(df)
 
-    # new_list = []
+    new_list = []
 
-    # # Remove trailing spaces
-    # for line in sequence_label_list:
-    #     if line[-1][0] == '-' and line[-1][1] == 'space':
-    #         new_list.append(line[:-1])
-    #     else:
-    #         new_list.append(line)
+    # Remove trailing spaces
+    for line in sequence_label_list:
+        if line[-1][0] == '-' and line[-1][1] == 'space':
+            new_list.append(line[:-1])
+        else:
+            new_list.append(line)
     
-    # Pickle_write(cf.get('Pickle', 'path_sequence_labels'), 'SEN_aga.pickle', new_list)    
+    Pickle_write(cf.get('Pickle', 'path_sequence_labels'), 'SEN-aga.pickle', new_list)    
