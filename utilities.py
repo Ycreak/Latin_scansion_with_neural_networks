@@ -25,7 +25,7 @@ import seaborn as sn
 from progress.bar import Bar
 import pandas as pd
 
-from fuzzywuzzy import fuzz
+#from fuzzywuzzy import fuzz
 
 # Read the config file for later use
 cf = configparser.ConfigParser()
