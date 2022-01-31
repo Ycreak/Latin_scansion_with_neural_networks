@@ -47,6 +47,7 @@ class LSTM_model():
         self.split_size = FLAGS.split
 
         # self.print_length_sequence_label_files()
+        # exit(0)
 
         # To make the LSTM with integer hashing working, we need to make a list of all syllables from all the texts we are looking at    
         all_sequence_label_pickles = util.Create_files_list(util.cf.get('Pickle', 'path_sequence_labels'), 'pickle') # Find all pickle files
@@ -77,12 +78,12 @@ class LSTM_model():
         # exit(0)
 
         if FLAGS.single_text:
-            text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'SEN-aga.pickle')
+            text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'VERG-aene.pickle')
             self.run_idx_lstm_single_text(text, 
                                           do_evaluate=True, 
                                           do_metric_report=True, 
                                           do_confusion_matrix=True, 
-                                          print_stats=False)
+                                          print_stats=True)
 
         if FLAGS.exp_hexameter:
             train_texts = ['VERG-aene.pickle', 'CATVLL-carm.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle']
@@ -255,8 +256,8 @@ class LSTM_model():
             sentence_incorrect_counter = 0
             syllable_incorrect_counter = 0
             
-            X = X_test
-            y = y_test
+            # X = X_test
+            # y = y_test
 
             # from collections import Counter
             # result = Counter(x for xs in y for x in set(xs))
@@ -285,7 +286,7 @@ class LSTM_model():
                     # while 'PADDING' in syllable_list: syllable_list.remove('PADDING')    
 
 
-                    # print('syllables : ', syllable_list)
+                    print('syllables : ', syllable_list)
                     # print('prediction: ', y_pred_current)
                     # print('truth:      ', y_true_current)
                     # also, for latinists, print the scansion
@@ -295,10 +296,10 @@ class LSTM_model():
                     while 4 in y_pred_labels: y_pred_labels.remove(4)    # padding.
                     while 4 in y_train_labels: y_train_labels.remove(4)    
 
-                    # print('prediction: ', y_pred_labels)
-                    # print('truth     : ', y_train_labels)
+                    print('prediction: ', y_pred_labels)
+                    print('truth     : ', y_train_labels)
                     
-                    # print('\n##########################\n')
+                    print('\n##########################\n')
                     # count the sentence as incorrect
                     sentence_incorrect_counter += 1
                     

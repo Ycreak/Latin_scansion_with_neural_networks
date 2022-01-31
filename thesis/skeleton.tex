@@ -111,10 +111,14 @@ Notes:
 \subsection{LSTM}
 \begin{enumerate}
   \item Syllables encoded with integers. Five labels: long, short, elision, space and padding.
-	\item 25 epochs used, bi-directional LSTM, very simple.	
+	\item 25 epochs used, bi-directional LSTM, very simple.
 	\item LSTM has extremely high accuracy within author if text is larger than 1000 lines.
 	\item Transferability between authors is better than CRF.
 	\item As with CRF, texts have to be larger than 1000 lines to achieve a nice accuracy.
+    \item 25 epochs does seem to overfit slightly. Researching 10 epochs now.
+    \item LSTM does also work on Pentameters, as seen by graph \ref{fig:exp_elegiac}.
+    \item More lines is beneficial. Highest average accuracy with Hex + Ele model.
+    \item LSTM trained on Hexameter and Pentameter can scan both. Also, a model trained on Hexameter + Pentameter can scan Hexameter texts better than a model purely trained on Hexameter. Same holds for Elegiac.
 \end{enumerate}
 
 \begin{figure}[H]
@@ -129,7 +133,7 @@ Notes:
     \centering
     \includegraphics[width=0.95\textwidth]{img/lstm/lstm_confusion_matrix.png}
 
-    \caption{LSTM confusion matrix for Virgil's Aeneid.}
+    \caption{LSTM confusion matrix for Virgil's Aeneid (10 epochs).}
     \label{fig:exp_architecture}
 \end{figure}
 
@@ -138,23 +142,23 @@ Notes:
     \includegraphics[width=0.95\textwidth]{img/lstm/lstm_label_accuracy_elegiac.png}
 
     \caption{LSTM label accuracy for elegiac texts.}
-    \label{fig:exp_architecture}
+    \label{fig:exp_elegiac}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.48\textwidth]{img/lstm/lstm_label_accuracy_transfer_elision.png}
-    \quad
-    \includegraphics[width=0.48\textwidth]{img/lstm/lstm_label_accuracy_transfer_short.png}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.48\textwidth]{img/lstm/lstm_label_accuracy_transfer_elision.png}
+%     \quad
+%     \includegraphics[width=0.48\textwidth]{img/lstm/lstm_label_accuracy_transfer_short.png}
 
-    \includegraphics[width=0.48\textwidth]{img/lstm/lstm_label_accuracy_transfer_elision.png}
-        % \quad
-        % \includegraphics[width=0.48\textwidth]{img/task1_loss.png}
+%     \includegraphics[width=0.48\textwidth]{img/lstm/lstm_label_accuracy_transfer_elision.png}
+%         % \quad
+%         % \includegraphics[width=0.48\textwidth]{img/task1_loss.png}
 
-    % \captionsetup{justification=centering}
-    \caption{LSTM label accuracy when combining hexameter and elegiac texts.}
-    \label{fig:exp_architecture}
-\end{figure}
+%     % \captionsetup{justification=centering}
+%     \caption{LSTM label accuracy when combining hexameter and elegiac texts.}
+%     \label{fig:exp_architecture}
+% \end{figure}
 
 \begin{figure}[H]
     \centering
@@ -166,15 +170,77 @@ Notes:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.48\textwidth]{img/lstm/lstm_cross_system_label_accuracy_long.png}
+    \includegraphics[width=0.48\textwidth]{img/lstm/lstm_unseen_texts-long.png}
     \quad
-    \includegraphics[width=0.48\textwidth]{img/lstm/lstm_cross_system_label_accuracy_short.png}
+    \includegraphics[width=0.48\textwidth]{img/lstm/lstm_unseen_texts-short.png}
 
-    \includegraphics[width=0.48\textwidth]{img/lstm/lstm_cross_system_label_accuracy_elision.png}
+    \includegraphics[width=0.48\textwidth]{img/lstm/lstm_unseen_texts-elision.png}
         % \quad
         % \includegraphics[width=0.48\textwidth]{img/task1_loss.png}
 
     % \captionsetup{justification=centering}
-		\caption{LSTM label accuracy when combining hexameter and elegiac texts (trimeter).}
+		\caption{LSTM label accuracy when combining hexameter and elegiac texts. Testing on unseen texts.}
     \label{fig:exp_architecture}
 \end{figure}
+
+\begin{table}[h]
+\centering
+    \begin{tabular}{||c c c c ||} 
+     \hline
+     Author & Text & Length & Verse \\ [0.5ex] 
+     \hline\hline
+        Catullus & Carmina &795 & H P\\
+        Iuvenalis & Saturae & 833 & H\\
+        Lucretius & De Rerum Natura & 7365 & H\\
+        Ovidius & Metamorphoses & 11983 & H\\
+        Persius & Saturae & 649 & H\\
+        Vergilius & Aeneid & 9840 & H\\ %[1ex]
+        \hline
+        Propertius & Elegiae & 3998 & H P\\
+        Tibullus & Elegiae & 1420 & H P\\
+        Ovidius & (Elegiae) & 18832 & H P\\
+        \hline
+        Accius & Annalium fragmenta & 9 & H\\
+        Ausonius & Ordo urbium nobilium & 168 & H\\
+        Boethius & Consolatio Philosophiae & 76 & H P\\
+        Ennius & Annalium fragmenta & 422 & H\\
+        Horatius & Ars poetica & 476 & H\\
+        Lucanus & Pharsalia & 8059 & H\\
+        Rufinus & De numeris oratorum & 67 & H\\
+        Statius & Thebais & 9739 & H\\
+        Vergilius & Eclogae & 829 & H\\
+     \hline
+
+    \end{tabular}
+    \caption{Table of texts and their lengths.}
+    \label{table:1}
+    % \label{fig:exp_architecture}
+\end{table}
+
+\begin{table}[h]
+\centering
+    \begin{tabular}{||c c c c ||} 
+     \hline
+      & LONG & SHORT & ELISION \\ [0.5ex] 
+     \hline\hline
+        ELE & 59.6 & 45.5 & 87.5\\
+        HEX & 62.2 & 35.3 & 90.1\\
+        HEX ELE & 62.6 & 39.5 & 90.1\\
+        VERG & 58.1 & 28.5 & 88.4\\ [1ex]
+     \hline
+
+    \end{tabular}
+    \caption{LSTM Accuracy on Seneca (Iambic Trimeter).}
+    \label{table:2}
+    % \label{fig:exp_architecture}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{img/lstm/lstm_confusion_matrix_trimeter_model.png}
+
+    \caption{LSTM confusion matrix trained on iambic trimeter set (200 lines).}
+    \label{fig:exp_architecture}
+\end{figure}
+
+\subsection{FLAIR}

@@ -2,9 +2,10 @@
 \BOOKMARK [1][-]{section.2}{Skeleton}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{Conditional Random Fields}{section.2}% 3
 \BOOKMARK [2][-]{subsection.2.2}{LSTM}{section.2}% 4
-\BOOKMARK [1][-]{section.3}{Background}{}% 5
-\BOOKMARK [1][-]{section.4}{Data and Implementation}{}% 6
-\BOOKMARK [1][-]{section.5}{Analysis and Results}{}% 7
-\BOOKMARK [1][-]{section.6}{CRF Sequence Labeling}{}% 8
-\BOOKMARK [1][-]{section.7}{Discussion}{}% 9
-\BOOKMARK [1][-]{section.8}{Conclusion}{}% 10
+\BOOKMARK [2][-]{subsection.2.3}{FLAIR}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Background}{}% 6
+\BOOKMARK [1][-]{section.4}{Data and Implementation}{}% 7
+\BOOKMARK [1][-]{section.5}{Analysis and Results}{}% 8
+\BOOKMARK [1][-]{section.6}{CRF Sequence Labeling}{}% 9
+\BOOKMARK [1][-]{section.7}{Discussion}{}% 10
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 11
