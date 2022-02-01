@@ -18,6 +18,8 @@ from sklearn.model_selection import train_test_split
 import utilities as util
 import argparse
 
+import fasttext
+
 class FLAIR_model():
 
     def __init__(self, FLAGS):
@@ -28,13 +30,34 @@ class FLAIR_model():
             sequence_labels_all_set = util.merge_sequence_label_lists(all_sequence_label_pickles, util.cf.get('Pickle', 'path_sequence_labels')) # Merge them into one big file list
             self.create_corpus_files(sequence_labels_all_set)
             
-        # exit(0)
+        if FLAGS.create_syllable_file:
+            # Creates a plain text file of syllables to train word embeddings on later
+            all_sequence_label_pickles = util.Create_files_list(util.cf.get('Pickle', 'path_sequence_labels'), 'pickle') # Find all pickle files
+            sequence_labels_all_set = util.merge_sequence_label_lists(all_sequence_label_pickles, util.cf.get('Pickle', 'path_sequence_labels')) # Merge them into one big file list           
+            self.create_plain_syllable_files(sequence_labels_all_set, './flair/corpus_in_plain_syllables.txt')
 
         if FLAGS.train_model:
+            # trains and saves the FLAIR model
             self.train_model()
 
         if FLAGS.language_model == 'flair':
+            # Creates the flair language model by training embeddings on the text
             self.train_flair_language_model()
+
+        if FLAGS.language_model == 'fasttext':
+            # Creates the fasttext language model by training embeddings on the given text
+            model = fasttext.train_unsupervised(input = 'flair/corpus_in_plain_syllables.txt',
+                                                model = 'skipgram',
+                                                lr = 0.05,
+                                                dim = 100,
+                                                ws = 5,                 # window size
+                                                epoch = 5,
+                                                minCount = 1,
+                                                verbose = 2,
+                                                thread = 4
+                                                )
+
+            model.save_model("flair/resources/fasttext_embeddings.bin")            
 
         if FLAGS.test_model:
             # load the model you trained
@@ -47,8 +70,6 @@ class FLAIR_model():
             model.predict(sentence)
 
             print(sentence.to_tagged_string())
-
-
 
     def create_plain_syllable_files(self, sequence_labels, filename):
         """Writes all syllables from the given sequence label file to a text file
@@ -155,7 +176,7 @@ class FLAIR_model():
             # WordEmbeddings('glove'),
             
             # FASTTEXT EMBEDDINGS
-            # FastTextEmbeddings('flair/resources/syllable_file.bin'),
+            # FastTextEmbeddings('flair/resources/fasttext_embeddings.bin'),
             
             # GENSIM EMBEDDINGS
             # custom_embedding = WordEmbeddings('path/to/your/custom/embeddings.gensim')
