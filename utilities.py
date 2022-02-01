@@ -25,7 +25,7 @@ import seaborn as sn
 from progress.bar import Bar
 import pandas as pd
 
-#from fuzzywuzzy import fuzz
+from fuzzywuzzy import fuzz
 
 # Read the config file for later use
 cf = configparser.ConfigParser()
@@ -260,10 +260,102 @@ def combine_sequence_label_lists(list_with_file_names, output_name, path):
     merged_list = merge_sequence_label_lists(list_with_file_names, path)
     Pickle_write(cf.get('Pickle', 'path_sequence_labels'), output_name, merged_list)
 
+def get_str_similarity(a, b):
+    """ Returns the ratio of similarity between the two given strings
+
+    Args:
+        a (str): first string to be compared
+        b (str): second string to be compared
+
+    Returns:
+        integer: of ratio of similarity between to arguments (value between 0 and 100)
+    """     
+    # remove punctuation and capitalisation
+    # a = a.translate(str.maketrans('', '', string.punctuation)).lower()
+    # b = b.translate(str.maketrans('', '', string.punctuation)).lower()
+    return fuzz.token_sort_ratio(a,b)   
+
+def find_stem(arr):
+    """Finds longest substring in the givven array
+
+    Args:
+        arr (list): with strings
+
+    Returns:
+        str: of longest common substring
+    """    
+    # Determine size of the array
+    n = len(arr)
+
+    if n == 1:
+        return arr[0]
+
+     # Take first word from array
+    # as reference
+    s = arr[0]
+    l = len(s)
+    res = ""
+    for i in range(l):
+        for j in range(i + 1, l + 1):
+            # generating all possible substrings
+            # of our reference string arr[0] i.e s
+            stem = s[i:j]
+            k = 1
+            for k in range(1, n):
+                # Check if the generated stem is
+                # common to all words
+                if stem not in arr[k]:
+                    break
+            # If current substring is present in
+            # all strings and its length is greater
+            # than current result
+            if (k + 1 == n and len(res) < len(stem)):
+                res = stem
+    return res
+
+def auto_combine_sequence_label_lists():
+
+    EQUALITY_RATIO = 80 # Ratio between OV-amo1 and OV-amo2 is 86.
+    mutable_list = Create_files_list(cf.get('Pedecerto', 'path_xml_files'), 'pickle')
+    non_mutable_list = Create_files_list(cf.get('Pedecerto', 'path_xml_files'), 'pickle')
+
+    mutable_list = {x.replace('.pickle', '') for x in mutable_list}
+    non_mutable_list = {x.replace('.pickle', '') for x in non_mutable_list}
+
+    processed_list = set()
+
+    for item in non_mutable_list:
+
+        if item in processed_list:
+            continue
+
+        current_text_list = [item]
+        
+        for item2 in mutable_list:
+
+            if item2 in processed_list:
+                continue
+
+            if get_str_similarity(item, item2) >= EQUALITY_RATIO:
+                current_text_list.append(item2)
+                
+                processed_list.add(item)
+                processed_list.add(item2)
+                processed_list = set(processed_list)
+        
+        current_text_list = list(set(current_text_list))
+        file_name = find_stem(current_text_list)
+        print(file_name)
+        # print(current_text_list)
+
+        combine_sequence_label_lists(current_text_list, file_name, cf.get('Pedecerto', 'path_xml_files'))
+
+
+
 if __name__ == "__main__":
     
-    pass
-
+    auto_combine_sequence_label_lists()
+    exit(0)
 
     # Create the Trimeter dataset
     df = pd.read_csv('./texts/iambic/agamemnon_labels_4.csv')

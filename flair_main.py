@@ -18,7 +18,7 @@ from sklearn.model_selection import train_test_split
 import utilities as util
 import argparse
 
-# import fasttext
+import fasttext
 
 class FLAIR_model():
 
@@ -155,12 +155,12 @@ class FLAIR_model():
             Corpus: with train, test and validation data
         """    
         columns = {0: 'syllable', 1: 'length'}
-        data_folder = './flair/corpus'
+        data_folder = 'flair/corpus'
         # init a corpus using column format, data folder and the names of the train, dev and test files
         corpus: Corpus = ColumnCorpus(data_folder, columns,     # omg a type hint in python
                                     train_file='train.txt',
                                     test_file='test.txt',
-                                    dev_file='dev.txt')
+                                    dev_file='valid.txt')
         return corpus
 
     def train_model(self):
@@ -210,7 +210,7 @@ if __name__ == "__main__":
     p.add_argument("--train_model", action="store_true", help="specify whether to train a FLAIR model")
     p.add_argument("--create_corpus", action="store_true", help="specify whether to create the corpus for FLAIR")
     p.add_argument("--create_syllable_file", action="store_true", help="specify whether to create a file consisting of syllables to train word vectors on")
-    p.add_argument("--exp_elegiac", action="store_true", help="specify whether to run the hexameter genre LSTM experiment")
+    p.add_argument("--test_model", action="store_true", help="specify whether to test the FLAIR model")
     p.add_argument("--exp_train_test", action="store_true", help="specify whether to run the train/test split LSTM experiment")
     p.add_argument("--exp_transfer_boeth", action="store_true", help="specify whether to run the Boeth LSTM experiment")
 
@@ -218,7 +218,7 @@ if __name__ == "__main__":
     p.add_argument('--epochs', default=10, type=int, help='number of epochs')
     p.add_argument("--split", type=util.restricted_float, default=0.2, help="specify the split size of train/test sets")
 
-    p.add_argument('--language_model', default='flair', type=str, help='name of LM to train')
+    p.add_argument('--language_model', default='none', type=str, help='name of LM to train')
 
 
     FLAGS = p.parse_args()    

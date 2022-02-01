@@ -51,19 +51,21 @@ if FLAGS.pedecerto_conversion:
     print('Converting pedecerto XML into sequence label lists')
     from pedecerto.textparser import Pedecerto_parser
     pedecerto_parse = Pedecerto_parser(source = util.cf.get('Pedecerto', 'path_xml_files'),
-                                       destination = util.cf.get('Pickle', 'path_sequence_labels'))
+                                       destination = util.cf.get('Pedecerto', 'path_xml_files'))
 
 if FLAGS.combine_author_files:
     # Combine the following lists
-    tibullus = ['TIB-ele1', 'TIB-ele2', 'TIB-ele3']
-    util.combine_sequence_label_lists(tibullus, 'TIB-ele', util.cf.get('Pickle', 'path_sequence_labels'))
+    util.auto_combine_sequence_label_lists()
 
-    propertius = ['PROP-ele1', 'PROP-ele2', 'PROP-ele3', 'PROP-ele4']
-    util.combine_sequence_label_lists(propertius, 'PROP-ele', util.cf.get('Pickle', 'path_sequence_labels'))
+    # tibullus = ['TIB-ele1', 'TIB-ele2', 'TIB-ele3']
+    # util.combine_sequence_label_lists(tibullus, 'TIB-ele', util.cf.get('Pickle', 'path_sequence_labels'))
 
-    ovidius = ['OV-amo1', 'OV-amo2', 'OV-amo3', 'OV-epis', 'OV-fast', 'OV-ibis', 'OV-medi', 'OV-pon1', 'OV-pon2',
-               'OV-pon3', 'OV-pon4', 'OV-tri1', 'OV-tri2', 'OV-tri3', 'OV-tri4', 'OV-tri5']
-    util.combine_sequence_label_lists(ovidius, 'OV-ele', util.cf.get('Pickle', 'path_sequence_labels'))   
+    # propertius = ['PROP-ele1', 'PROP-ele2', 'PROP-ele3', 'PROP-ele4']
+    # util.combine_sequence_label_lists(propertius, 'PROP-ele', util.cf.get('Pickle', 'path_sequence_labels'))
+
+    # ovidius = ['OV-amo1', 'OV-amo2', 'OV-amo3', 'OV-epis', 'OV-fast', 'OV-ibis', 'OV-medi', 'OV-pon1', 'OV-pon2',
+    #            'OV-pon3', 'OV-pon4', 'OV-tri1', 'OV-tri2', 'OV-tri3', 'OV-tri4', 'OV-tri5']
+    # util.combine_sequence_label_lists(ovidius, 'OV-ele', util.cf.get('Pickle', 'path_sequence_labels'))   
 
 # Provide which texts should be used as the hexameter and elegiac train sets
 hexameter_texts = ['VERG-aene', 'CATVLL-carm', 'IVV-satu', 'LVCR-rena', 'OV-meta', 'PERS-satu']

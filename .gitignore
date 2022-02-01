@@ -1,6 +1,6 @@
 # Repo specific
 flair
-
+pedecerto/xml_files/processed
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
