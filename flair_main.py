@@ -18,7 +18,7 @@ from sklearn.model_selection import train_test_split
 import utilities as util
 import argparse
 
-import fasttext
+# import fasttext
 
 class FLAIR_model():
 
@@ -209,7 +209,7 @@ if __name__ == "__main__":
     p.add_argument("--save_model", action="store_true", help="specify whether to save the model: if not specified, we do not save")
     p.add_argument("--train_model", action="store_true", help="specify whether to train a FLAIR model")
     p.add_argument("--create_corpus", action="store_true", help="specify whether to create the corpus for FLAIR")
-    p.add_argument("--exp_transfer", action="store_true", help="specify whether to run the hexameter transerability LSTM experiment")
+    p.add_argument("--create_syllable_file", action="store_true", help="specify whether to create a file consisting of syllables to train word vectors on")
     p.add_argument("--exp_elegiac", action="store_true", help="specify whether to run the hexameter genre LSTM experiment")
     p.add_argument("--exp_train_test", action="store_true", help="specify whether to run the train/test split LSTM experiment")
     p.add_argument("--exp_transfer_boeth", action="store_true", help="specify whether to run the Boeth LSTM experiment")
