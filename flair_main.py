@@ -18,7 +18,7 @@ from sklearn.model_selection import train_test_split
 import utilities as util
 import argparse
 
-import fasttext
+#import fasttext
 
 class FLAIR_model():
 
