@@ -64,7 +64,8 @@ class FLAIR_model():
             model = SequenceTagger.load('resources/taggers/dactylic_model/final-model.pt')
 
             # create example sentence
-            sentence = Sentence('ar ma vi rum que ca no troi ae qui pri mus ab or is')
+            # sentence = Sentence('ar ma vi rum que ca no troi ae qui pri mus ab or is')
+            sentence = Sentence('de lu bra et a ras cae li tum et pa tri os la res')
 
             # predict tags and print
             model.predict(sentence)

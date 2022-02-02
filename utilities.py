@@ -314,7 +314,8 @@ def find_stem(arr):
     return res
 
 def auto_combine_sequence_label_lists():
-
+    # Automatically combines Pedecerto files with similar names. For example, OV-amo1 and OV-amo2 will be merged and saved
+    # as one pickle :D
     EQUALITY_RATIO = 80 # Ratio between OV-amo1 and OV-amo2 is 86.
     mutable_list = Create_files_list(cf.get('Pedecerto', 'path_xml_files'), 'pickle')
     non_mutable_list = Create_files_list(cf.get('Pedecerto', 'path_xml_files'), 'pickle')
@@ -346,7 +347,7 @@ def auto_combine_sequence_label_lists():
         current_text_list = list(set(current_text_list))
         file_name = find_stem(current_text_list)
         print(file_name)
-        # print(current_text_list)
+        print(current_text_list)
 
         combine_sequence_label_lists(current_text_list, file_name, cf.get('Pedecerto', 'path_xml_files'))
 
