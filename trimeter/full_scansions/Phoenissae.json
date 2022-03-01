@@ -1,0 +1,5570 @@
+{
+  "text": {
+    "0": {
+      "verse": "[REDACTED]",
+      "scansion": " c[ae]ci_ pa^re_nti*s re^gi^me^n e_t fe*ss(i) u_ni^cu*m",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "1": {
+      "verse": "[REDACTED]",
+      "scansion": " pa*tri_s le^va_me*n na_ta^ qva_m ta*nt(i) e_st mi^hi*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "2": {
+      "verse": "[REDACTED]",
+      "scansion": " ge^nu^i_sse^ ve_l si*c de_se^r(e) i_nf[au]stu_m pa^tre*m",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "3": {
+      "verse": "[REDACTED]",
+      "scansion": " i*n re_cta^ qvi_d de*fle_cti^s e_rra*nte_m gra^du*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "4": {
+      "verse": "[REDACTED]",
+      "scansion": " pe*rmi_tte^ la_bi* me^li^u^s i_nve^ni^a_m vi^a*m",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "5": {
+      "verse": "[REDACTED]",
+      "scansion": " qva*m qv[ae]ro^ so_lu*s qv[ae] m(e) a^b ha_c vi*t(a) e_xtra^ha*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: qv[ae]ro^"
+      ],
+      "meter": "trimeter"
+    },
+    "6": {
+      "verse": "[REDACTED]",
+      "scansion": " e*t ho_c ne^fa_ndi* ca^pi^ti^s a_spe*ctu_ le^ve*t",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "7": {
+      "verse": "[REDACTED]",
+      "scansion": " c[ae]l(u)m a_tqve^ te_rra*s qva_ntu^l(u)m ha_c e*gi_ ma^nu*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "8": {
+      "verse": "[REDACTED]",
+      "scansion": "no*n ui^de^o^ no_x[ae] co_nsci^u_m no*str[ae] di^e*m",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "9": {
+      "verse": "[REDACTED]",
+      "scansion": " se*d vi^de^o^r hi_nc ja*m so_lv(e) i^nh[ae]re*nte_m ma^nu*m",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "10": {
+      "verse": "[REDACTED]",
+      "scansion": " e*t pa^te^re^ c[ae]cu*m qva_ vo^le_t fe*rri_ pe^de*m",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "11": {
+      "verse": "[REDACTED]",
+      "scansion": " i*b(o) i_bo^ qva_ pr[ae]ru_pta^ pro_te*ndi_t ju^ga*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: i_bo^"
+      ],
+      "meter": "trimeter"
+    },
+    "12": {
+      "verse": "[REDACTED]",
+      "scansion": "me*u_s ci^th[ae]ro*n qua_ pe^ra_gra*to_ ce^le*r",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "13": {
+      "verse": "[REDACTED]",
+      "scansion": " pe*r sa_xa^ mo_nte* ja^cu^i^t a_ct[ae]o_n su^i*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "14": {
+      "verse": "[REDACTED]",
+      "scansion": " no^va^ pr[ae]da^ ca^ni^bu*s qva_ pe^r o_bscu*ru_m ne^mu*s",
+      "pattern": " ^ ^ _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "15": {
+      "verse": "[REDACTED]",
+      "scansion": " si*lva_mqv(e) o^pa_c[ae] va_lli^s i_nsti*ncta_s de^o*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "16": {
+      "verse": "[REDACTED]",
+      "scansion": " e*gi_t so^ro_re*s ma_te^r e_t g[au]de_ns ma^lo*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "17": {
+      "verse": "[REDACTED]",
+      "scansion": " vi*bra_nte^ fi_xu*m pr[ae]tu^li_t thy*rso_ ca^pu*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "18": {
+      "verse": "[REDACTED]",
+      "scansion": " ve*l qva_ cu^cu_rri*t co_rpu^s i_nvi*su_m tra^he*ns",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "19": {
+      "verse": "[REDACTED]",
+      "scansion": " ze*thi_ ju^ve_ncu*s qva_ pe^r ho_rre*nte_s ru^bo*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "20": {
+      "verse": "[REDACTED]",
+      "scansion": " t[au]ri_ fe^ro_ci*s sa_ngvi^s o_ste*nta_t fu^ga*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "21": {
+      "verse": "[REDACTED]",
+      "scansion": " ve*l qv(a) a_lta^ ma^ri^a* ve_rti^c(e) i_nme*nso_ pre^mi*t",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Resolved Automatically"
+      ],
+      "meter": "trimeter"
+    },
+    "22": {
+      "verse": "[REDACTED]",
+      "scansion": " i*no_a^ ru_pe*s qva_ sce^lu_s fu^gi^e_ns no^vu*m",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "23": {
+      "verse": "[REDACTED]",
+      "scansion": " no*vu_mqve^ fa^ci^e*ns ma_te^r i_nsi^lu^i_t fre^to*",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "24": {
+      "verse": "[REDACTED]",
+      "scansion": "me*rsu_ra^ na_tu*m se_que^ fe_li*ce_s qui^bu*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "25": {
+      "verse": "[REDACTED]",
+      "scansion": " fo*rtu_na^ me^li^o*r ta_m bo^na_s ma*tre_s de^di*t",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "26": {
+      "verse": "[REDACTED]",
+      "scansion": " e*st a^li^u^s i_sti*s no_ste^r i_n si*lvi_s lo^cu*s",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "27": {
+      "verse": "[REDACTED]",
+      "scansion": " qvi* me_ re^po_sci*t hu_nc pe^ta_m cu*rs(u) i_nci^to*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "28": {
+      "verse": "[REDACTED]",
+      "scansion": " no*n h[ae]si^ta_bi*t gre_ssu^s hu_c o*mni_ du^ce*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "29": {
+      "verse": "[REDACTED]",
+      "scansion": " spo^li^a_tu^s i_bo* qvi_d mo^ro_r se*de_s me^a*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "30": {
+      "verse": "[REDACTED]",
+      "scansion": " mo*rte_m ci^th[ae]ro*n re_dd(e) e^t ho_spi^ti^u_m mi^hi*",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "31": {
+      "verse": "[REDACTED]",
+      "scansion": " i*llu_d me^u_m re*sti^tu^(e) u^t e_xpi*re_m se^ne*x",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "32": {
+      "verse": "[REDACTED]",
+      "scansion": "v^bi^ de_bu^(i) i_nfa*ns re^ci^pe^ su_ppli^ci^u_m ue^tu*s",
+      "pattern": " ^ ^ _ ^ _ * ^ ^ ^ _ ^ ^ _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "33": {
+      "verse": "[REDACTED]",
+      "scansion": " se*mpe_r cru^e_nte* s[ae]ve^ cru_de*li_s fe^ro*x",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "34": {
+      "verse": "[REDACTED]",
+      "scansion": "c(u)m o*cci_di^s e_t cu*m pa_rci^s o_li*m ia_m tu^u*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "35": {
+      "verse": "[REDACTED]",
+      "scansion": " e*st ho_c ca^da_ve*r pe^ra^ge^ ma_nda*tu_m pa^tri*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "36": {
+      "verse": "[REDACTED]",
+      "scansion": " j(a)m e*t ma_tri^s a^ni^mu*s ge_sti^t a_nti*qv(a) e_xse^qvi*",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "37": {
+      "verse": "[REDACTED]",
+      "scansion": " su*ppli^ci^a^ qvi_d me* na_ta^ pe_sti^fe^ro_ te^ne*s",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "38": {
+      "verse": "[REDACTED]",
+      "scansion": " a*mo_re^ vi_nctu*m qvi_d te^ne_s ge^ni^to_r vo^ca*t",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "39": {
+      "verse": "[REDACTED]",
+      "scansion": " se*qvo_r se^qvo_r ja*m pa_rce^ sa_ngvi^ne^u_m ge^re*ns",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "40": {
+      "verse": "[REDACTED]",
+      "scansion": " i*nsi_gne^ re_gni* la_i^u_s ra*pti_ fu^ri*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "41": {
+      "verse": "[REDACTED]",
+      "scansion": " e*n e_cc(e) i^na_ne*s ma^ni^bu^s i_nfe*sti_s pe^ti*t",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "42": {
+      "verse": "[REDACTED]",
+      "scansion": " fo*di_tqve^ vu_ltu*s na_ta^ ge^ni^to*re_m vi^de*s",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "43": {
+      "verse": "[REDACTED]",
+      "scansion": "e^go^ ui^de^o^ ta_nde*m spi_ri^t(u)m i^ni^mi*c(u)m e_xpu^e*",
+      "pattern": " ^ ^ ^ ^ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "44": {
+      "verse": "[REDACTED]",
+      "scansion": " de*se_rto^r a^ni^me* fo_rti^s i_n pa*rte_m tu^i*",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "45": {
+      "verse": "[REDACTED]",
+      "scansion": " o*mi_tte^ p[oe]na*s la_ngvi^da_s lo*ng[ae] mo^r[ae]",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "46": {
+      "verse": "[REDACTED]",
+      "scansion": " mo*rte_mqve^ to_ta*m re^ci^pe^ qvi_d se*gni_s tra^ho*",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "47": {
+      "verse": "[REDACTED]",
+      "scansion": "quo*d ui_uo^ nu_llu*m fa^ce^re^ ia_m po*ssu_m sce^lu*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [
+        "Mqdq only scansion: ui_uo^"
+      ],
+      "meter": "trimeter"
+    },
+    "48": {
+      "verse": "[REDACTED]",
+      "scansion": "po*ssu_m mi^se_r pr[ae]di_co^ di_sce*d(e) a_ pa^tre*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "49": {
+      "verse": "[REDACTED]",
+      "scansion": "di*sce_de^ ui_rgo* ti^me^o^ po_st ma*tr(e)m o_mni^a*",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "50": {
+      "verse": "[REDACTED]",
+      "scansion": " vi*s nu_lla^ ge^ni^to*r a_ tu^o_ no*stra_m ma^nu*m",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "51": {
+      "verse": "[REDACTED]",
+      "scansion": " co*rpo^re^ re^so_lve*t ne_mo^ me_ co^mi^te_m ti^bi*",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: ne_mo^"
+      ],
+      "meter": "trimeter"
+    },
+    "52": {
+      "verse": "[REDACTED]",
+      "scansion": " e*ri^pi^e^t u_mqva*m la_bda^ci_ cla*ra_m do^mu*m",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "53": {
+      "verse": "[REDACTED]",
+      "scansion": " o^pu^le_nta^ fe_rro* re_gna^ ge_rma*ni_ pe^ta*nt",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "54": {
+      "verse": "[REDACTED]",
+      "scansion": " pa*rs su_mma^ ma_gno* pa_tri^s e_ re*gno_ me^(a) e*st",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: pa_tri^s"
+      ],
+      "meter": "trimeter"
+    },
+    "55": {
+      "verse": "[REDACTED]",
+      "scansion": " pa^te^r i_pse^ no_n hu*nc [au]fe^re_t fra*te_r mi^hi*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "56": {
+      "verse": "[REDACTED]",
+      "scansion": " the*ba_na^ ra_pto* sce_ptra^ qvi_ re*gno_ te^ne*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "57": {
+      "verse": "[REDACTED]",
+      "scansion": " no*n hu_nc ca^te_rva*s a_lte^r a_rgo^li^ca_s a^ge*ns",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "58": {
+      "verse": "[REDACTED]",
+      "scansion": " no*n si_ re^vu_lso* ju_ppi^te_r mu*ndo_ to^ne*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "59": {
+      "verse": "[REDACTED]",
+      "scansion": " me^di^u_mqve^ no_stro*s fu_lme^n i_n ne*xu_s ca^da*t",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "60": {
+      "verse": "[REDACTED]",
+      "scansion": " ma*n(u)m ha_nc re^mi_tta*m pro^hi^be^a_s ge^ni^to_r li^ce*t",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "61": {
+      "verse": "[REDACTED]",
+      "scansion": " re*g(a)m a_bnu^e_nte*m de_ri^g(a)m i_nvi*ti_ gra^du*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "62": {
+      "verse": "[REDACTED]",
+      "scansion": "i*n pla_na^ te_ndi*s ua_do^ pr[ae]ru*pt(a) a_ppe^ti*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "63": {
+      "verse": "[REDACTED]",
+      "scansion": "no*n o_bsto^ se_d pr[ae]ce_do^ quo_ ui*s u_te^re*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "64": {
+      "verse": "[REDACTED]",
+      "scansion": " du^ce^ me_ du^o_bu*s o_mni^s e_li^gi^tu_r vi^a*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "65": {
+      "verse": "[REDACTED]",
+      "scansion": " pe*ri_re^ si^ne^ me* no_n po^te_s me*cu_m po^te*s",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "66": {
+      "verse": "[REDACTED]",
+      "scansion": " hi*c a_lta^ ru_pe*s a_rdu^o_ su*rgi_t ju^go*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "67": {
+      "verse": "[REDACTED]",
+      "scansion": " spe*cta_tqve^ lo_nge* spa^ti^a^ su_bje*cti_ ma^ri*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "68": {
+      "verse": "[REDACTED]",
+      "scansion": " vi*s ha_nc pe^ta_mu*s nu_du^s hi_c pe*nde_t si^le*x",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "69": {
+      "verse": "[REDACTED]",
+      "scansion": " hi*c sci_ssa^ te_llu*s f[au]ci^bu_s ru*pti_s hi^a*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "70": {
+      "verse": "[REDACTED]",
+      "scansion": " vi*s ha_nc pe^ta_mu*s hi_c ra^pa_x to*rre_ns ca^di*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "71": {
+      "verse": "[REDACTED]",
+      "scansion": " pa*rte_sqve^ la_psi* mo_nti^s e_xe*sa_s ro^ta*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "72": {
+      "verse": "[REDACTED]",
+      "scansion": " i*n hu_nc ru^a_mu*s du_m pri^o_r qvo* vi_s e^o*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "73": {
+      "verse": "[REDACTED]",
+      "scansion": " no*n de_pre^co_r no*n ho_rto^r e_xti*ngvi_ cu^pi*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "74": {
+      "verse": "[REDACTED]",
+      "scansion": " vo*tu_mqve^ ge^ni^to*r ma_xi^mu_m mo*rs e_st ti^bi*",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "75": {
+      "verse": "[REDACTED]",
+      "scansion": "si* mo^re^ri^s a_nte*ce_do^ si_ ui*ui_s se^quo*r",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "76": {
+      "verse": "[REDACTED]",
+      "scansion": " se*d fle_cte^ me_nte*m pe_ctu^s a_nti*qv(u)m a_dvo^ca*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "77": {
+      "verse": "[REDACTED]",
+      "scansion": " vi*cta_sqve^ ma_gno* ro_bo^r(e) [ae]ru*mna_s do^ma*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "78": {
+      "verse": "[REDACTED]",
+      "scansion": " re*si_ste^ ta_nti*s i_n ma^li_s vi*nci_ mo^r(i) e*st",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "79": {
+      "verse": "[REDACTED]",
+      "scansion": " u*nd(e) i_n ne^fa_nda* spe^ci^me^n e_gre^gi^u_m do^mo*",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Resolved Automatically"
+      ],
+      "meter": "trimeter"
+    },
+    "80": {
+      "verse": "[REDACTED]",
+      "scansion": " u*nd(e) i_sta^ ge^ne^ri* vi_rgo^ di_ssi^mi^li_s su^o*",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: vi_rgo^"
+      ],
+      "meter": "trimeter"
+    },
+    "81": {
+      "verse": "[REDACTED]",
+      "scansion": " fo*rtu_na^ ce_di*s a^li^qvi^s e_st e*x me_ pi^u*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Resolved Automatically"
+      ],
+      "meter": "trimeter"
+    },
+    "82": {
+      "verse": "[REDACTED]",
+      "scansion": " no*n e_sse^t u_mqva*m fa_ta^ be^ne^ no*vi_ me^a*",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Resolved Automatically"
+      ],
+      "meter": "trimeter"
+    },
+    "83": {
+      "verse": "[REDACTED]",
+      "scansion": " ni*s(i) u_t no^ce_re*t i_psa^ s(e) i_n le*ge_s no^va*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "84": {
+      "verse": "[REDACTED]",
+      "scansion": "na*tu_ra^ ve_rte*t re^ge^re^t i_n fo*nte_m ci^ta*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "semi-automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "85": {
+      "verse": "[REDACTED]",
+      "scansion": " re^vo^lu_tu^s u_nda*s a_mni^s e_t no*ct(e)m a_ffe^re*t",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "86": {
+      "verse": "[REDACTED]",
+      "scansion": " ph[oe]be_a^ la_mpa*s he_spe^ru_s fa^ci^e_t di^e*m",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "87": {
+      "verse": "[REDACTED]",
+      "scansion": "u*t a_d mi^se^ri^a*s a^li^qvi^d a_cce*da_t me^a*s",
+      "pattern": " * _ ^ ^ ^ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "88": {
+      "verse": "[REDACTED]",
+      "scansion": "pi*i_ quo^qu(e) e^ri^mu*s u_ni^c(a) [oe]di^po^d(ae) e_st sa^lu*s",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ ^ ^ _ ^ *",
+      "method": "manual (corrected)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "89": {
+      "verse": "[REDACTED]",
+      "scansion": " no*n e_sse^ sa_lvu*m li^ce^a^t u_lci*sci_ pa^tre*m",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "90": {
+      "verse": "[REDACTED]",
+      "scansion": " a*dhu_c i^nu_ltu*m de_xtra^ qvi_d ce*ssa_s i^ne*rs",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "91": {
+      "verse": "[REDACTED]",
+      "scansion": " e*xi^ge^re^ p[oe]na*s qvi_dqvi^d e_xa*ct(u)m e_st a^dhu*c",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "92": {
+      "verse": "[REDACTED]",
+      "scansion": " ma*tri_ de^di_sti* mi_tte^ ge^ni^to*ri_s ma^nu*m",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "93": {
+      "verse": "[REDACTED]",
+      "scansion": " a^ni^mo_sa^ vi_rgo* fu_nu^s e_xte*ndi_s me^u*m",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "94": {
+      "verse": "[REDACTED]",
+      "scansion": " lo*nga_sqve^ vi_vi* du_ci^s e_xe^qvi^a_s pa^tri*s",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "95": {
+      "verse": "[REDACTED]",
+      "scansion": "a^li^qua_ndo^ te_rra* co_rpu^s i_nui*su_m te^ge*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [
+        "Mqdq only scansion: a^li^qua_ndo^"
+      ],
+      "meter": "trimeter"
+    },
+    "96": {
+      "verse": "[REDACTED]",
+      "scansion": " pe*cca_s ho^ne_sta* me_nte^ pi^e^ta*te_m vo^ca*s",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "97": {
+      "verse": "[REDACTED]",
+      "scansion": " pa*tr(e)m i_nse^pu_ltu*m tra^he^re^ qvi_ co*gi_t mo^ri*",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "98": {
+      "verse": "[REDACTED]",
+      "scansion": " no*le_nt(e)m i^n [ae]qv(o) e*st qvi_qve^ pro^pe^ra*nt(e)m i_mpe^di*t",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "99": {
+      "verse": "[REDACTED]",
+      "scansion": "o*cci_de^r(e) e_st ue*ta_re^ cu^pi^e*nte_m mo^ri*",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "100": {
+      "verse": "[REDACTED]",
+      "scansion": " ne*c ta^me^n i^n [ae]qv(o) e*st a_lte^ru_m gra^vi^u_s re^o*r",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "101": {
+      "verse": "[REDACTED]",
+      "scansion": " ma*l(o) i_mpe^ra_ri* qv(a)m e_ri^pi_ mo*rte_m mi^hi*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "102": {
+      "verse": "[REDACTED]",
+      "scansion": " de*si_ste^ c[oe]pto* vi_rgo^ ju_s vi*t(ae) a_c ne^ci*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: vi_rgo^"
+      ],
+      "meter": "trimeter"
+    },
+    "103": {
+      "verse": "[REDACTED]",
+      "scansion": "me*[ae] pe^ne_s m(e) e*st re_gna^ de_se^ru^i_ li^be*ns",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "semi-automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "104": {
+      "verse": "[REDACTED]",
+      "scansion": "re*gnu_m me^i_ re*ti^ne^o^ si_ fi*d(a) e_s co^me*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "105": {
+      "verse": "[REDACTED]",
+      "scansion": " e*nse_m pa^re_nti* tra_de^ se_d no*tu_m ne^ce*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "106": {
+      "verse": "[REDACTED]",
+      "scansion": " e*nse_m pa^te_rna* tra_di^s a_n gna*ti_ te^ne*nt",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "107": {
+      "verse": "[REDACTED]",
+      "scansion": " cu*m re_gn(o) e^t i_llu*m fa^ci^e^t u^bi^cu*mqv(e) e_st o^pu*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "108": {
+      "verse": "[REDACTED]",
+      "scansion": "i^bi^ si_t re^li_nqvo* na_tu^s hu_nc ha^be^a_t me^u*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "semi-automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "109": {
+      "verse": "[REDACTED]",
+      "scansion": " se^d u^te_rqve^ fla_mma*s po^ti^u^s e_t va*st(u)m a_gge^re*m",
+      "pattern": " ^ ^ _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "110": {
+      "verse": "[REDACTED]",
+      "scansion": " co*mpo_n(e) i^n a_lto*s i_pse^ m(e) i_mmi*tta_m ro^go*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "111": {
+      "verse": "[REDACTED]",
+      "scansion": " h[ae]re_b(o) a^d i_gne*s fu_ne^br(e)m e_sce*nda_m stru^e*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "112": {
+      "verse": "[REDACTED]",
+      "scansion": " pe*ctu_sqve^ so_lva*m du_r(u)m e^t i_n ci^ne^re_m da^bo*",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "113": {
+      "verse": "[REDACTED]",
+      "scansion": " ho*c qvi_dqvi^d i_n me* vi_vi^t u^bi^ s[ae]v(u)m e_st ma^re*",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "114": {
+      "verse": "[REDACTED]",
+      "scansion": " du*c u^bi^ si^t a_lti*s pro_ru^tu_m sa*xi_s ju^gu*m",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "115": {
+      "verse": "[REDACTED]",
+      "scansion": " u^bi^ to_rva^ ra^pi^du*s du_ca^t i_sme*no_s va^da*",
+      "pattern": " ^ ^ _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "116": {
+      "verse": "[REDACTED]",
+      "scansion": " du*c u^bi^ fe^r[ae] su*nt u^bi^ fre^t(u)m u^bi^ pr[ae]ce_ps lo^cu*s",
+      "pattern": " * ^ ^ ^ _ * ^ ^ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "117": {
+      "verse": "[REDACTED]",
+      "scansion": " si* du_x e^s i_llu*c i_re^ mo^ri^tu*ro_ pla^ce*t",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "118": {
+      "verse": "[REDACTED]",
+      "scansion": " u^bi^ se_di^t a_lta* ru_pe^ se_mi^fe^ro_ do^lo*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "119": {
+      "verse": "[REDACTED]",
+      "scansion": " sphi*nx o_re^ ne_cte*ns de_ri^g(e) hu_c gre*ssu_s pe^du*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: sphi*nx"
+      ],
+      "meter": "trimeter"
+    },
+    "120": {
+      "verse": "[REDACTED]",
+      "scansion": " hi*c si_ste^ pa_tre*m di_ra^ ne_ se*de_s va^ce*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: pa_tre*m"
+      ],
+      "meter": "trimeter"
+    },
+    "121": {
+      "verse": "[REDACTED]",
+      "scansion": " mo*nstru_m re^po_ne* ma_ju^s ho_c sa*x(u)m i_nsi^de*ns",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "122": {
+      "verse": "[REDACTED]",
+      "scansion": " o*bscu_ra^ no_str[ae] ve_rba^ fo_rtu*n[ae] lo^qva*r",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "123": {
+      "verse": "[REDACTED]",
+      "scansion": " qv[ae] ne_mo^ so_lva*t qvi_sqvi^s a_ssy^ri^o_ lo^ca*",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: ne_mo^"
+      ],
+      "meter": "trimeter"
+    },
+    "124": {
+      "verse": "[REDACTED]",
+      "scansion": " po*sse_ssa^ re_gi* sci_ndi^s e_t ca*dmi_ ne^mu*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "125": {
+      "verse": "[REDACTED]",
+      "scansion": " se*rpe_nte^ no_tu*m sa_cra^ qvo_ di*rce_ la^te*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "126": {
+      "verse": "[REDACTED]",
+      "scansion": "su*pple_x a^do_ra*s qvi_sqvi^s [eu]ro*ta_n bi^bi*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "manual (corrected)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "127": {
+      "verse": "[REDACTED]",
+      "scansion": " spa*rte_nqve^ fra_tre* no_bi^le_m ge^mi^no_ co^li*s",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "128": {
+      "verse": "[REDACTED]",
+      "scansion": " qvi*qv(e) e_li^n e_t pa*rna_so^n e_t b[oe]o_ti^o*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: e_li^n",
+        "Mqdq only scansion: pa*rna_so^n"
+      ],
+      "meter": "trimeter"
+    },
+    "129": {
+      "verse": "[REDACTED]",
+      "scansion": " co*lo_nu^s a_gro*s u_be^ri_s to*nde_s so^li*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "130": {
+      "verse": "[REDACTED]",
+      "scansion": " a*dve_rte^ me_nte*m s[ae]va^ the_ba*ru_m lu^e*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "131": {
+      "verse": "[REDACTED]",
+      "scansion": " lu*cti^fi^ca^ c[ae]ci*s ve_rba^ co_mmi*tte_ns mo^di*s",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "132": {
+      "verse": "[REDACTED]",
+      "scansion": " qvi*d si^mi^le^ po^su^i*t qvi_d t(a)m i^ne_xtri*ca_bi^le*",
+      "pattern": " * ^ ^ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "133": {
+      "verse": "[REDACTED]",
+      "scansion": " a*vi_ ge^ne_r pa*tri_sqve^ ri_va*li_s su^i*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "134": {
+      "verse": "[REDACTED]",
+      "scansion": " fra*te_r su^o_ru*m li_be^r(u)m e_t fra*tru_m pa^re*ns",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "135": {
+      "verse": "[REDACTED]",
+      "scansion": "v*n(o) a^ui^a^ pa_rtu* li_be^ro_s pe^pe^ri_t ui^ro*",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "136": {
+      "verse": "[REDACTED]",
+      "scansion": " si*b(i) e_t ne^po_te*s mo_nstra^ qvi_s ta*nt(a) e_xpli^ce*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "137": {
+      "verse": "[REDACTED]",
+      "scansion": " e*g(o) i_pse^ vi_ct[ae] spo^li^a^ qvi_ sphi*ngi_s tu^li*",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "138": {
+      "verse": "[REDACTED]",
+      "scansion": "h[ae]re_bo^ fa_ti* ta_rdu^s i_nte*rpre_s me^i*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "139": {
+      "verse": "[REDACTED]",
+      "scansion": " qvi*d pe_rdi^s u_ltra* ve_rba^ qvi_d pe*ctu_s fe^ru*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "140": {
+      "verse": "[REDACTED]",
+      "scansion": " mo*lli_re^ te_mpta*s pre^ci^bu^s ho_c a^ni^mo_ se^de*t",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Resolved Automatically"
+      ],
+      "meter": "trimeter"
+    },
+    "141": {
+      "verse": "[REDACTED]",
+      "scansion": " e*ffu_nde^r(e) ha_nc cu*m mo_rte^ lu_cta*nte_m di^u*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "142": {
+      "verse": "[REDACTED]",
+      "scansion": "a^ni^m(a)m e_t te^ne_bra*s pe^te^re^ na_m sce^le^r(i) h[ae]c me^o*",
+      "pattern": " ^ ^ _ ^ _ * ^ ^ ^ _ ^ ^ _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "143": {
+      "verse": "[REDACTED]",
+      "scansion": " pa*r(u)m a_lta^ no_x e*st ta_rta^ro_ co*ndi_ ju^va*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "144": {
+      "verse": "[REDACTED]",
+      "scansion": " e*t si_ qvi^d u_ltra* ta_rta^r(u)m e_st ta*nde_m li^be*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "145": {
+      "verse": "[REDACTED]",
+      "scansion": " qvo*d o_l(i)m o^po_rte*t mo_rte^ pro^hi^be*r(i) h[au]d qve^o*",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "146": {
+      "verse": "[REDACTED]",
+      "scansion": " fe*rru_m ne^ga_bi*s no_xi^a_s la*psu_ vi^a*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "147": {
+      "verse": "[REDACTED]",
+      "scansion": " clu*de_s e^t a_rti*s co_lla^ la^qve^i*s i_nse^ri*",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "A previuosly unencountered word: clu*de_s"
+      ],
+      "meter": "trimeter"
+    },
+    "148": {
+      "verse": "[REDACTED]",
+      "scansion": "pro^hi^be_bi^s he_rba*s qv[ae] fe^ru_nt le*t(u)m [au]fe^re*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "149": {
+      "verse": "[REDACTED]",
+      "scansion": " qvi*d i_sta^ ta_nde*m cu_ra^ pro_fi^ci^e_t tu^a*",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "150": {
+      "verse": "[REDACTED]",
+      "scansion": " u*bi_qve^ mo_rs e*st o_ptu^m(e) ho_c ca*vi_t de^u*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "151": {
+      "verse": "[REDACTED]",
+      "scansion": " e*ri^pe^re^ vi_ta*m ne_mo^ no_n ho^mi^ni_ po^te*st",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: ne_mo^"
+      ],
+      "meter": "trimeter"
+    },
+    "152": {
+      "verse": "[REDACTED]",
+      "scansion": " a*t ne_mo^ mo_rte*m mi_ll(e) a^d ha_nc a^di^tu_s pa^te*nt",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: ne_mo^"
+      ],
+      "meter": "trimeter"
+    },
+    "153": {
+      "verse": "[REDACTED]",
+      "scansion": " ni*l qv[ae]ro^ de_xtra* no_ste^r e_t nu*da_ so^le*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: qv[ae]ro^"
+      ],
+      "meter": "trimeter"
+    },
+    "154": {
+      "verse": "[REDACTED]",
+      "scansion": " be*n(e) a^ni^mu^s u_ti* de_xtra^ nu_nc to*t(o) i_mpe^tu*",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "155": {
+      "verse": "[REDACTED]",
+      "scansion": " to*to_ do^lo_re* vi_ri^bu_s to*ti_s ve^ni*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "156": {
+      "verse": "[REDACTED]",
+      "scansion": " no*n de_sti^n(o) u_nu*m vu_lne^ri_ no*stro_ lo^cu*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "157": {
+      "verse": "[REDACTED]",
+      "scansion": " to*tu_s no^ce_ns su*m qva_ vo^le_s mo*rt(e)m e_xi^ge*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "158": {
+      "verse": "[REDACTED]",
+      "scansion": " e*ffri_nge^ pe_ctu*s co_rqve^ to_t sce^le^ru_m ca^pa*x",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "159": {
+      "verse": "[REDACTED]",
+      "scansion": " e*ve_lle^ to_to*s vi_sce^ru_m nu*da_ si^nu*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "160": {
+      "verse": "[REDACTED]",
+      "scansion": " fra*ct(u)m i_nci^ta_ti*s i_cti^bu_s gu*ttu_r so^ne*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "161": {
+      "verse": "[REDACTED]",
+      "scansion": " la^ce^r[ae]qve^ fi_xi*s u_ngvi^bu_s ve*n[ae] flu^a*nt",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "162": {
+      "verse": "[REDACTED]",
+      "scansion": " [au]t de_ri^g(e) i_ra*s qvo_ so^le_s h[ae]c vu_lne^ra*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "163": {
+      "verse": "[REDACTED]",
+      "scansion": " re*sci_ssa^ mu_lto* sa_ngvi^n(e) a_c ta*b(e) i_nri^ga*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "164": {
+      "verse": "[REDACTED]",
+      "scansion": " ha*c e_xtra^h(e) a^ni^ma*m du_r(a)m i^ne_xpu*gna_bi^le*m",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "165": {
+      "verse": "[REDACTED]",
+      "scansion": " e*t tu_ pa^re_ns u^bi^cu_mqve^ p[oe]na*r(u)m a_rbi^te*r",
+      "pattern": " * _ ^ _ ^ ^ _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "166": {
+      "verse": "[REDACTED]",
+      "scansion": " a*dsta_s me^a_ru*m no_n e^g(o) ho_c ta*ntu_m sce^lu*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "167": {
+      "verse": "[REDACTED]",
+      "scansion": " u*ll(a) e_xpi^a_ri* cre_di^di_ p[oe]na_ sa^ti*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "168": {
+      "verse": "[REDACTED]",
+      "scansion": " u*mqva_m ne^c i_sta* mo_rte^ co_nte*ntu_s fu^i*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "169": {
+      "verse": "[REDACTED]",
+      "scansion": " ne*c me_ re^de_mi* pa_rte^ me_mbra*ti_m ti^bi*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "170": {
+      "verse": "[REDACTED]",
+      "scansion": "pe*ri_re^ vo^lu^i* de_bi^tu_m ta*nd(e)m e_xi^ge*",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "semi-automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "171": {
+      "verse": "[REDACTED]",
+      "scansion": "nu*nc so_luo^ p[oe]na*s tu_nc ti^b(i) i_nfe^ri^a_s de^di*",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "172": {
+      "verse": "[REDACTED]",
+      "scansion": " a^de^s a_tqv(e) i^ne_rte*m de_xte^r(a)m i_ntro*rsu_s pre^me*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "173": {
+      "verse": "[REDACTED]",
+      "scansion": " ma*gi_sqve^ me_rge* ti^mi^da^ tu_nc pa*rvo_ ca^pu*t",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "174": {
+      "verse": "[REDACTED]",
+      "scansion": " li*ba_vi^t h[au]stu* vi_xqve^ cu^pi^e*nte_s se^qvi*",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "175": {
+      "verse": "[REDACTED]",
+      "scansion": " e*du_xi^t o^cu^lo*s h[ae]re^t e^ti^a*mnu_nc mi^hi*",
+      "pattern": " * _ ^ ^ ^ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "176": {
+      "verse": "[REDACTED]",
+      "scansion": " i*ll(e) a^ni^mu^s h[ae]re*t cu_m re^cu_sa*nte_m ma^nu*m",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "177": {
+      "verse": "[REDACTED]",
+      "scansion": " pre*sse_re^ vu_ltu*s [au]di^e_s ve*r(u)m [oe]di^pu*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "A previuosly unencountered word: [oe]di^pu*"
+      ],
+      "meter": "trimeter"
+    },
+    "178": {
+      "verse": "[REDACTED]",
+      "scansion": " mi^nu^s e_ru^i_sti* lu_mi^n(a) [au]da*cte_r tu^a*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "179": {
+      "verse": "[REDACTED]",
+      "scansion": " qva*m pr[ae]sti^ti_sti* nu_nc ma^nu_m ce^re^br(o) i_ndu^e*",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "180": {
+      "verse": "[REDACTED]",
+      "scansion": " ha*c pa_rte^ mo_rte*m pe^ra^ge^ qva_ c[oe]pi_ mo^ri*",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "181": {
+      "verse": "[REDACTED]",
+      "scansion": " p[au]c(a) o_ pa^re_ns ma*gna^ni^me^ mi^se^ra*nd[ae] pre^co*r",
+      "pattern": " * _ ^ _ * ^ ^ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "182": {
+      "verse": "[REDACTED]",
+      "scansion": " u*t ve_rba^ na_t[ae] me_nte^ pla_ca*t(a) [au]di^a*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "183": {
+      "verse": "[REDACTED]",
+      "scansion": " no*n t(e) u_t re^du_ca*m ve^te^ri^s a_d spe^ci^e_m do^mu*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "184": {
+      "verse": "[REDACTED]",
+      "scansion": " ha^bi^tu_mqve^ re_gni* flo_re^ po_lle*nt(e)m i_ncli^to*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "185": {
+      "verse": "[REDACTED]",
+      "scansion": " pe*t(o) [au]t u^t i_ra*s te_mpo^r(u)m h[au]t i*psa_ mo^ra*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "186": {
+      "verse": "[REDACTED]",
+      "scansion": " fra*cta_s re^mi_sso* pe_cto^r(e) a_c pla^ci^do_ fe^ra*s",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "187": {
+      "verse": "[REDACTED]",
+      "scansion": " a*t ho_c de^ce_ba*t ro_bo^ri_s ta*nti_ vi^ru*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "188": {
+      "verse": "[REDACTED]",
+      "scansion": " no*n e_sse^ su_b do*lo_re^ ne_c vi*ctu_m ma^li*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "189": {
+      "verse": "[REDACTED]",
+      "scansion": " da^re^ te_rga^ no_n e*st u_t pu^ta_s vi*rtu_s pa^te*r",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "190": {
+      "verse": "[REDACTED]",
+      "scansion": " ti*me_re^ vi_ta*m se_d ma^li_s i*nge_nti^bu*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "191": {
+      "verse": "[REDACTED]",
+      "scansion": " o*bsta_re^ ne_c se* ve_rte^r(e) a_c re*tro_ da^re*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "192": {
+      "verse": "[REDACTED]",
+      "scansion": " qvi* fa_ta^ pro_cu*lca_vi^t a_c vi*t[ae] bo^na*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "193": {
+      "verse": "[REDACTED]",
+      "scansion": " pro*je_ci^t a_tqv(e) a*bsci_di^t e_t ca*su_s su^o*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "194": {
+      "verse": "[REDACTED]",
+      "scansion": "o^ne^ra_vi^t i_pse* c[ui] de^o_ nu*ll(o) e_st o^pu*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "manual (corrected)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "195": {
+      "verse": "[REDACTED]",
+      "scansion": " qva*r(e) i_lle^ mo_rte*m cu^pi^a^t [au]t qva*re_ pe^ta*t",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "196": {
+      "verse": "[REDACTED]",
+      "scansion": " u*tru_mqve^ ti^mi^d(i) e*st ne_mo^ co_nte*mpsi_t mo^ri*",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: ne_mo^"
+      ],
+      "meter": "trimeter"
+    },
+    "197": {
+      "verse": "[REDACTED]",
+      "scansion": " qvi* co_ncu^pi_vi*t cu_ju^s h[au]t u*ltra_ ma^la*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "198": {
+      "verse": "[REDACTED]",
+      "scansion": " e*xi_re^ po_ssu*nt i_n lo^co_ tu*t(o) e_st si^tu*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "199": {
+      "verse": "[REDACTED]",
+      "scansion": " qvi*s ja_m de^o_ru*m ve_lle^ fa_c qvi*cqva_m po^te*st",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "200": {
+      "verse": "[REDACTED]",
+      "scansion": "ma*li_s tu^i_s a*di^ce^re^ ja_m ne*c tu_ po^te*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "semi-automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "201": {
+      "verse": "[REDACTED]",
+      "scansion": " ni*s(i) ho_c u^t e_sse* te_ pu^te_s di*gnu_m ne^ce*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "202": {
+      "verse": "[REDACTED]",
+      "scansion": " no*n e_s ne^c u_lla* pe_ctu^s ho_c cu*lp(a) a_tti^gi*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "203": {
+      "verse": "[REDACTED]",
+      "scansion": " e*t ho_c ma^gi_s te* ge^ni^to^r i_nso*nte_m vo^ca*",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "204": {
+      "verse": "[REDACTED]",
+      "scansion": " qvo*d i_nno^ce_ns e*s di_s qvo^qv(e) i_nvi*ti_s qvi^d e*st",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "205": {
+      "verse": "[REDACTED]",
+      "scansion": " qvo*d t(e) e_ffe^ra_ri*t qvo_d no^vo_s su*ffi_xe^ri*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "206": {
+      "verse": "[REDACTED]",
+      "scansion": " sti^mu^lo_s do^lo_ri* qvi_d t(e) i^n i_nfe*rna_s a^gi*t",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "207": {
+      "verse": "[REDACTED]",
+      "scansion": " se*de_s qvi^d e_x hi*s pe_lli^t u_t ca^re^a_s di^e*",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "208": {
+      "verse": "[REDACTED]",
+      "scansion": " ca*re_s u^t a_lti*s no_bi^le_m mu*ri_s do^mu*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "209": {
+      "verse": "[REDACTED]",
+      "scansion": " pa^tri^a_mqve^ fu^gi^a*s pa^tri^a^ ti^bi^ vi*vo_ pe^ri*t",
+      "pattern": " ^ ^ _ ^ ^ ^ * ^ ^ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "210": {
+      "verse": "[REDACTED]",
+      "scansion": " na*to_s fu^gi_s ma*tre_mqv(e) a^b a_spe*ct(u) o_mni^u*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "211": {
+      "verse": "[REDACTED]",
+      "scansion": " fo*rtu_na^ te_ su*mmo_vi^t e_t qvi*dqvi_d po^te*st",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "212": {
+      "verse": "[REDACTED]",
+      "scansion": " [au]fe_rre^ cu_jqva*m mo_rs ti^b(i) ho_c vi*t(a) a_bstu^li*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: cu_jqva*m"
+      ],
+      "meter": "trimeter"
+    },
+    "213": {
+      "verse": "[REDACTED]",
+      "scansion": " re*gni_ tu^mu_ltu*s tu_rba^ fo_rtu*n[ae] pri^o*r",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "214": {
+      "verse": "[REDACTED]",
+      "scansion": " a*bsce_ssi^t a_ te* ju_ssa^ qve_m ge^ni^to_r fu^gi*s",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "215": {
+      "verse": "[REDACTED]",
+      "scansion": "me* fu^gi^o^ fu^gi^o* co_nsci^u_m sce^le^r(u)m o_mni^u*m",
+      "pattern": " * ^ ^ ^ ^ ^ * _ ^ _ ^ ^ _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "216": {
+      "verse": "[REDACTED]",
+      "scansion": " pe*ctu_s ma^nu_mqv(e) ha*nc fu^gi^(o) e^t ho_c c[ae]l(u)m e_t de^o*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "217": {
+      "verse": "[REDACTED]",
+      "scansion": " e*t di_ra^ fu^gi^o* sce^le^ra^ qv[ae] fe*c(i) i_nno^ce*ns",
+      "pattern": " * _ ^ ^ ^ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "218": {
+      "verse": "[REDACTED]",
+      "scansion": "e*g(o) ho_c so^lu_m fru*gi^fe^ra^ qvo_ su*rgi_t ce^re*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "219": {
+      "verse": "[REDACTED]",
+      "scansion": " pre*m(o) ha_s e^g(o) [au]ra*s o_re^ pe_sti^fe^ro_ tra^ho*",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "220": {
+      "verse": "[REDACTED]",
+      "scansion": " e^go^ la^ti^ci^s h[au]stu* sa^ti^o^r [au]t u*llo_ fru^o*r",
+      "pattern": " ^ ^ ^ ^ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "221": {
+      "verse": "[REDACTED]",
+      "scansion": " a*lm[ae] pa^re_nti*s mu_ne^r(e) e^go^ ca*sta_m ma^nu*m",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "222": {
+      "verse": "[REDACTED]",
+      "scansion": "ne*fa_ndu^s i_nce*sti^fi^cu^s e_xse*cra_bi^li*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "223": {
+      "verse": "[REDACTED]",
+      "scansion": "a*ttre_ct(o) e^g(o) u_llo*s [au]re^ co_nci^pi^o_ so^no*s",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "224": {
+      "verse": "[REDACTED]",
+      "scansion": " pe*r qvo_s pa^re_nti*s no_me^n [au]t na*t(i) [au]di^a*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "225": {
+      "verse": "[REDACTED]",
+      "scansion": " u^ti^na_m qvi^de_m re*sci_nde^r(e) ha_s qvi*re_m vi^a*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "226": {
+      "verse": "[REDACTED]",
+      "scansion": " ma^ni^bu_sqv(e) a^da_cti*s o_mne^ qva_ vo*ce_s me^a*nt",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "227": {
+      "verse": "[REDACTED]",
+      "scansion": " a^di^tu_sqve^ ve_rbi*s tra_mi^t(e) a_ngu*sto_ pa^te*t",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "228": {
+      "verse": "[REDACTED]",
+      "scansion": " e*ru^e^re^ po_sse*m na_ta^ ja_m se*nsu_m tu^i*",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "229": {
+      "verse": "[REDACTED]",
+      "scansion": " qv[ae] pa_rs me^o_r(u)m e*s cri_mi^n(u)m i_nfe*li_x pa^te*r",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "230": {
+      "verse": "[REDACTED]",
+      "scansion": " fu*gi_ss(e)m i^nh[ae]re*t a_c re^cru_de*sci_t ne^fa*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "231": {
+      "verse": "[REDACTED]",
+      "scansion": " su*bi_nd(e) e^t [au]re*s i_nge^ru_nt qvi*dqvi_d mi^hi*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "232": {
+      "verse": "[REDACTED]",
+      "scansion": " do*na_sti^s o^cu^li* cu_r ca^pu_t te^ne^bri_s gra^ve*",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "233": {
+      "verse": "[REDACTED]",
+      "scansion": " no*n mi_tt(o) a^d u_mbra*s di_ti^s [ae]te*rna_s qvi^d hi*c",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "234": {
+      "verse": "[REDACTED]",
+      "scansion": "ma*ne_s me^o_s de*ti^ne^o^ qui_d te*rra_m gra^uo*",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "235": {
+      "verse": "[REDACTED]",
+      "scansion": "mi*xtu_sque^ su^pe^ri*s e_rro^ qui_d re*sta_t ma^li*",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "236": {
+      "verse": "[REDACTED]",
+      "scansion": "re*gnu_m pa^re_nte*s li_be^ri_ ui*rtu_s quo^que*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "237": {
+      "verse": "[REDACTED]",
+      "scansion": " e*t i_nge^ni_ so*lle_rti^s e_xi^mi^u_m de^cu*s",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "238": {
+      "verse": "[REDACTED]",
+      "scansion": " pe^ri^e_re^ cu_ncta* so_rs mi^h(i) i_nfe*st(a) a_bstu^li*t",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "239": {
+      "verse": "[REDACTED]",
+      "scansion": " la^cri^m[ae] su^pe^re^ra*nt ha_s qvo^qv(e) e_ri^pu^i_ mi^hi*",
+      "pattern": " ^ ^ _ ^ ^ ^ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "240": {
+      "verse": "[REDACTED]",
+      "scansion": " a*bsi_ste^ nu_lla*s a^ni^mu^s a_dmi*tti_t pre^ce*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "241": {
+      "verse": "[REDACTED]",
+      "scansion": " no*va_mqve^ p[oe]na*m sce^le^ri^bu_s qv[ae]ri_t pa^re*m",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "242": {
+      "verse": "[REDACTED]",
+      "scansion": " e*t e_sse^ pa_r qv[ae] po^te^ri^t i_nfa*nti_ qvo^qve*",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "243": {
+      "verse": "[REDACTED]",
+      "scansion": " de*cre_ta^ mo_rs e*st fa_ta^ qvi_s ta*m tri_sti^a*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "244": {
+      "verse": "[REDACTED]",
+      "scansion": " so*rti_tu^s u_mqva*m vi_de^ra_m no*ndu_m di^e*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "245": {
+      "verse": "[REDACTED]",
+      "scansion": " u^te^ri_qve^ no_ndu*m so_lve^ra_m cl[au]si_ mo^ra*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "246": {
+      "verse": "[REDACTED]",
+      "scansion": " e*t ja_m ti^me_ba*r pro_ti^nu_s qvo*sd(a)m e_di^to*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "247": {
+      "verse": "[REDACTED]",
+      "scansion": " no*x o_ccu^pa_vi*t e_t no^v[ae] lu*c(i) a_bstu^li*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "248": {
+      "verse": "[REDACTED]",
+      "scansion": " mo*rs m(e) a_nte^ce_ssi*t a^li^qvi^s i_ntra* vi_sce^ra*",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Resolved Automatically"
+      ],
+      "meter": "trimeter"
+    },
+    "249": {
+      "verse": "[REDACTED]",
+      "scansion": " ma*te_rna^ le_tu*m pr[ae]co^qvi_s fa*ti_ tu^li*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "250": {
+      "verse": "[REDACTED]",
+      "scansion": " se*d nu_mqvi^d e_t pe*cca_vi^t a_bstru*s(u)m a_bdi^tu*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "251": {
+      "verse": "[REDACTED]",
+      "scansion": " du^bi^u_mqv(e) a^n e_sse*m sce^le^ri^s i_nfa*ndi_ re^u*m",
+      "pattern": " ^ ^ _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "252": {
+      "verse": "[REDACTED]",
+      "scansion": " de^u^s e_gi^t i_llo* te_ste^ da_mna*vi_t pa^re*ns",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "253": {
+      "verse": "[REDACTED]",
+      "scansion": "ca^li^do_que^ te^ne^ro*s tra_nsu^i_t fe*rro_ pe^de*s",
+      "pattern": " ^ ^ _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "254": {
+      "verse": "[REDACTED]",
+      "scansion": " e^t i^n a_lta^ ne^mo^ra* pa_bu^lu_m mi*si_t fe^ri*s",
+      "pattern": " ^ ^ _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "255": {
+      "verse": "[REDACTED]",
+      "scansion": " a^vi^bu_sqve^ s[ae]vi*s qva_s ci^th[ae]ro*n no_xi^u*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "256": {
+      "verse": "[REDACTED]",
+      "scansion": "cru*o_re^ s[ae]pe* re_gi^o_ ti*ncta_s a^li*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "257": {
+      "verse": "[REDACTED]",
+      "scansion": " se*d qve_m de^u_s da*mna_vi^t a_bje*ci_t pa^te*r",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "258": {
+      "verse": "[REDACTED]",
+      "scansion": "mo*rs qvo^qve^ re^fu_gi*t pr[ae]sti^ti_ de*lphi_s fi^de*m",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "semi-automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "259": {
+      "verse": "[REDACTED]",
+      "scansion": " ge^ni^to_r(e)m a^do_rtu*s i_mpi^a_ stra*vi_ ne^ce*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "260": {
+      "verse": "[REDACTED]",
+      "scansion": " ho*c a^li^a^ pi^e^ta*s re^di^me^t o_cci*di_ pa^tre*m",
+      "pattern": " * ^ ^ ^ ^ ^ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Resolved Automatically"
+      ],
+      "meter": "trimeter"
+    },
+    "261": {
+      "verse": "[REDACTED]",
+      "scansion": " se*d ma_tr(e)m a^ma_vi* pro_lo^qv(i) hy^me^n[ae]u_m pu^de*t",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "262": {
+      "verse": "[REDACTED]",
+      "scansion": " t[ae]da_sqve^ no_stra*s ha_s qvo^qv(e) i_nvi*tu_m pa^ti*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "263": {
+      "verse": "[REDACTED]",
+      "scansion": " te* co_ge^ p[oe]na*s fa^ci^nu^s i_gno*t(u)m e_ffe^ru*m",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "264": {
+      "verse": "[REDACTED]",
+      "scansion": " i*nu_si^ta_tu*m fa_re^ qvo_d po^pu^l(i) ho_rre^a*nt",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "265": {
+      "verse": "[REDACTED]",
+      "scansion": " qvo*d e_sse^ fa_ctu*m nu_lla^ no_n [ae]ta_s ne^ge*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "266": {
+      "verse": "[REDACTED]",
+      "scansion": " qvo*d pa_rri^ci_da*m pu^de^a^t i_n pa^tri^o_s to^ro*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "267": {
+      "verse": "[REDACTED]",
+      "scansion": " tu*li_ pa^te_rno* sa_ngvi^n(e) a_spe*rsa_s ma^nu*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "268": {
+      "verse": "[REDACTED]",
+      "scansion": " sce^le^ri_sqve^ pre^ti^u*m ma_ju^s a_cce*pi_ sce^lu*s",
+      "pattern": " ^ ^ _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "269": {
+      "verse": "[REDACTED]",
+      "scansion": " le*v(e) e_st pa^te_rnu*m fa^ci^nu^s i_n tha^la^mo_s me^o*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "270": {
+      "verse": "[REDACTED]",
+      "scansion": " de*du_cta^ ma_te*r ne_ pa^ru_m sce^le^ri_s fo^re*t",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "271": {
+      "verse": "[REDACTED]",
+      "scansion": " fe*cu_nda^ nu_llu*m cri_me^n ho_c ma*ju_s po^te*st",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "272": {
+      "verse": "[REDACTED]",
+      "scansion": " na*tu_ra^ fe_rre* si_ qvo^d e^ti^a*mn(u)m e_st ta^me*n",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "273": {
+      "verse": "[REDACTED]",
+      "scansion": " qvi* fa^ce^re^ po_sse*nt de^di^mu^s a_bje*ci_ ne^ci*s",
+      "pattern": " * ^ ^ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Resolved Automatically"
+      ],
+      "meter": "trimeter"
+    },
+    "274": {
+      "verse": "[REDACTED]",
+      "scansion": " pre^ti^u_m pa^te_rn[ae] sce_ptr(u)m e^t ho_c i^te^ru_m ma^nu*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Resolved Automatically"
+      ],
+      "meter": "trimeter"
+    },
+    "275": {
+      "verse": "[REDACTED]",
+      "scansion": "a*rma_ui^t a^li^a*s o_pti^me_ re*gni_ me^i*",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "276": {
+      "verse": "[REDACTED]",
+      "scansion": " fa*t(u)m i_pse^ no_vi* ne_mo^ si^ne^ sa*cro_ fe^re*t",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Resolved Automatically",
+        "Mqdq only scansion: ne_mo^"
+      ],
+      "meter": "trimeter"
+    },
+    "277": {
+      "verse": "[REDACTED]",
+      "scansion": " i*llu_d cru^o_re* ma_gna^ pr[ae]sa*gi_t ma^la*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "278": {
+      "verse": "[REDACTED]",
+      "scansion": " pa*te_rnu^s a^ni^mu*s ja_cta^ ja_m su*nt se_mi^na*",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "279": {
+      "verse": "[REDACTED]",
+      "scansion": " cla*di_s fu^tu_r[ae] spe_rni^tu_r pa*cti_ fi^de*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "280": {
+      "verse": "[REDACTED]",
+      "scansion": " hi*c o_ccu^pa_to* ce_de^r(e) i_mpe^ri^o_ ne^ga*t",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "281": {
+      "verse": "[REDACTED]",
+      "scansion": " ju*s i_ll(e) e^t i_cti* f[oe]de^ri_s te*ste_s de^o*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "282": {
+      "verse": "[REDACTED]",
+      "scansion": " i*nvo^ca^t e^t a_rgo*s e_xu^l a_tqv(e) u*rbe_s mo^ve*t",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "283": {
+      "verse": "[REDACTED]",
+      "scansion": " gra*ja_s i^n a_rma* no_n le^vi_s fe*ssi_s ve^ni*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: gra*ja_s"
+      ],
+      "meter": "trimeter"
+    },
+    "284": {
+      "verse": "[REDACTED]",
+      "scansion": " ru*i_na^ the_bi*s te_la^ fla_mm[ae] vu_lne^ra*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "285": {
+      "verse": "[REDACTED]",
+      "scansion": " i*nsta_nt e^t i_sti*s si_ qvo^d e_st ma*ju_s ma^lu*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "286": {
+      "verse": "[REDACTED]",
+      "scansion": " u*t e_sse^ ge^ni^to*s ne_mo^ no_n e*x me_ sci^a*t",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: ne_mo^"
+      ],
+      "meter": "trimeter"
+    },
+    "287": {
+      "verse": "[REDACTED]",
+      "scansion": " si* nu_lla^ ge^ni^to*r c[au]sa^ vi_ve*ndi_ ti^b(i) e*st",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "288": {
+      "verse": "[REDACTED]",
+      "scansion": " h[ae]c u_n(a) a^bu_nd(e) e*st u_t pa^te_r na*to_s re^ga*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "289": {
+      "verse": "[REDACTED]",
+      "scansion": " gra^vi^te_r fu^re_nte*s t(u) i_mpi^i_ be*lli_ mi^na*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "290": {
+      "verse": "[REDACTED]",
+      "scansion": " a*ve_rte^r(e) u_nu*s tu_qve^ ve_co*rde_s po^te*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "A previuosly unencountered word: ve_co*rde_s"
+      ],
+      "meter": "trimeter"
+    },
+    "291": {
+      "verse": "[REDACTED]",
+      "scansion": " i^nhi^be_re^ ju^ve^ne*s ci_vi^bu_s pa*ce_m da^re*",
+      "pattern": " ^ ^ _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "292": {
+      "verse": "[REDACTED]",
+      "scansion": " pa^tri^[ae] qvi^e_te*m f[oe]de^ri_ l[ae]so_ fi^de*m",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "293": {
+      "verse": "[REDACTED]",
+      "scansion": " vi*ta_m ti^b(i) i_pse* si_ ne^ga_s mu*lti_s ne^ga*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "294": {
+      "verse": "[REDACTED]",
+      "scansion": " i*lli_s pa^re_nti*s u_llu^s [au]t [ae]qv(i) e_st a^mo*r",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Resolved Automatically"
+      ],
+      "meter": "trimeter"
+    },
+    "295": {
+      "verse": "[REDACTED]",
+      "scansion": " a^vi^di_s cru^o_ri*s i_mpe^r(i) a_rmo*ru_m do^li*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "296": {
+      "verse": "[REDACTED]",
+      "scansion": " di*ri_s sce^le_sti*s bre^vi^te^r u_t di*ca_m me^i*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "297": {
+      "verse": "[REDACTED]",
+      "scansion": " ce*rta_nt i^n o_mne* fa^ci^nu^s e_t pe*nsi_ ni^hi*l",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "298": {
+      "verse": "[REDACTED]",
+      "scansion": " du*cu_nt u^b(i) i_llo*s i_ra^ pr[ae]ci^pi^te_s a^gi*t",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "299": {
+      "verse": "[REDACTED]",
+      "scansion": " ne*fa_sqve^ nu_llu*m pe_r ne^fa_s na*ti_ pu^ta*nt",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "300": {
+      "verse": "[REDACTED]",
+      "scansion": " no*n pa_tri^s i_llo*s ta_ngi^t a_ffli*cti_ pu^do*r",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: pa_tri^s"
+      ],
+      "meter": "trimeter"
+    },
+    "301": {
+      "verse": "[REDACTED]",
+      "scansion": " no*n pa^tri^a^ re_gno* pe_ctu^s a_tto^ni^tu_m fu^ri*t",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "302": {
+      "verse": "[REDACTED]",
+      "scansion": "sci^o^ qvo_ fe^ra_ntu*r qva_nta^ mo_li*ri_ pa^re*nt",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "semi-automatic",
+      "flags": [
+        "Mqdq only scansion: sci^o^"
+      ],
+      "meter": "trimeter"
+    },
+    "303": {
+      "verse": "[REDACTED]",
+      "scansion": " i^de^o_qve^ le_ti* qv[ae]ro^ ma_tu*ri_ vi^a*m",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: qv[ae]ro^"
+      ],
+      "meter": "trimeter"
+    },
+    "304": {
+      "verse": "[REDACTED]",
+      "scansion": " mo*ri_qve^ pro^pe^ro* d(u)m i_n do^mo_ ne*m(o) e_st me^a*",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "305": {
+      "verse": "[REDACTED]",
+      "scansion": " no*ce_nti^o_r me* na_ta^ qvi_d ge^ni^bu_s me^i*s",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "306": {
+      "verse": "[REDACTED]",
+      "scansion": " fle*s a_dvo^lu_ta* qvi_d pre^c(e) i_ndo^mi^tu_m do^ma*s",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "307": {
+      "verse": "[REDACTED]",
+      "scansion": " u*n(u)m ho_c ha^be_t fo*rtu_na^ qvo_ po*ssi_m ca^pi*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "308": {
+      "verse": "[REDACTED]",
+      "scansion": " i*nvi_ctu^s a^li^i*s so_la^ t(u) a_ffe*ctu_s po^te*s",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "309": {
+      "verse": "[REDACTED]",
+      "scansion": "mo*lli_re^ du_ro*s so_la^ pi^e^ta*t(e)m i_n do^mo*",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "310": {
+      "verse": "[REDACTED]",
+      "scansion": " do*ce_re^ no_stra* ni_l gra^v(e) [au]t mi^se^r(u)m e_st mi^hi*",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "311": {
+      "verse": "[REDACTED]",
+      "scansion": "qvo*d te_ sci^a_m vo^lu^i_sse^ tu_ ta*nt(u)m i_mpe^ra*",
+      "pattern": " * _ ^ _ ^ ^ _ ^ _ * _ ^ *",
+      "method": "semi-automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "312": {
+      "verse": "[REDACTED]",
+      "scansion": " hi*c [oe]di^pu_s [ae]g[ae]a^ tra_nsna*bi_t fre^ta*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: [oe]di^pu_s"
+      ],
+      "meter": "trimeter"
+    },
+    "313": {
+      "verse": "[REDACTED]",
+      "scansion": " ju*be_nte^ te_ fla*mma_sqve^ qva_s si^cu^lo_ vo^mi*t",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "314": {
+      "verse": "[REDACTED]",
+      "scansion": " de* mo_nte^ te_llu*s i_gne^o_s vo*lve_ns glo^bo*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "315": {
+      "verse": "[REDACTED]",
+      "scansion": "e*xci^pi^e^t o_re* se_que^ se_rpe*nt(i) o_ffe^re*t",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "316": {
+      "verse": "[REDACTED]",
+      "scansion": " qv[ae] s[ae]va^ fu_rto* ne^mo^ri^s he_rcu^le^o_ fu^ri*t",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "317": {
+      "verse": "[REDACTED]",
+      "scansion": " ju*be_nte^ te_ pr[ae]be_bi^t a_li^ti^bu_s je^cu*r",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "318": {
+      "verse": "[REDACTED]",
+      "scansion": " e*xe_mpl(u)m i^n i_nge*ns re_gi^a_ sti*rp(e) e_di^tu*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "319": {
+      "verse": "[REDACTED]",
+      "scansion": " the*b[ae] pa^ve_nte*s a_rma^ fra_te*rn(a) i_nvo^ca*nt",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "320": {
+      "verse": "[REDACTED]",
+      "scansion": " ro*ga_ntqve^ te_cti*s a_rce^a_s pa^tri^i_s fa^ce*s",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "321": {
+      "verse": "[REDACTED]",
+      "scansion": " no*n su_nt mi^n[ae] ja*m pro^pi^u^s a_cce*ssi_t ma^lu*m",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "322": {
+      "verse": "[REDACTED]",
+      "scansion": " na*m re_gna^ re^pe^te*ns fra_te^r e_t pa*cta_s vi^ce*s",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "323": {
+      "verse": "[REDACTED]",
+      "scansion": " i*n be_lla^ cu_ncto*s gr[ae]ci^[ae] po^pu^lo_s a^gi*t",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "324": {
+      "verse": "[REDACTED]",
+      "scansion": " se*pte_na^ mu_ro*s ca_stra^ the_ba*no_s pre^mu*nt",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "325": {
+      "verse": "[REDACTED]",
+      "scansion": " su*ccu_rre^ pro^hi^be* pa^ri^te^r e_t be*ll(u)m e_t sce^lu*s",
+      "pattern": " * _ ^ ^ ^ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "326": {
+      "verse": "[REDACTED]",
+      "scansion": " e*g(o) i_lle^ su_m qvi* sce^le^ra^ co_mmi*tti_ ve^te*m",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "327": {
+      "verse": "[REDACTED]",
+      "scansion": " e*t a_bsti^ne_ri* sa_ngvi^n(e) a_ ca*ro_ ma^nu*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "328": {
+      "verse": "[REDACTED]",
+      "scansion": " do^ce^a_m ma^gi_ste*r ju_ri^s e^t a^mo*ri_s pi^i*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "329": {
+      "verse": "[REDACTED]",
+      "scansion": " e^go^ su_m me^o_ru*m fa^ci^no^r(u)m e_xe*mpl(a) a_ppe^tu*nt",
+      "pattern": " ^ ^ _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "330": {
+      "verse": "[REDACTED]",
+      "scansion": " me* nu_nc se^cu_ntu*r la_vd(o) e^t a_gno*sco_ li^be*ns",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "331": {
+      "verse": "[REDACTED]",
+      "scansion": " e*xho_rto^r a^li^qvi*d u_t pa^tr(e) ho_c di*gnu_m ge^ra*nt",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Resolved Automatically"
+      ],
+      "meter": "trimeter"
+    },
+    "332": {
+      "verse": "[REDACTED]",
+      "scansion": " a^gi^t(e) o_ pro^pa_go* cla_ra^ ge^ne^ro*s(a)m i_ndo^le*m",
+      "pattern": " ^ ^ _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "333": {
+      "verse": "[REDACTED]",
+      "scansion": " pro*ba_te^ fa_cti*s glo_ri^(a)m a_c l[au]de_s me^a*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "334": {
+      "verse": "[REDACTED]",
+      "scansion": " su^pe^ra_t(e) e^t a^li^qvi*d fa^ci^te^ pro_pte*r qvo_d pa^tre*m",
+      "pattern": " ^ ^ _ ^ ^ ^ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "335": {
+      "verse": "[REDACTED]",
+      "scansion": " a*dhu_c ju^ve_t vi*xi_sse^ fa^ci^e*ti_s sci^o*",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "336": {
+      "verse": "[REDACTED]",
+      "scansion": " si*c e_sti^s o_rti* sce^le^re^ de_fu*ng(i) h[au]t le^vi*",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "337": {
+      "verse": "[REDACTED]",
+      "scansion": " h[au]t u_si^ta_to* ta_nta^ no_bi^li^ta_s po^te*st",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "338": {
+      "verse": "[REDACTED]",
+      "scansion": " fe*rt(e) a_rma^ fa^ci^bu*s pe^ti^te^ pe^ne^tra*le_s de^o*s",
+      "pattern": " * _ ^ ^ ^ * ^ ^ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "339": {
+      "verse": "[REDACTED]",
+      "scansion": " fru*ge_mqve^ fla_mma* me^ti^te^ na_ta*li_s so^li*",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Resolved Automatically"
+      ],
+      "meter": "trimeter"
+    },
+    "340": {
+      "verse": "[REDACTED]",
+      "scansion": " mi*sce_te^ cu_ncta* ra^pi^t(e) i^n e_xi^ti^(u)m o_mni^a*",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Resolved Automatically"
+      ],
+      "meter": "trimeter"
+    },
+    "341": {
+      "verse": "[REDACTED]",
+      "scansion": "di*si^ci^te^ pa_ssi*m m[oe]ni^(a) i_n pla*nu_m da^te*",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "semi-automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "342": {
+      "verse": "[REDACTED]",
+      "scansion": "te*mpli_s de^o_s o*bru^i^te^ ma^cu^la*to_s la^re*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ ^ ^ * _ ^ *",
+      "method": "semi-automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "343": {
+      "verse": "[REDACTED]",
+      "scansion": " co*nfla_t(e) a^b i_mo* to_ta^ co_nsi*da_t do^mu*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "344": {
+      "verse": "[REDACTED]",
+      "scansion": " u*rbs co_ncre^me_tu*r pri_mu^s a_ tha^la^mi_s me^i*s",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "345": {
+      "verse": "[REDACTED]",
+      "scansion": " i*nci^pi^a^t i_gni*s mi_tte^ vi^o^le*nt(u)m i_mpe^tu*m",
+      "pattern": " * ^ ^ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "346": {
+      "verse": "[REDACTED]",
+      "scansion": " do*lo_ri^s a_c te* pu_bli^c(a) e_xo*re_nt ma^la*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "347": {
+      "verse": "[REDACTED]",
+      "scansion": " [au]cto_rqve^ pla^ci^d[ae] li_be^ri_s pa*ci_s ve^ni*",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "348": {
+      "verse": "[REDACTED]",
+      "scansion": " vi*de_s mo^de_st[ae] de_di^tu_m me*nti_ se^ne*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "349": {
+      "verse": "[REDACTED]",
+      "scansion": " pla^ci^d[ae]qv(e) a^ma_nte*m pa_ci^s a_d pa*rte_s vo^ca*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "350": {
+      "verse": "[REDACTED]",
+      "scansion": " tu^me^t a^ni^mu^s i_ra* fe_rve^t i_mme*nsu_m do^lo*r",
+      "pattern": " ^ ^ ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "351": {
+      "verse": "[REDACTED]",
+      "scansion": " ma*ju_sqve^ qva_m qvo*d ca_su^s e_t ju^ve^nu_m fu^ro*r",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "352": {
+      "verse": "[REDACTED]",
+      "scansion": "co*na_tu^r a^li^qui*d cu^pi^o^ no_n sa^ti^s e_st a^dhu*c",
+      "pattern": " * _ ^ ^ ^ * ^ ^ ^ _ ^ ^ _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "353": {
+      "verse": "[REDACTED]",
+      "scansion": " ci*vi_le^ be_llu*m fra_te^r i_n fra*tre_m ru^a*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "354": {
+      "verse": "[REDACTED]",
+      "scansion": " ne*c ho_c sa^t e_st qvo*d de_be^t u_t fi*a_t ne^fa*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "355": {
+      "verse": "[REDACTED]",
+      "scansion": " de* mo_re^ no_stro* qvo_d me^o_s de^ce^a_t to^ro*s",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "356": {
+      "verse": "[REDACTED]",
+      "scansion": " da*t(e) a_rma^ ma_tri* ne_mo^ m(e) e_x hi*s e_ru^a*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: ne_mo^"
+      ],
+      "meter": "trimeter"
+    },
+    "357": {
+      "verse": "[REDACTED]",
+      "scansion": " si*lvi_s la^te_bo* ru_pi^s e_xe*s[ae] ca^vo*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "358": {
+      "verse": "[REDACTED]",
+      "scansion": " [au]t s[ae]pe^ de_nsa* co_rpu^s a_bstru*su_m te^ga*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "359": {
+      "verse": "[REDACTED]",
+      "scansion": " hi*nc [au]cu^pa_bo*r ve_rba^ ru_mo*ri_s va^gi*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "360": {
+      "verse": "[REDACTED]",
+      "scansion": " e*t s[ae]va^ fra_tru*m be_lla^ qvo_d po*ss(u)m [au]di^a*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "361": {
+      "verse": "[REDACTED]",
+      "scansion": " fe*li_x a^ga_ve* fa^ci^nu^s ho_rre*ndu_m ma^nu*",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "362": {
+      "verse": "[REDACTED]",
+      "scansion": " qva* fe_ce^ra_t ge*sta_vi^t e_t spo^li^u_m tu^li*t",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "363": {
+      "verse": "[REDACTED]",
+      "scansion": " cru*e_nta^ na_ti* m[ae]na^s i_n pa*rte_s da^ti*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "364": {
+      "verse": "[REDACTED]",
+      "scansion": " fe*ci_t sce^lu_s se*d mi^se^ra^ no_n u*ltra_ su^o*",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "365": {
+      "verse": "[REDACTED]",
+      "scansion": " sce^le^r(i) o_ccu^cu_rri*t ho_c le^v(e) e_st qvo*d su_m no^ce*ns",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "366": {
+      "verse": "[REDACTED]",
+      "scansion": " fe*ci_ no^ce_nte*s ho_c qvo^qv(e) e^ti^a*mnu_nc le^v(e) e*st",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "367": {
+      "verse": "[REDACTED]",
+      "scansion": " pe^pe^ri_ no^ce_nte*s de_ra^t [ae]ru*mni_s me^i*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "368": {
+      "verse": "[REDACTED]",
+      "scansion": " u^t e^t ho_st(e)m a^ma_re*m bru_ma^ te_r po^su^i_t ni^ve*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "369": {
+      "verse": "[REDACTED]",
+      "scansion": "e*t te_rti^a_ ja*m fa_lce^ de_cu^bu^i_t ce^re*s",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "370": {
+      "verse": "[REDACTED]",
+      "scansion": "u*t e_xu^l e_rra*t na_tu^s e_t pa^tri^a_ ca^re*t",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "semi-automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "371": {
+      "verse": "[REDACTED]",
+      "scansion": "pro^fu^gu_sque^ re_g(u)m [au]xi^li^a^ gra_io*ru_m ro^ga*t",
+      "pattern": " ^ ^ _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "372": {
+      "verse": "[REDACTED]",
+      "scansion": " ge^ne^r e_st a^dra_sti* cu_ju^s i_mpe^ri^o_ ma^re*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "373": {
+      "verse": "[REDACTED]",
+      "scansion": " qvo*d sci_ndi^t i_sthmo*s re^gi^tu^r hi_c ge*nte_s su^a*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "374": {
+      "verse": "[REDACTED]",
+      "scansion": " se*pte_mqve^ se_cu*m re_gn(a) a^d [au]xi^li^u_m tra^hi*t",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "375": {
+      "verse": "[REDACTED]",
+      "scansion": " ge^ne^ri_ qvi^d o_pte*m qvi_due^ de_ce*rn(a)m h[au]t sci^o*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "376": {
+      "verse": "[REDACTED]",
+      "scansion": " re*gnu_m re^po_sci*t c[au]sa^ re^pe^te*nti_s bo^n(a) e*st",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "377": {
+      "verse": "[REDACTED]",
+      "scansion": " ma^la^ si_c pe^te_nti*s vo_ta^ qv[ae] fa^ci^a_m pa^re*ns",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "378": {
+      "verse": "[REDACTED]",
+      "scansion": "v*tri_mque^ na_tu*m ui^de^o^ ni_l po*ssu_m pi^e*",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "379": {
+      "verse": "[REDACTED]",
+      "scansion": " pi^e^ta_te^ sa_lva* fa^ce^re^ qvo_dcu*mqv(e) a_lte^ri*",
+      "pattern": " ^ ^ _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Resolved Automatically"
+      ],
+      "meter": "trimeter"
+    },
+    "380": {
+      "verse": "[REDACTED]",
+      "scansion": "o*pta_bo^ na_to* fi_e^t a_lte^ri^u_s ma^lo*",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "381": {
+      "verse": "[REDACTED]",
+      "scansion": " se^d u^tru_mqve^ qva_mvi*s di_li^g(a)m a_ffe*ctu_ pa^ri*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "382": {
+      "verse": "[REDACTED]",
+      "scansion": " qvo* c[au]sa^ me^li^o*r so_rsqve^ de_te^ri^o_r tra^hi*t",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "383": {
+      "verse": "[REDACTED]",
+      "scansion": " i*ncli_na^t a^ni^mu*s se_mpe^r i_nfi*rmo_ fa^ve*ns",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "384": {
+      "verse": "[REDACTED]",
+      "scansion": " mi^se^ro_s ma^gi_s fo*rtu_na^ co_nci^li^a_t su^i*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "385": {
+      "verse": "[REDACTED]",
+      "scansion": " re*gi_na^ du_m tu* fle_bi^le_s qve*stu_s ci^e*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "386": {
+      "verse": "[REDACTED]",
+      "scansion": " te*ri_sqve^ te_mpu*s s[ae]va^ nu_da*ti_s ste^ti*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "387": {
+      "verse": "[REDACTED]",
+      "scansion": " a^ci^e_s i^n a_rmi*s [ae]ra^ ja_m be*llu_m ci^e*nt",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "388": {
+      "verse": "[REDACTED]",
+      "scansion": "a^qvi^la_qve^ pu_gna*m si_gni^fe_r mo*ta_ vo^ca*t",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "semi-automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "389": {
+      "verse": "[REDACTED]",
+      "scansion": "se*pte_na^ re_ge*s be_lla^ di_spo^si^ti_ pa^ra*nt",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "390": {
+      "verse": "[REDACTED]",
+      "scansion": " a^ni^mo_ pa^ri_ ca*dme_a^ pro_ge^ni^e_s su^bi*t",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "391": {
+      "verse": "[REDACTED]",
+      "scansion": " cu*rsu_ ci^ta_to* mi_le^s hi_nc a*tqv(e) hi_nc ru^i*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "392": {
+      "verse": "[REDACTED]",
+      "scansion": " vi^d(e) u^t a_tra^ nu_be*s pu_lve^r(e) a_bsco*nda_t di^e*m",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "393": {
+      "verse": "[REDACTED]",
+      "scansion": " fu*mo_qve^ si^mi^le*s ca_mpu^s i_n c[ae]l(u)m e_ri^ga*t",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "394": {
+      "verse": "[REDACTED]",
+      "scansion": " ne^bu^la_s e^qve_stri* fra_cta^ qva_s te*llu_s pe^de*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "395": {
+      "verse": "[REDACTED]",
+      "scansion": " su*mmi_tti^t e_t si* ve_ra^ me^tu^e*nte_s vi^de*nt",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "396": {
+      "verse": "[REDACTED]",
+      "scansion": " i*nfe_sta^ fu_lge*nt si_gna^ su_bre*cti_s a^de*st",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "397": {
+      "verse": "[REDACTED]",
+      "scansion": " fro*ns pri_ma^ te_li*s [au]re^a_ cla*ru_m no^ta*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "398": {
+      "verse": "[REDACTED]",
+      "scansion": " no*me_n du^cu_m ve*xi_lla^ pr[ae]scri*ptu_m fe^ru*nt",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "399": {
+      "verse": "[REDACTED]",
+      "scansion": " i* re_dd(e) a^mo_re*m fra_tri^bu_s pa*c(e)m o_mni^bu*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "400": {
+      "verse": "[REDACTED]",
+      "scansion": " e*t i_mpi^(a) a_rma* ma_tri^s o_ppo^si^t(u) i_mpe^di*",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "401": {
+      "verse": "[REDACTED]",
+      "scansion": "pe*rg(e) o_ pa^re_ns e*t co_nci^ta_ ce^le^re_m gra^du*m",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "semi-automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "402": {
+      "verse": "[REDACTED]",
+      "scansion": " co*mpe_sce^ te_la* fra_tri^bu_s fe*rr(u)m e_xcu^te*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "403": {
+      "verse": "[REDACTED]",
+      "scansion": " nu*d(u)m i_nte^r e_nse*s pe_ctu^s i_nfe*sto_s te^ne*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "404": {
+      "verse": "[REDACTED]",
+      "scansion": " [au]t so_lve^ be_llu*m ma_te^r [au]t pri*m(a) e_xci^pe*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "405": {
+      "verse": "[REDACTED]",
+      "scansion": " i*b(o) i_b(o) e^t a_rmi*s o_bvi^(u)m o_ppo*na_m ca^pu*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "406": {
+      "verse": "[REDACTED]",
+      "scansion": " sta*b(o) i_nte^r a_rma* pe^te^re^ qvi_ fra*tre_m vo^le*t",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Resolved Automatically"
+      ],
+      "meter": "trimeter"
+    },
+    "407": {
+      "verse": "[REDACTED]",
+      "scansion": " pe^ta^t a_nte^ ma_tre*m te_la^ qvi_ fu^e^ri_t pi^u*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Resolved Automatically"
+      ],
+      "meter": "trimeter"
+    },
+    "408": {
+      "verse": "[REDACTED]",
+      "scansion": " ro*ga_nte^ po_na*t ma_tre^ qvi_ no*n e_st pi^u*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "409": {
+      "verse": "[REDACTED]",
+      "scansion": " i*nci^pi^a^t a_ me* fe_rvi^do_s ju^ve^ne_s a^nu*s",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "410": {
+      "verse": "[REDACTED]",
+      "scansion": "te*ne_bo^ nu_llu*m te_ste^ me_ fi*e_t ne^fa*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "411": {
+      "verse": "[REDACTED]",
+      "scansion": " [au]t s(i) a^li^qvo^d e_t me* te_ste^ co_mmi*tti_ po^te*st",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "412": {
+      "verse": "[REDACTED]",
+      "scansion": " no*n fi_e^t u_nu*m si_gna^ co_lla*ti_s mi^ca*nt",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "413": {
+      "verse": "[REDACTED]",
+      "scansion": " vi*ci_na^ si_gni*s cla_mo^r ho_sti*li_s fre^mi*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "414": {
+      "verse": "[REDACTED]",
+      "scansion": " sce^lu^s i_n pro^pi_nqv(o) e*st o_ccu^pa_ ma*te_r pre^ce*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "415": {
+      "verse": "[REDACTED]",
+      "scansion": " e*t e_cce^ mo_to*s fle_ti^bu_s cre*da_s me^i*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "416": {
+      "verse": "[REDACTED]",
+      "scansion": "si*c a_gme^n a_rmi*s se_gne^ co_mpo^si^ti_s ve^ni*t",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "417": {
+      "verse": "[REDACTED]",
+      "scansion": " pro*ce_di^t a^ci^e*s ta_rda^ se_d pro^pe^ra_nt du^ce*s",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "418": {
+      "verse": "[REDACTED]",
+      "scansion": " qvi*s me_ pro^ce_ll[ae] tu_rbi^n(e) i_nsa*n[ae] ve^he*ns",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "419": {
+      "verse": "[REDACTED]",
+      "scansion": " vo^lu^ce_r pe^r [au]ra*s ve_ntu^s [ae]the^ri^a_s a^ge*t",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: vo^lu^ce_r"
+      ],
+      "meter": "trimeter"
+    },
+    "420": {
+      "verse": "[REDACTED]",
+      "scansion": " qv[ae] sphi_nx ve^l a_tra* nu_be^ su_bte*xe_ns di^e*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: sphi_nx"
+      ],
+      "meter": "trimeter"
+    },
+    "421": {
+      "verse": "[REDACTED]",
+      "scansion": "sty*mpha_li^s a^ui^di*s pr[ae]pe^te_m pi*nni_s fe^re*t",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "422": {
+      "verse": "[REDACTED]",
+      "scansion": " [au]t qv[ae] pe^r a_lta*s a_e^ri_s ra^pi^e_t vi^a*s",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "423": {
+      "verse": "[REDACTED]",
+      "scansion": " ha*rpy_ja^ s[ae]vi* re_gi^s o_bse*rva_ns fa^me*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: ha*rpy_ja^"
+      ],
+      "meter": "trimeter"
+    },
+    "424": {
+      "verse": "[REDACTED]",
+      "scansion": " e*t i_nte^r a^ci^e*s pro_i^ci^e^t ra*pta_m du^a*s",
+      "pattern": " * _ ^ ^ ^ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "425": {
+      "verse": "[REDACTED]",
+      "scansion": " va*di_t fu^re_nti* si^mi^li^s [au]t e^ti^a_m fu^ri*t",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "426": {
+      "verse": "[REDACTED]",
+      "scansion": " sa*gi_tta^ qva_li*s pa_rthi^ca_ ve*lo_x ma^nu*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "427": {
+      "verse": "[REDACTED]",
+      "scansion": " e*xcu_ssa^ fe_rtu*r qva_li^s i_nsa*no_ ra^ti*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "428": {
+      "verse": "[REDACTED]",
+      "scansion": " pre*me_nte^ ve_nto* ra^pi^tu^r [au]t qva*li_s ca^di*t",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "429": {
+      "verse": "[REDACTED]",
+      "scansion": " de*la_psa^ c[ae]lo* ste_lla^ cu_m stri*nge_ns po^lu*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "430": {
+      "verse": "[REDACTED]",
+      "scansion": " re*cta_m ci^ta_ti*s i_gni^bu_s ru*mpi_t vi^a*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "431": {
+      "verse": "[REDACTED]",
+      "scansion": " a*tto^ni^ta^ cu_rsu* fu_gi^t e_t bi*na_s sta^ti*m",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "432": {
+      "verse": "[REDACTED]",
+      "scansion": " di*du_xi^t a^ci^e*s vi_cta^ ma_te*rna_ pre^ce*",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "433": {
+      "verse": "[REDACTED]",
+      "scansion": " h[ae]se_re^ be_lla* ja_mqv(e) i^n a_lte*rna_m ne^ce*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "434": {
+      "verse": "[REDACTED]",
+      "scansion": " i*lli_nc e^t hi_nc mi*sce_re^ cu^pi^e*nte_s ma^nu*s",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "435": {
+      "verse": "[REDACTED]",
+      "scansion": " li*bra_ta^ de_xtra* te_la^ su_spe*nsa_ te^ne*nt",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "436": {
+      "verse": "[REDACTED]",
+      "scansion": " pa*ci_ fa^ve_tu*r o_mni^u_m fe*rru_m la^te*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "437": {
+      "verse": "[REDACTED]",
+      "scansion": " ce*ssa_tqve^ te_ctu*m vi_bra^t i_n fra*tru_m ma^nu*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: vi_bra^t"
+      ],
+      "meter": "trimeter"
+    },
+    "438": {
+      "verse": "[REDACTED]",
+      "scansion": "la^ni^a_ta^ ca_na*s ma_te^r o_ste*ndi_t co^ma*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "439": {
+      "verse": "[REDACTED]",
+      "scansion": " ro^ga^t a_bnu^e_nti*s i_rri^ga_t fle*tu_ ge^na*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "440": {
+      "verse": "[REDACTED]",
+      "scansion": " ne*ga_re^ ma_tri* qvi_ di^u_ du^bi^ta_t po^te*st",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "441": {
+      "verse": "[REDACTED]",
+      "scansion": " i*n m(e) a_rm(a) e^t i_gne*s ve_rti^t(e) i_n m(e) o*mni_s ru^a*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "442": {
+      "verse": "[REDACTED]",
+      "scansion": " u*na_m ju^ve_ntu*s qv[ae]qv(e) a^b i_na^chi^o_ ve^ni*t",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "443": {
+      "verse": "[REDACTED]",
+      "scansion": " a^ni^mo_sa^ mu_ro* qv[ae]qve^ the_ba*na_ fe^ro*x",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "444": {
+      "verse": "[REDACTED]",
+      "scansion": " de*sce_ndi^t a_rce* ci_vi^s a_tqv(e) ho*sti_s si^mu*l",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "445": {
+      "verse": "[REDACTED]",
+      "scansion": " hu*nc pe^ti^te^ ve_ntre*m qvi_ de^di_t fra*tre_s vi^ro*",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "446": {
+      "verse": "[REDACTED]",
+      "scansion": " h[ae]c me_mbra^ pa_ssi*m spa_rgi^t(e) a_c di*ve_lli^te*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "447": {
+      "verse": "[REDACTED]",
+      "scansion": " e^g(o) u^tru_mqve^ pe^pe^ri* po_ni^ti_s fe*rr(u)m o_ci^u*s",
+      "pattern": " ^ ^ _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "448": {
+      "verse": "[REDACTED]",
+      "scansion": "a*n di_c(o) e^t e_x quo* de_xte^ra_s ma*tri_ da^te*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "449": {
+      "verse": "[REDACTED]",
+      "scansion": " da^te^ du_m pi^[ae] su*nt e_rro^r i_nvi*to_s a^dhu*c",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "450": {
+      "verse": "[REDACTED]",
+      "scansion": " fe*ci_t no^ce_nte*s o_mne^ fo_rtu*n[ae] fu^i*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "451": {
+      "verse": "[REDACTED]",
+      "scansion": " pe*cca_nti^s i_n no*s cri_me^n ho_c pri*mu_m ne^fa*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "452": {
+      "verse": "[REDACTED]",
+      "scansion": " i*nte_r sci^e_nte*s ge^ri^tu^r i_n ve*stra_ ma^n(u) e*st",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "453": {
+      "verse": "[REDACTED]",
+      "scansion": " u*tru_m ve^li_ti*s sa_ncta^ si_ pi^e^ta_s pla^ce*t",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "454": {
+      "verse": "[REDACTED]",
+      "scansion": " do*na_te^ ma_tri* be_lla^ si_ pla^cu^i_t sce^lu*s",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "455": {
+      "verse": "[REDACTED]",
+      "scansion": " ma*ju_s pa^ra_t(u)m e*st me^di^a^ s(e) o_ppo*ni_t pa^re*ns",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "456": {
+      "verse": "[REDACTED]",
+      "scansion": "pro*i_nde^ be_llu*m to_lli^t(e) au_t be*lli_ mo^ra*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "457": {
+      "verse": "[REDACTED]",
+      "scansion": "so*lli^ci^ta^ c[ui] nu*nc ma_te^r a_lte*rna_ pre^ce*",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "manual (corrected)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "458": {
+      "verse": "[REDACTED]",
+      "scansion": " ve*rb(a) a_dmo^ve_bo* mi^se^ra^ qv(e)m a_mple*cta_r pri^u*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "459": {
+      "verse": "[REDACTED]",
+      "scansion": " i^n u^tra_mqve^ pa_rte*m du_co^r a_ffe*ctu_ pa^ri*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "460": {
+      "verse": "[REDACTED]",
+      "scansion": " hi*c a_fu^i_t se*d pa_cta^ si_ fra*tru_m va^le*nt",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "461": {
+      "verse": "[REDACTED]",
+      "scansion": "nu*nc a_lte^r a^be^ri*t e_rgo^ ja_m nu*mqva_m du^o*s",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "semi-automatic",
+      "flags": [
+        "Mqdq only scansion: e_rgo^"
+      ],
+      "meter": "trimeter"
+    },
+    "462": {
+      "verse": "[REDACTED]",
+      "scansion": " ni^si^ si_c vi^de_bo* ju_nge^ co_mple*xu_s pri^o*r",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "463": {
+      "verse": "[REDACTED]",
+      "scansion": " qvi* to_t la^bo_re*s to_tqve^ pe_rpe*ssu_s ma^la*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "464": {
+      "verse": "[REDACTED]",
+      "scansion": " lo*ngo_ pa^re_nte*m fe_ssu^s e_xi^li^o_ vi^de*s",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "465": {
+      "verse": "[REDACTED]",
+      "scansion": " a*cce_de^ pro^pi^u*s clu_de^ va_gi*n(a) i_mpi^u*m",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: clu_de^"
+      ],
+      "meter": "trimeter"
+    },
+    "466": {
+      "verse": "[REDACTED]",
+      "scansion": " e*ns(e)m e_t tre^me_nte*m ja_mqve^ cu^pi^e*nt(e)m e_xcu^ti*",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "467": {
+      "verse": "[REDACTED]",
+      "scansion": " ha*sta_m so^lo_ de*fi_ge^ ma_te*rnu_m tu^o*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "468": {
+      "verse": "[REDACTED]",
+      "scansion": "co*i_re^ pe_ctu*s pe_cto^ri_ cli^pe^u_s ve^ta*t",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "semi-automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "469": {
+      "verse": "[REDACTED]",
+      "scansion": " hu*nc qvo^qve^ re^po_ne* vi_ncu^lo_ fro*nt(e)m e_xu^e*",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "470": {
+      "verse": "[REDACTED]",
+      "scansion": " te^gu^me_nqve^ ca^pi^ti*s tri_ste^ be_lli^ge^ri_ le^va*",
+      "pattern": " ^ ^ _ ^ ^ ^ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "471": {
+      "verse": "[REDACTED]",
+      "scansion": " e*t o_ra^ ma_tri* re_dde^ qvo_ vu*ltu_s re^fe*rs",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "472": {
+      "verse": "[REDACTED]",
+      "scansion": " a^ci^e_qve^ pa^vi^da* fra_tri^s o_bse*rva_s ma^nu*m",
+      "pattern": " ^ ^ _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "473": {
+      "verse": "[REDACTED]",
+      "scansion": " a*ffu_sa^ to_tu*m co_rpu^s a_mple*xu_ te^ga*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "474": {
+      "verse": "[REDACTED]",
+      "scansion": " tu*o_ cru^o_ri* pe_r me^u_m fi*e_t vi^a*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "475": {
+      "verse": "[REDACTED]",
+      "scansion": " qvi*d du^bi^u^s h[ae]re*s a_n ti^me_s ma*tri_s fi^de*m",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "476": {
+      "verse": "[REDACTED]",
+      "scansion": " ti^me^o_ ni^hi_l ja*m ju_ra^ na_tu*r[ae] va^le*nt",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "477": {
+      "verse": "[REDACTED]",
+      "scansion": " po*st i_sta^ fra_tr(u)m e*xe_mpla^ ne_ ma*tri_ qvi^de*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "478": {
+      "verse": "[REDACTED]",
+      "scansion": " fi*de_s ha^be_nd(a) e*st re_dde^ ja_m ca^pu^lo_ ma^nu*m",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "479": {
+      "verse": "[REDACTED]",
+      "scansion": " a*stri_nge^ ga^le^a*m l[ae]va^ se_ cli^pe^(o) i_nse^ra*t",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "A previuosly unencountered word: a*stri_nge^"
+      ],
+      "meter": "trimeter"
+    },
+    "480": {
+      "verse": "[REDACTED]",
+      "scansion": " du*m fra_te^r e_xa*rma_tu^r a_rma*tu_s ma^ne*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "481": {
+      "verse": "[REDACTED]",
+      "scansion": " tu* po_ne^ fe_rru*m c[au]sa^ qvi_ fe*rr(i) e_s pri^o*r",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "482": {
+      "verse": "[REDACTED]",
+      "scansion": " si* pa_ci^s o^di^(u)m e*st fu^re^re^ si_ be*llo_ pla^ce*t",
+      "pattern": " * _ ^ ^ ^ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "483": {
+      "verse": "[REDACTED]",
+      "scansion": " i*ndu_ti^a_s te* ma_te^r e_xi^gu^a_s ro^ga*t",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "484": {
+      "verse": "[REDACTED]",
+      "scansion": "fe^ra^t u_t re^ve_rso* po_st fu^ga_m na*t(o) o_scu^la*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "semi-automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "485": {
+      "verse": "[REDACTED]",
+      "scansion": " ve*l pri_ma^ ve_l su*pre_ma^ du_m pa*ce_m pe^to*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "486": {
+      "verse": "[REDACTED]",
+      "scansion": " [au]di_t(e) i^ne_rme*s i_lle^ te_ t(u) i*llu_m ti^me*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "487": {
+      "verse": "[REDACTED]",
+      "scansion": " e^g(o) u^tru_mqve^ se_d pr(o) u*tro_qve^ qvi_d stri*ct(u)m a_bnu^i*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "488": {
+      "verse": "[REDACTED]",
+      "scansion": " re*co_nde^r(e) e_nse*m qva_li^be_t g[au]de_ mo^ra*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "489": {
+      "verse": "[REDACTED]",
+      "scansion": " i*d ge^re^re^ be_llu*m cu^pi^ti^s i_n qv(o) e*st o_pti^mu*m",
+      "pattern": " * ^ ^ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "490": {
+      "verse": "[REDACTED]",
+      "scansion": " vi*nci_ ve^re_ri*s fra_tri^s i_nfe*sti_ do^lo*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "491": {
+      "verse": "[REDACTED]",
+      "scansion": " qvo^ti^e_ns ne^ce_ss(e) e*st fa_lle^r(e) [au]t fa*ll(i) a_ su^i*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "492": {
+      "verse": "[REDACTED]",
+      "scansion": " pa^ti^a_re^ po^ti^u*s i_pse^ qva_m fa^ci^a_s sce^lu*s",
+      "pattern": " ^ ^ _ ^ ^ ^ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Resolved Automatically"
+      ],
+      "meter": "trimeter"
+    },
+    "493": {
+      "verse": "[REDACTED]",
+      "scansion": " se*d ne_ ve^re_re* ma_te^r i_nsi^di^a_s e^t hi*nc",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "494": {
+      "verse": "[REDACTED]",
+      "scansion": " e*t ru_rsu^s i_lli*nc a^bi^ge^t e_xo*r(o) a_n pa^tri*",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "495": {
+      "verse": "[REDACTED]",
+      "scansion": "i*nui^de^o^ ue_stro* ue_n(i) u^t a_rce*re_m ne^fa*s",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "496": {
+      "verse": "[REDACTED]",
+      "scansion": " a*n u_t vi^de_re*m pro^pi^u^s hi_c fe*rr(u)m a_bdi^di*t",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "497": {
+      "verse": "[REDACTED]",
+      "scansion": " re*cli_ni^s ha_st[ae] pa_rma^ de_fi*x(ae) i_ncu^ba*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "498": {
+      "verse": "[REDACTED]",
+      "scansion": " a*d te_ pre^ce_s nu*nc na_te^ ma_te*rna_s fe^ra*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "499": {
+      "verse": "[REDACTED]",
+      "scansion": "se*d a_nte^ la^cri^ma*s te^ne^o^ lo_ngo* te_mpo^re*",
+      "pattern": " * _ ^ ^ ^ * ^ ^ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "500": {
+      "verse": "[REDACTED]",
+      "scansion": " pe*ti_ta^ vo_ti*s o_ra^ te_ pro^fu^gu_m so^lo*",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "501": {
+      "verse": "[REDACTED]",
+      "scansion": " pa^tri^o_ pe^na_te*s re_gi^s e_xte*rni_ te^gu*nt",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "502": {
+      "verse": "[REDACTED]",
+      "scansion": " te* ma^ri^a^ to_t di*ve_rsa^ to_t ca*su_s va^gu*m",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "503": {
+      "verse": "[REDACTED]",
+      "scansion": " e*ge_re^ no_n te* du_xi^t i_n tha^la^mo_s pa^re*ns",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "504": {
+      "verse": "[REDACTED]",
+      "scansion": " co^mi^ta_ta^ pri_mo*s ne_c su^a_ fe*sta_s ma^nu*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "505": {
+      "verse": "[REDACTED]",
+      "scansion": " o*rna_vi^t [ae]de*s ne_c sa^cra_ l[ae]ta_s fa^ce*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "506": {
+      "verse": "[REDACTED]",
+      "scansion": " vi*tta_ re^vi_nxi*t do_na^ no_n [au]ro_ gra^ve*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "507": {
+      "verse": "[REDACTED]",
+      "scansion": " ga*za_s so^ce_r no*n a_rva^ no_n u*rbe_s de^di*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "508": {
+      "verse": "[REDACTED]",
+      "scansion": " do*ta_le^ be_ll(u)m e*st ho_sti^(u)m e_s fa*ctu_s ge^ne*r",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "509": {
+      "verse": "[REDACTED]",
+      "scansion": "pa^tri^a_ re^mo_tu*s ho_spe^s a^li^e*ni_ la^ri*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "semi-automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "510": {
+      "verse": "[REDACTED]",
+      "scansion": " e*xte_rna^ co_nse*cu_tu^s e_xpu*lsu_s tu^i*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "511": {
+      "verse": "[REDACTED]",
+      "scansion": " si^ne^ cri_mi^n(e) e_xu*l ne_ qvi^d e_ fa*ti_s ti^bi*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "512": {
+      "verse": "[REDACTED]",
+      "scansion": " de*sse_t pa^te_rni*s ho_c qvo^qv(e) e_x i*lli_s ha^be*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "513": {
+      "verse": "[REDACTED]",
+      "scansion": " e*rra_sse^ tha^la^mi*s na_te^ po_st mu*lto_s mi^hi*",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "514": {
+      "verse": "[REDACTED]",
+      "scansion": " re*mi_sse^ so_le*s na_te^ su_spe*ns[ae] me^tu*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "515": {
+      "verse": "[REDACTED]",
+      "scansion": " e*t spe_s pa^re_nti*s cu_ju^s a_spe*ctu_m de^o*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "516": {
+      "verse": "[REDACTED]",
+      "scansion": " se*mpe_r ro^ga_vi* cu_m tu^u_s re^di^tu_s mi^hi*",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "517": {
+      "verse": "[REDACTED]",
+      "scansion": " ta*nt(u)m e_sse^t e_re*ptu_ru^s a_dve*ntu_ tu^o*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "518": {
+      "verse": "[REDACTED]",
+      "scansion": " qva*ntu_m da^tu_ru*s qva_ndo^ pro_ te* de_si^na*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: qva_ndo^"
+      ],
+      "meter": "trimeter"
+    },
+    "519": {
+      "verse": "[REDACTED]",
+      "scansion": " i*psu_m ti^me_bi*s ne_mpe^ ni^si^ be*llu_m fo^re*t",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "520": {
+      "verse": "[REDACTED]",
+      "scansion": " e^go^ te_ ca^re_re*m ne_mpe^ si_ tu* no_n fo^re*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "521": {
+      "verse": "[REDACTED]",
+      "scansion": " be*llo_ ca^re_re*m tri_ste^ co_nspe*ctu_s da^tu*r",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "522": {
+      "verse": "[REDACTED]",
+      "scansion": " pre^ti^u_m tu^i_ du*ru_mqve^ se_d ma*tri_ pla^ce*t",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "523": {
+      "verse": "[REDACTED]",
+      "scansion": " hi*nc mo^do^ re^ce_da*nt a_rma^ du_m nu*llu_m ne^fa*s",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "524": {
+      "verse": "[REDACTED]",
+      "scansion": " ma*rs s[ae]vu^s [au]de*t ho_c qvo^qv(e) e_st ma*gnu_m ne^fa*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "525": {
+      "verse": "[REDACTED]",
+      "scansion": " ta*m pro^pe^ fu^i_sse* stu^pe^(o) e^t e_xa*ngvi_s tre^mo*",
+      "pattern": " * ^ ^ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "526": {
+      "verse": "[REDACTED]",
+      "scansion": " cu*m sta_re^ fra_tre*s hi_nc e^t hi_nc vi^de^o_ du^o*s",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "527": {
+      "verse": "[REDACTED]",
+      "scansion": " sce^le^ri_s su^b i_ctu* me_mbra^ qva_ssa*ntu_r me^tu*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "528": {
+      "verse": "[REDACTED]",
+      "scansion": " qva*m p[ae]ne^ ma_te*r ma_ju^s a_spe*xi_ ne^fa*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "529": {
+      "verse": "[REDACTED]",
+      "scansion": " qva*m qvo_d mi^se_r vi*de_re^ no_n po^tu^i_t pa^te*r",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "530": {
+      "verse": "[REDACTED]",
+      "scansion": "li*ce_t ti^mo_re* fa^ci^no^ri_s ta*nti_ va^ce*m",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "531": {
+      "verse": "[REDACTED]",
+      "scansion": " vi^de^a_mqve^ ja_m ni*l ta_le^ s(u)m i_nfe*li_x ta^me*n",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "532": {
+      "verse": "[REDACTED]",
+      "scansion": " qvo*d p[ae]ne^ vi_di* pe_r de^ce_m me*nsu_m gra^ve*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "533": {
+      "verse": "[REDACTED]",
+      "scansion": " u^te^ri_ la^bo_re*s pe_rqve^ pi^e^ta*t(e)m i_ncli^t[ae]",
+      "pattern": " ^ ^ _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "534": {
+      "verse": "[REDACTED]",
+      "scansion": " pre*co_r so^ro_ri*s e_t pe^r i_ra*ti_ si^bi*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "535": {
+      "verse": "[REDACTED]",
+      "scansion": " ge*na_s pa^re_nti*s sce^le^re^ qva_s nu*llo_ no^ce*ns",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "536": {
+      "verse": "[REDACTED]",
+      "scansion": " e*rro_ri^s a_ se* du_ra^ su_ppli^ci^(a) e_xi^ge*ns",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "537": {
+      "verse": "[REDACTED]",
+      "scansion": " h[au]si_t ne^fa_nda*s m[oe]ni^bu_s pa^tri^i_s fa^ce*s",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "538": {
+      "verse": "[REDACTED]",
+      "scansion": " a*ve_rte^ si_gna* be_lli^ci_ re*tr(o) a_gmi^ni*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "539": {
+      "verse": "[REDACTED]",
+      "scansion": " fle*ct(e) u_t re^ce_da*s ma_gna^ pa_rs sce^le^ri_s ta^me*n",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "540": {
+      "verse": "[REDACTED]",
+      "scansion": " ve*stri_ pe^ra_ct(a) e*st vi_di^t ho_sti*li_ gre^ge*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "541": {
+      "verse": "[REDACTED]",
+      "scansion": " ca*mpo_s re^ple_ri* pa^tri^a^ fu_lge*nte_s pro^cu*l",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "542": {
+      "verse": "[REDACTED]",
+      "scansion": " a*rmi_s ca^te_rva*s vi_di^t e^qvi^ta*tu_ le^vi*",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "543": {
+      "verse": "[REDACTED]",
+      "scansion": " ca*dme_a^ fra_ngi* pra_t(a) e^t e_xce*lso_s ro^ti*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "544": {
+      "verse": "[REDACTED]",
+      "scansion": " vo^li^ta_re^ pro^ce^re*s i_gne^ fla_gra*nte_s tra^be*s",
+      "pattern": " ^ ^ _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: fla_gra*nte_s"
+      ],
+      "meter": "trimeter"
+    },
+    "545": {
+      "verse": "[REDACTED]",
+      "scansion": " fu*ma_re^ ci^ne^ri* qv[ae] pe^tu_nt no*stra_s do^mo*s",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "546": {
+      "verse": "[REDACTED]",
+      "scansion": " fra*tre_sqve^ fa^ci^nu*s qvo_d no^v(u)m e_t the*bi_s fu^i*t",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "547": {
+      "verse": "[REDACTED]",
+      "scansion": " i*n se_ ru^e_nte*s to_tu^s ho_c e*xe_rci^tu*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "548": {
+      "verse": "[REDACTED]",
+      "scansion": " ho*c po^pu^lu^s o_mni*s u_tra^qv(e) ho_c vi*di_t so^ro*r",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Resolved Automatically"
+      ],
+      "meter": "trimeter"
+    },
+    "549": {
+      "verse": "[REDACTED]",
+      "scansion": " ge^ne^tri_xqve^ vi_di* na_m pa^te_r de*be_t si^bi*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "550": {
+      "verse": "[REDACTED]",
+      "scansion": " qvo*d i_sta^ no_n spe*cta_vi^t o_ccu*rra_t ti^bi*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "551": {
+      "verse": "[REDACTED]",
+      "scansion": " nu*nc [oe]di^pu_s qvo* ju_di^c(e) e_rro*ri_s qvo^qve*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: [oe]di^pu_s"
+      ],
+      "meter": "trimeter"
+    },
+    "552": {
+      "verse": "[REDACTED]",
+      "scansion": "p[oe]n[ae] pe^tu_ntu*r ne_ pre^co_r fe*rr(o) e_ru^e*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "553": {
+      "verse": "[REDACTED]",
+      "scansion": " pa^tri^(a)m a_c pe^na_te*s ne_ve^ qv[ae] re^ge^r(e) e_xpe^ti*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "554": {
+      "verse": "[REDACTED]",
+      "scansion": " e*ve_rte^ the_ba*s qvi_s te^ne_t me*nte_m fu^ro*r",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "555": {
+      "verse": "[REDACTED]",
+      "scansion": "pe*te_ndo^ pa^tri^a*m pe_rdi^s u_t fi*a_t tu^a*",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "556": {
+      "verse": "[REDACTED]",
+      "scansion": " vi*s e_sse^ nu_lla*m qvi_n tu^[ae] c[au]s[ae] no^ce*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "557": {
+      "verse": "[REDACTED]",
+      "scansion": " i*ps(u)m ho_c qvo^d a_rmi*s u_ri^s i_nfe*sti_s so^lu*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "558": {
+      "verse": "[REDACTED]",
+      "scansion": " se^ge^te_sqv(e) a^du_lta*s ste_rni^s e_t to*to_s fu^ga*m",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "559": {
+      "verse": "[REDACTED]",
+      "scansion": " e*di_s pe^r a_gro*s ne_mo^ si_c va*sta_t su^a*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: ne_mo^"
+      ],
+      "meter": "trimeter"
+    },
+    "560": {
+      "verse": "[REDACTED]",
+      "scansion": "qv[ae] co_rri^p(i) i_gne* qv[ae] me^ti_ gla^di^o_ ju^be*s",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "561": {
+      "verse": "[REDACTED]",
+      "scansion": " a^li^e_na^ cre_di*s re_x si^t e_x vo*bi_s u^te*r",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "562": {
+      "verse": "[REDACTED]",
+      "scansion": " ma*ne_nte^ re_gno* qv[ae]ri^t(e) h[ae]c te*li_s pe^te*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "563": {
+      "verse": "[REDACTED]",
+      "scansion": " fla*mmi_sqve^ te_cta* po^te^ri^s ha_s a*mphi_o^ni*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Resolved Automatically"
+      ],
+      "meter": "trimeter"
+    },
+    "564": {
+      "verse": "[REDACTED]",
+      "scansion": " qva*ssa_re^ mo_le*s nu_lla^ qva_s stru*xi_t ma^nu*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "565": {
+      "verse": "[REDACTED]",
+      "scansion": " stri*de_nte^ ta_rdu*m ma_chi^na_ du*ce_ns o^nu*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "566": {
+      "verse": "[REDACTED]",
+      "scansion": " se*d co_nvo^ca_tu*s vo_ci^s e_t ci^tha^r[ae] so^no*",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "567": {
+      "verse": "[REDACTED]",
+      "scansion": " pe*r s(e) i_pse^ su_mma*s ve_ni^t i_n tu*rre_s la^pi*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "568": {
+      "verse": "[REDACTED]",
+      "scansion": " h[ae]c sa_xa^ fra_nge*s vi_cto^r hi_nc spo^li^(a) [au]fe^re*s",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "569": {
+      "verse": "[REDACTED]",
+      "scansion": "vi*ncto_sque^ du_ce*s pa_tri^s [ae]qua*le_s tu^i*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [
+        "Mqdq only scansion: pa_tri^s"
+      ],
+      "meter": "trimeter"
+    },
+    "570": {
+      "verse": "[REDACTED]",
+      "scansion": " ma*tre_sqv(e) a^b i_pso* co_nju^gu_m ra*pta_s si^nu*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "571": {
+      "verse": "[REDACTED]",
+      "scansion": "s[ae]vu_s ca^te_na* mi_le^s i_mpo^si^ta_ tra^he*t",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "semi-automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "572": {
+      "verse": "[REDACTED]",
+      "scansion": " a*du_lta^ vi_rgo* mi_xta^ ca_pti*vo_ gre^gi*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "573": {
+      "verse": "[REDACTED]",
+      "scansion": " the*ba_na^ nu^ri^bu*s mu_nu^s a_rgo^li^ci_s e^a*t",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "574": {
+      "verse": "[REDACTED]",
+      "scansion": " a^n e^t i_psa^ pa_lma*s vi_ncta^ po_ste*rgu_m da^ta*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Mqdq only scansion: po_ste*rgu_m"
+      ],
+      "meter": "trimeter"
+    },
+    "575": {
+      "verse": "[REDACTED]",
+      "scansion": " ma*te_r tri^u_mphi* pr[ae]da^ fra_te*rni_ ve^ha*r",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "576": {
+      "verse": "[REDACTED]",
+      "scansion": " po*te_sne^ ci_ve*s le_t(o) e^t e_xi^ti^o_ da^to*s",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "577": {
+      "verse": "[REDACTED]",
+      "scansion": " vi*de_re^ pa_ssi*m m[oe]ni^bu_s ca*ri_s po^te*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "578": {
+      "verse": "[REDACTED]",
+      "scansion": "ho*st(e)m a_dmo^ue_re* sa_ngui^n(e) e_t fla*mma_ po^te*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "579": {
+      "verse": "[REDACTED]",
+      "scansion": " i*mple_re^ the_ba*s ta_m fe^ru_s du*ru_m ge^ri*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "580": {
+      "verse": "[REDACTED]",
+      "scansion": " s[ae]vu_mqv(e) i^n i_ra*s pe_ctu^s e_t no*nd(u)m i_mpe^ra*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "581": {
+      "verse": "[REDACTED]",
+      "scansion": " qvi*d sce_ptra^ fa^ci^e*nt po_ne^ ve_sa*no_s pre^co*r",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "582": {
+      "verse": "[REDACTED]",
+      "scansion": "a^ni^mi_ tu^mo_re*s te_qve^ pi^e^ta*ti_ re^fe*r",
+      "pattern": " ^ ^ _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "583": {
+      "verse": "[REDACTED]",
+      "scansion": " u*t pro^fu^gu^s e_rre*m se_mpe^r u_t pa^tri^(a) a_rce^a*r",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "584": {
+      "verse": "[REDACTED]",
+      "scansion": " o*pe_mqve^ ge_nti*s ho_spe^s e_xte*rn[ae] se^qva*r",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "585": {
+      "verse": "[REDACTED]",
+      "scansion": " qvi*d pa^te^re^r a^li^u*d si_ fe^fe_lli*sse_m fi^de*m",
+      "pattern": " * ^ ^ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "586": {
+      "verse": "[REDACTED]",
+      "scansion": " si* pe_je^ra_sse*m fr[au]di^s a^li^e*n[ae] da^bo*",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "587": {
+      "verse": "[REDACTED]",
+      "scansion": " p[oe]na_s a^t i_lle* pr[ae]mi^u_m sce^le^ru_m fe^re*t",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "588": {
+      "verse": "[REDACTED]",
+      "scansion": " ju*be_s a^bi_re* ma_tri^s i_mpe^ri^(o) o_bse^qvo*r",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "589": {
+      "verse": "[REDACTED]",
+      "scansion": " da* qvo_ re^ve_rta*r re_gi^a_ fra*te_r me^u*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "590": {
+      "verse": "[REDACTED]",
+      "scansion": " ha^bi^te_t su^pe_rba* pa_rva^ m(e) a_bsco*nda_t ca^sa*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "591": {
+      "verse": "[REDACTED]",
+      "scansion": " ha*nc da_ re^pu_lso* li^ce^a^t e_xi^gu^o_ la^re*",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "592": {
+      "verse": "[REDACTED]",
+      "scansion": " pe*nsa_re^ re_gnu*m co_nju^gi_ do*nu_m da^tu*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "593": {
+      "verse": "[REDACTED]",
+      "scansion": " a*rbi^tri^a^ tha^la^mi* du_ra^ fe_li*ci_s fe^ra*m",
+      "pattern": " * ^ ^ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "594": {
+      "verse": "[REDACTED]",
+      "scansion": " hu^mi^li_sqve^ so^ce^ru*m li_xa^ do^mi^na*nte_m se^qva*r",
+      "pattern": " ^ ^ _ ^ ^ ^ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "595": {
+      "verse": "[REDACTED]",
+      "scansion": " i*n se_rvi^tu_te*m ca^de^re^ de_ re*gno_ gra^v(e) e*st",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "596": {
+      "verse": "[REDACTED]",
+      "scansion": " si* re_gna^ qv[ae]ri*s ne_c po^te_st sce*ptro_ ma^nu*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "597": {
+      "verse": "[REDACTED]",
+      "scansion": " va*ca_re^ s[ae]vo* mu_lta^ qv[ae] po*ssi_nt pe^ti*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "598": {
+      "verse": "[REDACTED]",
+      "scansion": " i*n o_rbe^ to_to* qv[ae]li^be_t te*llu_s da^bi*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "599": {
+      "verse": "[REDACTED]",
+      "scansion": " hi*nc no_ta^ ba_ccho* tmo_lu^s a_tto*lli_t ju^ga*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "600": {
+      "verse": "[REDACTED]",
+      "scansion": " qva* la_ta^ te_rri*s spa^ti^a^ fru_gi^fe^ri_s ja^ce*nt",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "601": {
+      "verse": "[REDACTED]",
+      "scansion": " e*t qva_ tra^he_ns o^pu^le_nta^ pa_cto*lu_s va^da*",
+      "pattern": " * _ ^ _ ^ ^ _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "602": {
+      "verse": "[REDACTED]",
+      "scansion": " i*nu_nda^t [au]ro* ru_ra^ ne_c l[ae]ti_s mi^nu*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "603": {
+      "verse": "[REDACTED]",
+      "scansion": "m[ae]a_ndro^s a_rui*s fle_cti^t e_rra*nte_s a^qua*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "manual",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "604": {
+      "verse": "[REDACTED]",
+      "scansion": " ra^pi^du_sqve^ ca_mpo*s fe_rti^le_s he*rmu_s se^ca*t",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "605": {
+      "verse": "[REDACTED]",
+      "scansion": " hi*nc gra_ta^ ce^re^ri* ga_rga^r(a) e_t di*ve_s so^lu*m",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "606": {
+      "verse": "[REDACTED]",
+      "scansion": " qvo*d xa_nthu^s a_mbi*t ni^vi^bu^s i_d[ae]i_s tu^me*ns",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "607": {
+      "verse": "[REDACTED]",
+      "scansion": "hi*nc qva_ re^li_nqvi*t no_me^n i_o*nji_ ma^re*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "manual (corrected)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "608": {
+      "verse": "[REDACTED]",
+      "scansion": "f[au]ce_sqv(e) a^by_do* se_sto^s o_ppo*si^ta^ pre^mi*t",
+      "pattern": " * _ ^ _ * _ ^ _ * ^ ^ ^ *",
+      "method": "semi-automatic",
+      "flags": [
+        "Mqdq only scansion: a^by_do*"
+      ],
+      "meter": "trimeter"
+    },
+    "609": {
+      "verse": "[REDACTED]",
+      "scansion": " [au]t qva_ la^tu_s ja*m pro^pi^u^s o^ri^e*nti_ de^di*t",
+      "pattern": " * _ ^ _ * ^ ^ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "610": {
+      "verse": "[REDACTED]",
+      "scansion": " tu*ta_mqve^ cre_bri*s po_rti^bu_s ly^ci^a_m vi^de*t",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "611": {
+      "verse": "[REDACTED]",
+      "scansion": " ha*c re_gna^ fe_rro* qv[ae]r(e) i^n ho_s po^pu^lo_s fe^ra*t",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "612": {
+      "verse": "[REDACTED]",
+      "scansion": " so^ce^r a_rma^ fo_rti*s ha_s tu^o_ sce*ptro_ pa^re*t",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "613": {
+      "verse": "[REDACTED]",
+      "scansion": " tra*da_tqve^ ge_nte*s ho_c a^dhu_c re*gnu_m pu^ta*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "614": {
+      "verse": "[REDACTED]",
+      "scansion": "te*ne_re^ pa_tre*m me^li^u^s e_xi^li^(u)m e_st ti^bi*",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ ^ ^ _ ^ *",
+      "method": "semi-automatic",
+      "flags": [
+        "Mqdq only scansion: pa_tre*m"
+      ],
+      "meter": "trimeter"
+    },
+    "615": {
+      "verse": "[REDACTED]",
+      "scansion": "qua*m re^di^tu^s i_ste* cri_mi^n(e) a^li^e*n(o) e_xu^la*s",
+      "pattern": " * ^ ^ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "616": {
+      "verse": "[REDACTED]",
+      "scansion": "tu*o_ re^di_bi*s me^li^u^s i_sti*s ui_ri^bu*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "617": {
+      "verse": "[REDACTED]",
+      "scansion": " no^va^ re_gna^ nu_llo* sce^le^re^ ma^cu^la*t(a) a_ppe^te*s",
+      "pattern": " ^ ^ _ ^ _ * ^ ^ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "618": {
+      "verse": "[REDACTED]",
+      "scansion": " qvi*n i_pse^ fra_te*r a_rma^ co^mi^ta*tu_s tu^a*",
+      "pattern": " * _ ^ _ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "619": {
+      "verse": "[REDACTED]",
+      "scansion": " ti^bi^ mi_li^ta_bi*t va_d(e) e^t i_d be*llu_m ge^re*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "620": {
+      "verse": "[REDACTED]",
+      "scansion": " i*n qvo_ pa^te_r ma*te_rqve^ pu_gna*nti_ ti^bi*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "621": {
+      "verse": "[REDACTED]",
+      "scansion": " fa*ve_re^ po_ssi*nt re_gna^ cu_m sce^le^r(e) o_mni^bu*s",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "622": {
+      "verse": "[REDACTED]",
+      "scansion": "su*nt e_xi^li_s gra^ui^o_ra^ nu_nc be*lli_ ma^la*",
+      "pattern": " * _ ^ _ ^ ^ _ ^ _ * _ ^ *",
+      "method": "automatic (verified)",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "623": {
+      "verse": "[REDACTED]",
+      "scansion": " pro*po_ne^ du^bi^a*s ma_rti^s i_nce*rti_ vi^ce*s",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "624": {
+      "verse": "[REDACTED]",
+      "scansion": " li^ce^t o_mne^ te_cu*m gr[ae]ci^[ae] ro*bu_r tra^ha*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "625": {
+      "verse": "[REDACTED]",
+      "scansion": " li^ce^t a_rma^ lo_nge* mi_le^s a_c la*t(e) e_xpli^ce*t",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "626": {
+      "verse": "[REDACTED]",
+      "scansion": " fo*rtu_na^ be_lli* se_mpe^r a_nci^pi^t(i) i_n lo^c(o) e*st",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "627": {
+      "verse": "[REDACTED]",
+      "scansion": " qvo*dcu_mqve^ ma_rs de*ce_rni^t e_x[ae]qva_t du^o*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "628": {
+      "verse": "[REDACTED]",
+      "scansion": " li^ce^t i_mpa^re_s si*nt gla^di^u^s e_t spe*s e_t me^tu*s",
+      "pattern": " ^ ^ _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "629": {
+      "verse": "[REDACTED]",
+      "scansion": " fo*rs c[ae]ca^ ve_rsa*t pr[ae]mi^(u)m i_nce*rtu_m pe^ti*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "630": {
+      "verse": "[REDACTED]",
+      "scansion": " ce*rtu_m sce^lu_s fa*vi_sse^ fa_c vo*ti_s de^o*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "631": {
+      "verse": "[REDACTED]",
+      "scansion": " o*mne_s tu^i_s ce*sse_r(e) e^t a_ve*rsi_ fu^ga*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "632": {
+      "verse": "[REDACTED]",
+      "scansion": " pe^ti^e_re^ ci_ve*s cla_de^ fu_ne*sta_ ja^ce*ns",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "633": {
+      "verse": "[REDACTED]",
+      "scansion": " o*bte_xi^t a_gro*s mi_le^s e_xu*lte_s li^ce*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "634": {
+      "verse": "[REDACTED]",
+      "scansion": " vi*cto_rqve^ fra_tri*s spo^li^a^ de_je*cti_ ge^ra*s",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "635": {
+      "verse": "[REDACTED]",
+      "scansion": " fra*nge_nda^ pa_lm(a) e*st qva_le^ t(u) ho_c be*llu_m pu^ta*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "636": {
+      "verse": "[REDACTED]",
+      "scansion": " i*n qv(o) e_xe^cra_ndu*m vi_cto^r a_dmi*tti_t ne^fa*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "A previuosly unencountered word: e_xe^cra_ndu*m"
+      ],
+      "meter": "trimeter"
+    },
+    "637": {
+      "verse": "[REDACTED]",
+      "scansion": " si* g[au]de^t hu_nc qve*m vi_nce^r(e) i_nfe*li_x cu^pi*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "638": {
+      "verse": "[REDACTED]",
+      "scansion": " cu*m vi_ce^ri_s lu*ge_bi^s i_nf[au]sta_s a^ge*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "639": {
+      "verse": "[REDACTED]",
+      "scansion": "di*mi_tte^ pu_gna*s li_be^ra_ pa^tri^a_m me^tu*",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "semi-automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "640": {
+      "verse": "[REDACTED]",
+      "scansion": " lu*ctu_ pa^re_nte*s sce^le^ri^s e_t fr[au]di_s su^[ae]",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "641": {
+      "verse": "[REDACTED]",
+      "scansion": " p[oe]na_s ne^fa_ndu*s fra_te^r u_t nu*lla_s fe^ra*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "642": {
+      "verse": "[REDACTED]",
+      "scansion": " ne* me^tu^e^ p[oe]na*s e_t qvi^de_m so*lve_t gra^ve*s",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "643": {
+      "verse": "[REDACTED]",
+      "scansion": " re*gna_bi^t e_st h[ae]c p[oe]na^ si_ du^bi^ta_s a^vo*",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "644": {
+      "verse": "[REDACTED]",
+      "scansion": " pa*tri_qve^ cre_de* ca_dmu^s ho_c di*ce_t ti^bi*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "645": {
+      "verse": "[REDACTED]",
+      "scansion": " ca*dmi_qve^ pro_le*s sce_ptra^ the_ba*ru_m fu^i*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "646": {
+      "verse": "[REDACTED]",
+      "scansion": " i*mpu_ne^ nu_lli* ge^re^re^ ne_c qvi*sqva_m fi^de*",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "647": {
+      "verse": "[REDACTED]",
+      "scansion": " ru*pta_ te^ne_ba*t i_lla^ ja_m nu^me^re_s li^ce*t",
+      "pattern": " * _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "648": {
+      "verse": "[REDACTED]",
+      "scansion": " fra*tr(e)m i_nte^r i_sto*s nu^me^re^t e_st ta*nti_ mi^hi*",
+      "pattern": " * _ ^ _ * ^ ^ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "649": {
+      "verse": "[REDACTED]",
+      "scansion": " cu*m re_gi^bu_s ja*ce_re^ te_ tu*rb(ae) e_xu^lu*m",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "650": {
+      "verse": "[REDACTED]",
+      "scansion": " a*scri_bo^ re_gna* du_mmo^d(o) i_nvi*su_s tu^i*s",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "A previuosly unencountered word: a*scri_bo^"
+      ],
+      "meter": "trimeter"
+    },
+    "651": {
+      "verse": "[REDACTED]",
+      "scansion": " re*gna_re^ no_n vu*lt e_sse^ qv(i) i_nvi*su_s ti^me*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "652": {
+      "verse": "[REDACTED]",
+      "scansion": " si^mu^l i_sta^ mu_ndi* co_ndi^to_r po^su^i_t de^u*s",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ ^ ^ _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "653": {
+      "verse": "[REDACTED]",
+      "scansion": " o^di^(u)m a_tqve^ re_gnu*m re_gi^s ho_c ma*gni_ re^o*r",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "654": {
+      "verse": "[REDACTED]",
+      "scansion": " o^di^(a) i_psa^ pre^me^re* mu_lta^ do^mi^na*nte_m ve^ta*t",
+      "pattern": " ^ ^ _ ^ ^ ^ * _ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "655": {
+      "verse": "[REDACTED]",
+      "scansion": " a*mo_r su^o_ru*m plu_s i^n i_ra*to_s li^ce*t",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "656": {
+      "verse": "[REDACTED]",
+      "scansion": " qvi* vu_lt a^ma_ri* la_ngvi^da_ re*gna_t ma^nu*",
+      "pattern": " * _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "657": {
+      "verse": "[REDACTED]",
+      "scansion": " i*nvi_sa^ nu_mqv(a)m i*mpe^ri^a^ re^ti^ne*ntu_r di^u*",
+      "pattern": " * _ ^ _ * ^ ^ ^ ^ ^ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "658": {
+      "verse": "[REDACTED]",
+      "scansion": " pr[ae]ce_pta^ me^li^u*s i_mpe^ri_ re*ge_s da^bu*nt",
+      "pattern": " * _ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [
+        "Resolved Automatically"
+      ],
+      "meter": "trimeter"
+    },
+    "659": {
+      "verse": "[REDACTED]",
+      "scansion": " e*xi^li^a^ tu_ co*mpo_ne^ pro_ re*gno_ ve^li*m",
+      "pattern": " * ^ ^ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "660": {
+      "verse": "[REDACTED]",
+      "scansion": " pa^tri^a_m pe^na_te*s co_nju^ge_m fla*mmi_s da^re*",
+      "pattern": " ^ ^ _ ^ _ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    },
+    "661": {
+      "verse": "[REDACTED]",
+      "scansion": " i*mpe^ri^a^ pre^ti^o* qvo_li^be_t co*nsta_nt be^ne*",
+      "pattern": " * ^ ^ ^ ^ ^ * _ ^ _ * _ ^ *",
+      "method": "automatic",
+      "flags": [],
+      "meter": "trimeter"
+    }
+  },
+  "stats": {
+    "global": {
+      "elision": {
+        "counts": {
+          "0": 92,
+          "total": 343,
+          "1": 34,
+          "2": 26,
+          "3": 80,
+          "4": 103,
+          "5": 8
+        },
+        "frequencies": {
+          "0": 0.26822157434402333,
+          "total": 0.5181268882175226,
+          "1": 0.09912536443148688,
+          "2": 0.07580174927113703,
+          "3": 0.23323615160349853,
+          "4": 0.30029154518950435,
+          "5": 0.023323615160349854
+        }
+      },
+      "method": {
+        "automatic": 578,
+        "manual": 28,
+        "automatic (verified)": 30,
+        "semi-automatic": 21,
+        "manual (corrected)": 5
+      }
+    },
+    "trimeter": {
+      "resolution": {
+        "counts": {
+          "0": 166,
+          "total": 518,
+          "1": 73,
+          "2": 104,
+          "3": 47,
+          "4": 128,
+          "5": 0
+        },
+        "frequencies": {
+          "0": 0.3204633204633205,
+          "total": 0.7824773413897281,
+          "1": 0.14092664092664092,
+          "2": 0.20077220077220076,
+          "3": 0.09073359073359073,
+          "4": 0.2471042471042471,
+          "5": 0.0
+        }
+      },
+      "patterns": {
+        "counts": {
+          " * _ ^ _ * ^ ^ ^ _ * _ ^ *": 58,
+          "total": 662,
+          " * _ ^ _ * _ ^ _ * _ ^ *": 263,
+          " ^ ^ _ ^ _ * _ ^ _ * _ ^ *": 69,
+          " * _ ^ _ * ^ ^ ^ _ ^ ^ _ ^ *": 13,
+          " * ^ ^ ^ _ * _ ^ _ * _ ^ *": 28,
+          " ^ ^ _ ^ ^ ^ * _ ^ _ * _ ^ *": 9,
+          " * _ ^ ^ ^ * _ ^ _ * _ ^ *": 34,
+          " * _ ^ _ * _ ^ _ ^ ^ _ ^ *": 78,
+          " * _ ^ ^ ^ * _ ^ _ ^ ^ _ ^ *": 8,
+          " ^ ^ _ ^ _ * ^ ^ ^ _ ^ ^ _ ^ *": 2,
+          " * ^ ^ ^ _ * _ ^ _ ^ ^ _ ^ *": 8,
+          " * _ ^ _ * _ ^ ^ ^ * _ ^ *": 26,
+          " ^ ^ ^ ^ ^ _ * _ ^ ^ ^ * _ ^ *": 1,
+          " ^ ^ _ ^ _ * _ ^ _ ^ ^ _ ^ *": 13,
+          " * _ ^ ^ ^ * ^ ^ ^ _ * _ ^ *": 5,
+          " * _ ^ _ * ^ ^ ^ ^ ^ * _ ^ *": 5,
+          " ^ ^ _ ^ _ * ^ ^ ^ _ * _ ^ *": 6,
+          " * ^ ^ ^ _ * ^ ^ ^ ^ ^ * _ ^ *": 1,
+          " * ^ ^ ^ ^ ^ * _ ^ _ * _ ^ *": 4,
+          " * _ ^ _ ^ ^ _ ^ _ * _ ^ *": 4,
+          " * _ ^ ^ ^ * _ ^ ^ ^ * _ ^ *": 2,
+          " ^ ^ _ ^ ^ ^ * ^ ^ ^ ^ ^ * _ ^ *": 1,
+          " * ^ ^ ^ ^ ^ * _ ^ _ ^ ^ _ ^ *": 1,
+          " ^ ^ ^ ^ ^ _ * ^ ^ ^ _ * _ ^ *": 1,
+          " ^ ^ _ ^ ^ ^ * _ ^ _ ^ ^ _ ^ *": 3,
+          " * ^ ^ ^ ^ ^ * ^ ^ ^ _ * _ ^ *": 1,
+          " * ^ ^ ^ _ * ^ ^ ^ _ * _ ^ *": 3,
+          " ^ ^ _ ^ _ * _ ^ ^ ^ * _ ^ *": 5,
+          " ^ ^ _ ^ ^ ^ * ^ ^ ^ _ * _ ^ *": 1,
+          " * _ ^ ^ ^ * ^ ^ ^ ^ ^ * _ ^ *": 1,
+          " * ^ ^ ^ _ * _ ^ ^ ^ * _ ^ *": 2,
+          " ^ ^ ^ ^ ^ _ * _ ^ _ * _ ^ *": 1,
+          " * _ ^ ^ ^ * ^ ^ ^ _ ^ ^ _ ^ *": 1,
+          " ^ ^ _ ^ ^ ^ * _ ^ ^ ^ * _ ^ *": 2,
+          " * _ ^ _ * _ ^ _ * ^ ^ ^ *": 1,
+          " ^ ^ _ ^ _ * ^ ^ ^ ^ ^ * _ ^ *": 1
+        },
+        "frequencies": {
+          " * _ ^ _ * ^ ^ ^ _ * _ ^ *": 0.08761329305135952,
+          "total": 1.0,
+          " * _ ^ _ * _ ^ _ * _ ^ *": 0.3972809667673716,
+          " ^ ^ _ ^ _ * _ ^ _ * _ ^ *": 0.1042296072507553,
+          " * _ ^ _ * ^ ^ ^ _ ^ ^ _ ^ *": 0.019637462235649546,
+          " * ^ ^ ^ _ * _ ^ _ * _ ^ *": 0.04229607250755287,
+          " ^ ^ _ ^ ^ ^ * _ ^ _ * _ ^ *": 0.013595166163141994,
+          " * _ ^ ^ ^ * _ ^ _ * _ ^ *": 0.0513595166163142,
+          " * _ ^ _ * _ ^ _ ^ ^ _ ^ *": 0.11782477341389729,
+          " * _ ^ ^ ^ * _ ^ _ ^ ^ _ ^ *": 0.012084592145015106,
+          " ^ ^ _ ^ _ * ^ ^ ^ _ ^ ^ _ ^ *": 0.0030211480362537764,
+          " * ^ ^ ^ _ * _ ^ _ ^ ^ _ ^ *": 0.012084592145015106,
+          " * _ ^ _ * _ ^ ^ ^ * _ ^ *": 0.03927492447129909,
+          " ^ ^ ^ ^ ^ _ * _ ^ ^ ^ * _ ^ *": 0.0015105740181268882,
+          " ^ ^ _ ^ _ * _ ^ _ ^ ^ _ ^ *": 0.019637462235649546,
+          " * _ ^ ^ ^ * ^ ^ ^ _ * _ ^ *": 0.0075528700906344415,
+          " * _ ^ _ * ^ ^ ^ ^ ^ * _ ^ *": 0.0075528700906344415,
+          " ^ ^ _ ^ _ * ^ ^ ^ _ * _ ^ *": 0.00906344410876133,
+          " * ^ ^ ^ _ * ^ ^ ^ ^ ^ * _ ^ *": 0.0015105740181268882,
+          " * ^ ^ ^ ^ ^ * _ ^ _ * _ ^ *": 0.006042296072507553,
+          " * _ ^ _ ^ ^ _ ^ _ * _ ^ *": 0.006042296072507553,
+          " * _ ^ ^ ^ * _ ^ ^ ^ * _ ^ *": 0.0030211480362537764,
+          " ^ ^ _ ^ ^ ^ * ^ ^ ^ ^ ^ * _ ^ *": 0.0015105740181268882,
+          " * ^ ^ ^ ^ ^ * _ ^ _ ^ ^ _ ^ *": 0.0015105740181268882,
+          " ^ ^ ^ ^ ^ _ * ^ ^ ^ _ * _ ^ *": 0.0015105740181268882,
+          " ^ ^ _ ^ ^ ^ * _ ^ _ ^ ^ _ ^ *": 0.004531722054380665,
+          " * ^ ^ ^ ^ ^ * ^ ^ ^ _ * _ ^ *": 0.0015105740181268882,
+          " * ^ ^ ^ _ * ^ ^ ^ _ * _ ^ *": 0.004531722054380665,
+          " ^ ^ _ ^ _ * _ ^ ^ ^ * _ ^ *": 0.0075528700906344415,
+          " ^ ^ _ ^ ^ ^ * ^ ^ ^ _ * _ ^ *": 0.0015105740181268882,
+          " * _ ^ ^ ^ * ^ ^ ^ ^ ^ * _ ^ *": 0.0015105740181268882,
+          " * ^ ^ ^ _ * _ ^ ^ ^ * _ ^ *": 0.0030211480362537764,
+          " ^ ^ ^ ^ ^ _ * _ ^ _ * _ ^ *": 0.0015105740181268882,
+          " * _ ^ ^ ^ * ^ ^ ^ _ ^ ^ _ ^ *": 0.0015105740181268882,
+          " ^ ^ _ ^ ^ ^ * _ ^ ^ ^ * _ ^ *": 0.0030211480362537764,
+          " * _ ^ _ * _ ^ _ * ^ ^ ^ *": 0.0015105740181268882,
+          " ^ ^ _ ^ _ * ^ ^ ^ ^ ^ * _ ^ *": 0.0015105740181268882
+        }
+      }
+    }
+  },
+  "createdOn": {
+    "day": 30,
+    "month": 12,
+    "year": 2020
+  }
+}
