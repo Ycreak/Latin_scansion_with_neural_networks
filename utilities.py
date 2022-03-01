@@ -25,7 +25,7 @@ import seaborn as sn
 from progress.bar import Bar
 import pandas as pd
 
-from fuzzywuzzy import fuzz
+import argparse
 
 # Read the config file for later use
 cf = configparser.ConfigParser()
@@ -316,6 +316,7 @@ def find_stem(arr):
 def auto_combine_sequence_label_lists():
     # Automatically combines Pedecerto files with similar names. For example, OV-amo1 and OV-amo2 will be merged and saved
     # as one pickle :D
+    from fuzzywuzzy import fuzz
     EQUALITY_RATIO = 80 # Ratio between OV-amo1 and OV-amo2 is 86.
     mutable_list = Create_files_list(cf.get('Pedecerto', 'path_xml_files'), 'pickle')
     non_mutable_list = Create_files_list(cf.get('Pedecerto', 'path_xml_files'), 'pickle')
@@ -355,20 +356,52 @@ def auto_combine_sequence_label_lists():
 
 if __name__ == "__main__":
     
-    auto_combine_sequence_label_lists()
-    exit(0)
+    p = argparse.ArgumentParser()
+    p.add_argument("--auto_seq_labels", action="store_true", help="specify whether to create the model: if not specified, we load from disk")
+    p.add_argument("--create_trimeter_set", action="store_true", help="specify whether to save the model: if not specified, we do not save")
+    p.add_argument("--combine_seq_labels", action="store_true", help="specify whether to run the single text LSTM function")
+    p.add_argument("--investigate", action="store_true", help="specify whether to run the hexameter LSTM experiment")
+    p.add_argument("--exp_transfer", action="store_true", help="specify whether to run the hexameter transerability LSTM experiment")
+    p.add_argument("--exp_elegiac", action="store_true", help="specify whether to run the hexameter genre LSTM experiment")
+    p.add_argument("--exp_train_test", action="store_true", help="specify whether to run the train/test split LSTM experiment")
+    p.add_argument("--exp_transfer_boeth", action="store_true", help="specify whether to run the Boeth LSTM experiment")
 
-    # Create the Trimeter dataset
-    df = pd.read_csv('./texts/iambic/agamemnon_labels_4.csv')
-    sequence_label_list = convert_pedecerto_to_sequence_labeling(df)
+    FLAGS = p.parse_args()  
 
-    new_list = []
+    if FLAGS.investigate:
+        text = Pickle_read(cf.get('Pickle', 'path_sequence_labels'), 'SEN-aga2.pickle')
+        # print(text[0])
+        # exit(0)
+        for line in text:
+            for tuple in line:
+                if tuple[1] == '':
+                    print(line)
+                    exit(0)
+                    
+        
+        # print(text[0])
 
-    # Remove trailing spaces
-    for line in sequence_label_list:
-        if line[-1][0] == '-' and line[-1][1] == 'space':
-            new_list.append(line[:-1])
-        else:
-            new_list.append(line)
-    
-    Pickle_write(cf.get('Pickle', 'path_sequence_labels'), 'SEN-aga.pickle', new_list)    
+    if FLAGS.combine_seq_labels:
+        # combine_sequence_label_lists()
+        # trimeter = ['Phoenissae', 'Phaedra', 'Hiempsal', 'Hercules_furens', 'Troades', 'Thyestes', 'Procne', 'Oedipus', 'Octavia', 'Medea', 'Hercules_Oetaeus', 'Ecerinis', 'Agamemnon', 'Achilles']
+        trimeter = ['Phoenissae', 'Phaedra', 'Hercules_furens', 'Troades', 'Thyestes', 'Oedipus', 'Octavia', 'Medea', 'Hercules_Oetaeus', 'Agamemnon']
+        combine_sequence_label_lists(trimeter, 'SEN-proofread', cf.get('Pickle', 'path_sequence_labels'))
+
+    if FLAGS.auto_seq_labels:
+        auto_combine_sequence_label_lists()
+
+    if FLAGS.create_trimeter_set:
+        # Create the Trimeter dataset
+        df = pd.read_csv('./texts/iambic/agamemnon_labels_4.csv')
+        sequence_label_list = convert_pedecerto_to_sequence_labeling(df)
+
+        new_list = []
+
+        # Remove trailing spaces
+        for line in sequence_label_list:
+            if line[-1][0] == '-' and line[-1][1] == 'space':
+                new_list.append(line[:-1])
+            else:
+                new_list.append(line)
+        
+        Pickle_write(cf.get('Pickle', 'path_sequence_labels'), 'SEN-aga.pickle', new_list)    

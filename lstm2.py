@@ -1,3 +1,4 @@
+from gettext import textdomain
 import pandas as pd
 import numpy as np
 import pickle
@@ -43,8 +44,51 @@ class LSTM_model():
     def __init__(self, FLAGS):
         self.FLAGS = FLAGS
 
+        # Debugging
+        # FLAGS.anceps = True
+        # FLAGS.single_text = True
+        # FLAGS.create_model = True
+        # FLAGS.epochs = 1
+        
+        
         self.num_epochs = FLAGS.epochs
         self.split_size = FLAGS.split
+
+        text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'VERG-aene.pickle')
+        print(text[:2])
+        exit(0)
+
+        # text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'SEN-precise.pickle')
+        # print(len(text))
+
+        # # new_precise = []
+        # # for line in text:
+        # #     new_precise.append(line[:-1])
+
+        # exit(0)
+
+        # from collections import Counter
+
+        # result = Counter()
+        # for line in text:
+        #     temp = Counter(elem[1] for elem in line)
+        
+        #     result += temp #print(result)
+
+        # print(result)
+        # exit(1)
+
+
+        # precise = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'SEN-precise.pickle')
+
+
+
+
+        if FLAGS.anceps:
+            self.LABELS = np.array(['long', 'short', 'elision', 'space', self.PADDING, 'anceps'])
+
+        # FLAGS.single_text = True
+        # self.num_epochs = 1
 
         # self.print_length_sequence_label_files()
         # exit(0)
@@ -83,7 +127,19 @@ class LSTM_model():
                                           do_evaluate=True, 
                                           do_metric_report=True, 
                                           do_confusion_matrix=True, 
-                                          print_stats=True)
+                                          print_stats=False)
+
+        if FLAGS.model_predict:
+            
+            train_texts = ['SEN-proofread.pickle']
+            test_texts = ['SEN-aga.pickle']
+            self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='seneca_precise', plot_title='Trimeter Texts')
+
+            # train_texts = ['SEN-proofread.pickle']
+            # test_texts = ['SEN-aga.pickle']
+            # self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='seneca_precise', plot_title='Trimeter Texts')
+
+
 
         if FLAGS.exp_hexameter:
             train_texts = ['VERG-aene.pickle', 'CATVLL-carm.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle']
@@ -224,6 +280,7 @@ class LSTM_model():
         if do_evaluate:
             loss, accuracy = self.evaluate_model(model, X_test, y_test)
             result_string = 'RESULT: loss -> {0}, accuracy -> {1}. Length of test set: {2}\n'.format(loss, accuracy, len(y_test))
+            print(result_string)
             # return loss, accuracy, len(y_train), len(y_test)
 
         if do_metric_report:
@@ -352,6 +409,17 @@ class LSTM_model():
                 X_test, y_test = self.create_X_y_sets(sequence_labels_test_text, word2idx, label2idx, max_sentence_length)
                 metrics_report = self.create_metrics_report(model, X_test, y_test)
 
+                if FLAGS.metrics_report:
+                    print_metrics_report = self.create_confusion_matrix(model, X_test, y_test)
+                    
+                    
+                    print(print_metrics_report)
+                    # print_metrics_report = self.create_metrics_report(model, X_test, y_test, output_dict=False)
+                    # print(print_metrics_report)                    
+                    
+                    # exit(0)
+                    self.create_seaborn_heatmap(print_metrics_report)
+
                 predictor = train_text.split('-')[0].capitalize() # get names
                 predictee = test_text.split('-')[0].capitalize()
 
@@ -397,23 +465,6 @@ class LSTM_model():
                         title = 'Label Accuracy -- {0} -- Elision'.format(plot_title),
                         filename = '{0}-elision'.format(exp_name),
                         path = './plots/experiments/')
-
-        
-        # self.hello().subplot(2, 2, 4)
-        # myplot = myplot.tight_layout()
-        # myplot.subplots_adjust(wspace=0.5, hspace=0.5)
-        # time = datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
-        # full_file_name = '{0}{1}_{2}.png'.format('./plots/experiments/', 'LSTM', time)
-        # myplot.show()
-        # myplot.savefig(full_file_name)        
-
-    def hello(self):
-        x = np.array([0, 1, 2, 3])
-        y = np.array([3, 8, 1, 10])       
-        plt.plot(x,y)
-
-        return plt
-
 
     def create_idx_dictionaries(self, unique_syllables, labels):
         """This function creates the idx dictionaries needed for creating an LSTM on syllable hashes
@@ -487,6 +538,12 @@ class LSTM_model():
             dataframe: with the metrics report to be printed
         """        
         y_pred = model.predict(X)
+
+        if FLAGS.anceps: # We dont want to predict the label anceps, so we delete it from the possible predictions
+            y_pred = y_pred[:, :, :-1]
+
+        print(y_pred.shape)
+
         y_pred = np.argmax(y_pred, axis=-1)
         y = np.argmax(y, axis=-1)
 
@@ -585,6 +642,24 @@ class LSTM_model():
 
         return syllable_list
 
+    def create_seaborn_heatmap(self, confusion_matrix):
+        df_confusion_matrix = pd.DataFrame(confusion_matrix, index = ['long', 'short', 'elision', 'space', 'padding'],
+                                        columns = ['long', 'short', 'elision', 'space', 'padding'])
+        # Drop the padding labels, as we don't need them (lstm scans them without confusion): delete both row and column
+        df_confusion_matrix = df_confusion_matrix.drop('padding')
+        df_confusion_matrix = df_confusion_matrix.drop(columns=['padding', 'space'])
+
+        df_confusion_matrix = df_confusion_matrix.drop('space')
+        # df_confusion_matrix = df_confusion_matrix.drop(columns=['padding'])
+
+        util.create_heatmap(dataframe = df_confusion_matrix,
+                            xlabel = 'TRUTH', 
+                            ylabel =  'PREDICTED',
+                            title = 'CONFUSION MATRIX',
+                            filename = 'new_confusion_matrix',
+                            # vmax = 500
+                            )         
+
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--create_model", action="store_true", help="specify whether to create the model: if not specified, we load from disk")
@@ -595,7 +670,10 @@ if __name__ == "__main__":
     p.add_argument("--exp_elegiac", action="store_true", help="specify whether to run the hexameter genre LSTM experiment")
     p.add_argument("--exp_train_test", action="store_true", help="specify whether to run the train/test split LSTM experiment")
     p.add_argument("--exp_transfer_boeth", action="store_true", help="specify whether to run the Boeth LSTM experiment")
+    p.add_argument("--model_predict", action="store_true", help="let a specific model predict a specific text")
+    p.add_argument("--metrics_report", action="store_true", help="specifiy whether to print the metrics report")
 
+    p.add_argument("--anceps", action="store_true", help="specify whether to train on an anceps text")
     p.add_argument("--verbose", action="store_true", help="specify whether to run the code in verbose mode")
     p.add_argument('--epochs', default=25, type=int, help='number of epochs')
     p.add_argument("--split", type=util.restricted_float, default=0.2, help="specify the split size of train/test sets")
