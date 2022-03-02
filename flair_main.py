@@ -24,8 +24,10 @@ class FLAIR_model():
     def __init__(self, FLAGS):
 
         self.corpus_path = './flair/corpus/trimeter' #'./flair/corpus'
-        self.flair_lm_path = './flair/resources/taggers/iambic_model'
+        self.flair_lm_path = './flair/resources/taggers/dactylic_model'
         self.flair_lm_output = 'flair/resources/taggers/iambic_model' #'flair/resources/taggers/dactylic_model'
+
+        FLAGS.custom_prediction = True
 
         if FLAGS.create_corpus:
             trimeter = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'SEN-precise.pickle')
@@ -44,7 +46,7 @@ class FLAIR_model():
 
         if FLAGS.train_model:
             # trains and saves the FLAIR model
-            self.train_model()
+            self.train_model(self.corpus_path, self.flair_lm_output)
 
         if FLAGS.language_model == 'flair':
             # Creates the flair language model by training embeddings on the text
@@ -66,61 +68,21 @@ class FLAIR_model():
 
             model.save_model("flair/resources/fasttext_embeddings.bin")            
 
-        if FLAGS.test_model:
-            # load the model you trained
-            model_file = self.flair_lm_path + '/final-model.pt'
+        if FLAGS.custom_prediction:
 
-            model = SequenceTagger.load(model_file)
-            text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'SEN-precise.pickle')
+            custom_prediction_corpus_path = './flair/corpus/custom_prediction'
+            custom_prediction_model_output_path = './flair/resources/taggers/custom_prediction_model'
 
-            from sklearn.metrics import confusion_matrix
-            import pandas as pd
+            corpus_text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'SEN-proofread.pickle')
+            # self.create_corpus_files(corpus_text, custom_prediction_corpus_path)
 
-            y_true = []
-            y_pred = []
+            # self.train_model(custom_prediction_corpus_path, custom_prediction_model_output_path)
 
-            # Loop through each line and get the ground truth and sentence from the given text
-            for line in text:
-                new_line = ''
-                for syllable, label in line:
-                    new_line += syllable + ' '
-                    y_true.append(label)
-                # Turn the string into a FLAIR sentence and let the model predict
-                sentence = Sentence(new_line.rstrip())
-                model.predict(sentence)
-                # Create a y_pred list
-                for token in sentence.tokens:
-                    y_pred.append(token.labels[0].value)
-            # From all y_true and y_pred, create a confusion matrix
-            cm = confusion_matrix(y_true, y_pred, labels=['long', 'short', 'elision', 'space'])
+            _predictor = custom_prediction_model_output_path + '/final-model.pt'
 
-            print(cm)
-
-            from sklearn.metrics import classification_report
-
-            metrics_report = classification_report(y_true, y_pred, digits=4)
-
-            # metrics_report = classification_report(
-            #     y_true, y_pred, labels=[0,1,2,3], target_names=['long', 'short', 'elision','space'], digits=4, output_dict=False
-            # )
-
-            print(metrics_report)
-
-
-            df_confusion_matrix = pd.DataFrame(cm, index = ['long', 'short', 'elision', 'space'],
-                                                columns = ['long', 'short', 'elision', 'space'])
-            # Drop the padding labels, as we don't need them (lstm scans them without confusion): delete both row and column
-            df_confusion_matrix = df_confusion_matrix.drop(columns=['space'])
-            df_confusion_matrix = df_confusion_matrix.drop('space')
-
-            # Create a heatmap and save it to disk
-            util.create_heatmap(dataframe = df_confusion_matrix,
-                                xlabel = 'TRUTH', 
-                                ylabel =  'PREDICTED',
-                                title = 'CONFUSION MATRIX',
-                                filename = 'confusion_matrix_flair_seneca',
-                                # vmax = 500
-                                ) 
+            self.custom_prediction( predictor=_predictor,
+                                    predictee=util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'SEN-aga.pickle'),
+                                    )
                 
                 
         if FLAGS.single_line:
@@ -128,6 +90,67 @@ class FLAIR_model():
             sentence = Sentence('de lu bra - et - a ras - cae li tum - et - pa tri os - la res')
             print(sentence.labels)
             print(sentence.to_tagged_string())         
+
+    def remove_anceps_from_syllable_sequence(self, given_list):
+        return [i for i in given_list if i[0] != 'anceps']
+
+    def custom_prediction(self, predictor, predictee):
+        from sklearn.metrics import confusion_matrix
+        from sklearn.metrics import classification_report
+        import pandas as pd
+
+        # load the model you trained
+        model = SequenceTagger.load(predictor)
+
+        y_true = []
+        y_pred = []
+
+        # Loop through each line and get the ground truth and sentence from the given text
+        for line in predictee:
+            new_line = ''
+            for syllable, label in line:
+                new_line += syllable + ' '
+                y_true.append(label)
+            # Turn the string into a FLAIR sentence and let the model predict
+            sentence = Sentence(new_line.rstrip())
+            model.predict(sentence, all_tag_prob=True)
+            # Create a y_pred list
+            for token in sentence.tokens:
+                
+                # i take a look at the probability distribution for the labels.
+                proba = token.tags_proba_dist['length']
+                # i put this in a list i can work with (no idea what flair is doing)
+                probability_list = []
+                for prob in proba:
+                    probability_list.append((prob.value, prob.score))
+                # next i delete the anceps label from the list, as we do not want to predict this one
+                probability_list = self.remove_anceps_from_syllable_sequence(probability_list)
+                # i then take the label with the highest probability
+                label = max(probability_list, key = lambda i : i[1])[0]
+                # and we append that label to the prediction list
+                y_pred.append(label)
+                # y_pred.append(token.labels[0].value)
+
+        # From all y_true and y_pred, create a confusion matrix
+        cm = confusion_matrix(y_true, y_pred, labels=['long', 'short', 'elision', 'space'])
+
+        # Additionally create a metrics report
+        metrics_report = classification_report(y_true, y_pred, digits=4)
+        print(metrics_report)
+
+        df_confusion_matrix = pd.DataFrame(cm, index = ['long', 'short', 'elision', 'space'],
+                                            columns = ['long', 'short', 'elision', 'space'])
+        # Drop the padding labels, as we don't need them (lstm scans them without confusion): delete both row and column
+        df_confusion_matrix = df_confusion_matrix.drop(columns=['space'])
+        df_confusion_matrix = df_confusion_matrix.drop('space')
+
+        # Create a heatmap and save it to disk
+        util.create_heatmap(dataframe = df_confusion_matrix,
+                            xlabel = 'TRUTH', 
+                            ylabel =  'PREDICTED',
+                            title = 'CONFUSION MATRIX FLAIR',
+                            filename = 'confusion_matrix_flair_seneca',
+                            ) 
 
     def create_plain_syllable_files(self, sequence_labels, filename):
         """Writes all syllables from the given sequence label file to a text file
@@ -225,15 +248,16 @@ class FLAIR_model():
                                     dev_file='valid.txt')
         return corpus
 
-    def train_model(self):
+    def train_model(self, corpus_path, model_output_path):
         # 1. get the corpus
-        corpus = self.load_corpus(self.corpus_path)
+        corpus = self.load_corpus(corpus_path)
         # 2. what label do we want to predict?
         label_type = 'length'
         # 3. make the label dictionary from the corpus
         label_dictionary = corpus.make_label_dictionary(label_type='length')
-        # 4. initialize embeddings
-        chosen_flair_model = self.flair_lm_path + '/best-lm.pt'
+        
+        # # 4. initialize embeddings
+        # chosen_flair_model = self.flair_lm_path + '/best-lm.pt'
 
         embedding_types = [
             # GLOVE EMBEDDINGS
@@ -249,7 +273,7 @@ class FLAIR_model():
             CharacterEmbeddings(),
 
             # FLAIR EMBEDDINGS
-            FlairEmbeddings(chosen_flair_model),
+            # FlairEmbeddings(chosen_flair_model),
         ]
         embeddings = StackedEmbeddings(embeddings=embedding_types)
 
@@ -262,7 +286,7 @@ class FLAIR_model():
         # 6. initialize trainer 
         trainer = ModelTrainer(tagger, corpus)
         # 7. start training and save to disk
-        trainer.train(self.flair_lm_output,
+        trainer.train(model_output_path,
                     learning_rate=0.1,
                     mini_batch_size=32,
                     max_epochs=FLAGS.epochs)
@@ -274,7 +298,7 @@ if __name__ == "__main__":
     p.add_argument("--train_model", action="store_true", help="specify whether to train a FLAIR model")
     p.add_argument("--create_corpus", action="store_true", help="specify whether to create the corpus for FLAIR")
     p.add_argument("--create_syllable_file", action="store_true", help="specify whether to create a file consisting of syllables to train word vectors on")
-    p.add_argument("--test_model", action="store_true", help="specify whether to test the FLAIR model")
+    p.add_argument("--custom_prediction", action="store_true", help="specify whether to test the FLAIR model")
     p.add_argument("--exp_train_test", action="store_true", help="specify whether to run the train/test split LSTM experiment")
     p.add_argument("--single_line", action="store_true", help="specify whether to predict a single line")
 

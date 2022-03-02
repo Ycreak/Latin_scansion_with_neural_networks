@@ -1,49 +1,5 @@
-import matplotlib.pyplot as plt
-import numpy as np
-
-def hello():
-    x = np.array([0, 1, 2, 3])
-    y = np.array([3, 8, 1, 10])       
-    plt.plot(x,y)
-
-    return plt
-#plot 1:
+# dic = {'length': [<unk> (0.0001), short (0.5776), space (0.0043), long (0.0207), anceps (0.3846), elision (0.0022), <START> (0.0), <STOP> (0.0105)]}
+dic = [<unk> (0.0001), short (0.5776), space (0.0043), long (0.0207), anceps (0.3846), elision (0.0022), <START> (0.0), <STOP> (0.0105)]
 
 
-myplt = plt.subplot(2, 2, 1)
-myplt = hello()
-myplt = plt.subplot(2, 2, 2)
-myplt = hello()
-myplt = plt.subplot(2, 2, 3)
-myplt = hello()
-myplt = plt.subplot(2, 2, 4)
-myplt = hello()
-myplt.text(0, 0, 'hello\nthere', ha='center', va='center', fontsize = 12)
-myplt.show()
-
-#adding text inside the plot
-   
-plt.show()
-
-
-exit(0)
-#plot 2:
-x = np.array([0, 1, 2, 3])
-y = np.array([10, 20, 30, 40])
-
-plt.subplot(2, 2, 2)
-plt.plot(hello())
-
-
-x = np.array([0, 1, 2, 3])
-y = np.array([10, 20, 30, 40])
-
-plt.subplot(2, 2, 3)
-plt.plot(hello())
-
-
-plt.show()
-
-exit(0)
-
-
+print(dic)
