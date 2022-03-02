@@ -71,7 +71,7 @@ class FLAIR_model():
             model_file = self.flair_lm_path + '/final-model.pt'
 
             model = SequenceTagger.load(model_file)
-            text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'SEN-aga.pickle')
+            text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'SEN-precise.pickle')
 
             from sklearn.metrics import confusion_matrix
             import pandas as pd
@@ -93,7 +93,20 @@ class FLAIR_model():
                     y_pred.append(token.labels[0].value)
             # From all y_true and y_pred, create a confusion matrix
             cm = confusion_matrix(y_true, y_pred, labels=['long', 'short', 'elision', 'space'])
-                
+
+            print(cm)
+
+            from sklearn.metrics import classification_report
+
+            metrics_report = classification_report(y_true, y_pred, digits=4)
+
+            # metrics_report = classification_report(
+            #     y_true, y_pred, labels=[0,1,2,3], target_names=['long', 'short', 'elision','space'], digits=4, output_dict=False
+            # )
+
+            print(metrics_report)
+
+
             df_confusion_matrix = pd.DataFrame(cm, index = ['long', 'short', 'elision', 'space'],
                                                 columns = ['long', 'short', 'elision', 'space'])
             # Drop the padding labels, as we don't need them (lstm scans them without confusion): delete both row and column

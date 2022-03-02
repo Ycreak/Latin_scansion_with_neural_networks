@@ -4,6 +4,7 @@ import numpy as np
 from progress.bar import Bar
 import seaborn as sn
 import matplotlib.pyplot as plt
+import argparse
 
 # CRF specific imports
 import scipy.stats
@@ -25,13 +26,43 @@ class CRF_sequence_labeling:
     # feature-based sequence labelling: conditional random fields
     labels = ['short', 'long', 'elision']
 
-    def __init__(self):
-        pass
+    def __init__(self, FLAGS):
+        self.FLAGS = FLAGS
+
+        if FLAGS.custom_prediction:
+            self.custom_prediction('HEX_ELE-all.pickle', 'SEN-aga.pickle')
 
     def perform_experiments(self):    
         # self.elegiac_heatmap()
         self.hexameter_heatmap()
         # self.crf_improvement_heatmap()
+
+    def remove_space_from_syllable_sequence(self, given_list):
+        new_list = []
+
+        for my_list in given_list:
+            out_tup = [i for i in my_list if i[1] != 'space']
+            new_list.append(out_tup)
+
+        return new_list
+
+    def custom_prediction(self, predictor_pickle, predictee_pickle):
+        print('doing custom prediction')
+        predictor_text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), predictor_pickle)
+        predictee_text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), predictee_pickle)
+
+        predictor_text = self.remove_space_from_syllable_sequence(predictor_text)
+        predictee_text = self.remove_space_from_syllable_sequence(predictee_text)
+
+        predictor_X, predictor_y = self.convert_text_to_feature_sets(predictor_text)
+        crf_model = self.fit_model(predictor_X, predictor_y)
+
+        predictee_X, predictee_y = self.convert_text_to_feature_sets(predictee_text)
+        result = self.predict_model(crf_model, predictee_X, predictee_y)
+
+        print(result)
+
+
 
     def predict_model(self, model, X, y):
         """ Predicts labels y given the model and examples X. Returns the metric report.
@@ -347,5 +378,23 @@ class CRF_sequence_labeling:
         plt.clf()    
 
 if __name__ == "__main__":
-    crf = CRF_sequence_labeling()
-    crf.hexameter_heatmap()
+    p = argparse.ArgumentParser()
+    p.add_argument("--custom_prediction", action="store_true", help="specify whether to create the model: if not specified, we load from disk")
+    p.add_argument("--save_model", action="store_true", help="specify whether to save the model: if not specified, we do not save")
+    p.add_argument("--single_text", action="store_true", help="specify whether to run the single text LSTM function")
+    p.add_argument("--exp_hexameter", action="store_true", help="specify whether to run the hexameter LSTM experiment")
+    p.add_argument("--exp_transfer", action="store_true", help="specify whether to run the hexameter transerability LSTM experiment")
+    p.add_argument("--exp_elegiac", action="store_true", help="specify whether to run the hexameter genre LSTM experiment")
+    p.add_argument("--exp_train_test", action="store_true", help="specify whether to run the train/test split LSTM experiment")
+    p.add_argument("--exp_transfer_boeth", action="store_true", help="specify whether to run the Boeth LSTM experiment")
+    p.add_argument("--model_predict", action="store_true", help="let a specific model predict a specific text")
+    p.add_argument("--metrics_report", action="store_true", help="specifiy whether to print the metrics report")
+
+    p.add_argument("--anceps", action="store_true", help="specify whether to train on an anceps text")
+    p.add_argument("--verbose", action="store_true", help="specify whether to run the code in verbose mode")
+    p.add_argument('--epochs', default=25, type=int, help='number of epochs')
+    p.add_argument("--split", type=util.restricted_float, default=0.2, help="specify the split size of train/test sets")
+
+    FLAGS = p.parse_args()    
+
+    crf = CRF_sequence_labeling(FLAGS)
