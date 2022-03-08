@@ -385,6 +385,7 @@ if __name__ == "__main__":
         # combine_sequence_label_lists()
         # trimeter = ['Phoenissae', 'Phaedra', 'Hiempsal', 'Hercules_furens', 'Troades', 'Thyestes', 'Procne', 'Oedipus', 'Octavia', 'Medea', 'Hercules_Oetaeus', 'Ecerinis', 'Agamemnon', 'Achilles']
         trimeter = ['Phoenissae', 'Phaedra', 'Hercules_furens', 'Troades', 'Thyestes', 'Oedipus', 'Octavia', 'Medea', 'Hercules_Oetaeus', 'Agamemnon']
+        trimeter = ['Phoenissae', 'Phaedra', 'Hercules_furens', 'Troades', 'Thyestes', 'Oedipus', 'Octavia', 'Medea', 'Hercules_Oetaeus']
         combine_sequence_label_lists(trimeter, 'SEN-proofread', cf.get('Pickle', 'path_sequence_labels'))
 
     if FLAGS.auto_seq_labels:
@@ -392,7 +393,18 @@ if __name__ == "__main__":
 
     if FLAGS.create_trimeter_set:
         # Create the Trimeter dataset
-        df = pd.read_csv('./texts/iambic/agamemnon_labels_4.csv')
+        df = pd.read_csv('./texts/iambic/agamemnon_labels_5.csv')
+
+        # for i in range(len(df)):
+        #     # print(df['anceps'][i])
+        #     if df['anceps'][i] == 'space':
+        #         df['length'][i] = 'space'
+
+        # df.to_csv('./texts/iambic/agamemnon_labels_5.csv', index=False, header=True)
+
+        # print(df)
+        # exit(0)
+
         sequence_label_list = convert_pedecerto_to_sequence_labeling(df)
 
         new_list = []
@@ -404,4 +416,6 @@ if __name__ == "__main__":
             else:
                 new_list.append(line)
         
+        print(new_list[:2])
+
         Pickle_write(cf.get('Pickle', 'path_sequence_labels'), 'SEN-aga.pickle', new_list)    
