@@ -17,7 +17,7 @@ from sklearn.model_selection import train_test_split
 
 import utilities as util
 import argparse
-
+import functools
 
 class FLAIR_model():
 
@@ -27,7 +27,7 @@ class FLAIR_model():
         self.flair_lm_path = './flair/resources/taggers/dactylic_model'
         self.flair_lm_output = 'flair/resources/taggers/iambic_model' #'flair/resources/taggers/dactylic_model'
 
-        FLAGS.custom_prediction = True
+        # FLAGS.custom_prediction = True
 
         if FLAGS.create_corpus:
             trimeter = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'SEN-precise.pickle')
@@ -46,7 +46,7 @@ class FLAIR_model():
 
         if FLAGS.train_model:
             # trains and saves the FLAIR model
-            self.train_model(self.corpus_path, self.flair_lm_output)
+            self.train_model(self.corpus_path, self.flair_lm_path, self.flair_lm_output)
 
         if FLAGS.language_model == 'flair':
             # Creates the flair language model by training embeddings on the text
@@ -73,10 +73,15 @@ class FLAIR_model():
             custom_prediction_corpus_path = './flair/corpus/custom_prediction'
             custom_prediction_model_output_path = './flair/resources/taggers/custom_prediction_model'
 
-            corpus_text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'SEN-proofread.pickle')
+            language_model_path = './flair/resources/taggers/custom_flair_language_model'
+
+            # corpus_text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'SEN-precise.pickle')
+
             # self.create_corpus_files(corpus_text, custom_prediction_corpus_path)
 
-            # self.train_model(custom_prediction_corpus_path, custom_prediction_model_output_path)
+            self.train_flair_language_model(custom_prediction_corpus_path, language_model_path)
+
+            self.train_model(custom_prediction_corpus_path, language_model_path, custom_prediction_model_output_path)
 
             _predictor = custom_prediction_model_output_path + '/final-model.pt'
 
@@ -90,6 +95,80 @@ class FLAIR_model():
             sentence = Sentence('de lu bra - et - a ras - cae li tum - et - pa tri os - la res')
             print(sentence.labels)
             print(sentence.to_tagged_string())         
+
+        if FLAGS.qualitative:
+            # Qualitative research
+            custom_prediction_model_output_path = './flair/resources/taggers/custom_prediction_model'
+            predictor = custom_prediction_model_output_path + '/final-model.pt'
+            predictee = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'SEN-aga.pickle')
+            # load the model you trained
+            model = SequenceTagger.load(predictor)
+
+            counter = 0
+
+            # Loop through each line and get the ground truth and sentence from the given text
+            for line in predictee:
+                y_true = []
+                y_pred = []
+                new_line = ''
+                for syllable, label in line:
+                    new_line += syllable + ' '
+                    y_true.append(label)
+                # Turn the string into a FLAIR sentence and let the model predict
+                sentence = Sentence(new_line.rstrip())
+                model.predict(sentence, all_tag_prob=True)
+                # Create a y_pred list
+                for token in sentence.tokens:
+                    
+                    # i take a look at the probability distribution for the labels.
+                    proba = token.tags_proba_dist['length']
+                    # i put this in a list i can work with (no idea what flair is doing)
+                    probability_list = []
+                    for prob in proba:
+                        probability_list.append((prob.value, prob.score))
+                    # next find the highest probability tuple
+                    highest_tuple = max(probability_list, key = lambda i : i[1])
+                    # if it is an anceps, we do not want to predict it. we want to predict short or long                
+                    if highest_tuple[0] == 'anceps':
+                        # pick highest confidence short or long
+                        long_label_confidence = [t[1] for t in probability_list if t[0] == 'long']
+                        short_label_confidence = [t[1] for t in probability_list if t[0] == 'short']
+                        if long_label_confidence > short_label_confidence:
+                            y_pred.append('long')
+                        else:
+                            y_pred.append('short')
+                    # if no anceps, just continue with the highest confidence tuple
+                    else:
+                        y_pred.append(highest_tuple[0]) # append the label with highest confidence            
+
+                # print(type(y_pred))
+
+                # if not (y_pred_current == y_true_current).all():
+                if not self.check_lists_indentically(y_pred, y_true):
+                    counter += 1
+                    print('### THIS LINE CONTAINS ERRORS ###')
+                    print(sentence.tokenized)         
+                    print('TRUE', y_true)
+                    print('PRED', y_pred)
+                    print('#################################\n')
+                else:
+                    print('@@@ THIS LINE IS CORRECT @@@')
+                    print(sentence.tokenized)         
+                    print('TRUE', y_true)
+                    print('PRED', y_pred)
+                    print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n')
+
+            print(counter)
+
+    def check_lists_indentically(self, list1: list, list2: list):
+        # Returns whether two given lists are identical (item for item)
+        import functools
+        if functools.reduce(lambda i, j : i and j, map(lambda m, k: m == k, list1, list2), True):
+            return True
+        else:
+            return False 
+
+
 
     def remove_anceps_from_syllable_sequence(self, given_list):
         return [i for i in given_list if i[0] != 'anceps']
@@ -123,13 +202,20 @@ class FLAIR_model():
                 probability_list = []
                 for prob in proba:
                     probability_list.append((prob.value, prob.score))
-                # next i delete the anceps label from the list, as we do not want to predict this one
-                probability_list = self.remove_anceps_from_syllable_sequence(probability_list)
-                # i then take the label with the highest probability
-                label = max(probability_list, key = lambda i : i[1])[0]
-                # and we append that label to the prediction list
-                y_pred.append(label)
-                # y_pred.append(token.labels[0].value)
+                # next find the highest probability tuple
+                highest_tuple = max(probability_list, key = lambda i : i[1])
+                # if it is an anceps, we do not want to predict it. we want to predict short or long                
+                if highest_tuple[0] == 'anceps':
+                    # pick highest confidence short or long
+                    long_label_confidence = [t[1] for t in probability_list if t[0] == 'long']
+                    short_label_confidence = [t[1] for t in probability_list if t[0] == 'short']
+                    if long_label_confidence > short_label_confidence:
+                        y_pred.append('long')
+                    else:
+                        y_pred.append('short')
+                # if no anceps, just continue with the highest confidence tuple
+                else:
+                    y_pred.append(highest_tuple[0]) # append the label with highest confidence
 
         # From all y_true and y_pred, create a confusion matrix
         cm = confusion_matrix(y_true, y_pred, labels=['long', 'short', 'elision', 'space'])
@@ -210,6 +296,9 @@ class FLAIR_model():
     def train_flair_language_model(self, corpus_path, output_path):
         """This function trains a Flair language model and saves it to disk for later use
         """    
+
+        #TODO: this function wants train.txt in train/train.txt for some reason.
+
         # are you training a forward or backward LM?
         is_forward_lm = True
         # load the default character dictionary
@@ -248,7 +337,7 @@ class FLAIR_model():
                                     dev_file='valid.txt')
         return corpus
 
-    def train_model(self, corpus_path, model_output_path):
+    def train_model(self, corpus_path, flair_path, model_output_path):
         # 1. get the corpus
         corpus = self.load_corpus(corpus_path)
         # 2. what label do we want to predict?
@@ -257,7 +346,7 @@ class FLAIR_model():
         label_dictionary = corpus.make_label_dictionary(label_type='length')
         
         # # 4. initialize embeddings
-        # chosen_flair_model = self.flair_lm_path + '/best-lm.pt'
+        chosen_flair_model = flair_path + '/best-lm.pt'
 
         embedding_types = [
             # GLOVE EMBEDDINGS
@@ -273,7 +362,7 @@ class FLAIR_model():
             CharacterEmbeddings(),
 
             # FLAIR EMBEDDINGS
-            # FlairEmbeddings(chosen_flair_model),
+            FlairEmbeddings(chosen_flair_model),
         ]
         embeddings = StackedEmbeddings(embeddings=embedding_types)
 
@@ -301,6 +390,7 @@ if __name__ == "__main__":
     p.add_argument("--custom_prediction", action="store_true", help="specify whether to test the FLAIR model")
     p.add_argument("--exp_train_test", action="store_true", help="specify whether to run the train/test split LSTM experiment")
     p.add_argument("--single_line", action="store_true", help="specify whether to predict a single line")
+    p.add_argument("--qualitative", action="store_true", help="specify whether to predict a single line")
 
     p.add_argument("--verbose", action="store_true", help="specify whether to run the code in verbose mode")
     p.add_argument('--epochs', default=10, type=int, help='number of epochs')

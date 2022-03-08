@@ -1,0 +1,1103 @@
+### THIS LINE CONTAINS ERRORS ###
+de lu bra - et - a ras - cae li tum - et - pa tri os - la res
+TRUE ['long', 'long', 'elision', 'space', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'short', 'long', 'space', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+post - lon ga - fes sus - spa ti a - vix - cre dens - mi hi
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+sup plex - a do ro - vo ta - su pe ris - sol vi te
+TRUE ['short', 'long', 'space', 'short', 'long', 'long', 'space', 'long', 'short', 'space', 'short', 'short', 'long', 'space', 'long', 'short', 'short']
+PRED ['long', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+tel lu ris - al tum - re me at - ar go li cae - de cus
+TRUE ['long', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'long', 'long', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+tan dem - ad - pe na tes - vic tor - a ga mem non - su os
+TRUE ['short', 'elision', 'space', 'long', 'space', 'short', 'long', 'long', 'space', 'long', 'short', 'space', 'short', 'short', 'long', 'long', 'space', 'short', 'long']
+PRED ['long', 'elision', 'space', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'long', 'long', 'space', 'short', 'long']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+fe lix - ad - au res - nun ti us - ve nit - me as
+TRUE ['long', 'long', 'space', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'long', 'space', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+u bi nam - pe ti tus - per - de cem - con junx - mi hi
+TRUE ['short', 'short', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+an nos - mo ra tur - pe la gus - an ter ras - pre mit
+TRUE ['short', 'long', 'space', 'short', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+PRED ['long', 'long', 'space', 'short', 'long', 'long', 'space', 'short', 'short', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+@@@ THIS LINE IS CORRECT @@@
+in co lu mis - auc tus - glo ri a - lau de - in cli tus
+TRUE ['short', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'elision', 'space', 'long', 'short', 'short']
+PRED ['short', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'elision', 'space', 'long', 'short', 'short']
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+### THIS LINE CONTAINS ERRORS ###
+re du cem - ex pe ti to - li to ri - im pres sit - pe dem
+TRUE ['short', 'short', 'elision', 'space', 'long', 'short', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'elision', 'space', 'long', 'short', 'long', 'long', 'space', 'long', 'short', 'elision', 'space', 'long', 'short', 'long', 'space', 'short', 'long']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+sa cris - co la mus - pros pe rum - tan dem - di em
+TRUE ['short', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['long', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+et - si - pro pi ti os - at ta men - len tos - de os
+TRUE ['short', 'space', 'long', 'space', 'short', 'short', 'short', 'long', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'space', 'long', 'space', 'short', 'short', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+tu - pan de - vi vat - con ju gis - fra ter - mei
+TRUE ['long', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short']
+#################################
+
+@@@ THIS LINE IS CORRECT @@@
+et - pan de - te ne at - quas - so ror - se des - me a
+TRUE ['short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+### THIS LINE CONTAINS ERRORS ###
+me li o ra - vo tis - pos co - et ob tes tor - de os
+TRUE ['short', 'short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'elision', 'space', 'short', 'long', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'elision', 'space', 'short', 'long', 'long', 'long', 'space', 'short', 'long']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+nam - cer ta - fa ri - sors - ma ris - du bi i ve tat
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short', 'long', 'short', 'short']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short', 'long', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+ut - spar sa - tu mi dum - clas sis - ex ce pit - ma re
+TRUE ['short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'long', 'short', 'space', 'short', 'short', 'long', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+quin - ip se - a tri des - ae quo re - im men so - va gus - ra tis - ui de re - so ci a - non - po tu it - ra tem
+TRUE ['long', 'space', 'long', 'elision', 'space', 'short', 'long', 'long', 'space', 'long', 'short', 'elision', 'space', 'long', 'long', 'long', 'space', 'short', 'short', 'space', 'short', 'long', 'space', 'short', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'long', 'short', 'space', 'short', 'short', 'long', 'space', 'long', 'short', 'elision', 'space', 'long', 'long', 'short', 'space', 'short', 'short', 'space', 'short', 'short', 'space', 'short', 'long', 'long', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+gra vi o ra - pe la go - dam na - quam - bel lo - tu lit
+TRUE ['short', 'short', 'long', 'short', 'space', 'short', 'short', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+re me at que - vic to - si mi lis - ex i gu as - tra hens
+TRUE ['short', 'short', 'long', 'short', 'space', 'long', 'long', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'short', 'long', 'space', 'short', 'long']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+la ce ras que - vic tor - clas se - de - tan ta - ra tes
+TRUE ['short', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+quis - fa re - nos tras - hau se rit - ca sus - ra tes
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+aut - quae - ma ris - for tu na - dis pu le rit - du ces
+TRUE ['long', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'short', 'long', 'space', 'short', 'long']
+PRED ['long', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+a cer ba - fa tu - pos cis - in faus tum - iu bes
+TRUE ['short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'long']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+mens - ae gra - tan tis - at que - in hor res cit - ma lis
+TRUE ['long', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'elision', 'space', 'short', 'long', 'long', 'long', 'space', 'short', 'long']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'elision', 'space', 'short', 'long', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+ex pro me - cla des - sci re - qui - re fu git - su as - mis ce re - lae to nun ti um - re fu git - lo qui
+TRUE ['short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'long', 'space', 'long', 'long', 'short', 'space', 'long', 'long', 'long', 'short', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'long']
+PRED ['long', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'short', 'short', 'space', 'short', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'long', 'short', 'long', 'space', 'short', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+gra vat - ti mo rem - du bi a - plus - tor quent - ma la
+TRUE ['short', 'long', 'space', 'short', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'space', 'short', 'long', 'long', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+ut - per ga mum - om ne - do ri ca - ce ci dit - fa ce
+TRUE ['short', 'space', 'long', 'short', 'elision', 'space', 'long', 'short', 'space', 'long', 'short', 'short', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'long', 'short', 'elision', 'space', 'long', 'short', 'space', 'short', 'short', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+di vi sa - prae da - est - ma ri a - pro pe ran tes - pe tunt
+TRUE ['long', 'long', 'short', 'space', 'long', 'elision', 'space', 'short', 'space', 'short', 'short', 'short', 'space', 'short', 'short', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'long', 'elision', 'space', 'long', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+ne glec ta - sum mas - scu ta - per - pup pes - ia cent
+TRUE ['short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+ad - mi li ta res - re mus - ap ta tur - ma nus
+TRUE ['short', 'space', 'long', 'short', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+PRED ['long', 'space', 'long', 'short', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+om nis que - ni mi um - lon ga - pro pe ran ti - mo ra - est - iam que - en se - fes sum - mi les - ex o ne rat - la tus
+TRUE ['short', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'long', 'long', 'space', 'short', 'elision', 'space', 'short', 'space', 'long', 'elision', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'short', 'short', 'long', 'space', 'short', 'short']
+PRED ['long', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'long', 'space', 'short', 'elision', 'space', 'long', 'space', 'long', 'elision', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'space', 'long', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+sig num - re cur sus - re gi a - ut - ful sit - ra te
+TRUE ['short', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['long', 'long', 'space', 'short', 'long', 'long', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+et - cla ra - lae tum - re mi gem - mo nu it - tu ba
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+au ra ta - pri mas - pro ra - de sig nat - vi as
+TRUE ['long', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'long']
+PRED ['long', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+a pe rit que - cur sus - mil le - quos - pup pes - se cent
+TRUE ['short', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+hinc - au ra - pri mo - le nis - im pel lit - ra tes
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+ad lap sa - ve lis - un da - vix - ac tu - le vi
+TRUE ['short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+PRED ['long', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+@@@ THIS LINE IS CORRECT @@@
+splen det que - clas se - pe la gus - et - pa ri ter - la tet
+TRUE ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+### THIS LINE CONTAINS ERRORS ###
+iu vat - vi de re - nu da - tro iae - li to ra
+TRUE ['short', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'short']
+PRED ['long', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+iu vat - re lic ti - so la - si gei - lo ca
+TRUE ['short', 'long', 'space', 'short', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+pro pe rat - iu ven tus - om nis - ad duc tos - si mul
+TRUE ['short', 'short', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'short', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'long']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+len ta re - re mos - ad iu vat - ven tos - ma nu
+TRUE ['short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+et - va li da - ni su - brac chi a - al ter no - mo vet
+TRUE ['short', 'space', 'short', 'short', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'elision', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+PRED ['long', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+di ri munt que - ca nae - cae ru lum - spu mae - ma re
+TRUE ['short', 'short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'short', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+ut - au ra - ple nos - for ti or - ten dit - si nus
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+po su e re - ton sas - cre di ta - est - ven to - ra tis
+TRUE ['short', 'short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+fu sus que - tran stris - mi les - aut - ter ras - pro cul
+TRUE ['long', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+quan tum - re ce dunt - ve la - fu gi en tes - no tat - sul ca ta - vib rant - ae quo ra - et - la te ra - inc re pant
+TRUE ['short', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'long', 'space', 'short', 'short', 'space', 'long', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'short', 'short', 'elision', 'space', 'long', 'short', 'long']
+PRED ['long', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'long', 'space', 'short', 'short', 'space', 'long', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'short', 'short', 'elision', 'space', 'long', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+aut - bel la - nar rat - hec to ris - for tis - mi nas
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'long']
+PRED ['long', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+cur rus que - et - emp to - red di tum - cor pus - ro go
+TRUE ['short', 'long', 'elision', 'space', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'long', 'elision', 'space', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+spar sum - cru o re - re gis - her ce um - io vem
+TRUE ['short', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+PRED ['long', 'long', 'space', 'short', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+tunc - qui - ia cen te - re ci pro cus - lu dit - sa lo
+TRUE ['short', 'space', 'long', 'space', 'short', 'long', 'short', 'space', 'short', 'short', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+PRED ['short', 'space', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+tu mi dum que - pan do - tran si lit - dor so - ma re
+TRUE ['short', 'short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+tyr rhe nus - om ni - pis cis - ex ul tat - fre to
+TRUE ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+a gi tat que - gy ros - et - co mes - la te ri - ad na tat
+TRUE ['short', 'short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short', 'elision', 'space', 'long', 'short', 'short']
+PRED ['short', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short', 'elision', 'space', 'long', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+an tei re - na ves - lae tus - et - rur sus - se qui
+TRUE ['short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+nunc - pri ma - tan gens - ros tra - las ci vit - cho rus
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+@@@ THIS LINE IS CORRECT @@@
+mil le si mam - nunc - am bit - et - lus trat - ra tem
+TRUE ['long', 'long', 'short', 'long', 'space', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['long', 'long', 'short', 'long', 'space', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+### THIS LINE CONTAINS ERRORS ###
+iam - li tus - om ne - te gi tur - et - cam pi - la tent
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['long', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+@@@ THIS LINE IS CORRECT @@@
+et - du bi a - pe re unt - mon tis - i dae i - iu ga
+TRUE ['short', 'space', 'short', 'short', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'short', 'short', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+### THIS LINE CONTAINS ERRORS ###
+et - vix - quod - u num - per vi cax - a ci es - vi det
+TRUE ['short', 'space', 'long', 'space', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'long', 'space', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+i li a cus - a tra - fu mus - ap pa ret - no ta
+TRUE ['long', 'short', 'short', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'long']
+PRED ['short', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+iam - las sa - ti tan - col la - re le va bat - iu go
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'short', 'short', 'long', 'long', 'space', 'short', 'long']
+PRED ['long', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+in - as tra - iam - lux - pro na - iam - prae ceps di es
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'short', 'long']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+ex i gu a - nu bes - sor di do - cres cens - glo bo
+TRUE ['short', 'short', 'short', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+PRED ['long', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+@@@ THIS LINE IS CORRECT @@@
+ni ti dum - ca den tis - in qui nat - phoe bi - iu bar
+TRUE ['short', 'short', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+### THIS LINE CONTAINS ERRORS ###
+sus pec ta - va ri us - oc ci dens - fe cit - fre ta
+TRUE ['short', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+nox - pri ma - cae lum - spar se rat - stel lis - ia cent
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+de ser ta - ven to - ve la - tum - mur mur - gra ve
+TRUE ['long', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+ma io ra - mi ni tans - col li bus - sum mis - ca dit
+TRUE ['long', 'long', 'short', 'space', 'short', 'short', 'long', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+trac tu que - lon go - li tus - ac - pe trae - ge munt
+TRUE ['short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+a gi ta ta - ven tis - un da - ven tu ris - tu met
+TRUE ['short', 'short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+nec - u na - nox - est - den sa - te ne bras - ob ru it
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'long', 'space', 'long', 'short', 'short']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'long']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+ca li go - et - om ni - lu ce - sub duc ta - fre tum
+TRUE ['long', 'long', 'elision', 'space', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'elision', 'space', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+cae lum que - mis cet - un di que - in cum bunt - si mul
+TRUE ['long', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+PRED ['long', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'long', 'long', 'space', 'short', 'long']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+ra pi unt que - pe la gus - in fi mo - e ver sum - so lo
+TRUE ['short', 'short', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'short', 'short', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+ad ver sus - eu ro - zep hy rus - et - bo re ae - no tus
+TRUE ['short', 'long', 'short', 'space', 'short', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+su a - quis que - mit tunt - te la - et - in fes ti - fre tum - cum - su bi to - lu na - con di tur - stel lae - la tent
+TRUE ['short', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'elision', 'space', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short', 'space', 'long', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+PRED ['short', 'elision', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'short', 'space', 'short', 'short', 'short', 'space', 'short', 'short', 'space', 'long', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+@@@ THIS LINE IS CORRECT @@@
+e mo li un tur - tur bo - con vo lit - ma re
+TRUE ['long', 'long', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+PRED ['long', 'long', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+### THIS LINE CONTAINS ERRORS ###
+li by cus - que ha re nas - aus ter - ac - syr tes - a git
+TRUE ['short', 'short', 'long', 'space', 'elision', 'short', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'short', 'space', 'short', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+nec - ma net - in - aus tro - fit gra vis - nim bis - no tus
+TRUE ['short', 'space', 'short', 'short', 'space', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'short', 'short', 'space', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+im bre - au get - un das - eu rus - o ri en tem - mo vet
+TRUE ['short', 'elision', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'long', 'space', 'short', 'short']
+PRED ['long', 'elision', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+na ba tae a - qua ti ens - reg na - et - e o os - si nus
+TRUE ['short', 'short', 'long', 'short', 'space', 'short', 'short', 'long', 'space', 'long', 'elision', 'space', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'long', 'elision', 'space', 'short', 'short', 'long', 'space', 'long', 'elision', 'space', 'short', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+quid ra bi dus - o ra - co rus - o ce a no - ex e rens
+TRUE ['short', 'short', 'short', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'short', 'short', 'elision', 'space', 'long', 'short', 'long']
+PRED ['short', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'elision', 'space', 'long', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+mun dum - re vel li - se di bus - to tum - su is
+TRUE ['short', 'long', 'space', 'short', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+PRED ['long', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+ip sos que - rup to - cre de res - cae lo - de os
+TRUE ['short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+de ci de re - et - a trum - re bus - in - du ci - cha os - Stry mo ni us - al tas - A qui lo - con tor quet - ni ves
+TRUE ['long', 'short', 'short', 'elision', 'space', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short', 'space', 'long', 'short', 'short', 'short', 'space', 'long', 'long', 'space', 'short', 'short', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'long']
+PRED ['short', 'short', 'short', 'elision', 'space', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'short', 'short', 'short', 'space', 'long', 'long', 'space', 'short', 'short', 'short', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+ven to - re sis tit - aes tus - et - ven tus - re tro
+TRUE ['short', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'long']
+PRED ['long', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+@@@ THIS LINE IS CORRECT @@@
+aes tum - re vo lit - non - ca pit - se se - ma re
+TRUE ['long', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['long', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+@@@ THIS LINE IS CORRECT @@@
+in - as tra - pon tus - tol li tur - cae lum - pe rit
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+@@@ THIS LINE IS CORRECT @@@
+un das que - mis cent - im ber - et - fluc tus - su as
+TRUE ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+### THIS LINE CONTAINS ERRORS ###
+nec - hoc - le va men - de ni que - ae rum nis - da tur
+TRUE ['short', 'space', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'long', 'space', 'short', 'long', 'long', 'space', 'long', 'short', 'elision', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+@@@ THIS LINE IS CORRECT @@@
+pre munt - te ne brae - lu mi na - et - di rae - sty gis
+TRUE ['short', 'long', 'space', 'short', 'long', 'long', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'space', 'short', 'long', 'long', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+### THIS LINE CONTAINS ERRORS ###
+in fer na - nox - est - ex ci dunt - ig nes - ta men
+TRUE ['long', 'long', 'short', 'space', 'long', 'space', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['long', 'long', 'short', 'space', 'long', 'space', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+et - nu be - di rum - ful men - e li sa - mi cat
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+@@@ THIS LINE IS CORRECT @@@
+mi se ris que - lu cis - tan ta - dul ce do - est - ma lae
+TRUE ['short', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'short', 'long']
+PRED ['short', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'short', 'long']
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+### THIS LINE CONTAINS ERRORS ###
+hoc - lu men - op tant - ip sa - se - clas sis - pre mit
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['long', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+il lam - de his cens - pon tus - in - prae ceps - ra pit
+TRUE ['short', 'long', 'space', 'short', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['long', 'long', 'space', 'short', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+hau rit que - et - al to - red di tam - re vo mit - ma ri
+TRUE ['long', 'long', 'elision', 'space', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'long']
+PRED ['long', 'long', 'elision', 'space', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+haec - o ne re - si dit - il la - con vul sum - la tus - vi de re - sal tem - et - nos se - quo - pe re ant - ma lo
+TRUE ['long', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short', 'space', 'short', 'long', 'short', 'space', 'long', 'elision', 'space', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'long']
+PRED ['long', 'space', 'short', 'short', 'short', 'space', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'elision', 'space', 'long', 'space', 'long', 'elision', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+sub mit tit - un dis - fluc tus - hanc - de ci mus - te git
+TRUE ['short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+haec - la ce ra - et - om ni - de co re - po pu la to - le vis
+TRUE ['long', 'space', 'short', 'short', 'elision', 'space', 'short', 'space', 'long', 'long', 'space', 'short', 'short', 'short', 'space', 'short', 'short', 'long', 'long', 'space', 'short', 'short']
+PRED ['long', 'space', 'short', 'short', 'elision', 'space', 'short', 'space', 'long', 'long', 'space', 'short', 'short', 'short', 'space', 'short', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+flu i tat - nec - il li - ve la - nec - ton sae - ma nent
+TRUE ['short', 'short', 'long', 'space', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'long', 'space', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+nec - rec tus - al tas - ma lus - an tem nas - fe rens
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'long']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+nil - ra ti o - et - u sus - au det - ars - ces sit - ma lis
+TRUE ['long', 'space', 'short', 'short', 'elision', 'space', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'space', 'short', 'short', 'elision', 'space', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+te net - hor ror - ar tus - om nis - of fi ci o - stu pet - et - pro ra - pro rae - no cu it - et - la te ri - la tus
+TRUE ['short', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'short', 'long', 'space', 'short', 'short', 'space', 'long', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+PRED ['long', 'short', 'space', 'long', 'short', 'space', 'long', 'elision', 'space', 'long', 'short', 'space', 'long', 'short', 'short', 'short', 'space', 'short', 'short', 'space', 'short', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+na vi ta - re lic to - re mus - ef fu git - ma nus
+TRUE ['long', 'short', 'short', 'space', 'short', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+in - vo ta - mi se ros - ul ti mus - co git - ti mor
+TRUE ['short', 'space', 'long', 'short', 'space', 'short', 'short', 'long', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'long']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+e a dem que - su pe ros - tro es - et - da na i - ro gant
+TRUE ['short', 'short', 'long', 'short', 'space', 'short', 'short', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+quid fa ta - pos sunt - in vi det - pyr rhus - pa tri
+TRUE ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+a ia ci - u li xes - hec to ri - a tri des - mi nor
+TRUE ['short', 'long', 'elision', 'space', 'short', 'long', 'long', 'space', 'long', 'short', 'elision', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'elision', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+a ga mem no - pri a mo - quis quis - ad - tro iam - ia cet
+TRUE ['short', 'short', 'long', 'short', 'space', 'short', 'short', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'short', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+fe lix - vo ca tur - ca de re - qui - me ru it - gra du
+TRUE ['long', 'long', 'space', 'short', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'long', 'space', 'short', 'long', 'long', 'space', 'short', 'short', 'elision', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+quem - fa ma - se vat - vic ta - quem - tel lus - te git - sed - trun ca - to to - pup pis - I ca ri o - na tat
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short', 'space', 'long', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'short', 'short', 'long', 'space', 'short', 'short']
+PRED ['long', 'space', 'long', 'short', 'space', 'short', 'short', 'space', 'long', 'short', 'space', 'short', 'space', 'long', 'long', 'space', 'short', 'short', 'space', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+nil - no bi le - au sos - pon tus - at que - un dae - fe rent
+TRUE ['short', 'space', 'long', 'short', 'elision', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'elision', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'short', 'short', 'elision', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'elision', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+ig na va - for tes - fa ta - con su ment - vi ros
+TRUE ['short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'long']
+PRED ['long', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+per den da - mors - est - quis quis - es - non dum - ma lis
+TRUE ['short', 'long', 'short', 'space', 'long', 'space', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+PRED ['short', 'long', 'short', 'space', 'long', 'space', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+sa ti a te - tan tis - cae li tum - tan dem - tu um
+TRUE ['short', 'short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+nu men - se re na - cla di bus - nos tris - da ret
+TRUE ['long', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+@@@ THIS LINE IS CORRECT @@@
+vel tro ia - la cri mas - o di a - si - du rant - tu a
+TRUE ['short', 'long', 'short', 'space', 'short', 'short', 'long', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'short', 'short', 'long', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+### THIS LINE CONTAINS ERRORS ###
+pla cet que - mit ti - do ri cum - ex i ti o - ge nus
+TRUE ['short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'elision', 'space', 'long', 'short', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+quid - hos - si mul - pe ri re - no bis cum - iu vat
+TRUE ['short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+qui bus - pe ri mus - sis ti te - in fes tum - ma re
+TRUE ['short', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+PRED ['long', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+ve hit - is ta - da na os - clas sis - et - tro as - ve hit
+TRUE ['short', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+@@@ THIS LINE IS CORRECT @@@
+nec - plu ra - pos sunt - oc cu pat - vo cem - ma re
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+### THIS LINE CONTAINS ERRORS ###
+ec ce - a li a - cla des - ful mi ne - i ra ti - io vis
+TRUE ['short', 'elision', 'space', 'short', 'short', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'elision', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+PRED ['long', 'elision', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+ar ma ta - pal las - quid quid - aut - has ta - mi nax
+TRUE ['short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+@@@ THIS LINE IS CORRECT @@@
+aut - ae gi de - et - fu ro re - gor go ne o - po test
+TRUE ['long', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'short', 'long', 'space', 'short', 'short']
+PRED ['long', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'short', 'long', 'space', 'short', 'short']
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+### THIS LINE CONTAINS ERRORS ###
+hoc - ig ne - pa tri o - temp tat - et - cae lo - no vae
+TRUE ['long', 'space', 'long', 'short', 'space', 'short', 'short', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+PRED ['short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+spi rant - pro cel lae - so lus - in vic tus - ma lis
+TRUE ['long', 'long', 'space', 'short', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'long', 'space', 'short', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+@@@ THIS LINE IS CORRECT @@@
+luc ta tur - a iax - ve la - co gen tem - hunc su a
+TRUE ['long', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'short', 'short']
+PRED ['long', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'short', 'short']
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+### THIS LINE CONTAINS ERRORS ###
+ten to - ru den te - flam ma - per strin xit - ca dens
+TRUE ['short', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'long']
+PRED ['long', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+li bra tur - a li ud - ful men - hoc - to to - im pe tu
+TRUE ['long', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'elision', 'space', 'long', 'short', 'long']
+PRED ['short', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'elision', 'space', 'long', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+cer tum - re duc ta - pal las - ex cus sit - ma nu
+TRUE ['short', 'long', 'space', 'short', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'long']
+PRED ['long', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+i mi ta ta - pa trem - tran sit - a ia cem - et - ra tem
+TRUE ['short', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'long', 'elision', 'space', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+ra tis que - par tem - se cum - et - a ia cem - tu lit
+TRUE ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'elision', 'space', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'elision', 'space', 'short', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+nil - il le - mo tus - ar du a - ut - cau tes - sa lo
+TRUE ['long', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+am bus tus - ex tat - di ri mit - in sa num - ma re
+TRUE ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+PRED ['long', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+fluc tus que - rum pit - pec to re - et - na vem - ma nu
+TRUE ['long', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+PRED ['long', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+com ple xus - ig nes - tra xit - et - cae co - ma ri
+TRUE ['short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+PRED ['long', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+con lu cet - a iax - om ne - re splen det - fre tum
+TRUE ['short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+tan dem - oc cu pa ta - ru pe - fu ri bun dum - in to nat
+TRUE ['short', 'elision', 'space', 'long', 'short', 'long', 'long', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'elision', 'space', 'long', 'short', 'short']
+PRED ['long', 'elision', 'space', 'long', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'elision', 'space', 'long', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+su pe ras se - nunc - pe la gus - at que - ig nes - iu vat
+TRUE ['short', 'short', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'elision', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'elision', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+vi cis se - cae lum - pal la dem - ful men - ma re
+TRUE ['long', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+non - me - fu ga vit - bel li ci - ter ror - de i
+TRUE ['long', 'space', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'space', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+et - hec to rem - u na - so lus - et - mar tem - tu li
+TRUE ['short', 'space', 'long', 'short', 'elision', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+PRED ['short', 'space', 'long', 'short', 'elision', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+phoe be a - nec - me - te la - pe pu le runt - gra du
+TRUE ['long', 'long', 'short', 'space', 'long', 'space', 'long', 'space', 'long', 'short', 'space', 'short', 'short', 'long', 'long', 'space', 'short', 'long']
+PRED ['long', 'long', 'short', 'space', 'long', 'space', 'long', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+cum - phry gi bus - is tos - vi ci mus - te ne - hor re am
+TRUE ['short', 'space', 'short', 'short', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'short', 'elision', 'space', 'long', 'short', 'short']
+PRED ['long', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'elision', 'space', 'long', 'short', 'long']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+a li e na - in er ti - te la - ia cu lan tem - ma nu
+TRUE ['short', 'short', 'long', 'elision', 'space', 'short', 'long', 'long', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'short', 'long', 'elision', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+@@@ THIS LINE IS CORRECT @@@
+quid - si - ip se - mit tat - plu ra - cum - au de ret - fu rens
+TRUE ['short', 'space', 'elision', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'elision', 'space', 'long', 'long', 'long', 'space', 'short', 'long']
+PRED ['short', 'space', 'elision', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'elision', 'space', 'long', 'long', 'long', 'space', 'short', 'long']
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+### THIS LINE CONTAINS ERRORS ###
+tri den te - ru pem - sub ru it - pul sam - pa ter
+TRUE ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+nep tu nus - i mis - ex e rens - un dis - ca put
+TRUE ['short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+@@@ THIS LINE IS CORRECT @@@
+sol vit que - mon tem - quem - ca dens - se cum - tu lit
+TRUE ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+### THIS LINE CONTAINS ERRORS ###
+ter ra que - et - ig ne - vic tus - et - pe la go - ia cet
+TRUE ['short', 'long', 'elision', 'space', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+nos - a li a - ma ior - nau fra gos - pes tis - vo cat
+TRUE ['long', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'short', 'short', 'short', 'space', 'short', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+est - hu mi lis - un da - scru peis - men dax - va dis
+TRUE ['short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'long', 'space', 'short', 'long']
+PRED ['long', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+u bi - sa xa - ra pi dis - clau sa - ver ti ci bus - te git
+TRUE ['short', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'long', 'space', 'long', 'short', 'space', 'long', 'short', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+fal lax - cap he re us - aes tu at - sco pu lis - fre tum
+TRUE ['short', 'long', 'space', 'short', 'long', 'short', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+PRED ['long', 'long', 'space', 'short', 'short', 'short', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+fer vet que - sem per - fluc tus - al ter na - vi ce
+TRUE ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+arx - im mi net - prae rup ta - quae - spec tat - ma re
+TRUE ['short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+u trim que - ge mi num - pe lo pis - hinc - o ras - tu i
+TRUE ['short', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+PRED ['short', 'long', 'short', 'space', 'short', 'short', 'long', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+hinc - sce le re - lem - non no bi lem - hinc - an the do na
+TRUE ['short', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'short', 'long', 'short', 'elision', 'space', 'long', 'space', 'short', 'long', 'short', 'short']
+PRED ['long', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'long', 'long', 'short', 'elision', 'space', 'long', 'space', 'long', 'long', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+tar dam que - ra ti bus - au li da - hanc - ar cem oc cu pat
+TRUE ['short', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'short', 'elision', 'long', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'long', 'elision', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+pa la me dis - il le - ge ni tor - et - cla rum - ma nu
+TRUE ['short', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+PRED ['short', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+lu men - ne fan da - ver ti ce - e - sum mo - ef fe rens
+TRUE ['long', 'long', 'space', 'short', 'long', 'long', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'short', 'elision', 'space', 'long', 'short', 'long']
+PRED ['short', 'long', 'space', 'short', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'space', 'short', 'elision', 'space', 'long', 'short', 'long']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+in - sa xa - du cit - per fi da - clas sem - fa ce
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+hae rent - a cu tis - ru pi bus - fi xae - ra tes
+TRUE ['long', 'long', 'space', 'short', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+PRED ['long', 'long', 'space', 'short', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+has - in o pis - un dae - bre vi a - com mi nu unt - va da
+TRUE ['long', 'space', 'short', 'short', 'short', 'space', 'long', 'long', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'short', 'short', 'short', 'space', 'long', 'long', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+pars - ve hi tur - hu ius - pri ma - pars - sco pu lo - se det
+TRUE ['short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+PRED ['long', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+et - frac ta - fran git - iam - ti ment - ter ram - ra tes
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+@@@ THIS LINE IS CORRECT @@@
+et - ma ri a - ma lunt - ce ci dit - in - lu cem - fu ror
+TRUE ['short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+### THIS LINE CONTAINS ERRORS ###
+post quam - li ta tum - est - i li o - phoe bus - re dit - et - Isth mon - ar to - qui - re cur va tus - so lo
+TRUE ['short', 'long', 'space', 'short', 'long', 'elision', 'space', 'short', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short', 'space', 'short', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'space', 'short', 'long', 'long', 'long', 'space', 'short', 'long']
+PRED ['short', 'long', 'space', 'short', 'long', 'elision', 'space', 'long', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'space', 'long', 'space', 'short', 'short', 'space', 'long', 'elision', 'space', 'long', 'space', 'short', 'long', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+et - dam na - noc tis - tris tis - os ten dit - di es - Io ni a - i un gi - ma ri a - Phrix e is - ve tat
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'long', 'space', 'long', 'short', 'short', 'space', 'short', 'long', 'long', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'long', 'short', 'space', 'short', 'long', 'space', 'short', 'short', 'short', 'space', 'short', 'long', 'short', 'space', 'short', 'short', 'elision', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+u trum que - do le am - lae ter - an - re du cem - vi rum
+TRUE ['short', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'short', 'short', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+re me as se - lae tor - vul nus - et - reg ni - gra ve
+TRUE ['short', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+lu ge re - co gor - red de - iam - gra is - pa ter
+TRUE ['long', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+al ti so na - qua ti ens - reg na - pla ca tos - de os
+TRUE ['short', 'short', 'short', 'short', 'space', 'short', 'short', 'long', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'long']
+PRED ['short', 'long', 'short', 'elision', 'space', 'short', 'short', 'long', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+nunc - om ne - lae ta - fron de - ve le tur - ca put
+TRUE ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'space', 'long', 'short', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+sa cri fi ca - dul ces - ti bi a - ef fun dat - mo dos
+TRUE ['short', 'short', 'short', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'elision', 'space', 'long', 'short', 'long', 'space', 'short', 'long']
+PRED ['short', 'short', 'short', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'elision', 'space', 'long', 'long', 'long', 'space', 'short', 'long']
+#################################
+
+@@@ THIS LINE IS CORRECT @@@
+et - ni ve a - mag nas - vic ti ma - an te - a ras - ca dat
+TRUE ['short', 'space', 'short', 'short', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'elision', 'space', 'long', 'elision', 'space', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'space', 'short', 'short', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'elision', 'space', 'long', 'elision', 'space', 'long', 'long', 'space', 'short', 'short']
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+### THIS LINE CONTAINS ERRORS ###
+sed - ec ce - tur ba - tris tis - in comp tae - co mas
+TRUE ['long', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'long']
+PRED ['short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'long', 'long', 'space', 'short', 'long']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+ef fre na - phoe bas - en the as - lau rus - qua tit hanc - a li a - ret ro - spa ti a - re le gen tem - fe rit
+TRUE ['short', 'long', 'short', 'space', 'long', 'long', 'space', 'long', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short', 'long', 'space', 'short', 'short', 'short', 'space', 'long', 'long', 'space', 'short', 'short', 'short', 'space', 'short', 'short', 'long', 'long', 'space', 'short', 'short']
+PRED ['short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'short', 'short', 'space', 'long', 'short', 'space', 'short', 'short', 'short', 'space', 'short', 'short', 'short', 'space', 'long', 'long', 'space', 'short', 'short', 'short', 'space', 'short', 'long', 'long', 'long', 'space', 'short', 'short']
+#################################
+
+### THIS LINE CONTAINS ERRORS ###
+I li a des - ad sunt - quas - su per - cel so - gra du
+TRUE ['long', 'short', 'short', 'short', 'space', 'long', 'long', 'space', 'long', 'space', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'long']
+PRED ['short', 'short', 'long', 'short', 'space', 'long', 'short', 'space', 'long', 'space', 'short', 'long', 'space', 'long', 'long', 'space', 'short', 'short']
+#################################
