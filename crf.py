@@ -29,8 +29,18 @@ class CRF_sequence_labeling:
     def __init__(self, FLAGS):
         self.FLAGS = FLAGS
 
+
         if FLAGS.custom_prediction:
             self.custom_prediction('HEX_ELE-all.pickle', 'SEN-aga.pickle')
+
+        if FLAGS.kfold:
+            text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'VERG-aene.pickle')
+            text = self.remove_space_from_syllable_sequence(text)
+            X, y = self.convert_text_to_feature_sets(text)
+
+            # Perform kfold to check if we don't have any overfitting
+            result = self.kfold_model(text, X, y, 5)
+            print(result)
 
     def perform_experiments(self):    
         # self.elegiac_heatmap()
@@ -220,7 +230,7 @@ class CRF_sequence_labeling:
             # TODO: just print a score for each run to terminal
             report_list.append(metrics_report)
 
-        result = self.merge_kfold_reports(report_list)
+        result = util.merge_kfold_reports(report_list)
 
         return result
 
@@ -377,6 +387,8 @@ class CRF_sequence_labeling:
         plt.savefig(filename, bbox_inches='tight')        
         plt.clf()    
 
+
+
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--custom_prediction", action="store_true", help="specify whether to create the model: if not specified, we load from disk")
@@ -386,7 +398,7 @@ if __name__ == "__main__":
     p.add_argument("--exp_transfer", action="store_true", help="specify whether to run the hexameter transerability LSTM experiment")
     p.add_argument("--exp_elegiac", action="store_true", help="specify whether to run the hexameter genre LSTM experiment")
     p.add_argument("--exp_train_test", action="store_true", help="specify whether to run the train/test split LSTM experiment")
-    p.add_argument("--exp_transfer_boeth", action="store_true", help="specify whether to run the Boeth LSTM experiment")
+    p.add_argument("--kfold", action="store_true", help="specify whether to run kfold experiment")
     p.add_argument("--model_predict", action="store_true", help="let a specific model predict a specific text")
     p.add_argument("--metrics_report", action="store_true", help="specifiy whether to print the metrics report")
 

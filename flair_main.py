@@ -23,37 +23,38 @@ class FLAIR_model():
 
     def __init__(self, FLAGS):
 
-        self.corpus_path = './flair/corpus/trimeter' #'./flair/corpus'
-        self.flair_lm_path = './flair/resources/taggers/dactylic_model'
-        self.flair_lm_output = 'flair/resources/taggers/iambic_model' #'flair/resources/taggers/dactylic_model'
+        # self.corpus_path = './flair/corpus/trimeter' #'./flair/corpus'
+        # self.flair_lm_path = './flair/resources/taggers/dactylic_model'
+        # self.flair_lm_output = 'flair/resources/taggers/iambic_model' #'flair/resources/taggers/dactylic_model'
 
-        # FLAGS.custom_prediction = True
+        # defines paths used
+        self.corpus_folder = './flair/corpus/'
+        self.scansion_models_folder = './flair/scansion_models/'
+        self.language_models_folder = './flair/language_models/'
+        # defines name given to the corpus
+        self.current_corpus_name = 'current'
+        # defines the name of the sequence labels pickle used as corpus
+        self.current_text = 'SEN-proofread.pickle'
+        
+        self.corpus_path = self.corpus_folder + self.current_corpus_name
+        self.flair_lm_path = self.language_models_folder + 'flair/' + self.current_corpus_name
+        self.scansion_model_path = self.scansion_models_folder + self.current_corpus_name
 
         if FLAGS.create_corpus:
-            trimeter = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'SEN-precise.pickle')
-            self.create_corpus_files(trimeter, self.corpus_path)
-
-            # Creates corpus files from the given sequence label lists to allow FLAIR to do its training on
-            # all_sequence_label_pickles = util.Create_files_list(util.cf.get('Pickle', 'path_sequence_labels'), 'pickle') # Find all pickle files
-            # sequence_labels_all_set = util.merge_sequence_label_lists(all_sequence_label_pickles, util.cf.get('Pickle', 'path_sequence_labels')) # Merge them into one big file list
-            # self.create_corpus_files(sequence_labels_all_set, self.corpus_path)
-            
-        if FLAGS.create_syllable_file:
-            # Creates a plain text file of syllables to train word embeddings on later
-            all_sequence_label_pickles = util.Create_files_list(util.cf.get('Pickle', 'path_sequence_labels'), 'pickle') # Find all pickle files
-            sequence_labels_all_set = util.merge_sequence_label_lists(all_sequence_label_pickles, util.cf.get('Pickle', 'path_sequence_labels')) # Merge them into one big file list           
-            self.create_plain_syllable_files(sequence_labels_all_set, './flair/corpus_in_plain_syllables.txt')
-
-        if FLAGS.train_model:
-            # trains and saves the FLAIR model
-            self.train_model(self.corpus_path, self.flair_lm_path, self.flair_lm_output)
-
+            # loads the sequence labels of which we want to create a corpus
+            text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), self.current_text)
+            # creates the corpus as Flair wants it
+            self.create_corpus_files(text, self.corpus_path)
+           
         if FLAGS.language_model == 'flair':
             # Creates the flair language model by training embeddings on the text
             self.train_flair_language_model(self.corpus_path, self.flair_lm_path)
 
         if FLAGS.language_model == 'fasttext':
             import fasttext
+            # create a text file from our sequence labels to allow fasttext training
+            text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), self.current_text)
+            self.create_plain_syllable_files(text, self.word_embedding_training_file)
             # Creates the fasttext language model by training embeddings on the given text
             model = fasttext.train_unsupervised(input = 'flair/corpus_in_plain_syllables.txt',
                                                 model = 'skipgram',
@@ -65,36 +66,21 @@ class FLAIR_model():
                                                 verbose = 2,
                                                 thread = 4
                                                 )
+            output_path = self.language_models_folder + 'fasttext'
+            model.save_model(output_path)            
 
-            model.save_model("flair/resources/fasttext_embeddings.bin")            
-
+        if FLAGS.train_model:
+            # trains and saves the FLAIR model
+            self.train_model(corpus_path = self.corpus_path, 
+                             flair_lm_path = self.flair_lm_path,
+                             model_output_path = self.scansion_model_path)
+        
         if FLAGS.custom_prediction:
-
-            custom_prediction_corpus_path = './flair/corpus/custom_prediction'
-            custom_prediction_model_output_path = './flair/resources/taggers/custom_prediction_model'
-
-            language_model_path = './flair/resources/taggers/custom_flair_language_model'
-
-            # corpus_text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'SEN-precise.pickle')
-
-            # self.create_corpus_files(corpus_text, custom_prediction_corpus_path)
-
-            self.train_flair_language_model(custom_prediction_corpus_path, language_model_path)
-
-            self.train_model(custom_prediction_corpus_path, language_model_path, custom_prediction_model_output_path)
-
-            _predictor = custom_prediction_model_output_path + '/final-model.pt'
-
-            self.custom_prediction( predictor=_predictor,
+            # do a custom prediction using a model and a text to predict
+            predictor = self.scansion_model_path + '/final-model.pt'
+            self.custom_prediction( predictor=predictor,
                                     predictee=util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'SEN-aga.pickle'),
-                                    )
-                
-                
-        if FLAGS.single_line:
-            # create example sentence
-            sentence = Sentence('de lu bra - et - a ras - cae li tum - et - pa tri os - la res')
-            print(sentence.labels)
-            print(sentence.to_tagged_string())         
+                                    )   
 
         if FLAGS.qualitative:
             # Qualitative research
@@ -261,11 +247,11 @@ class FLAIR_model():
         Args:
             sequence_labels (list): with sequence labels
         """
-        train_path = corpus_path + '/train.txt'
+        train_path = corpus_path + '/train/train.txt'
         test_path = corpus_path + '/test.txt'
         valid_path = corpus_path + '/valid.txt'
 
-        train_file = open(train_path, 'w') # NEEDS TO BE ITS OWN FOLDER...
+        train_file = open(train_path, 'w') # this works for model training. language_model training wants train.txt in 'corpus_path/train/train.txt'
         test_file = open(test_path, 'w')
         validate_file = open(valid_path, 'w')
         # Create the train, test and validate splits
@@ -296,9 +282,6 @@ class FLAIR_model():
     def train_flair_language_model(self, corpus_path, output_path):
         """This function trains a Flair language model and saves it to disk for later use
         """    
-
-        #TODO: this function wants train.txt in train/train.txt for some reason.
-
         # are you training a forward or backward LM?
         is_forward_lm = True
         # load the default character dictionary
@@ -402,3 +385,29 @@ if __name__ == "__main__":
     FLAGS = p.parse_args()    
     
     my_flair = FLAIR_model(FLAGS)
+
+
+            # Creates corpus files from the given sequence label lists to allow FLAIR to do its training on
+            # all_sequence_label_pickles = util.Create_files_list(util.cf.get('Pickle', 'path_sequence_labels'), 'pickle') # Find all pickle files
+            # sequence_labels_all_set = util.merge_sequence_label_lists(all_sequence_label_pickles, util.cf.get('Pickle', 'path_sequence_labels')) # Merge them into one big file list
+            # self.create_corpus_files(sequence_labels_all_set, self.corpus_path)
+
+            # all_sequence_label_pickles = util.Create_files_list(util.cf.get('Pickle', 'path_sequence_labels'), 'pickle') # Find all pickle files
+            # sequence_labels = util.merge_sequence_label_lists(all_sequence_label_pickles, util.cf.get('Pickle', 'path_sequence_labels')) # Merge them into one big file list    
+
+            # # defines where we can find the corpus
+            # corpus_path = './flair/corpus/custom_prediction'
+            # # defines which sequence_labels are used to create the corpus from 
+            # corpus_text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'SEN-precise.pickle')
+            # # defines where we can find the model
+            # custom_prediction_model_output_path = './flair/resources/taggers/custom_prediction_model'
+            # # defines where we can find the language model
+            # language_model_path = './flair/resources/taggers/custom_flair_language_model'
+
+
+            # if FLAGS.create_corpus:
+            #     self.create_corpus_files(corpus_text, corpus_path)
+
+            # self.train_flair_language_model(corpus_path, language_model_path)
+
+            # self.train_model(corpus_path, language_model_path, custom_prediction_model_output_path)            

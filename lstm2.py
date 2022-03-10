@@ -17,6 +17,7 @@ from keras.models import Model, Input
 from keras.layers import LSTM, Embedding, Dense, TimeDistributed, Dropout, Bidirectional
 
 from sklearn.model_selection import train_test_split
+from sklearn.model_selection import KFold
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from sklearn_crfsuite import metrics as crf_metrics
@@ -53,36 +54,6 @@ class LSTM_model():
         
         self.num_epochs = FLAGS.epochs
         self.split_size = FLAGS.split
-
-        text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'VERG-aene.pickle')
-        print(text[:2])
-        exit(0)
-
-        # text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'SEN-precise.pickle')
-        # print(len(text))
-
-        # # new_precise = []
-        # # for line in text:
-        # #     new_precise.append(line[:-1])
-
-        # exit(0)
-
-        # from collections import Counter
-
-        # result = Counter()
-        # for line in text:
-        #     temp = Counter(elem[1] for elem in line)
-        
-        #     result += temp #print(result)
-
-        # print(result)
-        # exit(1)
-
-
-        # precise = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'SEN-precise.pickle')
-
-
-
 
         if FLAGS.anceps:
             self.LABELS = np.array(['long', 'short', 'elision', 'space', self.PADDING, 'anceps'])
@@ -128,6 +99,20 @@ class LSTM_model():
                                           do_metric_report=True, 
                                           do_confusion_matrix=True, 
                                           print_stats=False)
+
+        if True: #FLAGS.kfold:
+            text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'VERG-aene.pickle')
+            
+            all_text_syllables = self.retrieve_syllables_from_sequence_label_list(text)
+            max_sentence_length = self.retrieve_max_sentence_length(text)
+            unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING) # needs to be sorted for word2idx consistency!            
+            word2idx, label2idx = self.create_idx_dictionaries(unique_syllables, self.LABELS)
+
+            X, y = self.create_X_y_sets(text, word2idx, label2idx, max_sentence_length)
+
+            # Perform kfold to check if we don't have any overfitting
+            result = self.kfold_model(text, X, y, 5, max_sentence_length, unique_syllables)
+            print(result)
 
         if FLAGS.model_predict:
             
@@ -231,7 +216,48 @@ class LSTM_model():
                     X_train_list_2 = np.append(X_train_list_2, X_train_list[i], axis=0)
                     y_train_list_2 = np.append(y_train_list_2, y_train_list[i], axis=0)
 
+    def kfold_model(self, sequence_labels, X, y, splits, max_sentence_length, unique_syllables):
+        """Performs a kfold cross validation of a LSTM model fitted and trained on the given data
 
+        Args:
+            sequence_labels (list): of sequence labels and their features
+            X (numpy array): of training/test examples
+            y (numpy array): of labels
+            splits (int): of number of splits required
+
+        Returns:
+            dict: with results of the cross validation
+        """        
+        if util.cf.get('Util', 'verbose'): print('Predicting the model')
+
+        report_list = []
+
+        # Convert the list of numpy arrays to a numpy array with numpy arrays
+        # X = np.array(X, dtype=object)
+        # y = np.array(y, dtype=object)
+        kf = KFold(n_splits=splits, shuffle=True, random_state=42)
+
+        for train_index, test_index in kf.split(sequence_labels):
+
+            X_train, X_test = X[train_index], X[test_index]
+            y_train, y_test = y[train_index], y[test_index]
+
+            model = self.get_model( max_len = max_sentence_length,
+                                    num_syllables = len(unique_syllables),
+                                    num_labels = len(self.LABELS),
+                                    X = X_train,
+                                    y = y_train,
+                                    epochs = self.num_epochs,
+                                    create_model = True,
+                                    save_model = FLAGS.save_model)
+
+            metrics_report = self.create_metrics_report(model, X_test, y_test, output_dict=True)
+            # TODO: just print a score for each run to terminal
+            report_list.append(metrics_report)
+
+        result = util.merge_kfold_reports(report_list)
+
+        return result
 
     def combine_sequence_label_lists(self, key, name):
         # TO COMBINE LISTS
@@ -672,6 +698,7 @@ if __name__ == "__main__":
     p.add_argument("--exp_transfer_boeth", action="store_true", help="specify whether to run the Boeth LSTM experiment")
     p.add_argument("--model_predict", action="store_true", help="let a specific model predict a specific text")
     p.add_argument("--metrics_report", action="store_true", help="specifiy whether to print the metrics report")
+    p.add_argument("--kfold", action="store_true", help="specifiy whether to run the kfold experiment")
 
     p.add_argument("--anceps", action="store_true", help="specify whether to train on an anceps text")
     p.add_argument("--verbose", action="store_true", help="specify whether to run the code in verbose mode")

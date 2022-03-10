@@ -313,6 +313,49 @@ def find_stem(arr):
                 res = stem
     return res
 
+def merge_kfold_reports(report_list):
+    """This function merges a list of metrics report lists into one. Used to merge several kfold
+    metric reports into one final averaged report
+
+    Args:
+        report_list (list): with metric reports
+
+    Returns:
+        dict: with one final averaged report
+    """     
+    result_dict = {
+        'short': {'precision':0, 'recall':0, 'f1-score':0, 'support':0},
+        'elision': {'precision':0, 'recall':0, 'f1-score':0, 'support':0},
+        'long': {'precision':0, 'recall':0, 'f1-score':0, 'support':0},
+        'weighted avg': {'precision':0, 'recall':0, 'f1-score':0, 'support':0},
+    }
+
+    keys = ['long', 'short', 'elision', 'weighted avg']
+
+    # Merge the reports one by one
+    for current_dict in report_list:
+        for key in keys:
+            result_dict[key] = merge_dicts(result_dict[key], current_dict[key])
+
+    # Now divide all values by the number of reports that came in
+    for dict in result_dict:
+        for key in result_dict[dict]:
+            result_dict[dict][key] /= len(report_list)
+
+    return pd.DataFrame(result_dict).T
+
+def merge_dicts(dict1, dict2):
+    """Merges two dictionaries using identical keys. Results are added
+
+    Args:
+        dict1 (dict): first dictionary to be merged
+        dict2 (dict): second dictionary to be merged
+
+    Returns:
+        dict: merged dictionary
+    """        
+    return {k: dict1.get(k, 0) + dict2.get(k, 0) for k in dict1.keys() | dict2.keys()}  
+
 def auto_combine_sequence_label_lists():
     # Automatically combines Pedecerto files with similar names. For example, OV-amo1 and OV-amo2 will be merged and saved
     # as one pickle :D
@@ -419,3 +462,24 @@ if __name__ == "__main__":
         print(new_list[:2])
 
         Pickle_write(cf.get('Pickle', 'path_sequence_labels'), 'SEN-aga.pickle', new_list)    
+
+
+        # To get some stats about scansions
+        # text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'SEN-precise.pickle')
+        # print(len(text))
+
+        # # new_precise = []
+        # # for line in text:
+        # #     new_precise.append(line[:-1])
+
+        # exit(0)
+
+        # from collections import Counter
+
+        # result = Counter()
+        # for line in text:
+        #     temp = Counter(elem[1] for elem in line)
+        
+        #     result += temp #print(result)
+
+        # print(result)

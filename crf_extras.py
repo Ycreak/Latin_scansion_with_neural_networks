@@ -176,30 +176,7 @@ import matplotlib.pyplot as plt
 
        
 
-    def merge_kfold_reports(self, report_list):
-        result_dict = {
-            'short': {'precision':0, 'recall':0, 'f1-score':0, 'support':0},
-            'elision': {'precision':0, 'recall':0, 'f1-score':0, 'support':0},
-            'long': {'precision':0, 'recall':0, 'f1-score':0, 'support':0},
-            'weighted avg': {'precision':0, 'recall':0, 'f1-score':0, 'support':0},
-        }
-
-        keys = ['long', 'short', 'elision', 'weighted avg']
-
-        # Merge the reports one by one
-        for current_dict in report_list:
-            for key in keys:
-                result_dict[key] = self.merge_dicts(result_dict[key], current_dict[key])
-
-        # Now divide all values by the number of reports that came in
-        for dict in result_dict:
-            for key in result_dict[dict]:
-                result_dict[dict][key] /= len(report_list)
-
-        return pd.DataFrame(result_dict).T
-
-    def merge_dicts(self, dict1, dict2):
-        return {k: dict1.get(k, 0) + dict2.get(k, 0) for k in dict1.keys() | dict2.keys()}        
+      
 
     def grid_search(self, X, y):
 
