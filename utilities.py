@@ -411,6 +411,9 @@ if __name__ == "__main__":
 
     FLAGS = p.parse_args()  
 
+    text = Pickle_read(cf.get('Pickle', 'path_sequence_labels'), 'IVV-satu.pickle')
+    print(len(text))
+
     if FLAGS.investigate:
         text = Pickle_read(cf.get('Pickle', 'path_sequence_labels'), 'SEN-aga2.pickle')
         # print(text[0])

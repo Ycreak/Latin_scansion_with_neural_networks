@@ -100,8 +100,8 @@ class LSTM_model():
                                           do_confusion_matrix=True, 
                                           print_stats=False)
 
-        if True: #FLAGS.kfold:
-            text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'VERG-aene.pickle')
+        if FLAGS.kfold:
+            text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'PERS-satu.pickle')
             
             all_text_syllables = self.retrieve_syllables_from_sequence_label_list(text)
             max_sentence_length = self.retrieve_max_sentence_length(text)
@@ -152,7 +152,7 @@ class LSTM_model():
 
         if FLAGS.exp_train_test:
             train_texts = ['VERG-aene.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle']
-            train_texts = ['VERG-aene.pickle']
+            # train_texts = ['VERG-aene.pickle']
 
             for text in train_texts:
                 current_text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), text)
@@ -162,18 +162,10 @@ class LSTM_model():
                 max_sentence_length = self.retrieve_max_sentence_length(current_text)
                 unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING) # needs to be sorted for word2idx consistency!
 
-                # Create dictionary
-                word2idx = {w: i for i, w in enumerate(unique_syllables)}
-                label2idx = {t: i for i, t in enumerate(self.LABELS)}
-                # now we map the sentences and labels to a sequence of numbers
-                X = [[word2idx[w[0]] for w in s] for s in current_text]  # key 0 are labels
-                y = [[label2idx[w[1]] for w in s] for s in current_text] # key 1 are labels
-                # and then (post)pad the sequences using the PADDING label.
-                X = pad_sequences(maxlen=max_sentence_length, sequences=X, padding="post", value=word2idx[self.PADDING]) # value is our padding key
-                y = pad_sequences(maxlen=max_sentence_length, sequences=y, padding="post", value=label2idx[self.PADDING])
-                # for training the network we also need to change the labels to categorial.
-                y = np.array([to_categorical(i, num_classes=len(self.LABELS)) for i in y])
-                
+                word2idx, label2idx = self.create_idx_dictionaries(unique_syllables, self.LABELS)
+
+                X, y = self.create_X_y_sets(current_text, word2idx, label2idx, max_sentence_length)
+             
                 # we split in train and test set.
                 X_test = X[:720]    # 20% of 3600
                 y_test = y[:720]
@@ -206,7 +198,9 @@ class LSTM_model():
 
                     result = '{0},{1},{2}\n'.format(text, accuracy, len(X_train_list_2))
                     # Open a file with access mode 'a'
-                    file_object = open('./plots/sample.txt', 'a')
+
+                    file_name = './plots/size_' + text + '.txt'
+                    file_object = open(file_name, 'a')
                     # Append 'hello' at the end of file
                     file_object.write(result)
                     # Close the file
