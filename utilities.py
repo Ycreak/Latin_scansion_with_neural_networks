@@ -114,9 +114,9 @@ def create_heatmap(dataframe ,xlabel, ylabel, title, filename, vmin=None, vmax=N
     time = datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
     full_file_name = '{0}{1}_{2}.png'.format(path, time, filename)
 
-    sn.set(font_scale=2)
+    sn.set(font_scale=1.4)
     # sn.heatmap(dataframe, annot=True, fmt='g', annot_kws={"size": 16}, cmap='Blues', vmin=vmin, vmax=vmax)
-    sn.heatmap(dataframe, annot=True, fmt='g', annot_kws={"size": 32}, cmap='Blues', vmin=vmin, vmax=vmax, cbar=False)
+    sn.heatmap(dataframe, annot=True, fmt='g', annot_kws={"size": 16}, cmap='Blues', vmin=vmin, vmax=vmax, cbar=False)
 
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
@@ -408,16 +408,35 @@ if __name__ == "__main__":
     p.add_argument("--exp_elegiac", action="store_true", help="specify whether to run the hexameter genre LSTM experiment")
     p.add_argument("--exp_train_test", action="store_true", help="specify whether to run the train/test split LSTM experiment")
     p.add_argument("--exp_transfer_boeth", action="store_true", help="specify whether to run the Boeth LSTM experiment")
+    p.add_argument("--heatmap", action="store_true", help="specify whether to run the heatmap experiment")
 
     FLAGS = p.parse_args()  
 
-    text = Pickle_read(cf.get('Pickle', 'path_sequence_labels'), 'IVV-satu.pickle')
-    print(len(text))
+    # text = Pickle_read(cf.get('Pickle', 'path_sequence_labels'), 'IVV-satu.pickle')
+    # print(len(text))
+
+    if FLAGS.heatmap:
+
+        heatmap_data = pd.read_csv('./csv/elegiac_f1-scores_long.csv').set_index('predictor')
+
+        # heatmap_data
+
+        print(heatmap_data)
+
+
+
+        myplot = create_heatmap(dataframe = heatmap_data,
+                        xlabel = 'Test',
+                        ylabel = 'Train',
+                        title = '{0}: Long f1-scores'.format('hello'),
+                        filename = '{0}-long'.format('temp'),
+                        path = './plots/experiments/')
+
 
     if FLAGS.investigate:
-        text = Pickle_read(cf.get('Pickle', 'path_sequence_labels'), 'SEN-aga2.pickle')
-        # print(text[0])
-        # exit(0)
+        text = Pickle_read(cf.get('Pickle', 'path_sequence_labels'), 'OV-ele.pickle')
+        print(text[0])
+        exit(0)
         for line in text:
             for tuple in line:
                 if tuple[1] == '':

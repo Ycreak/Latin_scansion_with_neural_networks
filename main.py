@@ -68,8 +68,8 @@ if FLAGS.combine_author_files:
     # util.combine_sequence_label_lists(ovidius, 'OV-ele', util.cf.get('Pickle', 'path_sequence_labels'))   
 
 # Provide which texts should be used as the hexameter and elegiac train sets
-hexameter_texts = ['VERG-aene', 'CATVLL-carm', 'IVV-satu', 'LVCR-rena', 'OV-meta', 'PERS-satu']
-elegiac_texts = ['TIB-ele', 'PROP-ele', 'OV-ele']
+hexameter_texts = ['VERG-aene', 'IVV-satu', 'LVCR-rena', 'OV-meta', 'PERS-satu']
+elegiac_texts = ['PROP-ele', 'OV-ele']
 
 if FLAGS.create_hexameter_set:
     util.combine_sequence_label_lists(hexameter_texts, 'HEX-all', util.cf.get('Pickle', 'path_sequence_labels'))

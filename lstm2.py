@@ -101,7 +101,7 @@ class LSTM_model():
                                           print_stats=False)
 
         if FLAGS.kfold:
-            text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'PERS-satu.pickle')
+            text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'OV-ele.pickle')
             
             all_text_syllables = self.retrieve_syllables_from_sequence_label_list(text)
             max_sentence_length = self.retrieve_max_sentence_length(text)
@@ -131,6 +131,9 @@ class LSTM_model():
             train_texts = ['VERG-aene.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle']
             test_texts = ['VERG-aene.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle']
 
+            # train_texts = ['VERG-aene.pickle', 'PROP-ele.pickle', 'OV-ele.pickle']
+            # test_texts = ['VERG-aene.pickle', 'PROP-ele.pickle', 'OV-ele.pickle']
+
             # train_texts = ['PERS-satu.pickle','IVV-satu.pickle']
             # test_texts = ['PERS-satu.pickle','IVV-satu.pickle']
 
@@ -145,9 +148,25 @@ class LSTM_model():
             self.do_experiment(test_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='hexameter', plot_title='Cross author evaluation')
 
         if FLAGS.exp_transfer_boeth:
+
+            # To make the LSTM with integer hashing working, we need to make a list of all syllables from all the texts we are looking at    
+            all_sequence_label_pickles = util.Create_files_list(util.cf.get('Pickle', 'path_sequence_labels'), 'pickle') # Find all pickle files
+            sequence_labels_all_set = util.merge_sequence_label_lists(all_sequence_label_pickles, util.cf.get('Pickle', 'path_sequence_labels')) # Merge them into one big file list
+            # all_text_syllables = self.retrieve_syllables_from_sequence_label_list(sequence_labels_all_set)
+            # # We need to extract the max sentence length over all these texts to get the padding correct later
+            # max_sentence_length = self.retrieve_max_sentence_length(sequence_labels_all_set)       
+            # text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'HEX_ELE-all.pickle')
+            all_text_syllables = self.retrieve_syllables_from_sequence_label_list(sequence_labels_all_set)
+            max_sentence_length = self.retrieve_max_sentence_length(sequence_labels_all_set)
+            # unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING) # needs to be sorted for word2idx consistency!
+
+            # And we need to create a list of all unique syllables for our word2idx one-hot encoding
+            unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING)
+            word2idx, label2idx = self.create_idx_dictionaries(unique_syllables, self.LABELS)
+
             train_texts = ['VERG-aene.pickle', 'HEX-all.pickle', 'ELE-all.pickle', 'HEX_ELE-all.pickle']
-            test_texts = ['BOETH-cons.pickle', 'ACC-frag.pickle', 'AVSON-ordo.pickle', 'ENN-anna.pickle', 'HOR-arpo.pickle',
-                          'LVCAN-phar.pickle', 'RVFIN-orat.pickle', 'STAT-theb.pickle', 'VERG-eclo.pickle']          
+            test_texts = ['BOETH-cons.pickle', 'TIB-ele.pickle', 'ENN-anna.pickle', 'HOR-arpo.pickle',
+                          'LVCAN-phar.pickle', 'CATVLL-carm.pickle', 'STAT-theb.pickle']          
             
             self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='boethius', plot_title='Scanning Unseen Texts')
 
