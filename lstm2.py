@@ -141,8 +141,8 @@ class LSTM_model():
             # And we need to create a list of all unique syllables for our word2idx one-hot encoding
             unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING)
             word2idx, label2idx = self.create_idx_dictionaries(unique_syllables, self.LABELS)  
-
-            self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='hexameter', plot_title='Cross author evaluation')
+            # twice test texts because they are identical and merge_sequence_label_lists has a bug
+            self.do_experiment(test_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='hexameter', plot_title='Cross author evaluation')
 
         if FLAGS.exp_transfer_boeth:
             train_texts = ['VERG-aene.pickle', 'HEX-all.pickle', 'ELE-all.pickle', 'HEX_ELE-all.pickle']
@@ -424,6 +424,7 @@ class LSTM_model():
 
         for train_text in train_texts:
 
+
             sequence_labels_training_text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), train_text)
             X_train, y_train = self.create_X_y_sets(sequence_labels_training_text, word2idx, label2idx, max_sentence_length)
 
@@ -438,6 +439,7 @@ class LSTM_model():
                                     model_name = train_text.split('.')[0])
 
             for test_text in test_texts:
+
                 sequence_labels_test_text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), test_text)
                 X_test, y_test = self.create_X_y_sets(sequence_labels_test_text, word2idx, label2idx, max_sentence_length)
                 metrics_report = self.create_metrics_report(model, X_test, y_test)
@@ -634,7 +636,7 @@ class LSTM_model():
 
             # Compile the model
             model.compile(optimizer="rmsprop", loss="categorical_crossentropy", metrics=["accuracy"])
-            history = model.fit(X, y, batch_size=32, epochs=epochs, verbose=1)
+            history = model.fit(X, y, batch_size=32, epochs=epochs, verbose=self.FLAGS.verbose)
             
             if save_model: 
                 model.save(path)

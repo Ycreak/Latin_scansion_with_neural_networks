@@ -139,7 +139,7 @@ def merge_sequence_label_lists(texts, path):
         list: of merged texts
     """        
     # Create a starting list from the last entry using pop
-    merged_list = Pickle_read(path, texts.pop())
+    merged_list = Pickle_read(path, texts.pop()) #FIXME: is this a call by reference?
     # merge all other texts into this initial list
     for text_list_id in texts:
         # from the list with texts
