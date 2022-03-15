@@ -1,5 +1,37 @@
-# dic = {'length': [<unk> (0.0001), short (0.5776), space (0.0043), long (0.0207), anceps (0.3846), elision (0.0022), <START> (0.0), <STOP> (0.0105)]}
-dic = [<unk> (0.0001), short (0.5776), space (0.0043), long (0.0207), anceps (0.3846), elision (0.0022), <START> (0.0), <STOP> (0.0105)]
 
 
-print(dic)
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.ticker import StrMethodFormatter
+# importing module
+from pandas import *
+ 
+# reading CSV file
+data = read_csv("test.csv")
+ 
+# converting column data to list
+x = data['size'].tolist()
+
+ivv = data['ivv'].tolist()
+ov = data['ov'].tolist()
+lucr = data['lucr'].tolist()
+verg = data['verg'].tolist()
+
+
+# exit(0)
+
+# x = [0,5,9,10,15]
+# y = [0,1,2,3,4]
+plt.plot(x,ivv, label='Iuvenal')
+plt.plot(x,ov, label='Ovid')
+plt.plot(x,lucr, label='Lucretius')
+plt.plot(x,verg, label='Virgil')
+
+# set number of bins
+plt.locator_params(nbins=8)
+plt.ylim(ymin=0)  # this line
+plt.gca().yaxis.set_major_formatter(StrMethodFormatter('{x:,.2f}')) # 2 decimal places
+plt.title('Effect of different training set sizes')
+plt.legend(loc='lower right')
+
+plt.show()

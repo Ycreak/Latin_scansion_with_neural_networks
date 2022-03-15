@@ -114,13 +114,13 @@ def create_heatmap(dataframe ,xlabel, ylabel, title, filename, vmin=None, vmax=N
     time = datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
     full_file_name = '{0}{1}_{2}.png'.format(path, time, filename)
 
-    sn.set(font_scale=1.4)
+    sn.set(font_scale=2)
     # sn.heatmap(dataframe, annot=True, fmt='g', annot_kws={"size": 16}, cmap='Blues', vmin=vmin, vmax=vmax)
-    sn.heatmap(dataframe, annot=True, fmt='g', cmap='Blues', vmin=vmin, vmax=vmax, cbar=False)
+    sn.heatmap(dataframe, annot=True, fmt='g', annot_kws={"size": 32}, cmap='Blues', vmin=vmin, vmax=vmax, cbar=False)
 
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
-    plt.title(title)
+    # plt.title(title)
     plt.savefig(full_file_name, bbox_inches='tight')        
     
     return plt

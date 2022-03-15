@@ -127,9 +127,22 @@ class LSTM_model():
 
 
         if FLAGS.exp_hexameter:
-            train_texts = ['VERG-aene.pickle', 'CATVLL-carm.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle']
-            test_texts = ['VERG-aene.pickle', 'CATVLL-carm.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle']
-            self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='hexameter', plot_title='Hexameter Texts')
+
+            train_texts = ['VERG-aene.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle']
+            test_texts = ['VERG-aene.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle']
+
+            train_texts = ['PERS-satu.pickle','IVV-satu.pickle']
+            test_texts = ['PERS-satu.pickle','IVV-satu.pickle']
+
+            sequence_labels_all_set = util.merge_sequence_label_lists(train_texts, util.cf.get('Pickle', 'path_sequence_labels')) # Merge them into one big file list
+            all_text_syllables = self.retrieve_syllables_from_sequence_label_list(sequence_labels_all_set)
+            # We need to extract the max sentence length over all these texts to get the padding correct later
+            max_sentence_length = self.retrieve_max_sentence_length(sequence_labels_all_set)       
+            # And we need to create a list of all unique syllables for our word2idx one-hot encoding
+            unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING)
+            word2idx, label2idx = self.create_idx_dictionaries(unique_syllables, self.LABELS)  
+
+            self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='hexameter', plot_title='Cross author evaluation')
 
         if FLAGS.exp_transfer_boeth:
             train_texts = ['VERG-aene.pickle', 'HEX-all.pickle', 'ELE-all.pickle', 'HEX_ELE-all.pickle']
@@ -443,9 +456,9 @@ class LSTM_model():
                 predictor = train_text.split('-')[0].capitalize() # get names
                 predictee = test_text.split('-')[0].capitalize()
 
-                score_long = float(round(metrics_report['long']['f1-score'] * 100,3)) # save the score
-                score_short = float(round(metrics_report['short']['f1-score'] * 100,3)) # save the score
-                score_elision = float(round(metrics_report['elision']['f1-score'] * 100,3)) # save the score
+                score_long = float(round(metrics_report['long']['f1-score'],4)) # save the score
+                score_short = float(round(metrics_report['short']['f1-score'],4)) # save the score
+                score_elision = float(round(metrics_report['elision']['f1-score'],4)) # save the score
                 
                 # Add score to the dataframe for our heatmap
                 new_line_long = {'predictor': predictor, 'predictee': predictee, 'score': score_long}
@@ -456,33 +469,36 @@ class LSTM_model():
                 df_short = df_short.append(new_line_short, ignore_index=True)    
                 df_elision = df_elision.append(new_line_elision, ignore_index=True)   
 
-        # time = datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
+        time = datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
 
         heatmap_data = pd.pivot_table(df_long, values='score', index=['predictor'], columns='predictee')
+        heatmap_data.to_csv('./csv/{0}_f1-scores_long.csv'.format(time))
         myplot = plt.figure(figsize=(16,10))
         myplot = plt.subplot(2, 2, 1)
         myplot = util.create_heatmap(dataframe = heatmap_data,
-                        xlabel = 'predictee',
-                        ylabel = 'predictor',
-                        title = 'Label Accuracy -- {0} -- Long'.format(plot_title),
+                        xlabel = 'test',
+                        ylabel = 'train',
+                        title = '{0}: Long f1-scores'.format(plot_title),
                         filename = '{0}-long'.format(exp_name),
                         path = './plots/experiments/')
 
         heatmap_data = pd.pivot_table(df_short, values='score', index=['predictor'], columns='predictee')
+        heatmap_data.to_csv('./csv/{0}_f1-scores_short.csv'.format(time))
         myplot = plt.subplot(2, 2, 2)        
         myplot = util.create_heatmap(dataframe = heatmap_data,
-                        xlabel = 'predictee',
-                        ylabel = 'predictor',
-                        title = 'Label Accuracy -- {0} -- Short'.format(plot_title),
+                        xlabel = 'test',
+                        ylabel = 'train',
+                        title = '{0}: Short f1-scores'.format(plot_title),
                         filename = '{0}-short'.format(exp_name),
                         path = './plots/experiments/')
 
         heatmap_data = pd.pivot_table(df_elision, values='score', index=['predictor'], columns='predictee')
+        heatmap_data.to_csv('./csv/{0}_f1-scores_elision.csv'.format(time))
         myplot = plt.subplot(2, 2, 3)
         myplot = util.create_heatmap(dataframe = heatmap_data,
-                        xlabel = 'predictee',
-                        ylabel = 'predictor',
-                        title = 'Label Accuracy -- {0} -- Elision'.format(plot_title),
+                        xlabel = 'test',
+                        ylabel = 'train',
+                        title = '{0}: Elision f1-scores'.format(plot_title),
                         filename = '{0}-elision'.format(exp_name),
                         path = './plots/experiments/')
 
