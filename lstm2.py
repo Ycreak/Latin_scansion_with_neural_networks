@@ -131,8 +131,8 @@ class LSTM_model():
             train_texts = ['VERG-aene.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle']
             test_texts = ['VERG-aene.pickle', 'IVV-satu.pickle', 'LVCR-rena.pickle', 'OV-meta.pickle', 'PERS-satu.pickle']
 
-            train_texts = ['PERS-satu.pickle','IVV-satu.pickle']
-            test_texts = ['PERS-satu.pickle','IVV-satu.pickle']
+            # train_texts = ['PERS-satu.pickle','IVV-satu.pickle']
+            # test_texts = ['PERS-satu.pickle','IVV-satu.pickle']
 
             sequence_labels_all_set = util.merge_sequence_label_lists(train_texts, util.cf.get('Pickle', 'path_sequence_labels')) # Merge them into one big file list
             all_text_syllables = self.retrieve_syllables_from_sequence_label_list(sequence_labels_all_set)
