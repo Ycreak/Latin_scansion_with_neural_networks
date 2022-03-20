@@ -93,7 +93,7 @@ class LSTM_model():
         # exit(0)
 
         if FLAGS.single_text:
-            text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'VERG-aene.pickle')
+            text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'HEX_ELE-all.pickle')
             self.run_idx_lstm_single_text(text, 
                                           do_evaluate=True, 
                                           do_metric_report=True, 
