@@ -468,8 +468,8 @@ class LSTM_model():
                     
                     
                     print(print_metrics_report)
-                    # print_metrics_report = self.create_metrics_report(model, X_test, y_test, output_dict=False)
-                    # print(print_metrics_report)                    
+                    print_metrics_report = self.create_metrics_report(model, X_test, y_test, output_dict=False)
+                    print(print_metrics_report)                    
                     
                     # exit(0)
                     self.create_seaborn_heatmap(print_metrics_report)
