@@ -645,9 +645,9 @@ class LSTM_model():
             # Initiate the model structure
             input = Input(shape=(max_len,))
             
-            model = Embedding(input_dim=num_syllables, output_dim=50, input_length=max_len)(input)  # 50-dim embedding
+            model = Embedding(input_dim=num_syllables, output_dim=num_syllables, input_length=max_len)(input)  # 50-dim embedding
             model = Dropout(0.1)(model)
-            model = Bidirectional(LSTM(units=100, return_sequences=True, recurrent_dropout=0.1))(model)  # variational biLSTM
+            model = Bidirectional(LSTM(units=512, return_sequences=True, recurrent_dropout=0.1))(model)  # variational biLSTM
             
             out = TimeDistributed(Dense(num_labels, activation="softmax"))(model)  # softmax output layer
 
