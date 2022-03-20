@@ -114,9 +114,9 @@ def create_heatmap(dataframe ,xlabel, ylabel, title, filename, vmin=None, vmax=N
     time = datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
     full_file_name = '{0}{1}_{2}.png'.format(path, time, filename)
 
-    sn.set(font_scale=1.4)
+    sn.set(font_scale=1.2)
     # sn.heatmap(dataframe, annot=True, fmt='g', annot_kws={"size": 16}, cmap='Blues', vmin=vmin, vmax=vmax)
-    sn.heatmap(dataframe, annot=True, fmt='g', annot_kws={"size": 16}, cmap='Blues', vmin=vmin, vmax=vmax, cbar=False)
+    sn.heatmap(dataframe, annot=True, fmt='g', annot_kws={"size": 12}, cmap='Blues', vmin=vmin, vmax=vmax, cbar=False)
 
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
@@ -417,13 +417,15 @@ if __name__ == "__main__":
 
     if FLAGS.heatmap:
 
-        heatmap_data = pd.read_csv('./csv/elegiac_f1-scores_long.csv').set_index('predictor')
+        heatmap_data = pd.read_csv('./csv/unseen_f1-scores_elision.csv').set_index('predictor')
 
         # heatmap_data
 
+
+        heatmap_data['mean'] = heatmap_data.mean(axis=1)
+
         print(heatmap_data)
-
-
+        exit(0)
 
         myplot = create_heatmap(dataframe = heatmap_data,
                         xlabel = 'Test',
@@ -481,6 +483,11 @@ if __name__ == "__main__":
             else:
                 new_list.append(line)
         
+        # for line in new_list:
+        #     print(len(line))
+        
+        # exit(0)
+
         print(new_list[:2])
 
         Pickle_write(cf.get('Pickle', 'path_sequence_labels'), 'SEN-aga.pickle', new_list)    

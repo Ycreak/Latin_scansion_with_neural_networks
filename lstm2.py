@@ -116,7 +116,7 @@ class LSTM_model():
 
         if FLAGS.model_predict:
             
-            train_texts = ['SEN-proofread.pickle']
+            train_texts = ['HEX_ELE-all.pickle']
             test_texts = ['SEN-aga.pickle']
             self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='seneca_precise', plot_title='Trimeter Texts')
 
