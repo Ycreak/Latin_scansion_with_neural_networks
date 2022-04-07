@@ -48,8 +48,11 @@ class LSTM_model():
         # Debugging
         # FLAGS.anceps = True
         # FLAGS.single_text = True
-        # FLAGS.create_model = True
+        # FLAGS.create_model = False
+        # FLAGS.save_model = True
         # FLAGS.epochs = 1
+        # FLAGS.metrics_report = True
+        # FLAGS.verbose = True
         
         
         self.num_epochs = FLAGS.epochs
@@ -113,6 +116,12 @@ class LSTM_model():
             # Perform kfold to check if we don't have any overfitting
             result = self.kfold_model(text, X, y, 5, max_sentence_length, unique_syllables)
             print(result)
+
+        if True:
+            train_texts = ['SEN-proofread.pickle']
+            test_texts = ['SEN-aga.pickle']
+            self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='seneca_anceps', plot_title='Trimeter Texts')
+
 
         if FLAGS.model_predict:
             
@@ -326,7 +335,7 @@ class LSTM_model():
                                 X = X_train,
                                 y = y_train,
                                 epochs = self.num_epochs,
-                                create_model = True,
+                                create_model = FLAGS.create_model,
                                 save_model = FLAGS.save_model)
         
         if do_evaluate:
@@ -463,16 +472,16 @@ class LSTM_model():
                 X_test, y_test = self.create_X_y_sets(sequence_labels_test_text, word2idx, label2idx, max_sentence_length)
                 metrics_report = self.create_metrics_report(model, X_test, y_test)
 
-                if FLAGS.metrics_report:
+                if self.FLAGS.metrics_report:
                     print_metrics_report = self.create_confusion_matrix(model, X_test, y_test)
+                    # self.create_seaborn_heatmap(print_metrics_report)
                     
                     
                     print(print_metrics_report)
-                    print_metrics_report = self.create_metrics_report(model, X_test, y_test, output_dict=False)
+                    print_metrics_report = self.create_metrics_report(model, X_test, y_test, output_dict=True)
                     print(print_metrics_report)                    
                     
                     # exit(0)
-                    self.create_seaborn_heatmap(print_metrics_report)
 
                 predictor = train_text.split('-')[0].capitalize() # get names
                 predictee = test_text.split('-')[0].capitalize()
@@ -560,6 +569,44 @@ class LSTM_model():
 
         return X, y
 
+    def do_prediction(self, model, X, y):
+        """Does a prediction given the model, X and y sets
+
+        Args:
+            model (_type_): _description_
+            X (_type_): _description_
+            y (_type_): _description_
+        """        
+        y_pred = model.predict(X)
+
+        # ['long', 'short', 'elision', 'space', self.PADDING, 'anceps']
+
+
+        if self.FLAGS.anceps: # We dont want to predict the label anceps, so we delete it from the possible predictions
+            for line in y_pred:
+                for syllable in line:
+                    # print(syllable)
+                    # check which label has the highest confidence
+                    position = np.where(syllable == np.amax(syllable))
+                    # if it is the anceps label, check confidence for long and short
+                    if position[0][0] == 5:
+                        long = syllable[0]
+                        short = syllable[1]
+
+                        if long > short:
+                            syllable = np.array([1, 0, 0, 0, 0, 0])
+                        else:
+                            syllable = np.array([0, 1, 0, 0, 0, 0])
+                    # else:
+                        
+
+            # print(y_pred[0]) # = y_pred[:, :, :-1]
+            
+        y_pred = np.argmax(y_pred, axis=-1)
+        y = np.argmax(y, axis=-1)
+
+        return y, y_pred
+
     def create_confusion_matrix(self, model, X, y):
         """Creates a confusion matrix from the given model, X and y sets. As y is one-hot encoded, we need to take
         the argmax value. Secondly, because the list of lists structure (sentences), we need to flatten both prediction
@@ -573,9 +620,14 @@ class LSTM_model():
         Returns:
             confusion matrix: of labels
         """        
-        y_pred = model.predict(X)
-        y_pred = np.argmax(y_pred, axis=-1)
-        y = np.argmax(y, axis=-1)
+        # y_pred = model.predict(X)
+
+        # if self.FLAGS.anceps: # We dont want to predict the label anceps, so we delete it from the possible predictions
+        #     y_pred = y_pred[:, :, :-1]
+
+        # y_pred = np.argmax(y_pred, axis=-1)
+        # y = np.argmax(y, axis=-1)
+        y, y_pred = self.do_prediction(model, X, y)
 
         flat_list = [item for sublist in y for item in sublist]
         flat_list2 = [item for sublist in y_pred for item in sublist]
@@ -594,15 +646,17 @@ class LSTM_model():
         Returns:
             dataframe: with the metrics report to be printed
         """        
-        y_pred = model.predict(X)
+        # y_pred = model.predict(X)
 
-        if FLAGS.anceps: # We dont want to predict the label anceps, so we delete it from the possible predictions
-            y_pred = y_pred[:, :, :-1]
+        # if self.FLAGS.anceps: # We dont want to predict the label anceps, so we delete it from the possible predictions
+        #     y_pred = y_pred[:, :, :-1]
 
-        print(y_pred.shape)
+        # # print(y_pred.shape)
 
-        y_pred = np.argmax(y_pred, axis=-1)
-        y = np.argmax(y, axis=-1)
+        # y_pred = np.argmax(y_pred, axis=-1)
+        # y = np.argmax(y, axis=-1)
+
+        y, y_pred = self.do_prediction(model, X, y)
 
         metrics_report = crf_metrics.flat_classification_report(
             y, y_pred, labels=[0,1,2], target_names=['long', 'short', 'elision'], digits=4, output_dict=output_dict
@@ -645,9 +699,9 @@ class LSTM_model():
             # Initiate the model structure
             input = Input(shape=(max_len,))
             
-            model = Embedding(input_dim=num_syllables, output_dim=num_syllables, input_length=max_len)(input)  # 50-dim embedding
+            model = Embedding(input_dim=num_syllables, output_dim=50, input_length=max_len)(input)  # 50-dim embedding
             model = Dropout(0.1)(model)
-            model = Bidirectional(LSTM(units=512, return_sequences=True, recurrent_dropout=0.1))(model)  # variational biLSTM
+            model = Bidirectional(LSTM(units=100, return_sequences=True, recurrent_dropout=0.1))(model)  # variational biLSTM
             
             out = TimeDistributed(Dense(num_labels, activation="softmax"))(model)  # softmax output layer
 
@@ -700,13 +754,23 @@ class LSTM_model():
         return syllable_list
 
     def create_seaborn_heatmap(self, confusion_matrix):
-        df_confusion_matrix = pd.DataFrame(confusion_matrix, index = ['long', 'short', 'elision', 'space', 'padding'],
-                                        columns = ['long', 'short', 'elision', 'space', 'padding'])
+        if self.FLAGS.anceps:
+            labels = ['long', 'short', 'elision', 'space', 'padding', 'anceps']
+        else:
+            labels = ['long', 'short', 'elision', 'space', 'padding']
+
+        df_confusion_matrix = pd.DataFrame(confusion_matrix, index = labels,
+                                        columns = labels)
         # Drop the padding labels, as we don't need them (lstm scans them without confusion): delete both row and column
         df_confusion_matrix = df_confusion_matrix.drop('padding')
         df_confusion_matrix = df_confusion_matrix.drop(columns=['padding', 'space'])
 
         df_confusion_matrix = df_confusion_matrix.drop('space')
+        
+        if self.FLAGS.anceps:
+            df_confusion_matrix = df_confusion_matrix.drop(columns=['anceps'])
+            df_confusion_matrix = df_confusion_matrix.drop('anceps')            
+        
         # df_confusion_matrix = df_confusion_matrix.drop(columns=['padding'])
 
         util.create_heatmap(dataframe = df_confusion_matrix,
