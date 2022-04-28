@@ -417,15 +417,15 @@ if __name__ == "__main__":
 
     if FLAGS.heatmap:
 
-        heatmap_data = pd.read_csv('./csv/unseen_f1-scores_elision.csv').set_index('predictor')
+        heatmap_data = pd.read_csv('./csv/elegiac_f1-scores_elision.csv').set_index('predictor')
 
         # heatmap_data
 
 
-        heatmap_data['mean'] = heatmap_data.mean(axis=1)
+        # heatmap_data['mean'] = heatmap_data.mean(axis=1)
 
-        print(heatmap_data)
-        exit(0)
+        # print(heatmap_data)
+        # exit(0)
 
         myplot = create_heatmap(dataframe = heatmap_data,
                         xlabel = 'Test',
