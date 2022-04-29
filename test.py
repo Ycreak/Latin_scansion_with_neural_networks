@@ -6,6 +6,11 @@ from matplotlib.ticker import StrMethodFormatter
 # importing module
 from pandas import *
  
+from cltk.prosody.lat.metrical_validator import MetricalValidator
+result = MetricalValidator().is_valid_hexameter("-UU---UU---UU-U")
+print(result)
+exit(0)
+
 # reading CSV file
 data = read_csv("test.csv")
  

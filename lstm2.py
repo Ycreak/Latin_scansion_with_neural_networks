@@ -117,10 +117,10 @@ class LSTM_model():
             result = self.kfold_model(text, X, y, 5, max_sentence_length, unique_syllables)
             print(result)
 
-        if True:
-            train_texts = ['SEN-proofread.pickle']
-            test_texts = ['SEN-aga.pickle']
-            self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='seneca_anceps', plot_title='Trimeter Texts')
+        # if True:
+        #     train_texts = ['SEN-proofread.pickle']
+        #     test_texts = ['SEN-aga.pickle']
+        #     self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='seneca_anceps', plot_title='Trimeter Texts')
 
 
         if FLAGS.model_predict:
@@ -231,7 +231,7 @@ class LSTM_model():
                                             num_labels = len(self.LABELS),
                                             X = X_train_list_2,
                                             y = y_train_list_2,
-                                            epochs = self.num_epochs,
+                                            epochs = FLAGS.epochs,
                                             create_model = True,
                                             save_model = False)
                     
@@ -282,7 +282,7 @@ class LSTM_model():
                                     num_labels = len(self.LABELS),
                                     X = X_train,
                                     y = y_train,
-                                    epochs = self.num_epochs,
+                                    epochs = FLAGS.epochs,
                                     create_model = True,
                                     save_model = FLAGS.save_model)
 
@@ -334,7 +334,7 @@ class LSTM_model():
                                 num_labels = len(self.LABELS),
                                 X = X_train,
                                 y = y_train,
-                                epochs = self.num_epochs,
+                                epochs = FLAGS.epochs,
                                 create_model = FLAGS.create_model,
                                 save_model = FLAGS.save_model)
         
@@ -461,7 +461,7 @@ class LSTM_model():
                                     num_labels = len(self.LABELS),
                                     X = X_train,
                                     y = y_train,
-                                    epochs = self.num_epochs,
+                                    epochs = FLAGS.epochs,
                                     create_model = FLAGS.create_model,
                                     save_model = FLAGS.save_model,
                                     model_name = train_text.split('.')[0])
