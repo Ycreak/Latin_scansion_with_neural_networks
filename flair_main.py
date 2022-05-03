@@ -33,9 +33,9 @@ class FLAIR_model():
         self.scansion_models_folder = './flair/scansion_models/'
         self.language_models_folder = './flair/language_models/'
         # defines name given to the corpus
-        self.current_corpus_name = 'dactylic'
+        self.current_corpus_name = 'kfold'
         # defines the name of the sequence labels pickle used as corpus
-        self.current_text = 'SEN-proofread.pickle'
+        self.current_text = 'HEX_ELE-all.pickle'
 
         self.corpus_path = self.corpus_folder + self.current_corpus_name
         self.flair_lm_path = self.language_models_folder + \
@@ -51,6 +51,7 @@ class FLAIR_model():
 
         if FLAGS.language_model == 'flair':
             # Creates the flair language model by training embeddings on the text
+            print('Creating Flair language model')
             self.train_flair_language_model(
                 self.corpus_path, self.flair_lm_path)
 
@@ -75,10 +76,90 @@ class FLAIR_model():
             output_path = self.language_models_folder + 'fasttext'
             model.save_model(output_path)
 
+        if FLAGS.kfold:
+            from sklearn.model_selection import KFold
+            import random
+
+            sequence_labels = util.Pickle_read(util.cf.get(
+                'Pickle', 'path_sequence_labels'), self.current_text)
+
+            splits = 5
+            
+            # shuffle sequence labels
+            random.shuffle(sequence_labels)
+            split_sequence_labels = np.array_split(sequence_labels, splits)
+            
+            numbers = [0,1,2,3,4]
+            # Do manual cross validation split creation
+            for i in range(splits):
+                test_idx = i
+                if i < splits-1:
+                    val_idx = i+1
+                    train_idx = [j for j in numbers if (j!=i and j!=i+1)]
+                else:
+                    val_idx = 0
+                    train_idx = [j for j in numbers if (j!=i and j!=0)]
+                    
+                # print(test_idx, val_idx, train_idx)
+                test_set = split_sequence_labels[test_idx]
+                val_set = split_sequence_labels[val_idx]
+                # Convert away from the numpy arrays
+                test_set = [x.tolist() for x in [test_set]]
+                val_set = [x.tolist() for x in [val_set]]
+                train_set = []
+                for k in train_idx:
+                    train_set.append(list(split_sequence_labels[k]))
+                # Flatten the lists (np error on my part)
+                test_set = [item for sublist in test_set for item in sublist]
+                val_set = [item for sublist in val_set for item in sublist]
+                train_set = [item for sublist in train_set for item in sublist]
+
+                print('TEST', len(test_set))
+                print('VAL', len(val_set))
+                print('TRAIN', len(train_set))
+
+                # Do here the cross validation
+
+                train_path = self.corpus_path + '/train.txt'
+                test_path = self.corpus_path + '/test.txt'
+                valid_path = self.corpus_path + '/valid.txt'
+
+                # this works for model training. language_model training wants train.txt in 'corpus_path/train/train.txt'
+                train_file = open(train_path, 'w')
+                test_file = open(test_path, 'w')
+                validate_file = open(valid_path, 'w')
+
+                # Test if new files are created at each fold
+                for sentence in train_set:
+                    for syllable, label in sentence:
+                        result = syllable + '\t' + label + '\n'
+                        train_file.write(result)
+                    train_file.write('\n')
+                train_file.close()
+
+                for sentence in test_set:
+                    for syllable, label in sentence:
+                        result = syllable + '\t' + label + '\n'
+                        test_file.write(result)
+                    test_file.write('\n')
+                test_file.close()
+
+                for sentence in val_set:
+                    for syllable, label in sentence:
+                        result = syllable + '\t' + label + '\n'
+                        validate_file.write(result)
+                    validate_file.write('\n')
+                validate_file.close()
+
+                self.train_model(corpus_path=self.corpus_path,
+                                flair_path=self.flair_lm_path,
+                                model_output_path=self.scansion_model_path)     
+
+
         if FLAGS.train_model:
             # trains and saves the FLAIR model
             self.train_model(corpus_path=self.corpus_path,
-                             flair_lm_path=self.flair_lm_path,
+                             flair_path=self.flair_lm_path,
                              model_output_path=self.scansion_model_path)
 
         if FLAGS.custom_prediction:
@@ -270,7 +351,7 @@ class FLAIR_model():
         Args:
             sequence_labels (list): with sequence labels
         """
-        train_path = corpus_path + '/train/train.txt'
+        train_path = corpus_path + '/train.txt'
         test_path = corpus_path + '/test.txt'
         valid_path = corpus_path + '/valid.txt'
 
@@ -406,6 +487,8 @@ if __name__ == "__main__":
                    help="specify whether to test the FLAIR model")
     p.add_argument("--exp_train_test", action="store_true",
                    help="specify whether to run the train/test split LSTM experiment")
+    p.add_argument("--kfold", action="store_true",
+                   help="specify whether to run the kfold experiment")
     p.add_argument("--single_line", action="store_true",
                    help="specify whether to predict a single line")
     p.add_argument("--qualitative", action="store_true",

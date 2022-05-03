@@ -57,7 +57,7 @@ class ProsePoetry():
     max_syllables_hexameter = 20
     
     do_lstm = True
-    do_pedecerto = True
+    do_pedecerto = False
     do_anceps = True
 
     def __init__(self, FLAGS):
@@ -71,15 +71,28 @@ class ProsePoetry():
         text = self.clean_prose_text(text)
         text = text.split()
 
-        # print(syllabified_text)
+        # print(text)
+
+        # exit(0)
+
         print('Creating hexameter candidates from given prose text')
         possible_hexameter_list = self.create_hexameter_list_from_window(text, self.min_syllables_hexameter, self.max_syllables_hexameter)
+
+        # new_possible_hexameter_list = []
+        # for line in possible_hexameter_list:
+        #     new_possible_hexameter_list.append(self.convert_split_hexameter_to_string(line))
+        # possible_hexameter_list = new_possible_hexameter_list
+
+        # print(len(possible_hexameter_list))
+        # exit(0)
+        
 
         if self.do_lstm:
             # Let the LSTM think about what is acceptable as an hexameter
             # print('LSTM: creating candidate list')
             possible_hexameter_list = self.detect_hexameter_lstm(possible_hexameter_list)
-            # print(possible_hexameter_list, len(possible_hexameter_list))            
+            print(possible_hexameter_list, len(possible_hexameter_list))    
+            # exit(0)        
         else:
             # Convert the syllabified list to Anceps & Pedecerto readable
             new_possible_hexameter_list = []
@@ -91,7 +104,9 @@ class ProsePoetry():
             # Let Anceps think about what is acceptable as an hexameter
             print('Anceps: creating candidate list')
             possible_hexameter_list = self.detect_hexameter_anceps(possible_hexameter_list)
-            # print(possible_hexameter_list, len(possible_hexameter_list))
+            print(possible_hexameter_list, len(possible_hexameter_list))
+
+        # exit(0)
 
         if self.do_pedecerto:
             print('Pedecerto: creating candidate list')
@@ -220,7 +235,9 @@ class ProsePoetry():
         possible_hexameter_list = []
         
         syllabified_text = self.syllabify_text(text)
-
+        # print(syllabified_text)
+               
+        # exit(0)
         # Add a syllable to the beginning of the text: we will use this to detect if a syllable is the beginning of a word
         # Hexameters cant start with half a word.
         syllabified_text.insert(0, '-')

@@ -69,8 +69,8 @@ class Scan():
         #     Verse.read_manual_file(args.manual_file)
 
         Word.DIPHTHONGS = True
-        Word.AUTHOR_COUNT = 1
-        Word.TOTAL_COUNT = 1
+        Word.AUTHOR_COUNT = 3
+        Word.TOTAL_COUNT = 5
         Word.load_mqdq_dict('./anceps/MqDqMacrons.json')
         Word.load_morpheus_dict("./anceps/MorpheusMacrons.txt")
         
