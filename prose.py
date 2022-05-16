@@ -23,7 +23,6 @@ import argparse
 
 from cltk.prosody.lat.metrical_validator import MetricalValidator
 
-
 import syllabifier as syl
 import utilities as util
 
@@ -40,7 +39,12 @@ p.add_argument("--model_predict", action="store_true", help="let a specific mode
 p.add_argument("--metrics_report", action="store_true", help="specifiy whether to print the metrics report")
 p.add_argument("--kfold", action="store_true", help="specifiy whether to run the kfold experiment")
 
+p.add_argument("--lstm", action="store_true", help="specifiy whether to run the kfold experiment")
+p.add_argument("--pedecerto", action="store_true", help="specifiy whether to run the kfold experiment")
 p.add_argument("--anceps", action="store_true", help="specify whether to train on an anceps text")
+p.add_argument("--fuzzywuzzy", action="store_true", help="specify whether to train on an anceps text")
+p.add_argument("--candidates", action="store_true", help="specify whether to train on an anceps text")
+
 p.add_argument("--verbose", action="store_true", help="specify whether to run the code in verbose mode")
 p.add_argument('--epochs', default=25, type=int, help='number of epochs')
 p.add_argument("--split", type=util.restricted_float, default=0.2, help="specify the split size of train/test sets")
@@ -49,45 +53,90 @@ FLAGS = p.parse_args()
 
 class ProsePoetry():
 
-    # text = "Scias ista, nescias: fient. Si vero solem ad rapidum4 stellasque sequentes ordine respicies, numquam te crastina fallet hora, nec insidiis noctis capiere serenae"
-    # text = "Hoc scire quid proderit? ut sollicitus sim cum Saturnus et Mars ex contrario stabunt aut cum Mercurius vespertinum faciet occasum vidente Saturno, potius quam hoc discam, ubicumque sunt ista, propitia esse nec posse mutari? [15] Agit illa continuus ordo fatorum et inevitabilis cursus; per statas vices remeant et effectus rerum omnium aut movent aut notant. Sed sive quidquid evenit faciunt, quid inmutabilis rei notitia proficiet? sive significant, quid refert providere quod effugere non possis? Scias ista, nescias: fient. [16] Si vero solem ad rapidum stellasque sequentes ordine respicies, numquam te crastina fallet hora, nec insidiis noctis capiere serenae. Satis abundeque provisum est ut ab insidiis tutus essem. [17] 'Numquid me crastina non fallit hora? fallit enim quod nescienti evenit.' Ego quid futurum sit nescio: quid fieri possit scio. Ex hoc nihil deprecabor, totum expecto: si quid remittitur, boni consulo. Fallit me hora si parcit, sed ne sic quidem fallit. Nam quemadmodum scio omnia accidere posse, sic scio et non utique casura; itaque secunda expecto, malis paratus sum." 
     SPACE_CHAR = '-'
     
     min_syllables_hexameter = 12
     max_syllables_hexameter = 20
-    
-    do_lstm = True
-    do_pedecerto = False
-    do_anceps = True
 
     def __init__(self, FLAGS):
         self.FLAGS = FLAGS
 
+        do_candidates = FLAGS.candidates
+        do_lstm = FLAGS.lstm
+        do_anceps = FLAGS.anceps
+        do_pedecerto = FLAGS.pedecerto
+        do_fuzzywuzzy = FLAGS.fuzzywuzzy
+
+        prose_path = './prose/'
+        prose_text = 'clementia'
+        prose_clean = prose_path + prose_text + '_clean.txt'
+        prose_dirty = prose_path + prose_text + '.txt'
+        prose_punctuation = prose_path + prose_text + '_punctuation.txt'
+
         # Read the prose text to search
-        f = open("prose.txt", "r")
-        text = f.read()
-        f.close()
-        # Clean it up
-        text = self.clean_prose_text(text)
-        text = text.split()
-
-        # print(text)
-
+        all_text = self.read_file(prose_clean)
+        # print(all_text)
         # exit(0)
 
-        print('Creating hexameter candidates from given prose text')
-        possible_hexameter_list = self.create_hexameter_list_from_window(text, self.min_syllables_hexameter, self.max_syllables_hexameter)
+        if do_fuzzywuzzy:
+            # In this function, we take all our candidates and map them on the original text for qualitative analysis
+            # Notice that for this function, we'd like to take the original text to map onto!
+            import re
 
-        # new_possible_hexameter_list = []
-        # for line in possible_hexameter_list:
-        #     new_possible_hexameter_list.append(self.convert_split_hexameter_to_string(line))
-        # possible_hexameter_list = new_possible_hexameter_list
+            debugging = False
 
-        # print(len(possible_hexameter_list))
-        # exit(0)
-        
+            # Create two texts, the first one being a clean version            
+            # cleaned_text = all_text.translate({ord(c): None for c in "*[]'()~<>.,?!:;"})
+            # cleaned_text = cleaned_text.translate({ord(c): None for c in '0123456789'})
+            # cleaned_text = cleaned_text.replace('\n'," ").lower()#            all_text = all_text.strip('\n')
+            cleaned_text = self.read_file(prose_clean).split()
+            # And the second one being one with punctuation
+            text_with_punctuation = self.read_file(prose_punctuation)
+            text_with_punctuation = text_with_punctuation.translate({ord(c): None for c in "*[]()~<>"})
+            text_with_punctuation = text_with_punctuation.translate({ord(c): None for c in '0123456789'})
+            text_with_punctuation = text_with_punctuation.split()
 
-        if self.do_lstm:
+            # print(text_with_punctuation)
+            # exit(0)
+
+            candidates_path = './prose/' + prose_text + '_pedecerto_candidates.txt'
+            candidates_file = open(candidates_path, 'r')
+            for candidate_line in candidates_file:
+                candidate_line = candidate_line.strip().split()
+                
+                try:
+                    begin, end = self.find_sub_list(candidate_line, cleaned_text)
+                    
+                    if debugging: print('YOUR CANDIDATE: ', candidate_line)
+                    if debugging: print('IN THE TEXT: ', text_with_punctuation[begin:end+1])
+                    if debugging: print('')
+
+                    text_with_punctuation[begin] = '\\textbf{'+text_with_punctuation[begin]
+                    text_with_punctuation[end] = text_with_punctuation[end]+'}'
+                except:
+                    print('FAILED A CANDIDATE. PLEASE INVESTIGATE: ', candidate_line)
+                    continue
+                
+            # print(counter)            
+            text_with_punctuation = ' '.join(text_with_punctuation)
+            print(text_with_punctuation)
+
+            candidates_file.close()
+
+            exit(0)
+
+        candidates_file = './prose/' + prose_text + '_candidates.txt'
+        if do_candidates:
+            print('Creating hexameter candidates from given prose text')
+            possible_hexameter_list = self.create_hexameter_list_from_window(all_text, self.min_syllables_hexameter, self.max_syllables_hexameter)     
+            
+            self.write_file(candidates_file, possible_hexameter_list)
+        else:
+            possible_hexameter_list = open(candidates_file, 'r')
+
+
+
+        if do_lstm:
             # Let the LSTM think about what is acceptable as an hexameter
             # print('LSTM: creating candidate list')
             possible_hexameter_list = self.detect_hexameter_lstm(possible_hexameter_list)
@@ -98,26 +147,90 @@ class ProsePoetry():
             new_possible_hexameter_list = []
             for line in possible_hexameter_list:
                 new_possible_hexameter_list.append(self.convert_split_hexameter_to_string(line))
-            possible_hexameter_list = new_possible_hexameter_list
-
-        if self.do_anceps:
-            # Let Anceps think about what is acceptable as an hexameter
-            print('Anceps: creating candidate list')
-            possible_hexameter_list = self.detect_hexameter_anceps(possible_hexameter_list)
-            print(possible_hexameter_list, len(possible_hexameter_list))
+            possible_hexameter_list = set(new_possible_hexameter_list)
 
         # exit(0)
 
-        if self.do_pedecerto:
+        if do_anceps:
+            # Let Anceps think about what is acceptable as an hexameter
+            print('Anceps: creating candidate list')
+            possible_hexameter_list = self.detect_hexameter_anceps(possible_hexameter_list)
+            # print(possible_hexameter_list, len(possible_hexameter_list))
+
+            anceps_candidates_file = prose_text + '_anceps_candidates'
+            self.write_file(anceps_candidates_file, possible_hexameter_list)
+            
+            # with open('anceps_candidates.txt', 'w') as f:
+            #     for candidate in possible_hexameter_list:
+            #         f.write("%s\n" % candidate)
+            # f.close()
+
+        if do_pedecerto:
+            # First, run all the Anceps candidates through Pedecerto
             print('Pedecerto: creating candidate list')
             possible_hexameter_list = self.detect_hexameter_pedecerto(possible_hexameter_list)
-            # print(possible_hexameter_list, len(possible_hexameter_list))            
+            
+            # Next, interpret what Pedecerto put out
+            from bs4 import BeautifulSoup
+            pedecerto_candidates = []
+            
+            with open('/home/luukie/Downloads/scansion.xml') as fh:
+                # Use beautiful soup to process the xml
+                soupedEntry = BeautifulSoup(fh,"xml")
+                # Clean the lines (done by MQDQ)
+                soupedEntry = util.clean_extra(soupedEntry('line'))
 
-        print(' ')
+                # text_sequence_label_list = []
 
-        for line in possible_hexameter_list:
-            print(line)
-        print(len(possible_hexameter_list))
+                # for line in range(len(soupedEntry)):
+                for line in range(len(soupedEntry)):
+                    complete_line = []
+                    for w in soupedEntry[line]("word"):
+                        complete_line.append(w.text)
+
+                    complete_line = ' '.join(complete_line)
+                    pedecerto_candidates.append(complete_line)   
+
+            pedecerto_candidates_file = prose_text + '_pedecerto_candidates'
+            self.write_file(pedecerto_candidates_file, pedecerto_candidates)
+
+    def read_file(self, filename):
+        f = open(filename, "r")
+        text = f.read()
+        f.close()
+        return text
+
+    def write_file(self, filename, given_list):
+        path = './prose/' + filename + '.txt'
+        with open(path, 'w') as f:
+            for item in given_list:
+                f.write("%s\n" % item)
+        f.close()        
+
+    def find_sub_list(self, sl,l):
+        """Function to find the location of a sublist within a list
+
+        Args:
+            sl (list): sublist to be found
+            l (list): to find the sublist in
+
+        Returns:
+            ints: begin and end index of the substring within the list
+        """        
+        sll=len(sl)
+        for ind in (i for i,e in enumerate(l) if e==sl[0]):
+            if l[ind:ind+sll]==sl:
+                return ind,ind+sll-1
+
+    # def find_sub_list(self, sl,l):
+    #     results=[]
+    #     sll=len(sl)
+    #     for ind in (i for i,e in enumerate(l) if e==sl[0]):
+    #         if l[ind:ind+sll]==sl:
+    #             results.append((ind,ind+sll-1))
+
+    #     return results
+
 
     def detect_hexameter_lstm(self, possible_hexameter_list):
 
@@ -199,28 +312,11 @@ class ProsePoetry():
         scan = Scan(hexameter_candidates)
         result = scan.result
         
-        # import json
-        # # Opening JSON file
-        # f = open('./anceps/test.json')
-        
-        # # returns JSON object as
-        # # a dictionary
-        # result = json.load(f)
-        
-        # Iterating through the json
-        # list
         for i in result['text']:
             if result['text'][i]['method'] != 'failed':
                 anceps_candidates.append(result['text'][i]['verse'])
         
-        # Closing file
-        # f.close()
-
-        # print(result)
-
         return anceps_candidates
-
-
 
     def detect_hexameter_pedecerto(self, hexameter_candidates):
         return hexameter_candidates
@@ -228,6 +324,8 @@ class ProsePoetry():
     def convert_split_hexameter_to_string(self, split_hexameter):
         original_line = ''.join([str(elem) for elem in split_hexameter])
         original_line = original_line.replace('-',' ')
+        # if there are any multiple whitespaces, merge these
+        original_line = ' '.join(original_line.split())
         return original_line
 
     def create_hexameter_list_from_window(self, text, min_syllables_hexameter, max_syllables_hexameter):
@@ -235,9 +333,6 @@ class ProsePoetry():
         possible_hexameter_list = []
         
         syllabified_text = self.syllabify_text(text)
-        # print(syllabified_text)
-               
-        # exit(0)
         # Add a syllable to the beginning of the text: we will use this to detect if a syllable is the beginning of a word
         # Hexameters cant start with half a word.
         syllabified_text.insert(0, '-')
@@ -282,13 +377,12 @@ class ProsePoetry():
                 syllabified_text.pop(0)
                 bar.next()
 
-                
         return possible_hexameter_list
 
     def syllabify_text(self, text):
         # Syllabify the text and add it to a single list
         syllabified_text = []
-        for idx, word in enumerate(text):
+        for idx, word in enumerate(text.split()):
             syllabified = syl.syllabify(word)
             syllabified.append('-')
             syllabified_text += syllabified
@@ -296,30 +390,24 @@ class ProsePoetry():
         return syllabified_text
 
     def clean_prose_text(self, text):
-        # Strip the text of non alphanumerical characters, lower it and merge whitespaces
-        text = text.translate({ord(c): None for c in ",.:?![]';()"})
+        # Strip the text of non alphanumerical characters, lower it and merge whitespaces   
+        text = text.translate({ord(c): None for c in "*,.:?![]';()~<>"})
         text = text.translate({ord(c): None for c in '0123456789'})
-        text = text.lower()
-        text = ' '.join(text.split())
+        # Delete everything that is completely uppercase. Usually titles.
+        text = text.split()
+        text = [item for item in text if not item.isupper()]
+        text = [word.lower() for word in text]
+
+        text = ' '.join(text)
         return text
 
     def check_word_boundaries(self, possible_hexameter_line):
         # An hexameter only works on word boundaries. this function checks that        
         return (possible_hexameter_line[0] == self.SPACE_CHAR and possible_hexameter_line[-1] == self.SPACE_CHAR)
-        #     return True
-        # else:
-        #     return False
 
     def calculate_hexameter_length(self, given_hexameter):
         return len([value for value in given_hexameter if value != '-'])
 
 if __name__ == "__main__":
-    prose = ProsePoetry(FLAGS)
-
-
-    # X, y = lstm.create_X_y_sets(poetry, word2idx, label2idx, max_sentence_length)
-
-    
-
-    # exit(0)      
+    prose = ProsePoetry(FLAGS)   
         

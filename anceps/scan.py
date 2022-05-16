@@ -52,6 +52,11 @@ class Scan():
         p.add_argument("--input_index", dest="input_index", action="store_true",
                     help="assume that the input file contains verse indices (see help message for "
                             "input parameter) and use these indices for output")
+        p.add_argument("--anceps", action="store_true",
+                    help="dummy")        
+        p.add_argument("--pedecerto", action="store_true",help="dummy")          
+        p.add_argument("--candidates", action="store_true",help="dummy")          
+
         p.add_argument("--no_diphthongs", dest="diphthongs", action="store_false",
                     help="use if the input text has 'e' instead of 'ae' and 'oe' (this happens in "
                             "some Renaissance texts)")

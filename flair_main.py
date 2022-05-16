@@ -32,10 +32,11 @@ class FLAIR_model():
         self.corpus_folder = './flair/corpus/'
         self.scansion_models_folder = './flair/scansion_models/'
         self.language_models_folder = './flair/language_models/'
+        self.word_embedding_training_file = './flair/corpus_in_plain_syllables.txt'
         # defines name given to the corpus
-        self.current_corpus_name = 'kfold'
+        self.current_corpus_name = 'embeddings'
         # defines the name of the sequence labels pickle used as corpus
-        self.current_text = 'HEX_ELE-all.pickle'
+        self.current_text = 'VERG-aene.pickle'
 
         self.corpus_path = self.corpus_folder + self.current_corpus_name
         self.flair_lm_path = self.language_models_folder + \
@@ -54,26 +55,26 @@ class FLAIR_model():
             print('Creating Flair language model')
             self.train_flair_language_model(
                 self.corpus_path, self.flair_lm_path)
+            # TODO: copy train.text to train/train.txt
 
         if FLAGS.language_model == 'fasttext':
             import fasttext
             # create a text file from our sequence labels to allow fasttext training
             text = util.Pickle_read(util.cf.get(
                 'Pickle', 'path_sequence_labels'), self.current_text)
-            self.create_plain_syllable_files(
-                text, self.word_embedding_training_file)
+            self.create_plain_syllable_files(text, self.word_embedding_training_file)
             # Creates the fasttext language model by training embeddings on the given text
             model = fasttext.train_unsupervised(input='flair/corpus_in_plain_syllables.txt',
                                                 model='skipgram',
                                                 lr=0.05,
                                                 dim=100,
                                                 ws=5,                 # window size
-                                                epoch=5,
+                                                epoch=25,
                                                 minCount=1,
                                                 verbose=2,
                                                 thread=4
                                                 )
-            output_path = self.language_models_folder + 'fasttext'
+            output_path = self.language_models_folder + 'fasttext.bin'
             model.save_model(output_path)
 
         if FLAGS.kfold:
@@ -443,7 +444,7 @@ class FLAIR_model():
             # WordEmbeddings('glove'),
 
             # FASTTEXT EMBEDDINGS
-            # FastTextEmbeddings('flair/resources/fasttext_embeddings.bin'),
+            # FastTextEmbeddings('flair/language_models/fasttext.bin'),
 
             # GENSIM EMBEDDINGS
             # custom_embedding = WordEmbeddings('path/to/your/custom/embeddings.gensim')
@@ -452,7 +453,7 @@ class FLAIR_model():
             CharacterEmbeddings(),
 
             # FLAIR EMBEDDINGS
-            FlairEmbeddings(chosen_flair_model),
+            # FlairEmbeddings(chosen_flair_model),
         ]
         embeddings = StackedEmbeddings(embeddings=embedding_types)
 
