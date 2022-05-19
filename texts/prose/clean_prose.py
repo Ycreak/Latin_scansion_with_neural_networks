@@ -18,7 +18,7 @@ def clean_prose_text(text, remove_punctuation=True):
     text = ' '.join(text)
     return text
 
-f = open("clementia.txt", "r")
+f = open("macrobius.txt", "r")
 text = f.read()
 f.close()
 

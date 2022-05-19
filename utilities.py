@@ -93,6 +93,7 @@ def clean_extra(ll):
     ll = [l for l in ll if l.has_attr("pattern")
         and l["pattern"] != "corrupt"
         and l["pattern"] != "not scanned"
+        and l["pattern"] != "SSSS"
     ]
 
 

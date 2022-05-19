@@ -68,7 +68,7 @@ class ProsePoetry():
         do_fuzzywuzzy = FLAGS.fuzzywuzzy
 
         prose_path = './prose/'
-        prose_text = 'clementia'
+        prose_text = 'macrobius'
         prose_clean = prose_path + prose_text + '_clean.txt'
         prose_dirty = prose_path + prose_text + '.txt'
         prose_punctuation = prose_path + prose_text + '_punctuation.txt'
@@ -82,6 +82,8 @@ class ProsePoetry():
             # In this function, we take all our candidates and map them on the original text for qualitative analysis
             # Notice that for this function, we'd like to take the original text to map onto!
             import re
+            import string
+            import collections
 
             debugging = False
 
@@ -92,15 +94,37 @@ class ProsePoetry():
             cleaned_text = self.read_file(prose_clean).split()
             # And the second one being one with punctuation
             text_with_punctuation = self.read_file(prose_punctuation)
-            text_with_punctuation = text_with_punctuation.translate({ord(c): None for c in "*[]()~<>"})
-            text_with_punctuation = text_with_punctuation.translate({ord(c): None for c in '0123456789'})
+            # text_with_punctuation = text_with_punctuation.translate({ord(c): None for c in "*[]()~<>"})
+            # text_with_punctuation = text_with_punctuation.translate({ord(c): None for c in '0123456789'})
             text_with_punctuation = text_with_punctuation.split()
+
+            # print(len(cleaned_text))
+            # print(len(text_with_punctuation))
+
+            # for idx, item in enumerate(cleaned_text):
+            #     print(idx, item, text_with_punctuation[idx])
 
             # print(text_with_punctuation)
             # exit(0)
 
             candidates_path = './prose/' + prose_text + '_pedecerto_candidates.txt'
             candidates_file = open(candidates_path, 'r')
+
+            # with open(candidates_path) as file:
+            #     lines = file.readlines()
+            #     lines = [line.rstrip() for line in lines]
+
+            # print(len(lines))
+            # print(len(set(lines)))
+            # exit(0)
+
+            text_with_punctuation2 = ' '.join(text_with_punctuation)
+            cleaned_text2 = ' '.join(cleaned_text)
+
+            # lowest_number = 1000000
+            # my_string_saved = ''
+            # my_string_saved2 = ''
+
             for candidate_line in candidates_file:
                 candidate_line = candidate_line.strip().split()
                 
@@ -109,14 +133,38 @@ class ProsePoetry():
                     
                     if debugging: print('YOUR CANDIDATE: ', candidate_line)
                     if debugging: print('IN THE TEXT: ', text_with_punctuation[begin:end+1])
-                    if debugging: print('')
 
+                    # x = [''.join(c for c in s if c not in string.punctuation) for s in text_with_punctuation[begin:end+1]]   
+
+                    # # print(x)
+                    # if not collections.Counter(candidate_line) == collections.Counter(x):
+                    #     print('not equal')
+                    #     my_string = ' '.join(x)
+                    #     my_string2 = ' '.join(candidate_line)
+
+                    #     print(text_with_punctuation2.find(my_string))
+                    #     number = cleaned_text2.find(my_string2)
+
+                    #     if number < lowest_number:
+                    #         lowest_number = number
+                    #         my_string_saved = my_string
+                    #         my_string_saved2 = my_string2
+
+
+                    if debugging: print('')
                     text_with_punctuation[begin] = '\\textbf{'+text_with_punctuation[begin]
                     text_with_punctuation[end] = text_with_punctuation[end]+'}'
                 except:
                     print('FAILED A CANDIDATE. PLEASE INVESTIGATE: ', candidate_line)
                     continue
                 
+            # print(lowest_number)
+            # print(my_string_saved)
+            # print(my_string_saved2)
+
+
+
+
             # print(counter)            
             text_with_punctuation = ' '.join(text_with_punctuation)
             print(text_with_punctuation)
