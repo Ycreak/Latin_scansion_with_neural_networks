@@ -1,5 +1,5 @@
 # Repo specific
-flair/fasttext
+flair
 pedecerto/xml_files/processed
 # Byte-compiled / optimized / DLL files
 __pycache__/

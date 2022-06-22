@@ -1,0 +1,22 @@
+adice nunc quod ista quamvis exigua sint
+    unsual prosody for QUOD
+
+what problem is there with this line?
+    the hypothetical hexameter seems a bit reminiscent of Verg. Georgics 1.196
+    et, quamvis igni exiguo, properata maderent.
+
+elision between fifth and sixth feet is strange
+
+
+ulla opera nostra facere naturam alimenta
+    This sort of opposition between natura and (human) ars is very Ovidian, and the line is good even if two elisions is a lot, but it also seems quite Cicero inflected - again, if Seneca is thinking about Ovid he could be reflecting that in his rhythm, but you could also discard.
+
+unum diversa coalescunt sed ne ad aliud
+    I think a possibility here is that there is a half-line in... coalescunt.
+    Perhaps this is something of a Senecan rewriting of a line like Vergil, Aeneid 2.716:
+        hanc ex diuerso sedem ueniemus in unum.    
+
+illius caeli aut ipsius arundinis umor
+    I think this is an interesting candidate - although not quite syntactically complete (ros might be an instance of enjambment from a hypothetical double hexametre line), the line is good, has a poetical flavour, and Seneca introduces his sentence with aiunt, which may well be a kind of 'Alexandrian footnote' (flagging an instance of (poetic) intertextuality)        
+
+id illum non malle quod illo melius est

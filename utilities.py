@@ -442,6 +442,8 @@ if __name__ == "__main__":
     p.add_argument("--exp_elegiac", action="store_true", help="specify whether to run the hexameter genre LSTM experiment")
     p.add_argument("--exp_train_test", action="store_true", help="specify whether to run the train/test split LSTM experiment")
     p.add_argument("--exp_transfer_boeth", action="store_true", help="specify whether to run the Boeth LSTM experiment")
+    p.add_argument("--csv2list", action="store_true", help="convert csv into sequence label list")
+
     p.add_argument("--heatmap", action="store_true", help="specify whether to run the heatmap experiment")
 
     FLAGS = p.parse_args()  
@@ -491,6 +493,16 @@ if __name__ == "__main__":
 
     if FLAGS.auto_seq_labels:
         auto_combine_sequence_label_lists()
+
+    if FLAGS.csv2list:
+        # input
+        input_file = './texts/tetrameter.csv'
+        output_file = 'tetrameter.pickle'
+
+        df = pd.read_csv(input_file)
+        sequence_label_list = convert_pedecerto_to_sequence_labeling(df)
+
+        Pickle_write(cf.get('Pickle', 'path_sequence_labels'), output_file, sequence_label_list)  
 
     if FLAGS.create_trimeter_set:
         # Create the Trimeter dataset
