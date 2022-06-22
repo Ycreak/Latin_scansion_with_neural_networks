@@ -34,7 +34,7 @@ class FLAIR_model():
         self.language_models_folder = './flair/language_models/'
         self.word_embedding_training_file = './flair/corpus_in_plain_syllables.txt'
         # defines name given to the corpus
-        self.current_corpus_name = 'embeddings'
+        self.current_corpus_name = 'dactylic'
         # defines the name of the sequence labels pickle used as corpus
         self.current_text = 'VERG-aene.pickle'
 
@@ -168,7 +168,7 @@ class FLAIR_model():
             predictor = self.scansion_model_path + '/final-model.pt'
             self.custom_prediction(predictor=predictor,
                                    predictee=util.Pickle_read(util.cf.get(
-                                       'Pickle', 'path_sequence_labels'), 'SEN-aga.pickle'),
+                                       'Pickle', 'path_sequence_labels'), 'anapest.pickle'),
                                    )
 
         if FLAGS.qualitative:
@@ -267,6 +267,8 @@ class FLAIR_model():
 
         # load the model you trained
         model = SequenceTagger.load(predictor)
+
+        # exit(0)
 
         y_true = []
         y_pred = []
