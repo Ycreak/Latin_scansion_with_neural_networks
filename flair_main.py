@@ -34,14 +34,16 @@ class FLAIR_model():
         self.language_models_folder = './flair/language_models/'
         self.word_embedding_training_file = './flair/corpus_in_plain_syllables.txt'
         # defines name given to the corpus
-        self.current_corpus_name = 'dactylic'
+        self.current_corpus_name = 'exp_flair_fasttext_char_emb'
         # defines the name of the sequence labels pickle used as corpus
-        self.current_text = 'VERG-aene.pickle'
+        self.current_text = 'HEX_ELE-all.pickle'
 
         self.corpus_path = self.corpus_folder + self.current_corpus_name
         self.flair_lm_path = self.language_models_folder + \
             'flair/' + self.current_corpus_name
         self.scansion_model_path = self.scansion_models_folder + self.current_corpus_name
+
+        FLAGS.custom_prediction = True
 
         if FLAGS.create_corpus:
             # loads the sequence labels of which we want to create a corpus
@@ -66,7 +68,7 @@ class FLAIR_model():
             # Creates the fasttext language model by training embeddings on the given text
             model = fasttext.train_unsupervised(input='flair/corpus_in_plain_syllables.txt',
                                                 model='skipgram',
-                                                lr=0.05,
+                                                lr=0.01,
                                                 dim=100,
                                                 ws=5,                 # window size
                                                 epoch=25,
@@ -168,7 +170,7 @@ class FLAIR_model():
             predictor = self.scansion_model_path + '/final-model.pt'
             self.custom_prediction(predictor=predictor,
                                    predictee=util.Pickle_read(util.cf.get(
-                                       'Pickle', 'path_sequence_labels'), 'anapest.pickle'),
+                                       'Pickle', 'path_sequence_labels'), 'SEN-aga2.pickle'),
                                    )
 
         if FLAGS.qualitative:
@@ -281,7 +283,7 @@ class FLAIR_model():
                 y_true.append(label)
             # Turn the string into a FLAIR sentence and let the model predict
             sentence = Sentence(new_line.rstrip())
-            model.predict(sentence, all_tag_prob=True)
+            model.predict(sentence, return_probabilities_for_all_classes=True)
             # Create a y_pred list
             for token in sentence.tokens:
 
@@ -446,7 +448,7 @@ class FLAIR_model():
             # WordEmbeddings('glove'),
 
             # FASTTEXT EMBEDDINGS
-            # FastTextEmbeddings('flair/language_models/fasttext.bin'),
+            FastTextEmbeddings('flair/language_models/fasttext.bin'),
 
             # GENSIM EMBEDDINGS
             # custom_embedding = WordEmbeddings('path/to/your/custom/embeddings.gensim')
@@ -455,7 +457,7 @@ class FLAIR_model():
             CharacterEmbeddings(),
 
             # FLAIR EMBEDDINGS
-            # FlairEmbeddings(chosen_flair_model),
+            FlairEmbeddings(chosen_flair_model),
         ]
         embeddings = StackedEmbeddings(embeddings=embedding_types)
 
@@ -499,7 +501,7 @@ if __name__ == "__main__":
 
     p.add_argument("--verbose", action="store_true",
                    help="specify whether to run the code in verbose mode")
-    p.add_argument('--epochs', default=10, type=int, help='number of epochs')
+    p.add_argument('--epochs', default=25, type=int, help='number of epochs')
     p.add_argument("--split", type=util.restricted_float, default=0.2,
                    help="specify the split size of train/test sets")
 

@@ -472,8 +472,8 @@ if __name__ == "__main__":
 
 
     if FLAGS.investigate:
-        text = Pickle_read(cf.get('Pickle', 'path_sequence_labels'), 'OV-ele.pickle')
-        print(text[0])
+        text = Pickle_read(cf.get('Pickle', 'path_sequence_labels'), 'VERG-aene.pickle')
+        print(len(text))
         exit(0)
         for line in text:
             for tuple in line:
@@ -506,7 +506,7 @@ if __name__ == "__main__":
 
     if FLAGS.create_trimeter_set:
         # Create the Trimeter dataset
-        df = pd.read_csv('./texts/iambic/agamemnon_labels_5.csv')
+        df = pd.read_csv('./texts/iambic/agamemnon_labels_6.csv')
 
         # for i in range(len(df)):
         #     # print(df['anceps'][i])
@@ -532,11 +532,11 @@ if __name__ == "__main__":
         # for line in new_list:
         #     print(len(line))
         
+
+        print(new_list)
+
         # exit(0)
-
-        print(new_list[:2])
-
-        Pickle_write(cf.get('Pickle', 'path_sequence_labels'), 'SEN-aga.pickle', new_list)    
+        Pickle_write(cf.get('Pickle', 'path_sequence_labels'), 'SEN-aga2.pickle', new_list)    
 
 
         # To get some stats about scansions

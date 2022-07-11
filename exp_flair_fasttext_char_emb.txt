@@ -1,0 +1,100 @@
+TEST 11300
+VAL 11300
+TRAIN 33900
+2022-07-11 10:42:06,173 Reading data from flair/corpus/exp_flair_fasttext_char_emb
+2022-07-11 10:42:06,173 Train: flair/corpus/exp_flair_fasttext_char_emb/train.txt
+2022-07-11 10:42:06,173 Dev: flair/corpus/exp_flair_fasttext_char_emb/valid.txt
+2022-07-11 10:42:06,173 Test: flair/corpus/exp_flair_fasttext_char_emb/test.txt
+2022-07-11 10:42:34,572 Computing label dictionary. Progress:
+2022-07-11 10:42:37,205 Dictionary created for label 'length' with 5 values: long (seen 291668 times), short (seen 202616 times), space (seen 185165 times), elision (seen 10221 times)
+2022-07-11 10:42:38,186 SequenceTagger predicts: Dictionary with 5 tags: <unk>, long, short, space, elision
+2022-07-11 10:42:38,202 ----------------------------------------------------------------------------------------------------
+2022-07-11 10:42:38,202 Model: "SequenceTagger(
+  (embeddings): StackedEmbeddings(
+    (list_embedding_0): FastTextEmbeddings('flair/language_models/fasttext.bin')
+    (list_embedding_1): CharacterEmbeddings(
+      (char_embedding): Embedding(275, 25)
+      (char_rnn): LSTM(25, 25, bidirectional=True)
+    )
+    (list_embedding_2): FlairEmbeddings(
+      (lm): LanguageModel(
+        (drop): Dropout(p=0.1, inplace=False)
+        (encoder): Embedding(275, 100)
+        (rnn): LSTM(100, 128)
+        (decoder): Linear(in_features=128, out_features=275, bias=True)
+      )
+    )
+  )
+  (word_dropout): WordDropout(p=0.05)
+  (locked_dropout): LockedDropout(p=0.5)
+  (embedding2nn): Linear(in_features=278, out_features=278, bias=True)
+  (rnn): LSTM(278, 256, batch_first=True, bidirectional=True)
+  (linear): Linear(in_features=512, out_features=7, bias=True)
+  (loss_function): ViterbiLoss()
+  (crf): CRF()
+)"
+2022-07-11 10:42:38,202 ----------------------------------------------------------------------------------------------------
+2022-07-11 10:42:38,202 Corpus: "Corpus: 33900 train + 11300 dev + 11300 test sentences"
+2022-07-11 10:42:38,203 ----------------------------------------------------------------------------------------------------
+2022-07-11 10:42:38,203 Parameters:
+2022-07-11 10:42:38,203  - learning_rate: "0.100000"
+2022-07-11 10:42:38,203  - mini_batch_size: "32"
+2022-07-11 10:42:38,203  - patience: "3"
+2022-07-11 10:42:38,203  - anneal_factor: "0.5"
+2022-07-11 10:42:38,203  - max_epochs: "25"
+2022-07-11 10:42:38,203  - shuffle: "True"
+2022-07-11 10:42:38,203  - train_with_dev: "False"
+2022-07-11 10:42:38,203  - batch_growth_annealing: "False"
+2022-07-11 10:42:38,203 ----------------------------------------------------------------------------------------------------
+2022-07-11 10:42:38,203 Model training base path: "flair/scansion_models/exp_flair_fasttext_char_emb"
+2022-07-11 10:42:38,203 ----------------------------------------------------------------------------------------------------
+2022-07-11 10:42:38,203 Device: cpu
+2022-07-11 10:42:38,204 ----------------------------------------------------------------------------------------------------
+2022-07-11 10:42:38,204 Embeddings storage mode: cpu
+2022-07-11 10:42:38,204 ----------------------------------------------------------------------------------------------------
+2022-07-11 10:43:45,395 epoch 1 - iter 106/1060 - loss 0.75450559 - samples/sec: 50.49 - lr: 0.100000
+2022-07-11 10:44:50,155 epoch 1 - iter 212/1060 - loss 0.58635079 - samples/sec: 52.39 - lr: 0.100000
+2022-07-11 10:45:46,910 epoch 1 - iter 318/1060 - loss 0.51224401 - samples/sec: 59.78 - lr: 0.100000
+2022-07-11 10:46:47,902 epoch 1 - iter 424/1060 - loss 0.46659712 - samples/sec: 55.62 - lr: 0.100000
+2022-07-11 10:47:46,174 epoch 1 - iter 530/1060 - loss 0.43355590 - samples/sec: 58.22 - lr: 0.100000
+2022-07-11 10:48:42,364 epoch 1 - iter 636/1060 - loss 0.40636072 - samples/sec: 60.38 - lr: 0.100000
+2022-07-11 10:49:38,469 epoch 1 - iter 742/1060 - loss 0.38320119 - samples/sec: 60.47 - lr: 0.100000
+2022-07-11 10:50:39,342 epoch 1 - iter 848/1060 - loss 0.36291617 - samples/sec: 55.73 - lr: 0.100000
+2022-07-11 10:51:37,746 epoch 1 - iter 954/1060 - loss 0.34561854 - samples/sec: 58.09 - lr: 0.100000
+2022-07-11 10:52:35,228 epoch 1 - iter 1060/1060 - loss 0.32943851 - samples/sec: 59.02 - lr: 0.100000
+2022-07-11 10:52:35,229 ----------------------------------------------------------------------------------------------------
+2022-07-11 10:52:35,229 EPOCH 1 done: loss 0.3294 - lr 0.100000
+2022-07-11 10:54:09,409 Evaluating as a multi-label problem: False
+2022-07-11 10:54:10,899 DEV : loss 0.10899566859006882 - f1-score (micro avg)  0.9559
+2022-07-11 10:54:12,131 BAD EPOCHS (no improvement): 0
+2022-07-11 10:54:12,132 saving best model
+2022-07-11 10:54:14,611 ----------------------------------------------------------------------------------------------------
+2022-07-11 10:55:04,953 epoch 2 - iter 106/1060 - loss 0.16973902 - samples/sec: 67.40 - lr: 0.100000
+2022-07-11 10:55:59,052 epoch 2 - iter 212/1060 - loss 0.16369140 - samples/sec: 62.71 - lr: 0.100000
+2022-07-11 10:56:52,145 epoch 2 - iter 318/1060 - loss 0.15787318 - samples/sec: 63.90 - lr: 0.100000
+2022-07-11 10:57:44,816 epoch 2 - iter 424/1060 - loss 0.15394321 - samples/sec: 64.42 - lr: 0.100000
+2022-07-11 10:58:39,650 epoch 2 - iter 530/1060 - loss 0.14920827 - samples/sec: 61.87 - lr: 0.100000
+2022-07-11 10:59:30,316 epoch 2 - iter 636/1060 - loss 0.14553537 - samples/sec: 66.96 - lr: 0.100000
+2022-07-11 11:00:23,117 epoch 2 - iter 742/1060 - loss 0.14238729 - samples/sec: 64.26 - lr: 0.100000
+2022-07-11 11:01:14,866 epoch 2 - iter 848/1060 - loss 0.13948427 - samples/sec: 65.56 - lr: 0.100000
+2022-07-11 11:02:07,736 epoch 2 - iter 954/1060 - loss 0.13667300 - samples/sec: 64.17 - lr: 0.100000
+2022-07-11 11:02:59,994 epoch 2 - iter 1060/1060 - loss 0.13385768 - samples/sec: 64.93 - lr: 0.100000
+2022-07-11 11:02:59,995 ----------------------------------------------------------------------------------------------------
+2022-07-11 11:02:59,995 EPOCH 2 done: loss 0.1339 - lr 0.100000
+2022-07-11 11:04:03,586 Evaluating as a multi-label problem: False
+2022-07-11 11:04:04,974 DEV : loss 0.05601418763399124 - f1-score (micro avg)  0.9784
+2022-07-11 11:04:06,204 BAD EPOCHS (no improvement): 0
+2022-07-11 11:04:06,208 saving best model
+2022-07-11 11:04:15,529 ----------------------------------------------------------------------------------------------------
+2022-07-11 11:05:04,950 epoch 3 - iter 106/1060 - loss 0.10498309 - samples/sec: 68.65 - lr: 0.100000
+2022-07-11 11:05:53,901 epoch 3 - iter 212/1060 - loss 0.10443322 - samples/sec: 69.31 - lr: 0.100000
+2022-07-11 11:06:46,184 epoch 3 - iter 318/1060 - loss 0.10327190 - samples/sec: 64.89 - lr: 0.100000
+2022-07-11 11:07:38,524 epoch 3 - iter 424/1060 - loss 0.10189960 - samples/sec: 64.82 - lr: 0.100000
+2022-07-11 11:08:29,424 epoch 3 - iter 530/1060 - loss 0.10048895 - samples/sec: 66.66 - lr: 0.100000
+2022-07-11 11:09:20,854 epoch 3 - iter 636/1060 - loss 0.09896329 - samples/sec: 65.97 - lr: 0.100000
+2022-07-11 11:10:18,381 epoch 3 - iter 742/1060 - loss 0.09803665 - samples/sec: 58.98 - lr: 0.100000
+2022-07-11 11:11:10,876 epoch 3 - iter 848/1060 - loss 0.09706458 - samples/sec: 64.63 - lr: 0.100000
+2022-07-11 11:12:04,537 epoch 3 - iter 954/1060 - loss 0.09592697 - samples/sec: 63.23 - lr: 0.100000
+2022-07-11 11:13:04,584 epoch 3 - iter 1060/1060 - loss 0.09525354 - samples/sec: 56.50 - lr: 0.100000
+2022-07-11 11:13:04,584 ----------------------------------------------------------------------------------------------------
+2022-07-11 11:13:04,584 EPOCH 3 done: loss 0.0953 - lr 0.100000
