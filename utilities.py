@@ -445,11 +445,17 @@ if __name__ == "__main__":
     p.add_argument("--csv2list", action="store_true", help="convert csv into sequence label list")
 
     p.add_argument("--heatmap", action="store_true", help="specify whether to run the heatmap experiment")
+    p.add_argument("--length", action="store_true", help="specify whether to run the heatmap experiment")
 
     FLAGS = p.parse_args()  
 
     # text = Pickle_read(cf.get('Pickle', 'path_sequence_labels'), 'IVV-satu.pickle')
     # print(len(text))
+
+    if FLAGS.length:
+        # Quickly calculate lengths of texts (result is number of verses)
+        text = Pickle_read('./pickle/sequence_labels/trimeter/', 'Medea.pickle')
+        print(len(text))
 
     if FLAGS.heatmap:
 
