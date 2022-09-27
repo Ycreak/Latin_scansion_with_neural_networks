@@ -8,6 +8,8 @@ Welcome to the project for scanning Latin poetry with machine learning. The proj
 2. Training and testing an CRF on Latin poetry
 3. Training and testing an LSTM on Latin poetry
 
+For more information about this project, see the [LUCAS website](https://www.universiteitleiden.nl/en/humanities/centre-for-digital-humanities/projects/small-grant-projects#developing-an-intelligent-metrical-analysis-tool-for-latin-poetry).
+
 ### Table of Contents  
 + [Requirements](#Requirements)  
 + [Dataset creation](#Dataset)  
