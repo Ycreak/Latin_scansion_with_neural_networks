@@ -31,10 +31,11 @@ class CRF_sequence_labeling:
 
 
         if FLAGS.custom_prediction:
-            self.custom_prediction('HEX_ELE-all.pickle', 'SEN-aga.pickle')
+            self.custom_prediction(FLAGS.train, FLAGS.test)
+            # self.custom_prediction('HEX_ELE-all.pickle', 'SEN-aga.pickle')
 
         if FLAGS.kfold:
-            text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), 'VERG-aene.pickle')
+            text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), FLAGS.train)
             text = self.remove_space_from_syllable_sequence(text)
             X, y = self.convert_text_to_feature_sets(text)
 
@@ -406,6 +407,10 @@ if __name__ == "__main__":
     p.add_argument("--verbose", action="store_true", help="specify whether to run the code in verbose mode")
     p.add_argument('--epochs', default=25, type=int, help='number of epochs')
     p.add_argument("--split", type=util.restricted_float, default=0.2, help="specify the split size of train/test sets")
+
+    p.add_argument('--train', default='none', type=str, help='number of epochs')
+    p.add_argument('--test', default='none', type=str, help='number of epochs')
+
 
     FLAGS = p.parse_args()    
 

@@ -34,6 +34,8 @@ p.add_argument('--sequence_labels_conversion', action="store_true",
                help='converts the pedecerto dataframes stored in pedecerto/df_pedecerto into sequence labeling lists')
 p.add_argument('--combine_author_files', action="store_true", 
                help='')
+p.add_argument('--output_name', default='combined_syllable_label_set', type=str, 
+               help='')               
 p.add_argument('--create_hexameter_set', action="store_true", 
                help='')
 p.add_argument('--create_elegiac_set', action="store_true", 
@@ -55,7 +57,15 @@ if FLAGS.pedecerto_conversion:
 
 if FLAGS.combine_author_files:
     # Combine the following lists
-    util.auto_combine_sequence_label_lists()
+    # util.auto_combine_sequence_label_lists()
+
+    combined_folder = util.cf.get('Pedecerto', 'path_xml_files') + 'combine'
+    entries = util.Create_files_list(combined_folder, 'pickle')
+    print(entries)
+
+    if(entries):
+        util.combine_sequence_label_lists(entries, FLAGS.output_name, util.cf.get('Pickle', 'path_sequence_labels'), add_extension=False)
+
 
     # tibullus = ['TIB-ele1', 'TIB-ele2', 'TIB-ele3']
     # util.combine_sequence_label_lists(tibullus, 'TIB-ele', util.cf.get('Pickle', 'path_sequence_labels'))

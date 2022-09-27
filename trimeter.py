@@ -19,9 +19,9 @@ class Anceps():
         if FLAGS.latin_library:
             self.convert_latin_library_text()
 
-        if FLAGS.sequence_label:
+        if FLAGS.create_syllable_file:
 
-            path = './trimeter/full_scansions/'
+            path = './anceps/full_scansions/'
             text_list = self.create_files_list(path, 'json')
 
             for anceps_text in text_list:

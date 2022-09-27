@@ -279,7 +279,7 @@ def convert_pedecerto_to_sequence_labeling(df) -> list:
 
     return all_sentences_list
 
-def combine_sequence_label_lists(list_with_file_names, output_name, path):
+def combine_sequence_label_lists(list_with_file_names, output_name, path, add_extension=True):
     """Simple function to combine sequence label lists in pickle format.
 
     Args:
@@ -288,7 +288,8 @@ def combine_sequence_label_lists(list_with_file_names, output_name, path):
         output_name (string): destination name to be saved as
     """    
     # Add the pickle extension to our given files
-    list_with_file_names = [x+'.pickle' for x in list_with_file_names]    
+    if add_extension:
+        list_with_file_names = [x+'.pickle' for x in list_with_file_names]    
     # And to the output name
     output_name = output_name + '.pickle'
     merged_list = merge_sequence_label_lists(list_with_file_names, path)
