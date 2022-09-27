@@ -6,7 +6,7 @@ pedecerto/xml_files/processed
 __pycache__/
 *.py[cod]
 *$py.class
-
+.vscode
 # C extensions
 *.so
 
