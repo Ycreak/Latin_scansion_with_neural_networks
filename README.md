@@ -41,6 +41,8 @@ All dependencies are also listed in requirements.txt. In your Python environment
 pip install -r requirements.txt
 ```
 
+As is the main problem with machine learning, packages are out of date the moment you've installed them. It worked on my machine :D
+
 <a name="Dataset"/>
 
 ## Creating a data set
