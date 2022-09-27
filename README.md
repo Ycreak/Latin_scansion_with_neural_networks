@@ -1,4 +1,7 @@
 # Scanning Latin poetry with machine learning
+![alt text](https://github.com/Ycreak/Latin_scansion_with_neural_networks/banner.jpeg "Ancient Tetris professional")
+
+## About
 Welcome to the project for scanning Latin poetry with machine learning. The project consists of three parts: 
 
 1. Creating data sets for machine learning tools
@@ -6,7 +9,7 @@ Welcome to the project for scanning Latin poetry with machine learning. The proj
 3. Training and testing an LSTM on Latin poetry
 
 ## Requirements
-The program are written entirely in Python and need the following packages:
+The programs are written entirely in Python and need the following packages:
 
 1. pandas
 2. bs4
@@ -25,6 +28,7 @@ All dependencies are also listed in requirements.txt. In your Python environment
 ```console 
 pip install -r requirements.txt
 ```
+
 ## Creating a data set
 
 ### Using Pedecerto
