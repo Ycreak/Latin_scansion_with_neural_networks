@@ -65,7 +65,7 @@ The [Pedecerto](https://www.pedecerto.eu/public/) project uses a rule-based appr
 python3 main.py --pedecerto_conversion
 ```
 
-...This will create pickle files with syllable-label lists in the **pedecerto/xml_files/**, moving any processed XML files to the **processed** folder. 
+  This will create pickle files with syllable-label lists in the **pedecerto/xml_files/**, moving any processed XML files to the **processed** folder. 
 
 4. (Optional) You can combine the syllable label list of multiple texts and authors by putting the generated pickle files in the **combine** folder and running the following command:
 
@@ -104,13 +104,13 @@ There are two options to run the CRF network.
 1. The first one uses k-fold cross validation and runs on a single pickled file. To invoke this functionality, run the following code:
 
 ```console 
-python3 crf.py --kfold --train <your_file_name.pickle>
+python3 main.py --crf --kfold --train <your_file_name.pickle>
 ```
 
 2. The second option is to train on one pickled file and test on another:
 
 ```console 
-python3 crf.py --custom_prediction --train <your_file_name.pickle> --test <your_file_name.pickle>
+python3 main.py --crf --custom_train_test --train <your_file_name.pickle> --test <your_file_name.pickle>
 ```
 
 The scores will be printed in the form of a metrics report.
@@ -123,13 +123,13 @@ There are, like with the CRF model, two options to run the LSTM network.
 1. The first one uses k-fold cross validation and runs on a single pickled file. To invoke this functionality, run the following code:
 
 ```console 
-python3 lstm.py --kfold --train <your_file_name.pickle> --create_model
+python3 main.py --lstm --kfold --train <your_file_name.pickle> --create_model
 ```
 
 2. The second option is to train on one pickled file and test on another:
 
 ```console 
-python3 lstm.py --model_predict --train <your_file_name.pickle> --test <your_file_name.pickle> --create_model
+python3 main.py --lstm --custom_train_test --train <your_file_name.pickle> --test <your_file_name.pickle> --create_model
 ```
 
 _Note: to train a new model, add the --create_model parameter. Optionally, one can save the model to disk with the --save_model parameter. To load a trained model, simply remove the --create_model parameter, which load the saved_model from disk based on the file name of the training pickle._
