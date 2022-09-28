@@ -129,7 +129,7 @@ python3 lstm.py --kfold --train <your_file_name.pickle> --create_model
 2. The second option is to train on one pickled file and test on another:
 
 ```console 
-python3 crf.py --model_predict --train <your_file_name.pickle> --test <your_file_name.pickle> --create_model
+python3 lstm.py --model_predict --train <your_file_name.pickle> --test <your_file_name.pickle> --create_model
 ```
 
 _Note: to train a new model, add the --create_model parameter. Optionally, one can save the model to disk with the --save_model parameter. To load a trained model, simply remove the --create_model parameter, which load the saved_model from disk based on the file name of the training pickle._
