@@ -30,7 +30,7 @@ class CRF_sequence_labeling:
         self.FLAGS = FLAGS
 
 
-        if FLAGS.custom_prediction:
+        if FLAGS.custom_train_test:
             self.custom_prediction(FLAGS.train, FLAGS.test)
             # self.custom_prediction('HEX_ELE-all.pickle', 'SEN-aga.pickle')
 
