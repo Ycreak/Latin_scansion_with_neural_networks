@@ -84,12 +84,12 @@ _Note: the tool that creates the syllable-label lists will only process hexamete
 The [Anceps]([https://www.pedecerto.eu/public/](https://github.com/Dargones/anceps)) project uses a constraint-based approach to scan iambic trimeter. We also provide tools to convert these scansions into syllable-label lists. However, these lists will contain the extra label _anceps_ as Anceps does not resolve these labels automatically.
 
 1. Create scansion files using the Anceps tools, or download complete scansions from the [Senecan Trimeter and Humanist Tragedy repository](https://github.com/QuantitativeCriticismLab/AJP-2022-Senecan-Trimeter).
-2. Put the JSON files in the **anceps/full_scansions** folder and run the following command:
+2. Put the JSON files in the **scansions/anceps/** folder and run the following command:
 
 ```console 
-python3 trimeter.py --create_syllable_file
+python3 data_creation.py --anceps
 ```
-This will create a pickled syllable_label file of each JSON in the **pickle/sequence_labels** folder. To combine these files, the combining code described in the previous section can be used (move pickled files to the combine folder and run the pickle combining command).
+This will create a pickled syllable_label file of each JSON in the **scansions/sequence_labels** folder. To combine these files, the combining code described in the previous section can be used.
 
 <a name="CRF"/>
 
