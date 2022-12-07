@@ -14,31 +14,31 @@
 # Philippe Bors and Luuk Nolden
 # Leiden University 2021
 
+# import argparse
+# import configparser
+# from datetime import datetime
 import pickle
-import configparser
+
 import numpy as np
-from datetime import datetime
-
-import matplotlib.pyplot as plt
-import seaborn as sn
-
-from progress.bar import Bar
+# import matplotlib.pyplot as plt
+# import seaborn as sn
+# from progress.bar import Bar
 import pandas as pd
 
-import argparse
+
 
 # Read the config file for later use
-cf = configparser.ConfigParser()
-cf.read("config.ini")
+# cf = configparser.ConfigParser()
+# cf.read("config.ini")
 
-def Pickle_write(path, file_name, object):
+def pickle_write(path, file_name, object):
     destination = path + file_name
 
     with open(destination, 'wb') as f:
         pickle.dump(object, f)
 
-def Pickle_read(path, file_name):
-    destination = path + file_name
+def pickle_read(path, file_name):
+    destination = path + '/' + file_name
 
     with open(destination, 'rb') as f:
         return pickle.load(f)
@@ -103,7 +103,7 @@ def clean_extra(ll):
     return ll
 
 
-def Create_files_list(path, substring):
+def create_files_list(path, substring):
     """Creates a list of files to be processed
 
     Args:
@@ -160,6 +160,18 @@ def create_heatmap(dataframe ,xlabel, ylabel, title, filename, vmin=None, vmax=N
     return plt
 
 
+def merge_lists(self, list1, list2):
+    """Merge two lists into one -> [(l1_a, l2_a), (l1_b, l2_b)]
+
+    Args:
+        list1 (list): [description]
+        list2 (list): [description]
+
+    Returns:
+        list: spliced together
+    """    
+    return list(zip(list1, list2)) 
+
 def merge_sequence_label_lists(texts, path):
     """Merges the given lists (contained in sequence labeling pickles) on the given path.
     Outputs one list with all sentences of the given texts in sequence labeling format.
@@ -173,11 +185,11 @@ def merge_sequence_label_lists(texts, path):
         list: of merged texts
     """        
     # Create a starting list from the last entry using pop
-    merged_list = Pickle_read(path, texts.pop()) #FIXME: is this a call by reference?
+    merged_list = pickle_read(path, texts.pop()) #FIXME: is this a call by reference?
     # merge all other texts into this initial list
     for text_list_id in texts:
         # from the list with texts
-        text_list = Pickle_read(path, text_list_id)
+        text_list = pickle_read(path, text_list_id)
         # take every sentence and add it to the merged_list
         for sentence_numpy in text_list:
             merged_list.append(sentence_numpy)
@@ -234,9 +246,9 @@ def convert_pedecerto_dataframes_to_sequence_labeling_list(source, destination):
         source (string): source location of the pedecerto dataframes
         destination (string): destination location of the pedecerto dataframes
     """        
-    texts = Create_files_list(source, '.pickle')
+    texts = create_files_list(source, '.pickle')
     for text in texts:
-        df = Pickle_read(source, text)
+        df = pickle_read(source, text)
         # Convert the integer labels to string labels (like sequence labeling likes)
         df = convert_syllable_labels(df)
         # convert the current file to a sequence labeling list
@@ -245,7 +257,7 @@ def convert_pedecerto_dataframes_to_sequence_labeling_list(source, destination):
         text_name = text.split('.')[0]
         text_name = text.split('_')[-1]
         # And write it to the location specified
-        Pickle_write(destination, text_name, sequence_label_list)
+        pickle_write(destination, text_name, sequence_label_list)
 
 def convert_pedecerto_to_sequence_labeling(df) -> list:
     """Converts the given pedecerto dataframe to a list with sequence labels. More specifically,
@@ -290,10 +302,10 @@ def combine_sequence_label_lists(list_with_file_names, output_name, path, add_ex
     # Add the pickle extension to our given files
     if add_extension:
         list_with_file_names = [x+'.pickle' for x in list_with_file_names]    
+        output_name = output_name + '.pickle'
     # And to the output name
-    output_name = output_name + '.pickle'
     merged_list = merge_sequence_label_lists(list_with_file_names, path)
-    Pickle_write(cf.get('Pickle', 'path_sequence_labels'), output_name, merged_list)
+    pickle_write(path, output_name, merged_list)
 
 def get_str_similarity(a, b):
     """ Returns the ratio of similarity between the two given strings
@@ -396,8 +408,8 @@ def auto_combine_sequence_label_lists():
     # as one pickle :D
     from fuzzywuzzy import fuzz
     EQUALITY_RATIO = 80 # Ratio between OV-amo1 and OV-amo2 is 86.
-    mutable_list = Create_files_list(cf.get('Pedecerto', 'path_xml_files'), 'pickle')
-    non_mutable_list = Create_files_list(cf.get('Pedecerto', 'path_xml_files'), 'pickle')
+    mutable_list = create_files_list(cf.get('Pedecerto', 'path_xml_files'), 'pickle')
+    non_mutable_list = create_files_list(cf.get('Pedecerto', 'path_xml_files'), 'pickle')
 
     mutable_list = {x.replace('.pickle', '') for x in mutable_list}
     non_mutable_list = {x.replace('.pickle', '') for x in non_mutable_list}
@@ -450,12 +462,12 @@ if __name__ == "__main__":
 
     FLAGS = p.parse_args()  
 
-    # text = Pickle_read(cf.get('Pickle', 'path_sequence_labels'), 'IVV-satu.pickle')
+    # text = pickle_read(cf.get('Pickle', 'path_sequence_labels'), 'IVV-satu.pickle')
     # print(len(text))
 
     if FLAGS.length:
         # Quickly calculate lengths of texts (result is number of verses)
-        text = Pickle_read('./pickle/sequence_labels/trimeter/', 'Medea.pickle')
+        text = pickle_read('./pickle/sequence_labels/trimeter/', 'Medea.pickle')
         print(len(text))
 
     if FLAGS.heatmap:
@@ -479,7 +491,7 @@ if __name__ == "__main__":
 
 
     if FLAGS.investigate:
-        text = Pickle_read(cf.get('Pickle', 'path_sequence_labels'), 'VERG-aene.pickle')
+        text = pickle_read(cf.get('Pickle', 'path_sequence_labels'), 'VERG-aene.pickle')
         print(len(text))
         exit(0)
         for line in text:
@@ -509,7 +521,7 @@ if __name__ == "__main__":
         df = pd.read_csv(input_file)
         sequence_label_list = convert_pedecerto_to_sequence_labeling(df)
 
-        Pickle_write(cf.get('Pickle', 'path_sequence_labels'), output_file, sequence_label_list)  
+        pickle_write(cf.get('Pickle', 'path_sequence_labels'), output_file, sequence_label_list)  
 
     if FLAGS.create_trimeter_set:
         # Create the Trimeter dataset
@@ -543,11 +555,11 @@ if __name__ == "__main__":
         print(new_list)
 
         # exit(0)
-        Pickle_write(cf.get('Pickle', 'path_sequence_labels'), 'SEN-aga2.pickle', new_list)    
+        pickle_write(cf.get('Pickle', 'path_sequence_labels'), 'SEN-aga2.pickle', new_list)    
 
 
         # To get some stats about scansions
-        # text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'SEN-precise.pickle')
+        # text = util.pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'SEN-precise.pickle')
         # print(len(text))
 
         # # new_precise = []
@@ -565,3 +577,34 @@ if __name__ == "__main__":
         #     result += temp #print(result)
 
         # print(result)
+
+    def convert_latin_library_text():
+        path = './trimeter/text/latinlibrary/'
+
+        text_list = self.create_files_list(path, 'txt')
+
+
+        for text in text_list:
+            new_file = './trimeter/text/' + text
+            g = open(new_file, 'w')
+            file = path + text
+
+            f = open(file, "r")
+            for line in f.readlines():
+                # Clean line from non-alpha numeric characters
+                line = line.translate({ord(c): None for c in '(),.!?—;:*'})
+                # Remove everything between brackets
+                line = re.sub(r'\[[^)]*\]', '', line)
+                # Remove numbers
+                line = ''.join([i for i in line if not i.isdigit()])
+                # Strip whitespaces
+                line = line.strip().lower()
+                line = line + '\n'
+
+                g.write(line)
+
+                print(line)
+                # exit(0)
+            g.close()
+            f.close()
+        # print(text_list)

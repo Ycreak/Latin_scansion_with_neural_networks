@@ -1,34 +1,30 @@
-from gettext import textdomain
-from locale import D_FMT
+# Standard library imports
+import pickle
+import random
+import argparse
+# import matplotlib.pyplot as plt
+# from datetime import datetime
+
+# Third party library imports
 import pandas as pd
 import numpy as np
-import pickle
-import matplotlib.pyplot as plt
-
-import utilities as util
-from datetime import datetime
-import random
-
-import argparse
-
-# LSTM related imports
-from tensorflow import keras
-# from keras.preprocessing.sequence import pad_sequences
-from keras_preprocessing.sequence import pad_sequences
 
 import tensorflow as tf
 
-from tensorflow.keras.utils import to_categorical
-from keras.models import Model #, Input
+# Local imports
+# from . import utilities as util
+import utilities as util
 
-from keras.layers import Input
-from keras.layers import LSTM, Embedding, Dense, TimeDistributed, Dropout, Bidirectional
+# LSTM related imports
+# from tensorflow import keras
+# from keras.preprocessing.sequence import pad_sequences
+# from keras_preprocessing.sequence import pad_sequences
 
-from sklearn.model_selection import train_test_split
-from sklearn.model_selection import KFold
-from sklearn.metrics import classification_report
-from sklearn.metrics import confusion_matrix
-from sklearn_crfsuite import metrics as crf_metrics
+# from sklearn.model_selection import train_test_split
+# from sklearn.model_selection import KFold
+# from sklearn.metrics import classification_report
+# from sklearn.metrics import confusion_matrix
+# from sklearn_crfsuite import metrics as crf_metrics
 
 # Based on https://www.depends-on-the-definition.com/guide-sequence-tagging-neural-networks-python/
 
@@ -36,86 +32,66 @@ class LSTM_model():
 
     # Constants    
     PADDING = 'padding'
-
-    # num_epochs = 25
-    print_stats = True
-    metric_report = True
-    confusion_matrix = True
-
-    evaluate = False
-
-    TRAINING_TEXTS = ['OV-amo1.pickle']
-    TEST_TEXTS = ['OV-amo1.pickle']
-    ALL_TEXTS = TRAINING_TEXTS + TEST_TEXTS
-
     LABELS = np.array(['long', 'short', 'elision', 'space', PADDING])
 
-    def __init__(self, FLAGS):
-        self.FLAGS = FLAGS
+    def __init__(self,
+            working_directory, 
+            num_epochs,
+            split_size,
+            ):
 
-        # Debugging
-        # FLAGS.anceps = True
-        # FLAGS.single_text = True
-        # FLAGS.create_model = False
-        # FLAGS.save_model = True
-        # FLAGS.epochs = 1
-        # FLAGS.metrics_report = True
-        # FLAGS.verbose = True
-        
-        
-        self.num_epochs = FLAGS.epochs
-        self.split_size = FLAGS.split
+        self.working_directory : str = working_directory
+        self.num_epochs : int = num_epochs
+        self.split_size : float = split_size
 
-        if FLAGS.anceps:
-            self.LABELS = np.array(['long', 'short', 'elision', 'space', self.PADDING, 'anceps'])
+        self.selected_model : str = 'HEX_ELE-all'
 
-        # FLAGS.single_text = True
-        # self.num_epochs = 1
+        self.sequence_label_path = self.working_directory + 'pickle/sequence_labels/'
+        self.lstm_model_path = self.working_directory + 'models/lstm/' + self.selected_model
 
-        # self.print_length_sequence_label_files()
-        # exit(0)
+        # if FLAGS.anceps:
+            # self.LABELS = np.array(['long', 'short', 'elision', 'space', self.PADDING, 'anceps'])
 
         # To make the LSTM with integer hashing working, we need to make a list of all syllables from all the texts we are looking at 
         # First, find all our pickle files   
-        all_sequence_label_pickles = util.Create_files_list(util.cf.get('Pickle', 'path_sequence_labels'), 'pickle') 
+        all_sequence_label_pickles = util.create_files_list(self.sequence_label_path, 'pickle') 
         # Merge them into one big file list
-        sequence_labels_all_set = util.merge_sequence_label_lists(all_sequence_label_pickles, util.cf.get('Pickle', 'path_sequence_labels')) 
+        sequence_labels_all_set = util.merge_sequence_label_lists(all_sequence_label_pickles, self.sequence_label_path) 
         # Retrieve all syllables from this big list
         all_text_syllables = self.retrieve_syllables_from_sequence_label_list(sequence_labels_all_set)
         # We need to extract the max sentence length over all these texts to get the padding correct later
-        max_sentence_length = self.retrieve_max_sentence_length(sequence_labels_all_set)       
+        self.max_sentence_length = self.retrieve_max_sentence_length(sequence_labels_all_set)       
         # And we need to create a list of all unique syllables for our word2idx one-hot encoding
-        unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING)
-        word2idx, label2idx = self.create_idx_dictionaries(unique_syllables, self.LABELS)            
+        self.unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING)
+        self.word2idx, self.label2idx = self.create_idx_dictionaries(self.unique_syllables, self.LABELS)            
 
         # With that out of the way, we can start the LSTM process
-        print('\nPreprocessing done:')
-        print('number of syllables: ', len(unique_syllables))
+        print('\nPreprocessing done.')
+        print('number of syllables: ', len(self.unique_syllables))
         print('number of labels: ', len(self.LABELS))
-        print('max_sentence_length: ', max_sentence_length)
-        print('\n')
+        print('max_sentence_length: ', self.max_sentence_length)
 
-        if FLAGS.single_text:
-            text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'HEX_ELE-all.pickle')
-            self.run_idx_lstm_single_text(text, 
-                                          do_evaluate=True, 
-                                          do_metric_report=True, 
-                                          do_confusion_matrix=True, 
-                                          print_stats=False)
+        # if FLAGS.single_text:
+            # text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'HEX_ELE-all.pickle')
+            # self.run_idx_lstm_single_text(text, 
+                                          # do_evaluate=True, 
+                                          # do_metric_report=True, 
+                                          # do_confusion_matrix=True, 
+                                          # print_stats=False)
 
-        if FLAGS.kfold:
-            text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), FLAGS.train)
+        # if FLAGS.kfold:
+            # text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), FLAGS.train)
             
-            all_text_syllables = self.retrieve_syllables_from_sequence_label_list(text)
-            max_sentence_length = self.retrieve_max_sentence_length(text)
-            unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING) # needs to be sorted for word2idx consistency!            
-            word2idx, label2idx = self.create_idx_dictionaries(unique_syllables, self.LABELS)
+            # all_text_syllables = self.retrieve_syllables_from_sequence_label_list(text)
+            # max_sentence_length = self.retrieve_max_sentence_length(text)
+            # unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING) # needs to be sorted for word2idx consistency!            
+            # word2idx, label2idx = self.create_idx_dictionaries(unique_syllables, self.LABELS)
 
-            X, y = self.create_X_y_sets(text, word2idx, label2idx, max_sentence_length)
+            # X, y = self.create_X_y_sets(text, word2idx, label2idx, max_sentence_length)
 
-            # Perform kfold to check if we don't have any overfitting
-            result = self.kfold_model(text, X, y, 5, max_sentence_length, unique_syllables)
-            print(result)
+            # # Perform kfold to check if we don't have any overfitting
+            # result = self.kfold_model(text, X, y, 5, max_sentence_length, unique_syllables)
+            # print(result)
 
         # if True:
         #     train_texts = ['SEN-proofread.pickle']
@@ -123,19 +99,39 @@ class LSTM_model():
         #     self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='seneca_anceps', plot_title='Trimeter Texts')
 
 
-        if FLAGS.custom_train_test:
-            
-            train_texts = ['HEX_ELE-all.pickle'] #['VERG-aene.pickle']#
-            test_texts = ['anapest.pickle', 'dimeter.pickle', 'hendycasyllable.pickle', 'glyconee.pickle', 'tetrameter.pickle', 'trimeter.pickle'] #FLAGS.test
-            self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='seneca_precise', plot_title='Trimeter Texts')
+    def custom_train_test(self):
+        train_texts = ['HEX_ELE-all.pickle'] #['VERG-aene.pickle']#
+        test_texts = ['anapest.pickle', 'dimeter.pickle', 'hendycasyllable.pickle', 'glyconee.pickle', 'tetrameter.pickle', 'trimeter.pickle'] #FLAGS.test
+        self.do_experiment(
+            train_texts, 
+            test_texts, 
+            self.max_sentence_length, 
+            self.unique_syllables, 
+            self.word2idx, 
+            self.label2idx, 
+            exp_name='seneca_precise', 
+            plot_title='Trimeter Texts'
+            )
 
-            # train_texts = ['SEN-proofread.pickle']
-            # test_texts = ['SEN-aga.pickle']
-            # self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='seneca_precise', plot_title='Trimeter Texts')
+    #luukie
+    def predict_given_set(self, given_set) -> list:
 
+        # now we map the sentences and labels to a sequence of numbers
+        X = [[self.word2idx[w] for w in s] for s in given_set]  # key 0 are labels
+        # and then (post)pad the sequences using the PADDING label.
+        X = tf.keras.utils.pad_sequences(
+                maxlen = self.max_sentence_length, 
+                sequences = X, 
+                padding = "post", 
+                value = self.word2idx[self.PADDING]
+                ) # value is our padding key
 
+        model = tf.keras.models.load_model(self.lstm_model_path)
 
+        y_pred = model.predict(X)
+        y_pred = np.argmax(y_pred, axis=-1)
 
+        return y_pred
 
     def kfold_model(self, sequence_labels, X, y, splits, max_sentence_length, unique_syllables):
         """Performs a kfold cross validation of a LSTM model fitted and trained on the given data
@@ -183,13 +179,13 @@ class LSTM_model():
     def combine_sequence_label_lists(self, key, name):
         # TO COMBINE LISTS
         name = name + '.pickle'
-        my_list = sorted(util.Create_files_list(util.cf.get('Pickle', 'path_sequence_labels'), key))
+        my_list = sorted(util.create_files_list(util.cf.get('Pickle', 'path_sequence_labels'), key))
         temp = util.merge_sequence_label_lists(my_list, util.cf.get('Pickle', 'path_sequence_labels'))
         util.Pickle_write(util.cf.get('Pickle', 'path_sequence_labels'), name, temp)
 
     def print_length_sequence_label_files(self):
         # TO FIND LENGTH
-        my_list = sorted(util.Create_files_list  (util.cf.get('Pickle', 'path_sequence_labels'), '.pickle'))
+        my_list = sorted(util.create_files_list  (util.cf.get('Pickle', 'path_sequence_labels'), '.pickle'))
         for text in my_list:
             current_text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), text)
             print(text, len(current_text))
@@ -376,7 +372,7 @@ class LSTM_model():
         X = tf.keras.utils.pad_sequences(maxlen=max_sentence_length, sequences=X, padding="post", value=word2idx[self.PADDING]) # value is our padding key
         y = tf.keras.utils.pad_sequences(maxlen=max_sentence_length, sequences=y, padding="post", value=label2idx[self.PADDING])
         # for training the network we also need to change the labels to categorial.
-        y = np.array([to_categorical(i, num_classes=len(self.LABELS)) for i in y])
+        y = np.array([tf.keras.utils.to_categorical(i, num_classes=len(self.LABELS)) for i in y])
 
         return X, y
 
@@ -417,6 +413,24 @@ class LSTM_model():
         y = np.argmax(y, axis=-1)
 
         return y, y_pred
+
+    def create_model(self, text, save_model = True, model_name = 'default'):
+        sequence_labels_training_text = util.pickle_read(self.sequence_label_path, text)
+        X_train, y_train = self.create_X_y_sets(sequence_labels_training_text, self.word2idx, self.label2idx, self.max_sentence_length)
+
+        model = lstm.get_model(
+            max_len = lstm.max_sentence_length,
+            num_syllables = len(lstm.unique_syllables),
+            num_labels = len(lstm.LABELS),
+            X = X_train,
+            y = y_train,
+            epochs = self.num_epochs,
+            create_model = True,
+            save_model = save_model,
+            model_name = model_name
+        )   
+
+        return model
 
     def create_confusion_matrix(self, model, X, y):
         """Creates a confusion matrix from the given model, X and y sets. As y is one-hot encoded, we need to take
@@ -466,20 +480,6 @@ class LSTM_model():
             # target_names=['long', 'short', 'elision', 'space', 'padding'],
             output_dict=True, 
         )
-
-    def evaluate_model(self, model, X, y):
-        """Evaluates the given model on the given X and y sets
-
-        Args:
-            model ([type]): [description]
-            X ([type]): [description]
-            y ([type]): [description]
-
-        Returns:
-            loss, accuracy: [description]
-        """        
-        loss, accuracy = model.evaluate(X, y, verbose=self.FLAGS.verbose)
-        return loss, accuracy
 
     def get_model(self, max_len, num_syllables, num_labels, X, y, epochs, create_model, save_model, model_name='default'):
         """Returns the LSTM model from the given parameters. Also allows a model to be loaded from disk
@@ -570,7 +570,7 @@ class LSTM_model():
                 batch_size = BATCH_SIZE, 
                 epochs = epochs, 
                 validation_split = 0.1, 
-                verbose = self.FLAGS.verbose
+                verbose = True
             )
             
             if save_model: 
@@ -686,4 +686,16 @@ if __name__ == "__main__":
 
     FLAGS = p.parse_args()    
     
-    lstm = LSTM_model(FLAGS)
+    lstm = LSTM_model(
+        working_directory = './',
+        num_epochs = FLAGS.epochs,
+        split_size = FLAGS.split,
+        ) 
+
+    model = lstm.create_model(
+        'HEX_ELE-all.pickle', 
+        save_model = True, 
+        model_name = 'non_overfitting_lstm'
+        )
+
+        

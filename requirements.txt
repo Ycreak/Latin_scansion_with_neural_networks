@@ -5,6 +5,7 @@ bs4
 cltk
 keras
 tensorflow
+tensorflow-addons
 matplotlib
 progress
 seaborn
@@ -12,3 +13,4 @@ sklearn_crfsuite
 lxml
 flair
 fasttext
+mqdqparser

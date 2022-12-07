@@ -80,38 +80,6 @@ class Pedecerto_parser:
         # Move the file to the processed folder
         os.rename(source + entry, processed_folder + entry)
 
-
-  # def clean_generated_df(self, df):
-  #   """ Processes all lines in the given df and deletes the line if there is an ERROR reported
-  #   This would have happened if a word could not be syllabified by the Pedecerto syllabifier.
-
-  #   Args:
-  #       df (dataframe): with lines containing errors
-
-  #   Returns:
-  #       dataframe: with alle lines containing errors stripped away
-  #   """    
-  #   if 'ERROR' in df['syllable'].unique():
-  #     # Clean if needed, otherwise just return the dataframe
-  #     all_titles = df['title'].unique()
-
-  #     for title in all_titles:
-  #         print('Cleaning title', title)
-  #         # Get only lines from this book
-  #         title_df = df.loc[df['title'] == title]          
-  #         all_lines = title_df['line'].unique()
-  #         # Per book, process the lines
-  #         for line in all_lines:
-  #             line_df = title_df[title_df["line"] == line]
-  #             if 'ERROR' in line_df['syllable'].values:
-  #                 # Now delete this little dataframe from the main dataframe
-  #                 keys = list(line_df.columns.values)
-  #                 i1 = df.set_index(keys).index
-  #                 i2 = line_df.set_index(keys).index
-  #                 df = df[~i1.isin(i2)]
-
-  #   return df
-
   def process_line(self, given_line, book_title):
     """Processes a given XML pedecerto line. Puts syllable and length in a dataframe.
 
@@ -211,3 +179,34 @@ class Pedecerto_parser:
         # file_object.close()
 
         # exit(0)    
+
+          # def clean_generated_df(self, df):
+  #   """ Processes all lines in the given df and deletes the line if there is an ERROR reported
+  #   This would have happened if a word could not be syllabified by the Pedecerto syllabifier.
+
+  #   Args:
+  #       df (dataframe): with lines containing errors
+
+  #   Returns:
+  #       dataframe: with alle lines containing errors stripped away
+  #   """    
+  #   if 'ERROR' in df['syllable'].unique():
+  #     # Clean if needed, otherwise just return the dataframe
+  #     all_titles = df['title'].unique()
+
+  #     for title in all_titles:
+  #         print('Cleaning title', title)
+  #         # Get only lines from this book
+  #         title_df = df.loc[df['title'] == title]          
+  #         all_lines = title_df['line'].unique()
+  #         # Per book, process the lines
+  #         for line in all_lines:
+  #             line_df = title_df[title_df["line"] == line]
+  #             if 'ERROR' in line_df['syllable'].values:
+  #                 # Now delete this little dataframe from the main dataframe
+  #                 keys = list(line_df.columns.values)
+  #                 i1 = df.set_index(keys).index
+  #                 i2 = line_df.set_index(keys).index
+  #                 df = df[~i1.isin(i2)]
+
+  #   return df
