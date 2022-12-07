@@ -34,6 +34,7 @@ The programs are written entirely in Python and need the following packages:
 9. seaborn
 10. configparser
 11. progress
+12. MQDQparser
 
 All dependencies are also listed in requirements.txt. In your Python environment, you can install all dependencies via pip using the following command:
 
@@ -58,30 +59,24 @@ An entire text of combinations of texts would then be represented of a list of l
 The [Pedecerto](https://www.pedecerto.eu/public/) project uses a rule-based approach to scan dactylic meter. We use their scansions to create our dataset. The scansions are made available in the form of XML files on [their website](https://www.pedecerto.eu/public/pagine/autori). Now do the following:
 
 1. Download the XML files of which you want to create your dataset. 
-2. Place the downloaded XML files in the **pedecerto/xml_files/** folder.
-3. Run the **main.py** program with the following parameters:
+2. Place the downloaded XML files in the **scansions/pedecerto/** folder.
+3. Run the **data_creation.py** program with the following parameters:
 
 ```console 
-python3 main.py --pedecerto_conversion
+python3 data_creation.py --pedecerto
 ```
 
-  This will create pickle files with syllable-label lists in the **pedecerto/xml_files/**, moving any processed XML files to the **processed** folder. 
+  This will create pickle files with syllable-label lists in the **scansions/sequence_labels/**.
 
-4. (Optional) You can combine the syllable label list of multiple texts and authors by putting the generated pickle files in the **combine** folder and running the following command:
+4. (Optional) You can combine the syllable label list of multiple texts and authors by running the following command:
 
 ```console 
-python3 main.py --combine_author_files
+python3 data_creation.py --combine_datasets
 ```
 
-Optionally, you can provide a name for the output file using the following command:
+This will store the created file called **combined.pickle** in the **scansions/sequence_labels/** folder. 
 
-```console 
-python3 main.py --combine_author_files --outputname <your_file_name>
-```
-
-This will store the created file in the **pickle/sequence_labels** folder. 
-
-**IMPORTANT** Make sure that all your pickled syllable-label lists are stored in the **pickle/sequence_labels** folder, as this is the folder the machine learning tools will use when searching for datasets.
+**IMPORTANT** Make sure that all your pickled syllable-label lists are stored in the **scansions/sequence_labels/** folder, as this is the folder the machine learning tools will use when searching for datasets.
 
 _Note: the tool that creates the syllable-label lists will only process hexameters and pentameters, as these are the focus of the Pedecerto project. Any corrupt lines will be discarded, as well as lines containing words that cannot be syllabified by the syllabifier provided by BNagy and his [MQDQ-parser](https://github.com/bnagy/mqdq-parser) (found under pedecerto/syllabifier.py and pedecerto/rhyme.py)._
 
@@ -89,12 +84,12 @@ _Note: the tool that creates the syllable-label lists will only process hexamete
 The [Anceps]([https://www.pedecerto.eu/public/](https://github.com/Dargones/anceps)) project uses a constraint-based approach to scan iambic trimeter. We also provide tools to convert these scansions into syllable-label lists. However, these lists will contain the extra label _anceps_ as Anceps does not resolve these labels automatically.
 
 1. Create scansion files using the Anceps tools, or download complete scansions from the [Senecan Trimeter and Humanist Tragedy repository](https://github.com/QuantitativeCriticismLab/AJP-2022-Senecan-Trimeter).
-2. Put the JSON files in the **anceps/full_scansions** folder and run the following command:
+2. Put the JSON files in the **scansions/anceps/** folder and run the following command:
 
 ```console 
-python3 trimeter.py --create_syllable_file
+python3 data_creation.py --anceps
 ```
-This will create a pickled syllable_label file of each JSON in the **pickle/sequence_labels** folder. To combine these files, the combining code described in the previous section can be used (move pickled files to the combine folder and run the pickle combining command).
+This will create a pickled syllable_label file of each JSON in the **scansions/sequence_labels** folder. To combine these files, the combining code described in the previous section can be used.
 
 <a name="CRF"/>
 
