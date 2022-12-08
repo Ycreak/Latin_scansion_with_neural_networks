@@ -1,54 +1,32 @@
-# Library imports
-import pandas as pd
+# Third party library imports
 import numpy as np
-from progress.bar import Bar
-import seaborn as sn
-import matplotlib.pyplot as plt
 import argparse
 
-# CRF specific imports
-import scipy.stats
-from sklearn import metrics
-from sklearn.model_selection import train_test_split
-from sklearn.model_selection import RandomizedSearchCV
-from sklearn.model_selection import KFold
+import sklearn
 import sklearn_crfsuite
-from sklearn_crfsuite import metrics as crf_metrics
 
 # Class imports
 import utilities as util
-from pedecerto.textparser import Pedecerto_parser
+import config as conf
 
-class CRF_sequence_labeling:
+
+class Latin_CRF:
     ''' This class handels Conditional Random Fields sequence labeling.
     '''
     
     # feature-based sequence labelling: conditional random fields
-    labels = ['short', 'long', 'elision']
-
-    def __init__(self, FLAGS):
-        self.FLAGS = FLAGS
-
-
-        if FLAGS.custom_train_test:
-            self.custom_prediction(FLAGS.train, FLAGS.test)
-            # self.custom_prediction('HEX_ELE-all.pickle', 'SEN-aga.pickle')
-
-        if FLAGS.kfold:
-            text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), FLAGS.train)
-            text = self.remove_space_from_syllable_sequence(text)
-            X, y = self.convert_text_to_feature_sets(text)
-
-            # Perform kfold to check if we don't have any overfitting
-            result = self.kfold_model(text, X, y, 5)
-            print(result)
-
-    def perform_experiments(self):    
-        # self.elegiac_heatmap()
-        self.hexameter_heatmap()
-        # self.crf_improvement_heatmap()
+    LABELS = ['short', 'long', 'elision']
 
     def remove_space_from_syllable_sequence(self, given_list):
+        """Removes the space labels from the syllable sequence lists, as the CRFs performance
+        is deteriorated by the spaces.
+
+        Args:
+            given_list (list): with sequence labels
+
+        Returns:
+            list: now without space labels
+        """        
         new_list = []
 
         for my_list in given_list:
@@ -57,13 +35,16 @@ class CRF_sequence_labeling:
 
         return new_list
 
-    def custom_prediction(self, predictor_pickle, predictee_pickle):
-        print('doing custom prediction')
-        predictor_text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), predictor_pickle)
-        predictee_text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), predictee_pickle)
+    def custom_prediction(self, predictor, predictee):
+        """Does a custom prediction by training on the predictor sequence label list and testing
+        on the predictee sequence list
 
-        predictor_text = self.remove_space_from_syllable_sequence(predictor_text)
-        predictee_text = self.remove_space_from_syllable_sequence(predictee_text)
+        Args:
+            predictor_pickle (list): predictor list to function as trainer
+            predictee_pickle (list): predictee list that is to be predicted by the trainer
+        """        
+        predictor_text = self.remove_space_from_syllable_sequence(predictor)
+        predictee_text = self.remove_space_from_syllable_sequence(predictee)
 
         predictor_X, predictor_y = self.convert_text_to_feature_sets(predictor_text)
         crf_model = self.fit_model(predictor_X, predictor_y)
@@ -72,8 +53,6 @@ class CRF_sequence_labeling:
         result = self.predict_model(crf_model, predictee_X, predictee_y)
 
         print(result)
-
-
 
     def predict_model(self, model, X, y):
         """ Predicts labels y given the model and examples X. Returns the metric report.
@@ -89,10 +68,10 @@ class CRF_sequence_labeling:
         y_pred = model.predict(X)
         #TODO: this gives errors
         sorted_labels = sorted(
-            self.labels,
+            self.LABELS,
             key=lambda name: (name[1:], name[0])
         )
-        return crf_metrics.flat_classification_report(
+        return sklearn_crfsuite.metrics.flat_classification_report(
             y, y_pred, labels=sorted_labels, output_dict=True)
 
     def fit_model(self, X, y) -> object:
@@ -199,26 +178,24 @@ class CRF_sequence_labeling:
 
         return features
 
-    def kfold_model(self, sequence_labels, X, y, splits):
+    def kfold_model(self, sequence_labels : list, splits : int = 5):
         """Performs a kfold cross validation of a CRF model fitted and trained on the given data
 
         Args:
             sequence_labels (list): of sequence labels and their features
-            X (numpy array): of training/test examples
-            y (numpy array): of labels
-            splits (int): of number of splits required
 
         Returns:
             dict: with results of the cross validation
         """        
-        if util.cf.get('Util', 'verbose'): print('Predicting the model')
+        sequence_labels = self.remove_space_from_syllable_sequence(sequence_labels)
+        X, y = self.convert_text_to_feature_sets(sequence_labels)
 
         report_list = []
 
         # Convert the list of numpy arrays to a numpy array with numpy arrays
         X = np.array(X, dtype=object)
         y = np.array(y, dtype=object)
-        kf = KFold(n_splits=splits, shuffle=True, random_state=42)
+        kf = sklearn.model_selection.KFold(n_splits=splits, shuffle=True, random_state=42)
 
         for train_index, test_index in kf.split(sequence_labels):
 
@@ -235,183 +212,22 @@ class CRF_sequence_labeling:
 
         return result
 
-    ###############
-    # EXPERIMENTS #
-    ###############
-    def elegiac_heatmap(self):
-
-        column_names = ["predictor", "predictee", "score"]
-        df_long = pd.DataFrame(columns = column_names)
-        df_short = pd.DataFrame(columns = column_names)
-        df_elision = pd.DataFrame(columns = column_names)
-
-        ovid_elegiac_df = util.merge_sequence_label_lists(util.Create_files_list(util.cf.get('Pickle', 'df_crf_path_elegiac'), 'OV'), util.cf.get('Pickle', 'df_crf_path_elegiac'))
-        tib_elegiac_df = util.merge_sequence_label_lists(util.Create_files_list(util.cf.get('Pickle', 'df_crf_path_elegiac'), 'TIB'), util.cf.get('Pickle', 'df_crf_path_elegiac'))
-        prop_elegiac_df = util.merge_sequence_label_lists(util.Create_files_list(util.cf.get('Pickle', 'df_crf_path_elegiac'), 'PROP'), util.cf.get('Pickle', 'df_crf_path_elegiac'))
-
-        verg_df = util.Pickle_read(util.cf.get('Pickle', 'df_crf_path_hexameter'), 'VERG-aene.pickle')
-        hexameter_df = util.merge_sequence_label_lists(util.Create_files_list(util.cf.get('Pickle', 'df_crf_path_hexameter'), '.pickle'), util.cf.get('Pickle', 'df_crf_path_hexameter'))
-        elegiac_df = util.merge_sequence_label_lists(util.Create_files_list(util.cf.get('Pickle', 'df_crf_path_elegiac'), '.pickle'), util.cf.get('Pickle', 'df_crf_path_elegiac'))
-        
-        # First, use Aneid to predict Ovid and Tibullus
-        predictor_texts = [('verg',verg_df), ('hex',hexameter_df), ('eleg',elegiac_df)]
-        predictee_texts = [('ovid',ovid_elegiac_df), ('tib',tib_elegiac_df), ('prop',prop_elegiac_df)]
-
-        for predictor_text in predictor_texts:
-            predictor_X, predictor_y = self.convert_text_to_feature_sets(predictor_text[1])
-            crf_model = self.fit_model(predictor_X, predictor_y)
-
-            for predictee_text in predictee_texts:
-                predictee_X, predictee_y = self.convert_text_to_feature_sets(predictee_text[1])
-                # Using the predictor model, predict for the predictee test set
-                result = self.predict_model(crf_model, predictee_X, predictee_y)
-
-                predictor = predictor_text[0] # get names
-                predictee = predictee_text[0]
-
-                print(predictor, predictee)
-                # exit(0)
-
-                score_long = float(round(result['long']['f1-score'] * 100,1)) # save the score
-                score_short = float(round(result['short']['f1-score'] * 100,1)) # save the score
-                score_elision = float(round(result['elision']['f1-score'] * 100,1)) # save the score
-                
-                # Add score to the dataframe for our heatmap
-                new_line_long = {'predictor': predictor, 'predictee': predictee, 'score': score_long}
-                new_line_short = {'predictor': predictor, 'predictee': predictee, 'score': score_short}
-                new_line_elision = {'predictor': predictor, 'predictee': predictee, 'score': score_elision}
-
-                df_long = df_long.append(new_line_long, ignore_index=True)    
-                df_short = df_short.append(new_line_short, ignore_index=True)    
-                df_elision = df_elision.append(new_line_elision, ignore_index=True)
-
-        # pivot the dataframe to be usable with the seaborn heatmap
-        heatmap_data = pd.pivot_table(df_long, values='score', index=['predictor'], columns='predictee')
-        self.create_heatmap(dataframe = heatmap_data,
-                        xlabel = 'predictee',
-                        ylabel = 'predictor',
-                        title = 'Confusion matrix -- long syllables',
-                        filename = 'confusionmatrix_elegiac_long.png')
-
-        heatmap_data = pd.pivot_table(df_short, values='score', index=['predictor'], columns='predictee')
-        self.create_heatmap(dataframe = heatmap_data,
-                        xlabel = 'predictee',
-                        ylabel = 'predictor',
-                        title = 'Confusion matrix -- short syllables',
-                        filename = 'confusionmatrix_elegiac_short.png')
-
-        heatmap_data = pd.pivot_table(df_elision, values='score', index=['predictor'], columns='predictee')
-        self.create_heatmap(dataframe = heatmap_data,
-                        xlabel = 'predictee',
-                        ylabel = 'predictor',
-                        title = 'Confusion matrix -- elided syllables',
-                        filename = 'confusionmatrix_elegiac_elision.png')
-                        
-        # exit(0)
-
-
-    def hexameter_heatmap(self):
-
-        ############################
-        # CREATE HEXAMETER HEATMAP #
-        ############################
-        column_names = ["predictor", "predictee", "score"]
-        df_long = pd.DataFrame(columns = column_names)
-        df_short = pd.DataFrame(columns = column_names)
-        df_elision = pd.DataFrame(columns = column_names)
-
-        predictor_texts = util.Create_files_list(util.cf.get('Pickle', 'df_crf_path_hexameter'), '.pickle')
-        predictee_texts = util.Create_files_list(util.cf.get('Pickle', 'df_crf_path_hexameter'), '.pickle')
-
-        # Let every text be the predictor once
-        for predictor_text in predictor_texts:
-            predictor_df = util.Pickle_read(util.cf.get('Pickle', 'df_crf_path_hexameter'), predictor_text)
-            predictor_X, predictor_y = self.convert_text_to_feature_sets(predictor_df)
-            crf_model = self.fit_model(predictor_X, predictor_y)
-
-            # For every predictor, get results for every predictee. This includes predicting itself
-            for predictee_text in predictee_texts:
-                predictee_df = util.Pickle_read(util.cf.get('Pickle', 'df_crf_path_hexameter'), predictee_text)
-                predictee_X, predictee_y = self.convert_text_to_feature_sets(predictee_df)
-                # Using the predictor model, predict for the predictee test set
-                result = self.predict_model(crf_model, predictee_X, predictee_y)
-
-                predictor = predictor_text.split('-')[0].capitalize() # get names
-                predictee = predictee_text.split('-')[0].capitalize()
-                score_long = float(round(result['long']['f1-score'] * 100,1)) # save the score
-                score_short = float(round(result['short']['f1-score'] * 100,1)) # save the score
-                score_elision = float(round(result['elision']['f1-score'] * 100,1)) # save the score
-                
-                # Add score to the dataframe for our heatmap
-                new_line_long = {'predictor': predictor, 'predictee': predictee, 'score': score_long}
-                new_line_short = {'predictor': predictor, 'predictee': predictee, 'score': score_short}
-                new_line_elision = {'predictor': predictor, 'predictee': predictee, 'score': score_elision}
-
-                df_long = df_long.append(new_line_long, ignore_index=True)    
-                df_short = df_short.append(new_line_short, ignore_index=True)    
-                df_elision = df_elision.append(new_line_elision, ignore_index=True)    
-
-        # df_long.to_csv('./csv/long_1_char_only.csv')
-        # df_short.to_csv('./csv/short_1_char_only.csv')
-        # df_elision.to_csv('./csv/elision_1_char_only.csv')
-        
-        # pivot the dataframe to be usable with the seaborn heatmap
-        heatmap_data = pd.pivot_table(df_long, values='score', index=['predictor'], columns='predictee')
-        self.create_heatmap(dataframe = heatmap_data,
-                        xlabel = 'predictee',
-                        ylabel = 'predictor',
-                        title = 'Confusion matrix -- long syllables',
-                        filename = 'confusionmatrix_hexameter_long.png')
-
-        heatmap_data = pd.pivot_table(df_short, values='score', index=['predictor'], columns='predictee')
-        self.create_heatmap(dataframe = heatmap_data,
-                        xlabel = 'predictee',
-                        ylabel = 'predictor',
-                        title = 'Confusion matrix -- short syllables',
-                        filename = 'confusionmatrix_hexameter_short.png')
-
-
-        heatmap_data = pd.pivot_table(df_elision, values='score', index=['predictor'], columns='predictee')
-        self.create_heatmap(dataframe = heatmap_data,
-                        xlabel = 'predictee',
-                        ylabel = 'predictor',
-                        title = 'Confusion matrix -- elided syllables',
-                        filename = 'confusionmatrix_hexameter_elision.png')
-
-    def create_heatmap(self, dataframe, xlabel, ylabel, title, filename):
-        # Simple function to create a heatmap
-        sn.set(font_scale=1.4)
-        sn.heatmap(dataframe, annot=True, fmt='g', annot_kws={"size": 16}, cmap='Blues')
-        plt.xlabel(xlabel)
-        plt.ylabel(ylabel)
-        plt.title(title)
-        plt.savefig(filename, bbox_inches='tight')        
-        plt.clf()    
-
-
-
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--custom_prediction", action="store_true", help="specify whether to create the model: if not specified, we load from disk")
-    p.add_argument("--save_model", action="store_true", help="specify whether to save the model: if not specified, we do not save")
-    p.add_argument("--single_text", action="store_true", help="specify whether to run the single text LSTM function")
-    p.add_argument("--exp_hexameter", action="store_true", help="specify whether to run the hexameter LSTM experiment")
-    p.add_argument("--exp_transfer", action="store_true", help="specify whether to run the hexameter transerability LSTM experiment")
-    p.add_argument("--exp_elegiac", action="store_true", help="specify whether to run the hexameter genre LSTM experiment")
-    p.add_argument("--exp_train_test", action="store_true", help="specify whether to run the train/test split LSTM experiment")
     p.add_argument("--kfold", action="store_true", help="specify whether to run kfold experiment")
-    p.add_argument("--model_predict", action="store_true", help="let a specific model predict a specific text")
-    p.add_argument("--metrics_report", action="store_true", help="specifiy whether to print the metrics report")
-
-    p.add_argument("--anceps", action="store_true", help="specify whether to train on an anceps text")
-    p.add_argument("--verbose", action="store_true", help="specify whether to run the code in verbose mode")
-    p.add_argument('--epochs', default=25, type=int, help='number of epochs')
-    p.add_argument("--split", type=util.restricted_float, default=0.2, help="specify the split size of train/test sets")
-
-    p.add_argument('--train', default='none', type=str, help='number of epochs')
-    p.add_argument('--test', default='none', type=str, help='number of epochs')
-
-
     FLAGS = p.parse_args()    
 
-    crf = CRF_sequence_labeling(FLAGS)
+    latin_crf = Latin_CRF()
+
+    if FLAGS.custom_prediction:
+        latin_crf.custom_prediction(
+            predictor = util.pickle_read(conf.SEQUENCE_LABELS_FOLDER, FLAGS.train),
+            predictee = util.pickle_read(conf.SEQUENCE_LABELS_FOLDER, FLAGS.test))
+
+    if FLAGS.kfold:
+        result = latin_crf.kfold_model(
+            sequence_labels = util.pickle_read(conf.SEQUENCE_LABELS_FOLDER, FLAGS.train),
+            splits = 5)
+        print(result)
+

@@ -8,6 +8,7 @@ import sklearn.metrics
 
 # Local imports
 import utilities as util
+import config as conf
 
 # Based on https://www.depends-on-the-definition.com/guide-sequence-tagging-neural-networks-python/
 
@@ -396,7 +397,7 @@ class Latin_LSTM():
 if __name__ == "__main__":
 
     lstm = Latin_LSTM(
-        sequence_labels_folder = './scansions/sequence_labels/',
+        sequence_labels_folder = conf.SEQUENCE_LABELS_FOLDER,
         models_save_folder = './models/lstm/',
         anceps_label = False,
         ) 
