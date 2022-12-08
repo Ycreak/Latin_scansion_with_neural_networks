@@ -14,7 +14,7 @@
 # Philippe Bors and Luuk Nolden
 # Leiden University 2021
 
-# import argparse
+import argparse
 # import configparser
 # from datetime import datetime
 import pickle
@@ -123,43 +123,6 @@ def create_files_list(path, substring):
 
     return list
 
-def create_line_plot(plots, ylabel, xlabel, plot_titles, title, plotname):
-    # Simple function to easily create plots
-    path = './plots/'
-    time = datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
-    full_file_name = '{0}{1}_{2}.png'.format(path, plotname, time)
-    
-    for plot_line in plots:
-        plt.plot(plot_line)
-    plt.ylabel(ylabel)
-    plt.xlabel(xlabel)
-    plt.legend(plot_titles, loc='lower right')
-    plt.title(title)
-    plt.savefig(full_file_name)
-    plt.show()
-    # plt.clf()
-
-def create_heatmap(dataframe ,xlabel, ylabel, title, filename, vmin=None, vmax=None, path='./plots/'):
-    # Simple function to create a heatmap
-    # dataframe.to_numpy().max()
-    plt.clf()
-    
-    path = path
-    time = datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
-    full_file_name = '{0}{1}_{2}.png'.format(path, time, filename)
-
-    sn.set(font_scale=1.2)
-    # sn.heatmap(dataframe, annot=True, fmt='g', annot_kws={"size": 16}, cmap='Blues', vmin=vmin, vmax=vmax)
-    sn.heatmap(dataframe, annot=True, fmt='g', annot_kws={"size": 12}, cmap='Blues', vmin=vmin, vmax=vmax, cbar=False)
-
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-    # plt.title(title)
-    plt.savefig(full_file_name, bbox_inches='tight')        
-    
-    return plt
-
-
 def merge_lists(self, list1, list2):
     """Merge two lists into one -> [(l1_a, l2_a), (l1_b, l2_b)]
 
@@ -193,18 +156,7 @@ def merge_sequence_label_lists(texts, path):
         # take every sentence and add it to the merged_list
         for sentence_numpy in text_list:
             merged_list.append(sentence_numpy)
-    return merged_list     
-
-def restricted_float(x):
-    # Used in argparser
-    try:
-        x = float(x)
-    except ValueError:
-        print("%r not a floating-point literal" % (x,))
-
-    if x < 0.0 or x > 1.0:
-        print("%r not in range [0.0, 1.0]"%(x,))
-    return x       
+    return merged_list         
 
 def convert_pedecerto_to_sequence_labeling(df) -> list:
     """Converts the given pedecerto dataframe to a list with sequence labels. More specifically,

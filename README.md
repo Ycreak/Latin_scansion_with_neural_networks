@@ -1,5 +1,5 @@
 # Scanning Latin poetry with machine learning
-![alt text](https://github.com/Ycreak/Latin_scansion_with_neural_networks/blob/main/banner.png "Ancient Tetris professional")
+![alt text](https://github.com/Ycreak/Latin_scansion_with_neural_networks/blob/main/docs/banner.png "Ancient Tetris professional")
 
 ## About
 Welcome to the project for scanning Latin poetry with machine learning. The goal of this project is to train machine learning models on dactylic meters and test the generalisability to other meters such as the anapest and glyconeus. 

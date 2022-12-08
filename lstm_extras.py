@@ -240,3 +240,378 @@
                     # Now increase the train list and repeat the experiment
                     X_train_list_2 = np.append(X_train_list_2, X_train_list[i], axis=0)
                     y_train_list_2 = np.append(y_train_list_2, y_train_list[i], axis=0)
+
+    def create_seaborn_heatmap(self, confusion_matrix):
+        if self.FLAGS.anceps:
+            labels = ['long', 'short', 'elision', 'space', 'padding', 'anceps']
+        else:
+            labels = ['long', 'short', 'elision', 'space', 'padding']
+
+        df_confusion_matrix = pd.DataFrame(confusion_matrix, index = labels,
+                                        columns = labels)
+        # Drop the padding labels, as we don't need them (lstm scans them without confusion): delete both row and column
+        df_confusion_matrix = df_confusion_matrix.drop('padding')
+        df_confusion_matrix = df_confusion_matrix.drop(columns=['padding', 'space'])
+
+        df_confusion_matrix = df_confusion_matrix.drop('space')
+        
+        if self.FLAGS.anceps:
+            df_confusion_matrix = df_confusion_matrix.drop(columns=['anceps'])
+            df_confusion_matrix = df_confusion_matrix.drop('anceps')            
+        
+        # df_confusion_matrix = df_confusion_matrix.drop(columns=['padding'])
+
+        util.create_heatmap(dataframe = df_confusion_matrix,
+                            xlabel = 'TRUTH', 
+                            ylabel =  'PREDICTED',
+                            title = 'CONFUSION MATRIX',
+                            filename = 'new_confusion_matrix',
+                            # vmax = 500
+                            )                       
+
+
+
+    def do_experiment(self, train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='default', plot_title='default'):
+        # import matplotlib.pyplot as plt        
+        
+        column_names = ["predictor", "predictee", "score"]
+        
+        # df = pd.DataFrame(columns = [])
+
+        df = pd.DataFrame(columns = ["epochs", "anapest_long", "anapest_short",
+                                        'dimeter_long', 'dimeter_short',
+                                        'tetrameter_long','tetrameter_short',
+                                        'glyconee_long', 'glyconee_short',
+                                        'hendycasyllable_long', 'hendycasyllable_short',
+                                        'trimeter_long', 'trimeter_short'])
+
+
+
+        # df.to_csv('epoch_learning_rate_testing.csv', mode='w', index=False, header=True)
+
+        new_line = {'epochs': self.num_epochs}
+        df = df.append(new_line, ignore_index=True)    
+
+        df_long = pd.DataFrame(columns = column_names)
+        df_short = pd.DataFrame(columns = column_names)
+        df_elision = pd.DataFrame(columns = column_names)
+
+        # Merge the training and test texts and retrieve from it all data we need to get the model working
+        # all_texts = train_texts + test_texts
+        # sequence_labels_all_set = util.merge_sequence_label_lists(all_texts, util.cf.get('Pickle', 'path_sequence_labels'))
+
+        # all_text_syllables = self.retrieve_syllables_from_sequence_label_list(sequence_labels_all_set)
+        # max_sentence_length = self.retrieve_max_sentence_length(sequence_labels_all_set)
+        # unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING)
+        # word2idx, label2idx = self.create_idx_dictionaries(unique_syllables, self.LABELS)
+
+        for train_text in train_texts:
+
+
+            sequence_labels_training_text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), train_text)
+            X_train, y_train = self.create_X_y_sets(sequence_labels_training_text, word2idx, label2idx, max_sentence_length)
+
+            model = self.get_model( max_len = max_sentence_length,
+                                    num_syllables = len(unique_syllables),
+                                    num_labels = len(self.LABELS),
+                                    X = X_train,
+                                    y = y_train,
+                                    epochs = FLAGS.epochs,
+                                    create_model = FLAGS.create_model,
+                                    save_model = FLAGS.save_model,
+                                    model_name = train_text.split('.')[0])
+
+            for test_text in test_texts:
+
+                sequence_labels_test_text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), test_text)
+                X_test, y_test = self.create_X_y_sets(sequence_labels_test_text, word2idx, label2idx, max_sentence_length)
+                classification_report = self.create_classification_report(model, X_test, y_test)
+
+                # print(test_text, classification_report)
+
+                predictee = test_text.split('.')[0]#.capitalize()
+                score_long = float(round(classification_report['0']['f1-score'],2))
+                score_short = float(round(classification_report['1']['f1-score'],2))
+                # score_elision = float(round(classification_report['2']['f1-score'],2))
+                
+                # print(score_long, score_short, predictee)
+                # new_line_long = {'epochs': self.num_epochs, 'predictee': predictee+'_long', 'long': score_long, 'short': score_short}
+                # new_line_short = {'epochs': self.num_epochs, 'predictee': predictee+'_short', 'short': score_short}
+
+                predictee_long = predictee+'_long'
+                predictee_short = predictee+'_short'
+
+                df.loc[df['epochs'] == self.num_epochs, [predictee_long]] = score_long
+                df.loc[df['epochs'] == self.num_epochs, [predictee_short]] = score_short
+
+
+                # df = df.append(new_line, ignore_index=True)    
+
+                print(df)
+
+                continue
+                # exit(0)
+
+                # if self.FLAGS.metrics_report:
+                #     print_metrics_report = self.create_confusion_matrix(model, X_test, y_test)
+                #     # self.create_seaborn_heatmap(print_metrics_report)
+                    
+                    
+                #     print(print_metrics_report)
+                #     print_metrics_report = self.create_metrics_report(model, X_test, y_test, output_dict=True)
+                #     print(print_metrics_report)                    
+                    
+                    # exit(0)
+
+                predictor = train_text.split('-')[0].capitalize() # get names
+                predictee = test_text.split('-')[0].capitalize()
+
+                score_long = float(round(metrics_report['long']['f1-score'],4)) # save the score
+                score_short = float(round(metrics_report['short']['f1-score'],4)) # save the score
+                score_elision = float(round(metrics_report['elision']['f1-score'],4)) # save the score
+                
+                # Add score to the dataframe for our heatmap
+                new_line_long = {'predictor': predictor, 'predictee': predictee, 'score': score_long}
+                new_line_short = {'predictor': predictor, 'predictee': predictee, 'score': score_short}
+                new_line_elision = {'predictor': predictor, 'predictee': predictee, 'score': score_elision}
+
+                df_long = df_long.append(new_line_long, ignore_index=True)    
+                df_short = df_short.append(new_line_short, ignore_index=True)    
+                df_elision = df_elision.append(new_line_elision, ignore_index=True)   
+
+
+        # df.to_csv('epoch_learning_rate_testing.csv', mode='a', index=False, header=False)
+        df.to_csv('epoch_learning_rate_testing2.csv', mode='w', index=False, header=True)
+
+        print(df)
+        exit(0)
+
+        time = datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
+
+        heatmap_data = pd.pivot_table(df_long, values='score', index=['predictor'], columns='predictee')
+        heatmap_data.to_csv('./csv/{0}_f1-scores_long.csv'.format(time))
+        myplot = plt.figure(figsize=(16,10))
+        myplot = plt.subplot(2, 2, 1)
+        myplot = util.create_heatmap(dataframe = heatmap_data,
+                        xlabel = 'test',
+                        ylabel = 'train',
+                        title = '{0}: Long f1-scores'.format(plot_title),
+                        filename = '{0}-long'.format(exp_name),
+                        path = './plots/experiments/')
+
+        heatmap_data = pd.pivot_table(df_short, values='score', index=['predictor'], columns='predictee')
+        heatmap_data.to_csv('./csv/{0}_f1-scores_short.csv'.format(time))
+        myplot = plt.subplot(2, 2, 2)        
+        myplot = util.create_heatmap(dataframe = heatmap_data,
+                        xlabel = 'test',
+                        ylabel = 'train',
+                        title = '{0}: Short f1-scores'.format(plot_title),
+                        filename = '{0}-short'.format(exp_name),
+                        path = './plots/experiments/')
+
+        heatmap_data = pd.pivot_table(df_elision, values='score', index=['predictor'], columns='predictee')
+        heatmap_data.to_csv('./csv/{0}_f1-scores_elision.csv'.format(time))
+        myplot = plt.subplot(2, 2, 3)
+        myplot = util.create_heatmap(dataframe = heatmap_data,
+                        xlabel = 'test',
+                        ylabel = 'train',
+                        title = '{0}: Elision f1-scores'.format(plot_title),
+                        filename = '{0}-elision'.format(exp_name),
+                        path = './plots/experiments/')
+
+def print_length_sequence_label_files(self):
+
+    my_list = sorted(util.create_files_list(conf.SEQUENCE_LABELS_FOLDER, '.pickle'))
+    for text in my_list:
+        current_text = util.Pickle_read(conf.SEQUENCE_LABELS_FOLDER, text)
+        print(text, len(current_text))
+
+
+def combine_sequence_label_lists(self, key, name):
+    # TO COMBINE LISTS
+    name = name + '.pickle'
+    my_list = sorted(util.create_files_list(conf.SEQUENCE_LABELS_FOLDER, key))
+    temp = util.merge_sequence_label_lists(my_list, conf.SEQUENCE_LABELS_FOLDER)
+    util.Pickle_write(conf.SEQUENCE_LABELS_FOLDER, name, temp)
+
+
+def kfold_model(self, sequence_labels, X, y, splits, max_sentence_length, unique_syllables):
+    """Performs a kfold cross validation of a LSTM model fitted and trained on the given data
+
+    Args:
+        sequence_labels (list): of sequence labels and their features
+        X (numpy array): of training/test examples
+        y (numpy array): of labels
+        splits (int): of number of splits required
+
+    Returns:
+        dict: with results of the cross validation
+    """        
+    if util.cf.get('Util', 'verbose'): print('Predicting the model')
+
+    report_list = []
+
+    # Convert the list of numpy arrays to a numpy array with numpy arrays
+    # X = np.array(X, dtype=object)
+    # y = np.array(y, dtype=object)
+    kf = KFold(n_splits=splits, shuffle=True, random_state=42)
+
+    for train_index, test_index in kf.split(sequence_labels):
+
+        X_train, X_test = X[train_index], X[test_index]
+        y_train, y_test = y[train_index], y[test_index]
+
+        model = self.get_model( max_len = max_sentence_length,
+                                num_syllables = len(unique_syllables),
+                                num_labels = len(self.LABELS),
+                                X = X_train,
+                                y = y_train,
+                                epochs = FLAGS.epochs,
+                                create_model = True,
+                                save_model = FLAGS.save_model)
+
+        metrics_report = self.create_metrics_report(model, X_test, y_test, output_dict=True)
+        # TODO: just print a score for each run to terminal
+        report_list.append(metrics_report)
+
+    result = util.merge_kfold_reports(report_list)
+
+    return result
+
+
+    def custom_train_test(self):
+        train_texts = ['HEX_ELE-all.pickle'] #['VERG-aene.pickle']#
+        test_texts = ['anapest.pickle', 'dimeter.pickle', 'hendycasyllable.pickle', 'glyconee.pickle', 'tetrameter.pickle', 'trimeter.pickle'] #FLAGS.test
+        self.do_experiment(
+            train_texts, 
+            test_texts, 
+            self.max_sentence_length, 
+            self.unique_syllables, 
+            self.word2idx, 
+            self.label2idx, 
+            exp_name='seneca_precise', 
+            plot_title='Trimeter Texts'
+            )    
+
+
+    def do_experiment(self, train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='default', plot_title='default'):
+        # import matplotlib.pyplot as plt        
+        
+        column_names = ["predictor", "predictee", "score"]
+        
+        # df = pd.DataFrame(columns = [])
+
+        df = pd.DataFrame(columns = ["epochs", "anapest_long", "anapest_short",
+                                        'dimeter_long', 'dimeter_short',
+                                        'tetrameter_long','tetrameter_short',
+                                        'glyconee_long', 'glyconee_short',
+                                        'hendycasyllable_long', 'hendycasyllable_short',
+                                        'trimeter_long', 'trimeter_short'])
+
+        # df.to_csv('epoch_learning_rate_testing.csv', mode='w', index=False, header=True)
+
+        new_line = {'epochs': self.num_epochs}
+        df = df.append(new_line, ignore_index=True)    
+
+        df_long = pd.DataFrame(columns = column_names)
+        df_short = pd.DataFrame(columns = column_names)
+        df_elision = pd.DataFrame(columns = column_names)
+
+        for train_text in train_texts:
+
+
+            sequence_labels_training_text = util.Pickle_read(conf.SEQUENCE_LABELS_FOLDER, train_text)
+            X_train, y_train = self.create_X_y_sets(sequence_labels_training_text, word2idx, label2idx, max_sentence_length)
+
+            model = self.get_model( max_len = max_sentence_length,
+                                    num_syllables = len(unique_syllables),
+                                    num_labels = len(self.LABELS),
+                                    X = X_train,
+                                    y = y_train,
+                                    epochs = FLAGS.epochs,
+                                    create_model = FLAGS.create_model,
+                                    save_model = FLAGS.save_model,
+                                    model_name = train_text.split('.')[0])
+
+            for test_text in test_texts:
+
+                sequence_labels_test_text = util.Pickle_read(conf.SEQUENCE_LABELS_FOLDER, test_text)
+                X_test, y_test = self.create_X_y_sets(sequence_labels_test_text, word2idx, label2idx, max_sentence_length)
+                classification_report = self.create_classification_report(model, X_test, y_test)
+
+                # print(test_text, classification_report)
+
+                predictee = test_text.split('.')[0]#.capitalize()
+                score_long = float(round(classification_report['0']['f1-score'],2))
+                score_short = float(round(classification_report['1']['f1-score'],2))
+                # score_elision = float(round(classification_report['2']['f1-score'],2))
+                
+                # print(score_long, score_short, predictee)
+                # new_line_long = {'epochs': self.num_epochs, 'predictee': predictee+'_long', 'long': score_long, 'short': score_short}
+                # new_line_short = {'epochs': self.num_epochs, 'predictee': predictee+'_short', 'short': score_short}
+
+                predictee_long = predictee+'_long'
+                predictee_short = predictee+'_short'
+
+                df.loc[df['epochs'] == self.num_epochs, [predictee_long]] = score_long
+                df.loc[df['epochs'] == self.num_epochs, [predictee_short]] = score_short
+
+
+                # df = df.append(new_line, ignore_index=True)    
+
+                print(df)
+
+                continue
+
+        # df.to_csv('epoch_learning_rate_testing.csv', mode='a', index=False, header=False)
+        df.to_csv('epoch_learning_rate_testing2.csv', mode='w', index=False, header=True)
+
+        print(df)
+        exit(0)
+
+def create_line_plot(plots, ylabel, xlabel, plot_titles, title, plotname):
+    # Simple function to easily create plots
+    path = './plots/'
+    time = datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
+    full_file_name = '{0}{1}_{2}.png'.format(path, plotname, time)
+    
+    for plot_line in plots:
+        plt.plot(plot_line)
+    plt.ylabel(ylabel)
+    plt.xlabel(xlabel)
+    plt.legend(plot_titles, loc='lower right')
+    plt.title(title)
+    plt.savefig(full_file_name)
+    plt.show()
+    # plt.clf()
+
+def create_heatmap(dataframe ,xlabel, ylabel, title, filename, vmin=None, vmax=None, path='./plots/'):
+    # Simple function to create a heatmap
+    # dataframe.to_numpy().max()
+    plt.clf()
+    
+    path = path
+    time = datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
+    full_file_name = '{0}{1}_{2}.png'.format(path, time, filename)
+
+    sn.set(font_scale=1.2)
+    # sn.heatmap(dataframe, annot=True, fmt='g', annot_kws={"size": 16}, cmap='Blues', vmin=vmin, vmax=vmax)
+    sn.heatmap(dataframe, annot=True, fmt='g', annot_kws={"size": 12}, cmap='Blues', vmin=vmin, vmax=vmax, cbar=False)
+
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    # plt.title(title)
+    plt.savefig(full_file_name, bbox_inches='tight')        
+    
+    return plt
+
+def restricted_float(x):
+    # Used in argparser
+    try:
+        x = float(x)
+    except ValueError:
+        print("%r not a floating-point literal" % (x,))
+
+    if x < 0.0 or x > 1.0:
+        print("%r not in range [0.0, 1.0]"%(x,))
+    return x       

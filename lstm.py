@@ -1,62 +1,43 @@
 # Standard library imports
-import pickle
-import random
-import argparse
-# import matplotlib.pyplot as plt
-# from datetime import datetime
 
 # Third party library imports
-import pandas as pd
 import numpy as np
-
 import tensorflow as tf
+import tensorflow_addons as tfa
+import sklearn.metrics
 
 # Local imports
-# from . import utilities as util
 import utilities as util
-
-# LSTM related imports
-# from tensorflow import keras
-# from keras.preprocessing.sequence import pad_sequences
-# from keras_preprocessing.sequence import pad_sequences
-
-# from sklearn.model_selection import train_test_split
-# from sklearn.model_selection import KFold
-# from sklearn.metrics import classification_report
-# from sklearn.metrics import confusion_matrix
-# from sklearn_crfsuite import metrics as crf_metrics
 
 # Based on https://www.depends-on-the-definition.com/guide-sequence-tagging-neural-networks-python/
 
-class LSTM_model():
-
-    # Constants    
+class Latin_LSTM():
+    """This class provides the user with tools to create an LSTM model for scanning Latin. On startup,
+    it prepares the padding procedures and creates syllable and label dictionaries for the one-hot encoding
+    used by the LSTM. Having done that, the class can create and save models and predict custom syllable-label lists.
+    """    
+    # class constants    
     PADDING = 'padding'
     LABELS = np.array(['long', 'short', 'elision', 'space', PADDING])
 
-    def __init__(self,
-            working_directory, 
-            num_epochs,
-            split_size,
-            ):
+    def __init__(
+        self,
+        sequence_labels_folder: str,
+        models_save_folder: str,
+        anceps_label: bool = False):
 
-        self.working_directory : str = working_directory
-        self.num_epochs : int = num_epochs
-        self.split_size : float = split_size
+        self.anceps_label = anceps_label
+        self.sequence_labels_folder = sequence_labels_folder
+        self.models_save_folder = models_save_folder
 
-        self.selected_model : str = 'HEX_ELE-all'
-
-        self.sequence_label_path = self.working_directory + 'pickle/sequence_labels/'
-        self.lstm_model_path = self.working_directory + 'models/lstm/' + self.selected_model
-
-        # if FLAGS.anceps:
-            # self.LABELS = np.array(['long', 'short', 'elision', 'space', self.PADDING, 'anceps'])
+        if self.anceps_label:
+            self.LABELS = np.array(['long', 'short', 'elision', 'space', self.PADDING, 'anceps'])
 
         # To make the LSTM with integer hashing working, we need to make a list of all syllables from all the texts we are looking at 
         # First, find all our pickle files   
-        all_sequence_label_pickles = util.create_files_list(self.sequence_label_path, 'pickle') 
+        all_sequence_label_pickles = util.create_files_list(self.sequence_labels_folder, 'pickle') 
         # Merge them into one big file list
-        sequence_labels_all_set = util.merge_sequence_label_lists(all_sequence_label_pickles, self.sequence_label_path) 
+        sequence_labels_all_set = util.merge_sequence_label_lists(all_sequence_label_pickles, self.sequence_labels_folder) 
         # Retrieve all syllables from this big list
         all_text_syllables = self.retrieve_syllables_from_sequence_label_list(sequence_labels_all_set)
         # We need to extract the max sentence length over all these texts to get the padding correct later
@@ -66,56 +47,24 @@ class LSTM_model():
         self.word2idx, self.label2idx = self.create_idx_dictionaries(self.unique_syllables, self.LABELS)            
 
         # With that out of the way, we can start the LSTM process
-        print('\nPreprocessing done.')
+        print('Preprocessing done.')
         print('number of syllables: ', len(self.unique_syllables))
         print('number of labels: ', len(self.LABELS))
         print('max_sentence_length: ', self.max_sentence_length)
 
-        # if FLAGS.single_text:
-            # text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'),'HEX_ELE-all.pickle')
-            # self.run_idx_lstm_single_text(text, 
-                                          # do_evaluate=True, 
-                                          # do_metric_report=True, 
-                                          # do_confusion_matrix=True, 
-                                          # print_stats=False)
+    def predict_given_set(
+        self, 
+        given_set: list,
+        model) -> list:
+        """Given the set and the model, this function returns a list with predictions.
 
-        # if FLAGS.kfold:
-            # text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), FLAGS.train)
-            
-            # all_text_syllables = self.retrieve_syllables_from_sequence_label_list(text)
-            # max_sentence_length = self.retrieve_max_sentence_length(text)
-            # unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING) # needs to be sorted for word2idx consistency!            
-            # word2idx, label2idx = self.create_idx_dictionaries(unique_syllables, self.LABELS)
+        Args:
+            given_set (list): with sequences to be predicted
+            model (tensorflow model): that has to predict the given set 
 
-            # X, y = self.create_X_y_sets(text, word2idx, label2idx, max_sentence_length)
-
-            # # Perform kfold to check if we don't have any overfitting
-            # result = self.kfold_model(text, X, y, 5, max_sentence_length, unique_syllables)
-            # print(result)
-
-        # if True:
-        #     train_texts = ['SEN-proofread.pickle']
-        #     test_texts = ['SEN-aga.pickle']
-        #     self.do_experiment(train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='seneca_anceps', plot_title='Trimeter Texts')
-
-
-    def custom_train_test(self):
-        train_texts = ['HEX_ELE-all.pickle'] #['VERG-aene.pickle']#
-        test_texts = ['anapest.pickle', 'dimeter.pickle', 'hendycasyllable.pickle', 'glyconee.pickle', 'tetrameter.pickle', 'trimeter.pickle'] #FLAGS.test
-        self.do_experiment(
-            train_texts, 
-            test_texts, 
-            self.max_sentence_length, 
-            self.unique_syllables, 
-            self.word2idx, 
-            self.label2idx, 
-            exp_name='seneca_precise', 
-            plot_title='Trimeter Texts'
-            )
-
-    #luukie
-    def predict_given_set(self, given_set) -> list:
-
+        Returns:
+            list: with predictions per given syllable in the given_set
+        """        
         # now we map the sentences and labels to a sequence of numbers
         X = [[self.word2idx[w] for w in s] for s in given_set]  # key 0 are labels
         # and then (post)pad the sequences using the PADDING label.
@@ -126,220 +75,16 @@ class LSTM_model():
                 value = self.word2idx[self.PADDING]
                 ) # value is our padding key
 
-        model = tf.keras.models.load_model(self.lstm_model_path)
+        # model = tf.keras.models.load_model(self.lstm_model_path)
 
         y_pred = model.predict(X)
         y_pred = np.argmax(y_pred, axis=-1)
 
         return y_pred
 
-    def kfold_model(self, sequence_labels, X, y, splits, max_sentence_length, unique_syllables):
-        """Performs a kfold cross validation of a LSTM model fitted and trained on the given data
-
-        Args:
-            sequence_labels (list): of sequence labels and their features
-            X (numpy array): of training/test examples
-            y (numpy array): of labels
-            splits (int): of number of splits required
-
-        Returns:
-            dict: with results of the cross validation
-        """        
-        if util.cf.get('Util', 'verbose'): print('Predicting the model')
-
-        report_list = []
-
-        # Convert the list of numpy arrays to a numpy array with numpy arrays
-        # X = np.array(X, dtype=object)
-        # y = np.array(y, dtype=object)
-        kf = KFold(n_splits=splits, shuffle=True, random_state=42)
-
-        for train_index, test_index in kf.split(sequence_labels):
-
-            X_train, X_test = X[train_index], X[test_index]
-            y_train, y_test = y[train_index], y[test_index]
-
-            model = self.get_model( max_len = max_sentence_length,
-                                    num_syllables = len(unique_syllables),
-                                    num_labels = len(self.LABELS),
-                                    X = X_train,
-                                    y = y_train,
-                                    epochs = FLAGS.epochs,
-                                    create_model = True,
-                                    save_model = FLAGS.save_model)
-
-            metrics_report = self.create_metrics_report(model, X_test, y_test, output_dict=True)
-            # TODO: just print a score for each run to terminal
-            report_list.append(metrics_report)
-
-        result = util.merge_kfold_reports(report_list)
-
-        return result
-
-    def combine_sequence_label_lists(self, key, name):
-        # TO COMBINE LISTS
-        name = name + '.pickle'
-        my_list = sorted(util.create_files_list(util.cf.get('Pickle', 'path_sequence_labels'), key))
-        temp = util.merge_sequence_label_lists(my_list, util.cf.get('Pickle', 'path_sequence_labels'))
-        util.Pickle_write(util.cf.get('Pickle', 'path_sequence_labels'), name, temp)
-
-    def print_length_sequence_label_files(self):
-        # TO FIND LENGTH
-        my_list = sorted(util.create_files_list  (util.cf.get('Pickle', 'path_sequence_labels'), '.pickle'))
-        for text in my_list:
-            current_text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), text)
-            print(text, len(current_text))
-
-
-    def do_experiment(self, train_texts, test_texts, max_sentence_length, unique_syllables, word2idx, label2idx, exp_name='default', plot_title='default'):
-        # import matplotlib.pyplot as plt        
-        
-        column_names = ["predictor", "predictee", "score"]
-        
-        # df = pd.DataFrame(columns = [])
-
-        df = pd.DataFrame(columns = ["epochs", "anapest_long", "anapest_short",
-                                        'dimeter_long', 'dimeter_short',
-                                        'tetrameter_long','tetrameter_short',
-                                        'glyconee_long', 'glyconee_short',
-                                        'hendycasyllable_long', 'hendycasyllable_short',
-                                        'trimeter_long', 'trimeter_short'])
-
-
-
-        # df.to_csv('epoch_learning_rate_testing.csv', mode='w', index=False, header=True)
-
-        new_line = {'epochs': self.num_epochs}
-        df = df.append(new_line, ignore_index=True)    
-
-        df_long = pd.DataFrame(columns = column_names)
-        df_short = pd.DataFrame(columns = column_names)
-        df_elision = pd.DataFrame(columns = column_names)
-
-        # Merge the training and test texts and retrieve from it all data we need to get the model working
-        # all_texts = train_texts + test_texts
-        # sequence_labels_all_set = util.merge_sequence_label_lists(all_texts, util.cf.get('Pickle', 'path_sequence_labels'))
-
-        # all_text_syllables = self.retrieve_syllables_from_sequence_label_list(sequence_labels_all_set)
-        # max_sentence_length = self.retrieve_max_sentence_length(sequence_labels_all_set)
-        # unique_syllables = np.append(sorted(list(set(all_text_syllables))), self.PADDING)
-        # word2idx, label2idx = self.create_idx_dictionaries(unique_syllables, self.LABELS)
-
-        for train_text in train_texts:
-
-
-            sequence_labels_training_text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), train_text)
-            X_train, y_train = self.create_X_y_sets(sequence_labels_training_text, word2idx, label2idx, max_sentence_length)
-
-            model = self.get_model( max_len = max_sentence_length,
-                                    num_syllables = len(unique_syllables),
-                                    num_labels = len(self.LABELS),
-                                    X = X_train,
-                                    y = y_train,
-                                    epochs = FLAGS.epochs,
-                                    create_model = FLAGS.create_model,
-                                    save_model = FLAGS.save_model,
-                                    model_name = train_text.split('.')[0])
-
-            for test_text in test_texts:
-
-                sequence_labels_test_text = util.Pickle_read(util.cf.get('Pickle', 'path_sequence_labels'), test_text)
-                X_test, y_test = self.create_X_y_sets(sequence_labels_test_text, word2idx, label2idx, max_sentence_length)
-                classification_report = self.create_classification_report(model, X_test, y_test)
-
-                # print(test_text, classification_report)
-
-                predictee = test_text.split('.')[0]#.capitalize()
-                score_long = float(round(classification_report['0']['f1-score'],2))
-                score_short = float(round(classification_report['1']['f1-score'],2))
-                # score_elision = float(round(classification_report['2']['f1-score'],2))
-                
-                # print(score_long, score_short, predictee)
-                # new_line_long = {'epochs': self.num_epochs, 'predictee': predictee+'_long', 'long': score_long, 'short': score_short}
-                # new_line_short = {'epochs': self.num_epochs, 'predictee': predictee+'_short', 'short': score_short}
-
-                predictee_long = predictee+'_long'
-                predictee_short = predictee+'_short'
-
-                df.loc[df['epochs'] == self.num_epochs, [predictee_long]] = score_long
-                df.loc[df['epochs'] == self.num_epochs, [predictee_short]] = score_short
-
-
-                # df = df.append(new_line, ignore_index=True)    
-
-                print(df)
-
-                continue
-                # exit(0)
-
-                # if self.FLAGS.metrics_report:
-                #     print_metrics_report = self.create_confusion_matrix(model, X_test, y_test)
-                #     # self.create_seaborn_heatmap(print_metrics_report)
-                    
-                    
-                #     print(print_metrics_report)
-                #     print_metrics_report = self.create_metrics_report(model, X_test, y_test, output_dict=True)
-                #     print(print_metrics_report)                    
-                    
-                    # exit(0)
-
-                predictor = train_text.split('-')[0].capitalize() # get names
-                predictee = test_text.split('-')[0].capitalize()
-
-                score_long = float(round(metrics_report['long']['f1-score'],4)) # save the score
-                score_short = float(round(metrics_report['short']['f1-score'],4)) # save the score
-                score_elision = float(round(metrics_report['elision']['f1-score'],4)) # save the score
-                
-                # Add score to the dataframe for our heatmap
-                new_line_long = {'predictor': predictor, 'predictee': predictee, 'score': score_long}
-                new_line_short = {'predictor': predictor, 'predictee': predictee, 'score': score_short}
-                new_line_elision = {'predictor': predictor, 'predictee': predictee, 'score': score_elision}
-
-                df_long = df_long.append(new_line_long, ignore_index=True)    
-                df_short = df_short.append(new_line_short, ignore_index=True)    
-                df_elision = df_elision.append(new_line_elision, ignore_index=True)   
-
-
-        # df.to_csv('epoch_learning_rate_testing.csv', mode='a', index=False, header=False)
-        df.to_csv('epoch_learning_rate_testing2.csv', mode='w', index=False, header=True)
-
-        print(df)
-        exit(0)
-
-        time = datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
-
-        heatmap_data = pd.pivot_table(df_long, values='score', index=['predictor'], columns='predictee')
-        heatmap_data.to_csv('./csv/{0}_f1-scores_long.csv'.format(time))
-        myplot = plt.figure(figsize=(16,10))
-        myplot = plt.subplot(2, 2, 1)
-        myplot = util.create_heatmap(dataframe = heatmap_data,
-                        xlabel = 'test',
-                        ylabel = 'train',
-                        title = '{0}: Long f1-scores'.format(plot_title),
-                        filename = '{0}-long'.format(exp_name),
-                        path = './plots/experiments/')
-
-        heatmap_data = pd.pivot_table(df_short, values='score', index=['predictor'], columns='predictee')
-        heatmap_data.to_csv('./csv/{0}_f1-scores_short.csv'.format(time))
-        myplot = plt.subplot(2, 2, 2)        
-        myplot = util.create_heatmap(dataframe = heatmap_data,
-                        xlabel = 'test',
-                        ylabel = 'train',
-                        title = '{0}: Short f1-scores'.format(plot_title),
-                        filename = '{0}-short'.format(exp_name),
-                        path = './plots/experiments/')
-
-        heatmap_data = pd.pivot_table(df_elision, values='score', index=['predictor'], columns='predictee')
-        heatmap_data.to_csv('./csv/{0}_f1-scores_elision.csv'.format(time))
-        myplot = plt.subplot(2, 2, 3)
-        myplot = util.create_heatmap(dataframe = heatmap_data,
-                        xlabel = 'test',
-                        ylabel = 'train',
-                        title = '{0}: Elision f1-scores'.format(plot_title),
-                        filename = '{0}-elision'.format(exp_name),
-                        path = './plots/experiments/')
-
-    def create_idx_dictionaries(self, unique_syllables, labels):
+    def create_idx_dictionaries(self,
+        unique_syllables: list, 
+        labels: list):
         """This function creates the idx dictionaries needed for creating an LSTM on syllable hashes
 
         Args:
@@ -353,7 +98,11 @@ class LSTM_model():
         label2idx = {t: i for i, t in enumerate(labels)}   
         return word2idx, label2idx     
 
-    def create_X_y_sets(self, given_set, word2idx, label2idx, max_sentence_length):
+    def create_X_y_sets(self, 
+                        given_set: list, 
+                        word2idx: list, 
+                        label2idx: list, 
+                        max_sentence_length: int):
         """Creates X and y sets that can be used by LSTM. Pads sequences and converts y to categorical
 
         Args:
@@ -363,7 +112,8 @@ class LSTM_model():
             max_sentence_length (int): max length of a sentence: used for padding
 
         Returns:
-            list: of X and y sets
+            list: of X set
+            list: of y set
         """        
         # now we map the sentences and labels to a sequence of numbers
         X = [[word2idx[w[0]] for w in s] for s in given_set]  # key 0 are labels
@@ -376,55 +126,67 @@ class LSTM_model():
 
         return X, y
 
-    def do_prediction(self, model, X, y):
+    def do_prediction(self, 
+        model, 
+        X: list, 
+        y: list):
         """Does a prediction given the model, X and y sets
 
         Args:
-            model (_type_): _description_
-            X (_type_): _description_
-            y (_type_): _description_
+            model (tensorflow model): that needs to do the predicting
+            X (list): with syllables that need predicting
+            y (_type_): with labels that are the predictions
         """        
         y_pred = model.predict(X)
 
-        # ['long', 'short', 'elision', 'space', self.PADDING, 'anceps']
-
-
-        if self.FLAGS.anceps: # We dont want to predict the label anceps, so we delete it from the possible predictions
+        if self.anceps_label: # We dont want to predict the label anceps, so we delete it from the possible predictions
             for line in y_pred:
                 for syllable in line:
-                    # print(syllable)
                     # check which label has the highest confidence
                     position = np.where(syllable == np.amax(syllable))
                     # if it is the anceps label, check confidence for long and short
                     if position[0][0] == 5:
                         long = syllable[0]
                         short = syllable[1]
-
                         if long > short:
                             syllable = np.array([1, 0, 0, 0, 0, 0])
                         else:
-                            syllable = np.array([0, 1, 0, 0, 0, 0])
-                    # else:
-                        
-
-            # print(y_pred[0]) # = y_pred[:, :, :-1]
-            
+                            syllable = np.array([0, 1, 0, 0, 0, 0])                        
+        # generate y_pred and return per syllable the integer (syllable) with the highest confidence            
         y_pred = np.argmax(y_pred, axis=-1)
         y = np.argmax(y, axis=-1)
 
         return y, y_pred
 
-    def create_model(self, text, save_model = True, model_name = 'default'):
-        sequence_labels_training_text = util.pickle_read(self.sequence_label_path, text)
-        X_train, y_train = self.create_X_y_sets(sequence_labels_training_text, self.word2idx, self.label2idx, self.max_sentence_length)
+    def create_model(self, 
+        num_epochs : int,
+        text : str, 
+        save_model : bool = True,
+        model_name : str = 'default'):
+        """Function to create a model given a text (pickled sequence label file). Returns the
+        created model. In addition, allows the model to be saved to disk.
 
-        model = lstm.get_model(
-            max_len = lstm.max_sentence_length,
-            num_syllables = len(lstm.unique_syllables),
-            num_labels = len(lstm.LABELS),
+        Args:
+            text (string): name of pickled sequence label file to be used for training
+            save_model (bool, optional): whether the created model is to be saved to disk. Defaults to True.
+            model_name (str, optional): name to be given to the saved model (folder name). Defaults to 'default'.
+
+        Returns:
+            tensorflow model: containing the trained LSTM
+        """        
+        sequence_labels_training_text = util.pickle_read(self.sequence_labels_folder, text)
+        X_train, y_train = self.create_X_y_sets(sequence_labels_training_text, 
+                                                self.word2idx, 
+                                                self.label2idx, 
+                                                self.max_sentence_length)
+
+        model = self.get_model(
+            max_len = self.max_sentence_length,
+            num_syllables = len(self.unique_syllables),
+            num_labels = len(self.LABELS),
             X = X_train,
             y = y_train,
-            epochs = self.num_epochs,
+            epochs = num_epochs,
             create_model = True,
             save_model = save_model,
             model_name = model_name
@@ -432,7 +194,10 @@ class LSTM_model():
 
         return model
 
-    def create_confusion_matrix(self, model, X, y):
+    def create_confusion_matrix(self, 
+        model, 
+        X : list, 
+        y : list):
         """Creates a confusion matrix from the given model, X and y sets. As y is one-hot encoded, we need to take
         the argmax value. Secondly, because the list of lists structure (sentences), we need to flatten both prediction
         lists in order to pass them to the confusion_matrix function.
@@ -445,24 +210,18 @@ class LSTM_model():
         Returns:
             confusion matrix: of labels
         """        
-        # y_pred = model.predict(X)
+        if self.FLAGS.anceps: # We dont want to predict the label anceps, so we delete it from the possible predictions
+            y_pred = y_pred[:, :, :-1]
 
-        # if self.FLAGS.anceps: # We dont want to predict the label anceps, so we delete it from the possible predictions
-        #     y_pred = y_pred[:, :, :-1]
-
-        # y_pred = np.argmax(y_pred, axis=-1)
-        # y = np.argmax(y, axis=-1)
         y, y_pred = self.do_prediction(model, X, y)
 
-        flat_list = [item for sublist in y for item in sublist]
-        flat_list2 = [item for sublist in y_pred for item in sublist]
+        return sklearn.metrics.confusion_matrix(self.flatten_list(y), self.flatten_list(y_pred))
 
-        return confusion_matrix(flat_list, flat_list2)
-
-    def flatten_list(self, given_list: list) -> list:
-        return [item for sublist in given_list for item in sublist]
-
-    def create_classification_report(self, model, X, y, output_dict=True):
+    def create_classification_report(self, 
+        model, 
+        X : list, 
+        y : list, 
+        output_dict : dict = True):
         """Returns a metrics classification report given the model and X and y sets.
         This shows the precision and recall of label predictions
 
@@ -475,13 +234,34 @@ class LSTM_model():
             dataframe: with the metrics report to be printed
         """        
         y, y_pred = self.do_prediction(model, X, y)
-        return classification_report(self.flatten_list(y), self.flatten_list(y_pred), 
+        return sklearn.metrics.classification_report(self.flatten_list(y), self.flatten_list(y_pred), 
             # labels=[0, 1, 2, 3, 4],
             # target_names=['long', 'short', 'elision', 'space', 'padding'],
             output_dict=True, 
         )
 
-    def get_model(self, max_len, num_syllables, num_labels, X, y, epochs, create_model, save_model, model_name='default'):
+    def flatten_list(self, given_list: list) -> list:
+        """Flattens the given list. Meaning that nested lists inside the given lists are
+        turned into one list. For example, [[a,b],[c]] -> [a,b,c]
+
+        Args:
+            given_list (list): nested list that needs to be flattened
+
+        Returns:
+            list: flattened list
+        """        
+        return [item for sublist in given_list for item in sublist]
+
+    def get_model(self, 
+        max_len : int, 
+        num_syllables : int, 
+        num_labels : int, 
+        X : list, 
+        y : list, 
+        epochs : int, 
+        create_model : bool, 
+        save_model : bool, 
+        model_name : str = 'default'):
         """Returns the LSTM model from the given parameters. Also allows a model to be loaded from disk
 
         Args:
@@ -491,23 +271,21 @@ class LSTM_model():
             X (list): with training examples
             y (list): with training labels
             epochs (int): number of epochs to train the model
-            load_from_disk (bool): whether to load the model from disk
+            create_model (bool): whether to create the model or load it from disk
+            save_model (bool): whether to save the model to disk
+            model_name (str, optional): name of saved folder in case of saving. Defaults to 'default'.
 
         Returns:
-            object: lstm model
+            _type_: _description_
         """
-        path = './models/lstm/' + model_name    # Get model path name for saving or loading
+        path = self.models_save_folder + model_name # get model path name for saving or loading
         
         do_crf: bool = False
-
-        import tensorflow as tf
-        import tensorflow_addons as tfa
-        from tensorflow_addons.layers import CRF
 
         embedding_output_dim: int = 25 # 25      
         lstm_layer_units: int = 10 # 10
         BATCH_SIZE: int = 32 # 64
-        EPOCHS: int = self.num_epochs
+        EPOCHS: int = epochs
         LEARNING_RATE: float = 0.001
 
         if create_model:
@@ -523,19 +301,19 @@ class LSTM_model():
 
             # model = Dropout(0.1)(model)
 
-            model = tf.keras.layers.LSTM(
-                    units = lstm_layer_units, 
-                    return_sequences = True, 
-                    recurrent_dropout = 0.1
-                )(model)
-
-            # model = tf.keras.layers.Bidirectional(
-            #     tf.keras.layers.LSTM(
+            # model = tf.keras.layers.LSTM(
             #         units = lstm_layer_units, 
             #         return_sequences = True, 
             #         recurrent_dropout = 0.1
-            #     )
-            # )(model)
+            #     )(model)
+
+            model = tf.keras.layers.Bidirectional(
+                tf.keras.layers.LSTM(
+                    units = lstm_layer_units, 
+                    return_sequences = True, 
+                    recurrent_dropout = 0.1
+                )
+            )(model)
 
             model = tf.keras.layers.Dense(num_labels, activation='softmax')(model)
 
@@ -543,7 +321,7 @@ class LSTM_model():
             # kernel = TimeDistributed(Dense(num_labels, activation="softmax"))(model)  # softmax output layer
 
             if do_crf:
-                crf = CRF(units = num_labels)
+                crf = tfa.layers.CRF(units = num_labels)
                 decoded_sequence, model, sequence_length, chain_kernel = crf(model)
                 # tfa.losses.SigmoidFocalCrossEntropy(),
                 # print(decoded_sequence.shape, potentials.shape, sequence_length.shape, chain_kernel.shape)
@@ -581,9 +359,7 @@ class LSTM_model():
         else:
             return tf.keras.models.load_model(path)
 
-
-
-    def retrieve_max_sentence_length(self, sequence_labels):
+    def retrieve_max_sentence_length(self, sequence_labels: list) -> int:
         """Returns the maximum sentence length of the given sequence label list. Used for padding calculations
 
         Args:
@@ -592,7 +368,7 @@ class LSTM_model():
         Returns:
             int: of maximum sentence length
         """        
-        max_len = 0
+        max_len : int = 0
 
         for sentence in sequence_labels:
             if len(sentence) > max_len:
@@ -600,7 +376,7 @@ class LSTM_model():
 
         return max_len
 
-    def retrieve_syllables_from_sequence_label_list(self, sequence_labels):
+    def retrieve_syllables_from_sequence_label_list(self, sequence_labels: list) -> list:
         """returns all the syllables from the given sequence label list 
 
         Args:
@@ -617,85 +393,19 @@ class LSTM_model():
 
         return syllable_list
 
-    def create_seaborn_heatmap(self, confusion_matrix):
-        if self.FLAGS.anceps:
-            labels = ['long', 'short', 'elision', 'space', 'padding', 'anceps']
-        else:
-            labels = ['long', 'short', 'elision', 'space', 'padding']
-
-        df_confusion_matrix = pd.DataFrame(confusion_matrix, index = labels,
-                                        columns = labels)
-        # Drop the padding labels, as we don't need them (lstm scans them without confusion): delete both row and column
-        df_confusion_matrix = df_confusion_matrix.drop('padding')
-        df_confusion_matrix = df_confusion_matrix.drop(columns=['padding', 'space'])
-
-        df_confusion_matrix = df_confusion_matrix.drop('space')
-        
-        if self.FLAGS.anceps:
-            df_confusion_matrix = df_confusion_matrix.drop(columns=['anceps'])
-            df_confusion_matrix = df_confusion_matrix.drop('anceps')            
-        
-        # df_confusion_matrix = df_confusion_matrix.drop(columns=['padding'])
-
-        util.create_heatmap(dataframe = df_confusion_matrix,
-                            xlabel = 'TRUTH', 
-                            ylabel =  'PREDICTED',
-                            title = 'CONFUSION MATRIX',
-                            filename = 'new_confusion_matrix',
-                            # vmax = 500
-                            )         
-
 if __name__ == "__main__":
-    p = argparse.ArgumentParser()
-    # p.add_argument("--create_model", action="store_true", help="specify whether to create the model: if not specified, we load from disk")
-    # p.add_argument("--save_model", action="store_true", help="specify whether to save the model: if not specified, we do not save")
-    p.add_argument("--single_text", action="store_true", help="specify whether to run the single text LSTM function")
-    # p.add_argument("--exp_hexameter", action="store_true", help="specify whether to run the hexameter LSTM experiment")
-    # p.add_argument("--exp_transfer", action="store_true", help="specify whether to run the hexameter transerability LSTM experiment")
-    # p.add_argument("--exp_elegiac", action="store_true", help="specify whether to run the hexameter genre LSTM experiment")
-    # p.add_argument("--exp_train_test", action="store_true", help="specify whether to run the train/test split LSTM experiment")
-    # p.add_argument("--exp_transfer_boeth", action="store_true", help="specify whether to run the Boeth LSTM experiment")
-    p.add_argument("--model_predict", action="store_true", help="let a specific model predict a specific text")
-    p.add_argument("--metrics_report", action="store_true", help="specifiy whether to print the metrics report")
-    # p.add_argument("--kfold", action="store_true", help="specifiy whether to run the kfold experiment")
 
-    p.add_argument("--anceps", action="store_true", help="specify whether to train on an anceps text")
-    # p.add_argument("--verbose", action="store_true", help="specify whether to run the code in verbose mode")
-    
-    # p.add_argument('--epochs', default=25, type=int, help='number of epochs')
-    p.add_argument("--split", type=util.restricted_float, default=0.2, help="specify the split size of train/test sets")
-
-    p.add_argument("--create_model", action="store_true", 
-                    help="specify whether to create the model: if not specified, we load from disk")
-    p.add_argument("--save_model", action="store_true", 
-                    help="specify whether to save the model: if not specified, we do not save")
-    p.add_argument("--verbose", action="store_true", 
-                    help="specify whether to run the code in verbose mode")
-    p.add_argument('--epochs', default=25, type=int, 
-                    help='number of epochs')
-
-    p.add_argument('--custom_train_test', action="store_true", 
-                    help='Run the model with the provided train and test set')
-    p.add_argument('--kfold', action="store_true", 
-                    help='Train and test the model on the same training set using kfold cross validation')
-    p.add_argument('--train', default='none', type=str, 
-                    help='Dataset to train the model on')
-    p.add_argument('--test', default='none', type=str, 
-                    help='Dataset to test the model on')
-
-
-    FLAGS = p.parse_args()    
-    
-    lstm = LSTM_model(
-        working_directory = './',
-        num_epochs = FLAGS.epochs,
-        split_size = FLAGS.split,
+    lstm = Latin_LSTM(
+        sequence_labels_folder = './scansions/sequence_labels/',
+        models_save_folder = './models/lstm/',
+        anceps_label = False,
         ) 
 
     model = lstm.create_model(
-        'HEX_ELE-all.pickle', 
+        num_epochs = 2,
+        text = 'HEX_ELE-all.pickle', 
         save_model = True, 
-        model_name = 'non_overfitting_lstm'
+        model_name = 'temp'
         )
 
         
