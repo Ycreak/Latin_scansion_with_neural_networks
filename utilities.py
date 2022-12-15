@@ -123,7 +123,7 @@ def create_files_list(path, substring):
 
     return list
 
-def merge_lists(self, list1, list2):
+def merge_lists(list1, list2):
     """Merge two lists into one -> [(l1_a, l2_a), (l1_b, l2_b)]
 
     Args:

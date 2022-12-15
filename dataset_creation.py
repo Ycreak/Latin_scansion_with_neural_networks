@@ -8,7 +8,7 @@ import pickle
 from bs4 import BeautifulSoup
 from progress.bar import Bar
 from mqdq import rhyme as mqdq_rhyme
-from mqdq.cltk_hax import syllabifier as mqdq_syllabify
+from mqdq.cltk_hax.syllabifier import Syllabifier
 
 # Class imports
 import utilities as util
@@ -22,8 +22,10 @@ class Anceps_parser():
         
         path = conf.ANCEPS_SCANSION_FOLDER
         text_list = util.create_files_list(path, 'json')
+        syllabify_word = Syllabifier().syllabify
 
         for anceps_text in text_list:
+            print('Working on {0}'.format(anceps_text))
             file = path + anceps_text
 
             # Opening JSON file
@@ -63,7 +65,7 @@ class Anceps_parser():
                 # Now, split both the syllables and scansion
                 for idx, word in enumerate(current_verse):
                     word = re.sub(r'\W+', '', word)
-                    syllabified = mqdq_syllabify(word)
+                    syllabified = syllabify_word(word)
                     # Get the scansions that belong to the current word
                     scansioned = list(scansion_list[idx])
                     # Convert the labels
@@ -126,7 +128,7 @@ class Pedecerto_parser:
                     if soupedEntry[line]['pattern'] == 'not scanned': # These lines we also skip
                         continue
                     if soupedEntry[line]['meter'] == "H" or soupedEntry[line]['meter'] == "P": # We only want hexameters or pentameters
-                        line_sequence_label_list, success = self.process_line(soupedEntry[line], book_title)
+                        line_sequence_label_list, success = self.process_line(soupedEntry[line])
                         if success:
                             # Only add the line if no errors occurred.
                             text_sequence_label_list.append(line_sequence_label_list)

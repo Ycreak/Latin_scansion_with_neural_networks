@@ -67,7 +67,7 @@ class Latin_LSTM():
             list: with predictions per given syllable in the given_set
         """        
         # now we map the sentences and labels to a sequence of numbers
-        X = [[self.word2idx[w] for w in s] for s in given_set]  # key 0 are labels
+        X = [[self.word2idx[w[0]] for w in s] for s in given_set]  # key 0 are labels
         # and then (post)pad the sequences using the PADDING label.
         X = tf.keras.utils.pad_sequences(
                 maxlen = self.max_sentence_length, 
@@ -75,8 +75,6 @@ class Latin_LSTM():
                 padding = "post", 
                 value = self.word2idx[self.PADDING]
                 ) # value is our padding key
-
-        # model = tf.keras.models.load_model(self.lstm_model_path)
 
         y_pred = model.predict(X)
         y_pred = np.argmax(y_pred, axis=-1)
@@ -359,6 +357,17 @@ class Latin_LSTM():
         
         else:
             return tf.keras.models.load_model(path)
+
+    def load_model(self, path: str):
+        """Loads the model from the given path
+
+        Args:
+            path (string): containing the path of the saved model
+
+        Returns:
+            tf.keras model: used to scan poetry
+        """        
+        return tf.keras.models.load_model(path)
 
     def retrieve_max_sentence_length(self, sequence_labels: list) -> int:
         """Returns the maximum sentence length of the given sequence label list. Used for padding calculations
