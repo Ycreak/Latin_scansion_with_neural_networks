@@ -45,7 +45,7 @@ The [Pedecerto](https://www.pedecerto.eu/public/) project uses a rule-based appr
 2. Place the downloaded XML files in the **scansions/pedecerto/** folder.
 3. Call the **convert_pedecerto_xml_to_syllable_sequence_files** function from the **data_creation** module. For example:
 
-```console 
+```python 
 from lsnn import dataset_creation
 
 dataset_creation.Pedecerto_parser().convert_pedecerto_xml_to_syllable_sequence_files(
@@ -57,7 +57,7 @@ This will create pickle files with syllable-label lists and save them to the **s
 
 4. (Optional) You can combine the syllable label list of multiple texts and authors by running the following code:
 
-```console 
+```python 
 util.combine_sequence_label_lists(
     list_with_file_names = util.create_files_list(conf.SEQUENCE_LABELS_FOLDER, 'pickle'), 
     output_name = 'combined.pickle', 
@@ -68,12 +68,14 @@ util.combine_sequence_label_lists(
 
 This will automatically combine all pickled sequence-label lists in the sequence_labels folder and save the combination as **combined.pickle**. Additionally, you can specify which files you want combined by providing a list. For example:
 
+```python 
 util.combine_sequence_label_lists(
     list_with_file_names = ['HOR-arpo', 'ENN-anna'], 
     output_name = 'combined.txt', 
     destination_path = conf.SEQUENCE_LABELS_FOLDER,
     add_extension = True
 )
+```
 
 **IMPORTANT** Make sure that all your pickled syllable-label lists are stored in the **scansions/sequence_labels/** folder, as this is the folder the machine learning tools will use when searching for datasets. One can edit the paths via the **config.py** file.
 
@@ -85,7 +87,7 @@ The [Anceps]([https://www.pedecerto.eu/public/](https://github.com/Dargones/ance
 1. Create scansion files using the Anceps tools, or download complete scansions from the [Senecan Trimeter and Humanist Tragedy repository](https://github.com/QuantitativeCriticismLab/AJP-2022-Senecan-Trimeter).
 2. Put the JSON files in the **scansions/anceps/** folder and run the following command:
 
-```console
+```python
 from lsnn import dataset_creation
 
 dataset_creation.Anceps_parser().convert_anceps_json_to_syllable_sequence_files(
