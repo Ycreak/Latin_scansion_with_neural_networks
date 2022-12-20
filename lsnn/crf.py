@@ -6,9 +6,7 @@ import sklearn
 import sklearn_crfsuite
 
 # Class imports
-import utilities as util
-import config as conf
-
+from lsnn import utilities as util
 
 class Latin_CRF:
     ''' This class handels Conditional Random Fields sequence labeling.
@@ -52,7 +50,7 @@ class Latin_CRF:
         predictee_X, predictee_y = self.convert_text_to_feature_sets(predictee_text)
         result = self.predict_model(crf_model, predictee_X, predictee_y)
 
-        print(result)
+        return result
 
     def predict_model(self, model, X, y):
         """ Predicts labels y given the model and examples X. Returns the metric report.
@@ -212,22 +210,22 @@ class Latin_CRF:
 
         return result
 
-if __name__ == "__main__":
-    p = argparse.ArgumentParser()
-    p.add_argument("--custom_prediction", action="store_true", help="specify whether to create the model: if not specified, we load from disk")
-    p.add_argument("--kfold", action="store_true", help="specify whether to run kfold experiment")
-    FLAGS = p.parse_args()    
+# if __name__ == "__main__":
+#     p = argparse.ArgumentParser()
+#     p.add_argument("--custom_prediction", action="store_true", help="specify whether to create the model: if not specified, we load from disk")
+#     p.add_argument("--kfold", action="store_true", help="specify whether to run kfold experiment")
+#     FLAGS = p.parse_args()    
 
-    latin_crf = Latin_CRF()
+#     latin_crf = Latin_CRF()
 
-    if FLAGS.custom_prediction:
-        latin_crf.custom_prediction(
-            predictor = util.pickle_read(conf.SEQUENCE_LABELS_FOLDER, FLAGS.train),
-            predictee = util.pickle_read(conf.SEQUENCE_LABELS_FOLDER, FLAGS.test))
+#     if FLAGS.custom_prediction:
+#         latin_crf.custom_prediction(
+#             predictor = util.pickle_read(conf.SEQUENCE_LABELS_FOLDER, FLAGS.train),
+#             predictee = util.pickle_read(conf.SEQUENCE_LABELS_FOLDER, FLAGS.test))
 
-    if FLAGS.kfold:
-        result = latin_crf.kfold_model(
-            sequence_labels = util.pickle_read(conf.SEQUENCE_LABELS_FOLDER, FLAGS.train),
-            splits = 5)
-        print(result)
+#     if FLAGS.kfold:
+#         result = latin_crf.kfold_model(
+#             sequence_labels = util.pickle_read(conf.SEQUENCE_LABELS_FOLDER, FLAGS.train),
+#             splits = 5)
+#         print(result)
 

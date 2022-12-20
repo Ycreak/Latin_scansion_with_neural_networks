@@ -11,22 +11,24 @@ from mqdq import rhyme as mqdq_rhyme
 from mqdq.cltk_hax.syllabifier import Syllabifier
 
 # Class imports
-import utilities as util
-import config as conf
+from lsnn import utilities as util
 
 class Anceps_parser():
     """This class parses the Anceps JSON files into a syllable label list which can be used for
     training models. The parsed files are stored in a pickle in the corresponding folder (see config).
     """  
-    def convert_anceps_json_to_syllable_sequence_files(self):
+    def convert_anceps_json_to_syllable_sequence_files(self,
+        input_folder: str,
+        output_folder: str
+        ):
         
-        path = conf.ANCEPS_SCANSION_FOLDER
-        text_list = util.create_files_list(path, 'json')
+        # path = conf.ANCEPS_SCANSION_FOLDER
+        text_list = util.create_files_list(input_folder, 'json')
         syllabify_word = Syllabifier().syllabify
 
         for anceps_text in text_list:
             print('Working on {0}'.format(anceps_text))
-            file = path + anceps_text
+            file = input_folder + anceps_text
 
             # Opening JSON file
             f = open(file)
@@ -82,7 +84,7 @@ class Anceps_parser():
                         print('break')
                 sequence_label_list.append(sentence_tupled[:-1]) # We dont need the last space
 
-            pickle_path = conf.SEQUENCE_LABELS_FOLDER + anceps_text.split('.')[0] + '.pickle'
+            pickle_path = output_folder + anceps_text.split('.')[0] + '.pickle'
 
             with open(pickle_path, 'wb') as f:
                 pickle.dump(sequence_label_list, f)
@@ -97,13 +99,16 @@ class Pedecerto_parser:
     NB: the XML files are stripped of their headers, leaving the body to be processed.
     """  
 
-    def convert_pedecerto_xml_to_syllable_sequence_files(self):
+    def convert_pedecerto_xml_to_syllable_sequence_files(self,
+        input_folder: str,
+        output_folder: str
+        ):
         # Add all entries to process to a list
-        entries = util.create_files_list(conf.PEDECERTO_SCANSION_FOLDER, 'xml')
+        entries = util.create_files_list(input_folder, 'xml')
         # Process all entries added to the list
 
         for entry in entries:
-            with open(conf.PEDECERTO_SCANSION_FOLDER + entry) as fh:
+            with open(input_folder + entry) as fh:
                 # for each text, an individual dataframe will be created and saved as pickle
                 text_name = entry.split('.')[0]
                 pickle_name = text_name + '.pickle'
@@ -135,7 +140,7 @@ class Pedecerto_parser:
                     else:
                         continue # interestingly, some pedecerto xml files use "metre" instead of "meter"
 
-            util.pickle_write(conf.SEQUENCE_LABELS_FOLDER, pickle_name, text_sequence_label_list)
+            util.pickle_write(output_folder, pickle_name, text_sequence_label_list)
 
     def process_line(self, given_line):
         """Processes a given XML pedecerto line. Puts syllable and length in a dataframe.
@@ -188,22 +193,28 @@ class Pedecerto_parser:
         # we dont need a space after the last word, so drop the last row of the list
         return line_sequence_label_list[:-1], True # Boolean to denote success of syllabification
 
-if __name__ == "__main__":
-    p = argparse.ArgumentParser()
-    p.add_argument("--pedecerto", action="store_true", help="run the pedecerto parser")
-    p.add_argument("--anceps", action="store_true", help="run the anceps parser")
-    p.add_argument("--combine_datasets", action="store_true", help="combines the datasets in the sequence labels folder")
-    FLAGS = p.parse_args()    
+# if __name__ == "__main__":
+#     p = argparse.ArgumentParser()
+#     p.add_argument("--pedecerto", action="store_true", help="run the pedecerto parser")
+#     p.add_argument("--anceps", action="store_true", help="run the anceps parser")
+#     p.add_argument("--combine_datasets", action="store_true", help="combines the datasets in the sequence labels folder")
+#     FLAGS = p.parse_args()    
     
-    if FLAGS.anceps:
-        Anceps_parser().convert_anceps_json_to_syllable_sequence_files()
+#     if FLAGS.anceps:
+#         Anceps_parser().convert_anceps_json_to_syllable_sequence_files(
+#             input_folder = conf.ANCEPS_SCANSION_FOLDER,
+#             output_folder = conf.SEQUENCE_LABELS_FOLDER
+#         )
 
-    if FLAGS.pedecerto:
-        Pedecerto_parser().convert_pedecerto_xml_to_syllable_sequence_files()
+#     if FLAGS.pedecerto:
+#         Pedecerto_parser().convert_pedecerto_xml_to_syllable_sequence_files(
+#             input_folder = conf.PEDECERTO_SCANSION_FOLDER,
+#             output_folder = conf.SEQUENCE_LABELS_FOLDER
+#         )
 
-    if FLAGS.combine_datasets:
-        # combine all sequence label files in the sequence_labels folder
-        combined_folder = conf.SEQUENCE_LABELS_FOLDER
-        entries = util.create_files_list(combined_folder, 'pickle')
-        if(entries):
-            util.combine_sequence_label_lists(entries, 'combined.pickle', conf.SEQUENCE_LABELS_FOLDER, add_extension=False) 
+#     if FLAGS.combine_datasets:
+#         # combine all sequence label files in the sequence_labels folder
+#         combined_folder = conf.SEQUENCE_LABELS_FOLDER
+#         entries = util.create_files_list(combined_folder, 'pickle')
+#         if(entries):
+#             util.combine_sequence_label_lists(entries, 'combined.pickle', conf.SEQUENCE_LABELS_FOLDER, add_extension=False) 

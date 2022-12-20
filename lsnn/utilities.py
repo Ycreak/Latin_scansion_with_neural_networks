@@ -243,7 +243,12 @@ def convert_pedecerto_to_sequence_labeling(df) -> list:
 
     return all_sentences_list
 
-def combine_sequence_label_lists(list_with_file_names, output_name, path, add_extension=True):
+def combine_sequence_label_lists(
+    list_with_file_names: list,
+    output_name: str, 
+    destination_path: str, 
+    add_extension: bool = True
+    ):
     """Simple function to combine sequence label lists in pickle format.
 
     Args:
@@ -256,8 +261,8 @@ def combine_sequence_label_lists(list_with_file_names, output_name, path, add_ex
         list_with_file_names = [x+'.pickle' for x in list_with_file_names]    
         output_name = output_name + '.pickle'
     # And to the output name
-    merged_list = merge_sequence_label_lists(list_with_file_names, path)
-    pickle_write(path, output_name, merged_list)
+    merged_list = merge_sequence_label_lists(list_with_file_names, destination_path)
+    pickle_write(destination_path, output_name, merged_list)
 
 def get_str_similarity(a, b):
     """ Returns the ratio of similarity between the two given strings
