@@ -166,4 +166,4 @@ test_set = util.pickle_read(conf.SEQUENCE_LABELS_FOLDER, 'HEX_ELE-all.pickle')
 result = lstm.predict_given_set(test_set, model)
 ```
 
-_Nota bene: make sure that all syllables in the text that we want to predict are in the one-hot encoding dictionary. Otherwise a key-error will occur. To do this, make sure that the to-predict pickle file is in the **scansions/sequence_labels** folder when instantiating the Latin_LSTM class, as the dictionary is build here.
+_Nota bene: make sure that all syllables in the text that we want to predict are in the one-hot encoding dictionary. Otherwise a key-error will occur. To do this, make sure that the to-predict pickle file is in the **scansions/sequence_labels** folder when instantiating the Latin_LSTM class, as the dictionary is build here._
