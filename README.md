@@ -108,16 +108,62 @@ This will create a pickled syllable_label file of each JSON in the **scansions/a
 There are two options to run the CRF network. 
 
 1. The first one uses k-fold cross validation and runs on a single pickled file. 
+
+```python
+latin_crf = Latin_CRF()
+
+result = latin_crf.custom_prediction(
+    predictor = util.pickle_read(conf.SEQUENCE_LABELS_FOLDER, 'ENN-anna.pickle'),
+    predictee = util.pickle_read(conf.SEQUENCE_LABELS_FOLDER, 'HOR-arpo.pickle')
+)
+print(result)
+```
+
 2. The second option is to train on one pickled file and test on another.
+
+```python
+result = latin_crf.kfold_model(
+    sequence_labels = util.pickle_read(conf.SEQUENCE_LABELS_FOLDER, 'ENN-anna.pickle'),
+    splits = 5
+)
+print(result)
+```
 
 Both options can be found in the example file called **test.py**.
 
 <a name="LSTM"/>
 
 ## Running the LSTM Network
-There are, like with the CRF model, two options to run the LSTM network. 
+To run the LSTM network, we first need to instantiate the Latin_LSTM class to create the one-hot encoding dictionaries.
 
-1. The first one uses k-fold cross validation and runs on a single pickled file. 
-2. The second option is to train on one pickled file and test on another.
+```python
+lstm = Latin_LSTM(
+    sequence_labels_folder = conf.SEQUENCE_LABELS_FOLDER,
+    models_save_folder = conf.MODELS_SAVE_FOLDER,
+    anceps_label = False,
+) 
+```
 
-Both options can be found in the example file called **test.py**.
+Next, we can either create a model or load a saved one:
+
+```python
+model = lstm.create_model(
+    text = 'HEX_ELE-all.pickle', 
+    num_epochs = 2,
+    save_model = True, 
+    model_name = 'temp'
+)
+
+model = lstm.load_model(
+    path = conf.MODELS_SAVE_FOLDER + 'HEX_ELE-all'
+)
+```
+
+We can then use this model to predict a given sequence_label file:
+
+```python
+test_set = util.pickle_read(conf.SEQUENCE_LABELS_FOLDER, 'HEX_ELE-all.pickle')
+result = lstm.predict_given_set(test_set, model)
+```
+
+_Nota bene: make sure that all syllables in the text that we want to predict are in the one-hot encoding dictionary. Otherwise a key-error will occur. To do this, make sure that the to-predict pickle file is in the **scansions/sequence_labels** folder when instantiating the Latin_LSTM class, as the dictionary is build here.
