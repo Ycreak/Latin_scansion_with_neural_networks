@@ -58,17 +58,29 @@ This will create pickle files with syllable-label lists and save them to the **s
 4. (Optional) You can combine the syllable label list of multiple texts and authors by running the following code:
 
 ```console 
-TODO
+util.combine_sequence_label_lists(
+    list_with_file_names = util.create_files_list(conf.SEQUENCE_LABELS_FOLDER, 'pickle'), 
+    output_name = 'combined.pickle', 
+    destination_path = conf.SEQUENCE_LABELS_FOLDER,
+    add_extension = False
+)
 ```
 
-This will store the created file called **combined.pickle** in the **scansions/sequence_labels/** folder. 
+This will automatically combine all pickled sequence-label lists in the sequence_labels folder and save the combination as **combined.pickle**. Additionally, you can specify which files you want combined by providing a list. For example:
+
+util.combine_sequence_label_lists(
+    list_with_file_names = ['HOR-arpo', 'ENN-anna'], 
+    output_name = 'combined.txt', 
+    destination_path = conf.SEQUENCE_LABELS_FOLDER,
+    add_extension = True
+)
 
 **IMPORTANT** Make sure that all your pickled syllable-label lists are stored in the **scansions/sequence_labels/** folder, as this is the folder the machine learning tools will use when searching for datasets. One can edit the paths via the **config.py** file.
 
 _Note: the tool that creates the syllable-label lists will only process hexameters and pentameters, as these are the focus of the Pedecerto project. Any corrupt lines will be discarded, as well as lines containing words that cannot be syllabified by the syllabifier provided by BNagy and his [MQDQ-parser](https://github.com/bnagy/mqdq-parser) (found under pedecerto/syllabifier.py and pedecerto/rhyme.py)._
 
 ### Using Anceps
-The [Anceps]([https://www.pedecerto.eu/public/](https://github.com/Dargones/anceps)) project uses a constraint-based approach to scan iambic trimeter. We also provide tools to convert these scansions into syllable-label lists. However, these lists will contain the extra label _anceps_ as Anceps does not resolve these labels automatically.
+The [Anceps]([https://www.pedecerto.eu/public/](https://github.com/Dargones/anceps)) project uses a constraint-based approach to scan iambic trimeter. We also provide tools to convert these scansions into syllable-label lists. However, these lists will contain the extra label _anceps_ as Anceps does not resolve these labels automatically. Make sure to notify the LSTM and CRF models of the additional label.
 
 1. Create scansion files using the Anceps tools, or download complete scansions from the [Senecan Trimeter and Humanist Tragedy repository](https://github.com/QuantitativeCriticismLab/AJP-2022-Senecan-Trimeter).
 2. Put the JSON files in the **scansions/anceps/** folder and run the following command:
