@@ -58,6 +58,8 @@ This will create pickle files with syllable-label lists and save them to the **s
 4. (Optional) You can combine the syllable label list of multiple texts and authors by running the following code:
 
 ```python 
+from lsnn import utilities as util
+
 util.combine_sequence_label_lists(
     list_with_file_names = util.create_files_list(conf.SEQUENCE_LABELS_FOLDER, 'pickle'), 
     output_name = 'combined.pickle', 
@@ -69,6 +71,8 @@ util.combine_sequence_label_lists(
 This will automatically combine all pickled sequence-label lists in the sequence_labels folder and save the combination as **combined.pickle**. Additionally, you can specify which files you want combined by providing a list. For example:
 
 ```python 
+from lsnn import utilities as util
+
 util.combine_sequence_label_lists(
     list_with_file_names = ['HOR-arpo', 'ENN-anna'], 
     output_name = 'combined.txt', 
