@@ -1,6 +1,9 @@
+ipython
+sklearn
+wheel
 pandas
 bs4
-cltk
+#cltk
 keras
 tensorflow
 tensorflow-addons
