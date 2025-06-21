@@ -1,3 +1,9 @@
+To run:
+
+```
+PYTHONPATH=. python3 lsnn/clean/pedecerto/run_pedecerto.py
+```
+
 Landing zone:
 Ingest all files from our sources
 
