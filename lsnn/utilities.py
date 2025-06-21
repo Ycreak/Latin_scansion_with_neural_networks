@@ -14,7 +14,7 @@
 # Philippe Bors and Luuk Nolden
 # Leiden University 2021
 
-import argparse
+# import argparse
 # import configparser
 # from datetime import datetime
 import pickle
@@ -24,12 +24,41 @@ import numpy as np
 # import seaborn as sn
 # from progress.bar import Bar
 import pandas as pd
+import json
 
+def write_json(given_object: object, file: str) -> None:
+    """Writes the given object to the cache
 
+    Args:
+        object (object): to store as json
+        file (str): path + filename
+    """        
+    # Serializing json
+    json_object = json.dumps(given_object, indent=2)
+    # Writing to sample.json
+    with open(file, "w") as outfile:
+        outfile.write(json_object)
+
+def read_json(file: str) -> dict:
+    """Reads the requested object from the cache
+
+    Args:
+        file (str): path + filename
+    """        
+    with open(file, 'r') as openfile:
+        # Reading from json file
+        return json.load(openfile)
 
 # Read the config file for later use
 # cf = configparser.ConfigParser()
 # cf.read("config.ini")
+def write_pickle(filename: str, variable: any) -> None:
+    with open(filename, 'wb') as file:
+        pickle.dump(variable, file)
+
+def read_pickle(file: str):
+    with open(file, 'rb') as file:
+        return pickle.load(file)
 
 def pickle_write(path, file_name, object):
     destination = path + file_name
@@ -50,24 +79,6 @@ def convert_syllable_labels(df):
     df['length'] = np.where(df['length'] == 2, 'elision', df['length'])
     return df
 
-def clean(ll):
-
-    """Remove all corrupt lines from a set of bs4 <line>s
-
-    Args:
-        ll (list of bs4 <line>): Lines to clean
-
-    Returns:
-        (list of bs4 <line>): The lines, with the corrupt ones removed.
-    """
-
-    return [
-        l
-        for l in ll
-        if l.has_attr("pattern")
-        and l["pattern"] != "corrupt"
-        and l["pattern"] != "not scanned"
-    ]
 
 def clean_extra(ll):
 
@@ -135,28 +146,6 @@ def merge_lists(list1, list2):
     """    
     return list(zip(list1, list2)) 
 
-def merge_sequence_label_lists(texts, path):
-    """Merges the given lists (contained in sequence labeling pickles) on the given path.
-    Outputs one list with all sentences of the given texts in sequence labeling format.
-    Useful when merging all metamorphoses for example.
-
-    Args:
-        texts (list): of sequence labeling pickled files
-        path (string): where these pickled files are stored
-
-    Returns:
-        list: of merged texts
-    """        
-    # Create a starting list from the last entry using pop
-    merged_list = pickle_read(path, texts.pop()) #FIXME: is this a call by reference?
-    # merge all other texts into this initial list
-    for text_list_id in texts:
-        # from the list with texts
-        text_list = pickle_read(path, text_list_id)
-        # take every sentence and add it to the merged_list
-        for sentence_numpy in text_list:
-            merged_list.append(sentence_numpy)
-    return merged_list         
 
 def convert_pedecerto_to_sequence_labeling(df) -> list:
     """Converts the given pedecerto dataframe to a list with sequence labels. More specifically,
