@@ -1,13 +1,24 @@
-ipython
-sklearn
-wheel
-pandas
-bs4
+#wheel
+#bs4
 #cltk
-keras
-tensorflow
-tensorflow-addons
-progress
-sklearn_crfsuite
+#keras
+#sklearn_crfsuite
+#progress
+
+# lsnn
+#scikit-learn
+#tensorflow
+#tensorflow-addons
+#numpy
+#pandas
+#unidecode
+#seaborn 
+
+# Hypotactic
+selenium
+bs4
+
+# Pedecerto
+ipython
 lxml
 mqdqparser
