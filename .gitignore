@@ -1,6 +1,6 @@
 # Repo specific
-lsnn/bucket
-lsnn/models
+datalake/bucket
+models
 flair
 bak
 pedecerto/xml_files/processed

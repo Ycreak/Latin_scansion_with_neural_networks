@@ -1,6 +1,6 @@
 from lsnn import dataset_creation
-from lsnn.lstm import Latin_LSTM
-from lsnn.crf import Latin_CRF
+from datalake.lstm import Latin_LSTM
+from datalake.crf import Latin_CRF
 
 from lsnn import config as conf
 from lsnn import utilities as util
