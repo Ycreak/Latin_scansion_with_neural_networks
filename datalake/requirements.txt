@@ -1,0 +1,11 @@
+# Hypotactic
+selenium
+bs4
+
+# Pedecerto
+ipython
+lxml
+mqdqparser
+
+# Enriched
+polars

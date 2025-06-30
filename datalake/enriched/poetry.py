@@ -6,7 +6,7 @@ class Poetry:
     In the Poetry class we collect all lines from the cleaned layer and put them into one Polars dataframe.
     """
     def run(self, destination_path: str) -> None:
-        raw_bucket_path: str= "lsnn/bucket/clean"
+        raw_bucket_path: str= "datalake/bucket/clean"
     
         pedecerto_files: list = util.create_files_list(f"{raw_bucket_path}/pedecerto", 'json')
         pedecerto_files = [f"{raw_bucket_path}/pedecerto/" + s for s in pedecerto_files]
@@ -33,7 +33,7 @@ class Poetry:
                             "meter": meter,
                             "line_number": line_counter,
                             "syllable": "-",
-                            "length": "null",
+                            "label": "space",
                             "word": "space"
                         })
                     else:
@@ -42,7 +42,7 @@ class Poetry:
                             "meter": meter,
                             "line_number": line_counter,
                             "syllable": entry["syllable"],
-                            "length": entry["length"],
+                            "label": entry["length"],
                             "word": entry["word"]
                         })
                 
