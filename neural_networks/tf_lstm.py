@@ -1,5 +1,4 @@
-from sklearn.model_selection import KFold
-from sklearn.metrics import classification_report, accuracy_score
+from sklearn.metrics import classification_report
 import polars as pl
 
 from sklearn.model_selection import train_test_split
@@ -7,7 +6,6 @@ import numpy as np
 
 from neural_networks.lstm_dataset import LSTMDataset
 
-import torch
 
 import tensorflow as tf
 
@@ -43,7 +41,7 @@ class TFLSTM:
         )
 
         # Then train using X_train and y_train
-        history = model.fit(
+        model.fit(
             X_train,
             y_train,
             batch_size=32,
@@ -61,11 +59,13 @@ class TFLSTM:
         y_true_flat = y_val.flatten()
         y_pred_flat = y_pred.flatten()
 
-        classification_report2 = classification_report(
+        report = classification_report(
             y_true_flat,
             y_pred_flat,
             target_names=dataset.label_encoder.classes_
         )
+
+        print(report)
 
     def create_model(self, dataset: LSTMDataset) -> tf.keras.models.Model:
         """

@@ -4,7 +4,6 @@ import torch
 import polars as pl
 from tqdm import tqdm
 
-import torch
 
 class LSTMDataset:
     """

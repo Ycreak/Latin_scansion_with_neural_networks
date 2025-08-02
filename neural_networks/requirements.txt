@@ -1,5 +1,5 @@
 polars
 torch
 pytorch-crf
-
+tensorflow
 scikit-learn
