@@ -1,6 +1,5 @@
 import config as conf
 import utilities as util
-import re
 
 def run(actions: list) -> None:
     if "all" in actions:

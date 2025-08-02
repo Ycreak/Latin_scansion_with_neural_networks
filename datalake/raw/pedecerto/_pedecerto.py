@@ -1,10 +1,7 @@
 # import config as conf
 import utilities as util
-import re
 from mqdq import rhyme as mqdq_rhyme
-from mqdq.cltk_hax.syllabifier import Syllabifier
 from bs4 import BeautifulSoup
-import xml.etree.ElementTree as ET
 import dataclasses
 
 @dataclasses.dataclass

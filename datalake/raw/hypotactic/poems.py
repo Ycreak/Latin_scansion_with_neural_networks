@@ -1,6 +1,5 @@
 import datalake.utilities as util
 from bs4 import BeautifulSoup
-import datalake.utilities as util
 import datalake.raw.hypotactic.utilities as hypotactic_util 
 import dataclasses
 

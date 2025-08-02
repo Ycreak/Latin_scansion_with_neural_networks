@@ -1,13 +1,9 @@
 # Python imports
 import json
 import re 
-import argparse
 import pickle
 
 # Library imports
-from bs4 import BeautifulSoup
-from progress.bar import Bar
-from mqdq import rhyme as mqdq_rhyme
 from mqdq.cltk_hax.syllabifier import Syllabifier
 
 # Class imports

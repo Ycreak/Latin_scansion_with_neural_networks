@@ -1,4 +1,3 @@
-from sources.hypotactic.harvester import Harvester
 from sources.hypotactic.soup_poem import PoemSoup
 from sources.hypotactic.soup_text import TextSoup
 import sources.hypotactic.utilities as util

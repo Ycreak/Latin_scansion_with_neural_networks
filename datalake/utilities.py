@@ -352,7 +352,6 @@ def merge_dicts(dict1, dict2):
 def auto_combine_sequence_label_lists():
     # Automatically combines Pedecerto files with similar names. For example, OV-amo1 and OV-amo2 will be merged and saved
     # as one pickle :D
-    from fuzzywuzzy import fuzz
     EQUALITY_RATIO = 80 # Ratio between OV-amo1 and OV-amo2 is 86.
     mutable_list = create_files_list(cf.get('Pedecerto', 'path_xml_files'), 'pickle')
     non_mutable_list = create_files_list(cf.get('Pedecerto', 'path_xml_files'), 'pickle')
