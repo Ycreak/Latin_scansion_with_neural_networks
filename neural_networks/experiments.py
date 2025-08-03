@@ -22,7 +22,7 @@ class Experiments:
 
     def __init__(self) -> None:
         self.FOLDS = 2
-        self.EPOCHS: int = 10
+        self.EPOCHS: int = 20
         self.BATCH_SIZE: int = 32 
 
     def run_lstm_on_each_meter_type(self) -> None:
@@ -38,37 +38,46 @@ class Experiments:
         meters_with_counts = (
             df.group_by("meter")
             .agg(pl.col("line_number").n_unique().alias("number_of_lines"))
-        ).to_dicts()
+            .sort("number_of_lines", descending=True)
+        )
 
-        # Filter dictionaries where we have at least 1000 lines
-        candidate_meters = [d['meter'] for d in meters_with_counts if d["number_of_lines"] > 1000]
-        candidate_meters.remove('ia6g') # ia6g is variant of ia6
-        candidate_meters.remove('elegy') # Elegy is just hexameter + pentameter
+        # Filter dataframe where we have at least 1000 lines
+        candidate_meters = [d['meter'] for d in meters_with_counts.to_dicts() if d["number_of_lines"] > 1000]
+        df_with_candidate_meters = df.filter(pl.col("meter").is_in(candidate_meters))
+       
+        # occurences_per_label = self._get_number_of_occurences_per_label(df)
+        # print(occurences_per_label)
+
+        # Create an LSTM dataset over the entire dataframe. We do this in order to be able to train on hexameter and test
+        # on another meter, as the encoding needs to be the same for both datasets.
+        dataset: LSTMDataset = LSTMDataset()
+        dataset.run(df_with_candidate_meters)
 
         # Create a dict where we can save our results to
         results = defaultdict(list)
 
         for meter in candidate_meters:
             print(f"Now processing {meter}")
-            candidate_meter_df = df.filter(pl.col("meter") == meter)
-
-            dataset: LSTMDataset = LSTMDataset()
-            dataset.run(candidate_meter_df)
-
+            candidate_meter_df = dataset.dataframe.filter(pl.col("meter") == meter)
+            # Get the tensors from the dataframe
+            syllable_tensors = np.array(candidate_meter_df.select("syllable_tensors").to_series().to_list())
+            label_tensors = np.array(candidate_meter_df.select("label_tensors").to_series().to_list())
             # Create the model based on the dataset we created.
             tf_lstm: TFLSTM = TFLSTM()
-            model = tf_lstm.create_model(dataset)
             
             # K-Fold Cross-Validation
             kf = KFold(n_splits=self.FOLDS, shuffle=True, random_state=42)
-            for fold, (train_idx, test_idx) in enumerate(kf.split(dataset.padded_syllable_tensors)):
+            for fold, (train_idx, test_idx) in enumerate(kf.split(syllable_tensors)):
                 print(f"\n=== Fold {fold + 1} ===")
 
-                syllable_train = dataset.padded_syllable_tensors[train_idx]
-                syllable_test = dataset.padded_syllable_tensors[test_idx]
+                # Create a new model for training.
+                model = tf_lstm.create_model(dataset)
 
-                label_train =dataset.padded_label_tensors[train_idx]
-                label_test =dataset.padded_label_tensors[test_idx]
+                syllable_train = syllable_tensors[train_idx]
+                syllable_test = syllable_tensors[test_idx]
+
+                label_train = label_tensors[train_idx]
+                label_test = label_tensors[test_idx]
 
                 # Then train using X_train and y_train
                 model.fit(
@@ -91,7 +100,7 @@ class Experiments:
 
                 # Save the classification report to the results dictionary for later use.
                 results[meter].append(report)
-
+                
         # Write the experiment to a timestamped folder for later use.
         timestamp = datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
         file_path: str = "neural_networks/experiments/run_lstm_on_each_meter_type/"
@@ -117,6 +126,21 @@ class Experiments:
         y_pred_flat = y_pred.flatten()
 
         return y_pred_flat, y_true_flat
+
+    def _get_number_of_occurences_per_label(self, df: pl.DataFrame) -> dict:
+        # Get the number of occurences per label for each of our candidate meters.
+        filtered_df = df.filter(pl.col("meter"))#.is_in(candidate_meters))
+        counts_per_meter_and_label = (
+            filtered_df.group_by(["meter", "label"])
+            .agg(pl.count().alias("count"))
+        )
+
+        counts_dict = {}
+        for meter, group in counts_per_meter_and_label.group_by("meter"):
+            counts_dict[meter] = dict(zip(group["label"], group["count"]))
+        # Show the result
+        return counts_dict
+
 
 if __name__ == "__main__":
     experiments = Experiments()

@@ -1,0 +1,8 @@
+Experiments
+  LSTM trained and tested on same meter
+  LSTM trained on one meter, tested on the other
+  LSTM trained on all meters, tested on specific meters
+
+  LSTM with words as a feature + CRF layer
+  Torch LSTM
+  
