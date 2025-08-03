@@ -172,7 +172,7 @@ class LuukieLSTM:
         # Print classification report
         print(classification_report(true_labels, pred_labels, digits=4))
 
-        exit(0)
+        # exit(0)
 
         #####################################
          

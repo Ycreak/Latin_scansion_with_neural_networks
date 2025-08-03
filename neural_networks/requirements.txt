@@ -3,3 +3,7 @@ torch
 pytorch-crf
 tensorflow
 scikit-learn
+
+seaborn
+matplotlib
+pandas

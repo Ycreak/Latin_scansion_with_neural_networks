@@ -41,7 +41,7 @@ class LSTMDataset:
             ])
         )
 
-        # poetry_line_per_row_df = poetry_line_per_row_df.head(5000)
+        poetry_line_per_row_df = poetry_line_per_row_df.sample(500)
 
         # Now we need all our features and labels in separate lists, including the padding string.
         self.all_syllables: list[str] = df['syllable'].to_list() + [self.PADDING]
