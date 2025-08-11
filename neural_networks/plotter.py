@@ -58,8 +58,11 @@ class Plotter:
 if __name__ == "__main__":
     plotter = Plotter()
 
-    latest_experiment_json = plotter.find_latest_timestamped_json('neural_networks/experiments/run_lstm_on_each_meter_type')
-    f1_scores_per_meter = plotter.retrieve_scores_from_classification_report_list(util.read_json(f"neural_networks/experiments/run_lstm_on_each_meter_type/{latest_experiment_json}"))
+    experiment = 'run_lstm_on_each_meter_type'
+    # experiment = 'run_combination_lstm_on_smaller_meters'
+
+    latest_experiment_json = plotter.find_latest_timestamped_json(f'neural_networks/experiments/{experiment}')
+    f1_scores_per_meter = plotter.retrieve_scores_from_classification_report_list(util.read_json(f"neural_networks/experiments/{experiment}/{latest_experiment_json}"))
     # Display the results
     for meter, scores in f1_scores_per_meter.items():
         print(f"{meter}: {scores}")
