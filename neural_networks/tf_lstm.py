@@ -17,8 +17,11 @@ class TFLSTM:
 
     def create_model_with_word_tensors(self, dataset: LSTMDataset) -> tf.keras.models.Model:
         # Get the input length for syllable and word tensors
-        syllable_input_length = len(dataset.dataframe.select("syllable_tensors").to_series().to_list()[0])
-        word_input_length = len(dataset.dataframe.select("word_tensors").to_series().to_list()[0])
+        # len([d["syllables"] for d in dataset.list_with_poetry_objects])
+        
+        # These are padded, so all the same size. But to be sure, we calculate for each feature
+        syllable_input_length = len(dataset.list_with_poetry_objects[0]['syllables'])
+        word_input_length = len(dataset.list_with_poetry_objects[0]['words'])
 
         # Create input layers for both syllable and word tensors
         syllable_input_layer = tf.keras.layers.Input(shape=(syllable_input_length,), name='syllable_input')
