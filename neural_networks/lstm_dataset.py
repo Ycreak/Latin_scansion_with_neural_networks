@@ -1,6 +1,8 @@
 from collections import defaultdict
 from sklearn.preprocessing import LabelEncoder
 from torch.nn.utils.rnn import pad_sequence
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+
 import torch
 import tensorflow as tf
 import polars as pl
@@ -21,10 +23,9 @@ class LSTMDataset:
         self.word_encoder: LabelEncoder 
         self.character_encoder : LabelEncoder
 
-        self.test_padded_syllable_tensors = [] 
-
         # Save all data into one nice dataframe
         self.dataframe: pl.DataFrame
+        self.list_with_poetry_objects: list = []
 
     def run(self, df: pl.DataFrame) -> None:
         print('Building dataframe with one row per line of poetry.')
@@ -59,25 +60,25 @@ class LSTMDataset:
         all_unique_syllables = list(set(all_syllables))
 
         # Process character tensors for each syllable. We need to create per syllable a list with its
-        # character tensors. So both 'a' and 'r' in 'ar' will get a tensor put in a list.
-        character_tensor_per_syllable= defaultdict(dict)
+        # character tensors. So both 'a' and 'r' in 'ar' will get a tensor put in a list. We also need to pad this,
+        # such that each syllable has a list of character tensors that has the same length. 
+        character_tensors_per_syllable = defaultdict(list)
+        max_syllable_length = max(len(ele) for ele in all_unique_syllables)
+
         for syllable in all_unique_syllables:
-            char_indices = self.character_encoder.transform(all_unique_syllables)
-            char_tensor = tf.keras.utils.to_categorical(char_indices, num_classes=len(self.character_encoder.classes_))
-            character_tensor_per_syllable[syllable] = char_tensor
+            char_tensor_for_current_syllable = []
+            for char in syllable:
+                # Create a one-hot encoded tensor for the character
+                char_index = self.character_encoder.transform([char])[0]
+                char_tensor_for_current_syllable.append(char_index)
 
-        # FIXME: in the datalake, remove all lines that have non a-z characters
+            # So now we have for a single syllable a list with per character an integer as one-hot encoding. We need to pad this tensor to be as long
+            # as the longest syllable in the dataset, such that every tensor has the same length. We ue the padding integer to pad each tensor.
+            while len(char_tensor_for_current_syllable) < max_syllable_length:
+                char_tensor_for_current_syllable.append(self.character_encoder.transform([self.PADDING])[0]) 
 
-        # Example syllable
-        syllable = "ar"
-
-        # Convert characters to integers
-        char_indices = self.character_encoder.transform(list(syllable))
-
-        # One-hot encode the characters
-        char_tensor = tf.keras.utils.to_categorical(char_indices, num_classes=len(self.character_encoder.classes_))
-
-        print(char_tensor)
+            # Store the padded sequence in the dictionary
+            character_tensors_per_syllable[syllable] = char_tensor_for_current_syllable
 
         # Now for each line of poetry, we must one-hot encode its syllables, words and labels.
         # So per line in our dataframe, use the encode to turn [ar, ma] into e.g. [12, 14].
@@ -86,13 +87,12 @@ class LSTMDataset:
         word_to_id = {i: idx for idx, i in enumerate(self.word_encoder.classes_)}
         syllable_to_id = {i: idx for idx, i in enumerate(self.syllable_encoder.classes_)}
         label_to_id = {i: idx for idx, i in enumerate(self.label_encoder.classes_)}
-        character_to_id = {char: idx for idx, char in enumerate(all_characters)}
 
         # Create lists for all tensors. These we will later add to the dataframe
         syllable_tensors: list[torch.Tensor] = []
         word_tensors: list[torch.Tensor] = []
         label_tensors: list[torch.Tensor] = []
-        character_tensors: list = []
+        character_tensors: list[list[torch.Tensor]] = []
 
         print('Number of iterations to do:', poetry_line_per_row_df.height)
         for row in tqdm(poetry_line_per_row_df.iter_rows(named=True)):
@@ -109,23 +109,45 @@ class LSTMDataset:
             label_tensor: torch.Tensor = torch.tensor(ids)
             label_tensors.append(label_tensor)
 
+            char_tensors_for_row = [torch.tensor(character_tensors_per_syllable[syllable]) for syllable in row['syllables']]
+            character_tensors.append(char_tensors_for_row)
+
         # Now we have for every line of poetry a list of one-hot encoded syllables, words and labels for that list.
         # For example, for the line [ar, ma] we have three lists: [12, 14], [55, 55], [0, 1] for syllables, words and labels.
         # An LSTM wants a lot of lines of the same length, so we use padding to make every line the same length.
-        PADDING_INTEGER_SYLLABLE = self.syllable_encoder.transform(['PADDING'])[0]
-        PADDING_INTEGER_WORD = self.word_encoder.transform(['PADDING'])[0]
-        PADDING_INTEGER_LABEL = self.label_encoder.transform(['PADDING'])[0]
+        PADDING_INTEGER_SYLLABLE = self.syllable_encoder.transform([self.PADDING])[0]
+        PADDING_INTEGER_WORD = self.word_encoder.transform([self.PADDING])[0]
+        PADDING_INTEGER_LABEL = self.label_encoder.transform([self.PADDING])[0]
+        PADDING_TENSOR_CHARACTER = character_tensors_per_syllable[self.PADDING]
 
         padded_syllable_tensors = pad_sequence(syllable_tensors, batch_first=True, padding_value=PADDING_INTEGER_SYLLABLE)
         padded_word_tensors = pad_sequence(word_tensors, batch_first=True, padding_value=PADDING_INTEGER_WORD)
         padded_label_tensors = pad_sequence(label_tensors, batch_first=True, padding_value=PADDING_INTEGER_LABEL)
-        
-        self.test_padded_syllable_tensors = pad_sequence(syllable_tensors, batch_first=True, padding_value=PADDING_INTEGER_SYLLABLE)
+      
+        # Now for every character tensor, we need to do some manual padding because I cannot figure out how to use the pad_sequence with nested lists.
+        max_line_length: int = max(len(ele) for ele in label_tensors)
+        # For each element in character_tensors, add the padding tensor as many times as to get to the max line length.
+        padded_character_tensors = []
+        for char_tensors in character_tensors:
+            # Create a copy of the current character tensors to avoid modifying the original list
+            padded_char_tensors = char_tensors.copy()
+            # Append the padding tensor until the desired length is reached
+            while len(padded_char_tensors) < max_line_length:
+                padded_char_tensors.append(torch.tensor(PADDING_TENSOR_CHARACTER)) # Do i need to do another torch.tensor here?
+            # Add the padded character tensors to the final list
+            padded_character_tensors.append(padded_char_tensors)
+
+        # Now create a nice large dictionary with per line its meter and the tensors we created
+        self.list_with_poetry_objects = poetry_line_per_row_df.select('meter').to_dicts()
+        for i, dictionary in enumerate(self.list_with_poetry_objects):
+            dictionary["syllables"] = padded_syllable_tensors[i]
+            dictionary["words"] = padded_word_tensors[i]
+            dictionary["labels"] = padded_label_tensors[i]
+            dictionary["characters"] = padded_character_tensors[i]
         
         # Add the tensors as a new column to the DataFrame
-        self.dataframe = poetry_line_per_row_df.with_columns(
-            pl.Series("word_tensors", padded_word_tensors),
-            pl.Series("syllable_tensors", padded_syllable_tensors),
-            pl.Series("label_tensors", padded_label_tensors)
-        )
-
+        # self.dataframe = poetry_line_per_row_df.with_columns(
+            # pl.Series("word_tensors", padded_word_tensors),
+            # pl.Series("syllable_tensors", padded_syllable_tensors),
+            # pl.Series("label_tensors", padded_label_tensors)
+        # )

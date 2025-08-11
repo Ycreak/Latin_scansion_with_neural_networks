@@ -13,9 +13,6 @@ from neural_networks.lstm_dataset import LSTMDataset
 from neural_networks.tf_lstm import TFLSTM
 from neural_networks.common_lstm_tools import generate_y_pred_true, get_candidate_meters_from_df
 
-
-import tensorflow as tf
-
 class Experiment:
     """
     This class creates the TensorFlow LSTM.
@@ -23,7 +20,7 @@ class Experiment:
 
     def __init__(self) -> None:
         self.FOLDS = 2
-        self.EPOCHS: int = 1
+        self.EPOCHS: int = 5
         self.BATCH_SIZE: int = 32 
 
     def run(self) -> None:
@@ -50,11 +47,17 @@ class Experiment:
 
         for meter in candidate_meters:
             print(f"Now processing {meter}")
-            candidate_meter_df = dataset.dataframe.filter(pl.col("meter") == meter)
-            # Get the tensors from the dataframe
-            syllable_tensors = np.array(candidate_meter_df.select("syllable_tensors").to_series().to_list())
-            word_tensors = np.array(candidate_meter_df.select("word_tensors").to_series().to_list())
-            label_tensors = np.array(candidate_meter_df.select("label_tensors").to_series().to_list())
+            # candidate_meter_df = dataset.dataframe.filter(pl.col("meter") == meter)
+            candidate_meter_lines = [d for d in  dataset.list_with_poetry_objects if d.get("meter") == meter]
+
+            # Get the tensors from the dataset we created
+            syllable_tensors = np.array([d["syllables"] for d in candidate_meter_lines]) 
+            # syllable_tensors = np.array(candidate_meter_df.select("syllable_tensors").to_series().to_list())
+            word_tensors = np.array([d["words"] for d in candidate_meter_lines])
+            # word_tensors = np.array(candidate_meter_df.select("word_tensors").to_series().to_list())
+            label_tensors = np.array([d["labels"] for d in candidate_meter_lines])
+            # label_tensors = np.array(candidate_meter_df.select("label_tensors").to_series().to_list())
+            character_tensors = np.array([d["characters"] for d in candidate_meter_lines])
             # Create the model based on the dataset we created.
             tf_lstm: TFLSTM = TFLSTM()
             
@@ -69,20 +72,21 @@ class Experiment:
                 syllable_train, syllable_test = syllable_tensors[train_idx], syllable_tensors[test_idx]
                 word_train, word_test = word_tensors[train_idx], word_tensors[test_idx]
                 label_train, label_test = label_tensors[train_idx], label_tensors[test_idx]
+                character_train, character_test = character_tensors[train_idx], character_tensors[test_idx]
 
                 # Then train using X_train and y_train
                 model.fit(
-                    [syllable_train, word_train],
+                    [syllable_train, word_train, character_train],
                     label_train,
                     batch_size=self.BATCH_SIZE,
                     epochs=self.EPOCHS,
-                    validation_data=([syllable_test, word_test], label_test),
+                    validation_data=([syllable_test, word_test, character_test], label_test),
                     verbose=True
                 )
 
                 y_pred, y_true = generate_y_pred_true(
                     model,
-                    [syllable_test, word_test],
+                    [syllable_test, word_test, character_test],
                     label_test
                 ) 
             
