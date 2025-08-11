@@ -10,5 +10,7 @@ class Pedecerto:
 
         for file in pedecerto_files:
             file_name: str = file.split('.')[0]
-            cleaned_dataset = clean_dataset(f"{source_path}/{file}")
+            print(f"Processing {file}")
+            dataset = util.read_json(f"{source_path}/{file}")
+            cleaned_dataset = clean_dataset(dataset)
             util.write_json(cleaned_dataset, f"{destination_path}/{file_name}.json")
