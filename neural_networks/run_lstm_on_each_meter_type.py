@@ -72,20 +72,21 @@ class Experiment:
                 syllable_train, syllable_test = syllable_tensors[train_idx], syllable_tensors[test_idx]
                 word_train, word_test = word_tensors[train_idx], word_tensors[test_idx]
                 label_train, label_test = label_tensors[train_idx], label_tensors[test_idx]
+                character_train, character_test = character_tensors[train_idx], character_tensors[test_idx]
 
                 # Then train using X_train and y_train
                 model.fit(
-                    [syllable_train, word_train],
+                    [syllable_train, word_train, character_train],
                     label_train,
                     batch_size=self.BATCH_SIZE,
                     epochs=self.EPOCHS,
-                    validation_data=([syllable_test, word_test], label_test),
+                    validation_data=([syllable_test, word_test, character_test], label_test),
                     verbose=True
                 )
 
                 y_pred, y_true = generate_y_pred_true(
                     model,
-                    [syllable_test, word_test],
+                    [syllable_test, word_test, character_test],
                     label_test
                 ) 
             

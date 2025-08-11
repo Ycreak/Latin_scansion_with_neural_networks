@@ -62,22 +62,23 @@ class LSTMDataset:
         # Process character tensors for each syllable. We need to create per syllable a list with its
         # character tensors. So both 'a' and 'r' in 'ar' will get a tensor put in a list. We also need to pad this,
         # such that each syllable has a list of character tensors that has the same length. 
-        character_tensor_per_syllable = defaultdict(list)
+        character_tensors_per_syllable = defaultdict(list)
         max_syllable_length = max(len(ele) for ele in all_unique_syllables)
 
         for syllable in all_unique_syllables:
-            char_tensors = []
+            char_tensor_for_current_syllable = []
             for char in syllable:
                 # Create a one-hot encoded tensor for the character
                 char_index = self.character_encoder.transform([char])[0]
-                char_tensor = tf.keras.utils.to_categorical(char_index, num_classes=len(self.character_encoder.classes_))
-                char_tensors.append(char_tensor)
+                char_tensor_for_current_syllable.append(char_index)
 
-            # Pad the sequence for the current syllable. FIXME: we now pad with empty tensors. Should we pad with padding tensors?
-            padded_sequence = pad_sequences([char_tensors], maxlen=max_syllable_length, dtype='float32', padding='post')[0]
+            # So now we have for a single syllable a list with per character an integer as one-hot encoding. We need to pad this tensor to be as long
+            # as the longest syllable in the dataset, such that every tensor has the same length. We ue the padding integer to pad each tensor.
+            while len(char_tensor_for_current_syllable) < max_syllable_length:
+                char_tensor_for_current_syllable.append(self.character_encoder.transform([self.PADDING])[0]) 
 
             # Store the padded sequence in the dictionary
-            character_tensor_per_syllable[syllable] = padded_sequence
+            character_tensors_per_syllable[syllable] = char_tensor_for_current_syllable
 
         # Now for each line of poetry, we must one-hot encode its syllables, words and labels.
         # So per line in our dataframe, use the encode to turn [ar, ma] into e.g. [12, 14].
@@ -108,7 +109,7 @@ class LSTMDataset:
             label_tensor: torch.Tensor = torch.tensor(ids)
             label_tensors.append(label_tensor)
 
-            char_tensors_for_row = [torch.tensor(character_tensor_per_syllable[syllable]) for syllable in row['syllables']]
+            char_tensors_for_row = [torch.tensor(character_tensors_per_syllable[syllable]) for syllable in row['syllables']]
             character_tensors.append(char_tensors_for_row)
 
         # Now we have for every line of poetry a list of one-hot encoded syllables, words and labels for that list.
@@ -117,7 +118,7 @@ class LSTMDataset:
         PADDING_INTEGER_SYLLABLE = self.syllable_encoder.transform([self.PADDING])[0]
         PADDING_INTEGER_WORD = self.word_encoder.transform([self.PADDING])[0]
         PADDING_INTEGER_LABEL = self.label_encoder.transform([self.PADDING])[0]
-        PADDING_TENSOR_CHARACTER = character_tensor_per_syllable[self.PADDING]
+        PADDING_TENSOR_CHARACTER = character_tensors_per_syllable[self.PADDING]
 
         padded_syllable_tensors = pad_sequence(syllable_tensors, batch_first=True, padding_value=PADDING_INTEGER_SYLLABLE)
         padded_word_tensors = pad_sequence(word_tensors, batch_first=True, padding_value=PADDING_INTEGER_WORD)
