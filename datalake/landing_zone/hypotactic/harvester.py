@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.options import Options
 import time
 
+
 class Harvester:
     def __init__(self):
         self.options = Options()

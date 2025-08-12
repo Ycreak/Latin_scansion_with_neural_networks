@@ -2,7 +2,10 @@ import tensorflow as tf
 import polars as pl
 import numpy as np
 
-def generate_y_pred_true(model: tf.keras.models.Model, test_features: list, test_labels: list) -> tuple[np.ndarray, np.ndarray]:
+
+def generate_y_pred_true(
+    model: tf.keras.models.Model, test_features: list, test_labels: list
+) -> tuple[np.ndarray, np.ndarray]:
     """
     Generates a y_prediction and a y_true dataset given the model. Can be used to run a classification report or predict a sentence.
     :param model: Trained Keras model for prediction.
@@ -22,9 +25,12 @@ def generate_y_pred_true(model: tf.keras.models.Model, test_features: list, test
 
     return y_pred_flat, y_true_flat
 
-def get_candidate_meters_from_df(df: pl.DataFrame, minimum_number_of_lines: int) -> list[dict]:
+
+def get_candidate_meters_from_df(
+    df: pl.DataFrame, minimum_number_of_lines: int
+) -> list[dict]:
     """
-    Returns a list with candidate meters given a specific cutoff. For example, if we need 1000 lines of 
+    Returns a list with candidate meters given a specific cutoff. For example, if we need 1000 lines of
     poetry per meter, we can find the candidate meters in our dataframe with this function.
     """
     # Find the number of lines we have per meter type
@@ -35,5 +41,8 @@ def get_candidate_meters_from_df(df: pl.DataFrame, minimum_number_of_lines: int)
     )
 
     # Filter dataframe where we have at least 1000 lines
-    return [{'meter': d['meter'], 'lines': d['number_of_lines']} for d in meters_with_counts.to_dicts() if d["number_of_lines"] > minimum_number_of_lines]
-
+    return [
+        {"meter": d["meter"], "lines": d["number_of_lines"]}
+        for d in meters_with_counts.to_dicts()
+        if d["number_of_lines"] > minimum_number_of_lines
+    ]

@@ -1,5 +1,6 @@
 from datalake.landing_zone.hypotactic.ingest_hypotactic import Hypotactic
 
+
 def run():
     source_name = "hypotactic"
 

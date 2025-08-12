@@ -1,5 +1,6 @@
 from datalake.enriched.poetry import Poetry
 
+
 def run():
     source_name = "poetry"
 
