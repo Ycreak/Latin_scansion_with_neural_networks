@@ -20,7 +20,7 @@ class Experiment:
 
     def __init__(self) -> None:
         self.FOLDS = 2
-        self.EPOCHS: int = 5
+        self.EPOCHS: int = 10
         self.BATCH_SIZE: int = 32 
 
     def run(self) -> None:
@@ -31,7 +31,7 @@ class Experiment:
         # Read the dataframe
         print('Reading parquet file.')
         df = pl.read_parquet('datalake/bucket/enriched/poetry/poetry_dataframe.parquet')
-
+        df = df.filter((pl.col("meter") == "elegy")) #TODO: elegy seems faulty. filter it away for now
         # Filter away those meters with too little lines to make a proper dataset.
         candidate_meters_with_length = get_candidate_meters_from_df(df, 1000)
         candidate_meters = [obj['meter'] for obj in candidate_meters_with_length]
@@ -67,14 +67,17 @@ class Experiment:
                 print(f"\n=== Fold {fold + 1} ===")
 
                 # Create a new model for training.
+                print('Creating model.')
                 model = tf_lstm.create_model_with_word_tensors(dataset)
 
+                print('Creating train and test sets.')
                 syllable_train, syllable_test = syllable_tensors[train_idx], syllable_tensors[test_idx]
                 word_train, word_test = word_tensors[train_idx], word_tensors[test_idx]
                 label_train, label_test = label_tensors[train_idx], label_tensors[test_idx]
                 character_train, character_test = character_tensors[train_idx], character_tensors[test_idx]
 
                 # Then train using X_train and y_train
+                print('Fitting the model.')
                 model.fit(
                     [syllable_train, word_train, character_train],
                     label_train,

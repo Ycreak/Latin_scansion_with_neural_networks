@@ -1,5 +1,4 @@
 from neural_networks.lstm_dataset import LSTMDataset
-import numpy as np
 
 
 import tensorflow as tf

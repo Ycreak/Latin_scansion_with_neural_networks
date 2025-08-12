@@ -1,10 +1,8 @@
 from collections import defaultdict
 from sklearn.preprocessing import LabelEncoder
 from torch.nn.utils.rnn import pad_sequence
-from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 import torch
-import tensorflow as tf
 import polars as pl
 from tqdm import tqdm
 import string
@@ -115,6 +113,7 @@ class LSTMDataset:
         # Now we have for every line of poetry a list of one-hot encoded syllables, words and labels for that list.
         # For example, for the line [ar, ma] we have three lists: [12, 14], [55, 55], [0, 1] for syllables, words and labels.
         # An LSTM wants a lot of lines of the same length, so we use padding to make every line the same length.
+        print('Padding tensors.')
         PADDING_INTEGER_SYLLABLE = self.syllable_encoder.transform([self.PADDING])[0]
         PADDING_INTEGER_WORD = self.word_encoder.transform([self.PADDING])[0]
         PADDING_INTEGER_LABEL = self.label_encoder.transform([self.PADDING])[0]
@@ -138,6 +137,7 @@ class LSTMDataset:
             padded_character_tensors.append(padded_char_tensors)
 
         # Now create a nice large dictionary with per line its meter and the tensors we created
+        print('Creating dictionary.')
         self.list_with_poetry_objects = poetry_line_per_row_df.select('meter').to_dicts()
         for i, dictionary in enumerate(self.list_with_poetry_objects):
             dictionary["syllables"] = padded_syllable_tensors[i]
