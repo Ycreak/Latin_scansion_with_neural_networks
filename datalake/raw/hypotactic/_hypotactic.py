@@ -1,5 +1,5 @@
 from datalake.raw.hypotactic.soup_poem import PoemSoup
-from datalake.raw..hypotactic.soup_text import TextSoup
+from datalake.raw.hypotactic.soup_text import TextSoup
 import utilities as util
 
 

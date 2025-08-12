@@ -1,4 +1,3 @@
-# import config as conf
 import utilities as util
 from mqdq import rhyme as mqdq_rhyme
 from bs4 import BeautifulSoup
@@ -69,7 +68,7 @@ class Pedecerto:
         util.write_json(cache, f"{conf.PEDECERTO_DICTIONARY_PATH}/{text_name}.json")
 
 
-    def _clean(self, ll):
+    def _clean(self, lines):
 
         """Remove all corrupt lines from a set of bs4 <line>s
 
@@ -81,13 +80,10 @@ class Pedecerto:
         """
 
         return [
-            l
-            for l in ll
-            if l.has_attr("pattern")
-            and l["pattern"] != "corrupt"
-            and l["pattern"] != "not scanned"
+            line
+            for line in lines
+            if line.has_attr("pattern") and line["pattern"] != "corrupt"
         ]
-
     def _get_meter(self, string: str) -> str:
         """
         Returns a string of the meter given the character pedecerto uses as denominator
@@ -116,7 +112,7 @@ class Pedecerto:
             # Now for every word, syllabify it first
             try:
                 word_syllable_list = mqdq_rhyme._syllabify_word(w).syls
-            except:
+            except Exception:
             # Could not syllabify. Notify the calling function to not add this line to the set
                 return line_sequence_label_list, False
             # And get its scansion
