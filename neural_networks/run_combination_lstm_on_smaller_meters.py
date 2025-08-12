@@ -21,7 +21,7 @@ class Experiment:
 
     def __init__(self) -> None:
         self.FOLDS = 2
-        self.EPOCHS: int = 1
+        self.EPOCHS: int = 3  
         self.BATCH_SIZE: int = 32 
 
     def run(self) -> None:
@@ -32,6 +32,7 @@ class Experiment:
         # Read the dataframe
         print('Reading parquet file.')
         df = pl.read_parquet('datalake/bucket/enriched/poetry/poetry_dataframe.parquet')
+        df = df.filter((pl.col("meter") == "elegy")) #TODO: elegy seems faulty. filter it away for now
 
         # Filter dataframe where we have at least 1000 lines
         candidate_meters_with_length = get_candidate_meters_from_df(df, 1000)

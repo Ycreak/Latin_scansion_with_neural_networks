@@ -31,7 +31,7 @@ class Experiment:
         # Read the dataframe
         print('Reading parquet file.')
         df = pl.read_parquet('datalake/bucket/enriched/poetry/poetry_dataframe.parquet')
-        df.filter((pl.col("meter") == "elegy"))
+        df = df.filter((pl.col("meter") == "elegy")) #TODO: elegy seems faulty. filter it away for now
         # Filter away those meters with too little lines to make a proper dataset.
         candidate_meters_with_length = get_candidate_meters_from_df(df, 1000)
         candidate_meters = [obj['meter'] for obj in candidate_meters_with_length]
