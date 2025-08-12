@@ -2,7 +2,6 @@ from neural_networks.lstm_dataset import LSTMDataset
 
 
 import tensorflow as tf
-# import tensorflow_addons as tfa
 
 class TFLSTM:
     """
@@ -58,18 +57,6 @@ class TFLSTM:
                 recurrent_dropout=0.1
             )
         )(concatenated)
-
-        # Add a CRF layer (it can capture dependencies between neighboring tags)
-        # crf_layer = tfa.layers.CRF(num_labels=len(dataset.label_encoder.classes_))
-
-        # model = tf.keras.models.Model(inputs=[syllable_input_layer, word_input_layer, character_input_layer], outputs=crf_layer(lstm_layer))
-
-        # # Compile the model
-        # model.compile(
-            # optimizer=tf.keras.optimizers.Adam(learning_rate=self.LEARNING_RATE),
-            # loss=crf_layer.loss_function,
-            # metrics=[crf_layer.accuracy]
-        # )
 
         # Dense layer
         output_layer = tf.keras.layers.Dense(len(dataset.label_encoder.classes_), activation='softmax')(lstm_layer)
