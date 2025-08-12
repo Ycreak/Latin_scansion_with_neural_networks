@@ -1,7 +1,6 @@
 from sklearn.metrics import classification_report
 import os 
 import polars as pl
-from sklearn.model_selection import KFold
 from collections import defaultdict
 from datetime import datetime
 
@@ -9,12 +8,11 @@ import numpy as np
 
 import datalake.utilities as util
 
+from sklearn.model_selection import train_test_split
+
 from neural_networks.lstm_dataset import LSTMDataset
 from neural_networks.common_lstm_tools import generate_y_pred_true, get_candidate_meters_from_df
 from neural_networks.tf_lstm import TFLSTM
-
-
-import tensorflow as tf
 
 class Experiment:
     """
@@ -52,42 +50,66 @@ class Experiment:
         dataset.run(df_with_candidate_meters)
 
         # We will train on all meters that have a sufficient set of lines
-        train_meter_df = dataset.dataframe.filter(pl.col("meter").is_in(training_meters))
+        train_meter_lines = [d for d in  dataset.list_with_poetry_objects if d.get("meter") in training_meters]
+            
+        # Get the tensors from the dataset we created
+        syllable_tensors = np.array([d["syllables"] for d in train_meter_lines]) 
+        word_tensors = np.array([d["words"] for d in train_meter_lines])
+        label_tensors = np.array([d["labels"] for d in train_meter_lines])
+        character_tensors = np.array([d["characters"] for d in train_meter_lines])
 
-        # Get the tensors from the dataframe
-        train_syllable_tensors = np.array(train_meter_df.select("syllable_tensors").to_series().to_list())
-        train_label_tensors = np.array(train_meter_df.select("label_tensors").to_series().to_list())
-        
+        # Split the tensors such that we have a validation dataset for training the model.
+        indices = np.arange(len(syllable_tensors))
+        train_idx, test_idx = train_test_split(indices, test_size=0.1, random_state=42)
+
+        print('Creating training and validation sets.')
+        syllable_train = np.array([syllable_tensors[i] for i in train_idx])
+        syllable_test = np.array([syllable_tensors[i] for i in test_idx])
+
+        word_train = np.array([word_tensors[i] for i in train_idx])
+        word_test = np.array([word_tensors[i] for i in test_idx])
+
+        label_train = np.array([label_tensors[i] for i in train_idx])
+        label_test = np.array([label_tensors[i] for i in test_idx])
+
+        character_train = np.array([character_tensors[i] for i in train_idx])
+        character_test = np.array([character_tensors[i] for i in test_idx])
+
         # Create the model based on the dataset we created.
         tf_lstm: TFLSTM = TFLSTM()
         
         # Create a new model for training.
-        model = tf_lstm.create_model(dataset)
+        print('Creating the model.')
+        model = tf_lstm.create_model_with_word_tensors(dataset)
 
-        # Then train using X_train and y_train
+        # Then train using the features we have created 
+        print('Fitting the model.')
         model.fit(
-            train_syllable_tensors,
-            train_label_tensors,
+            [syllable_train, word_train, character_train],
+            label_train,
             batch_size=self.BATCH_SIZE,
             epochs=self.EPOCHS,
+            validation_data=([syllable_test, word_test, character_test], label_test),
             verbose=True
         )
-
+        
         # Create a dict where we can save our results to
         results = defaultdict(list)
 
         # For each testing meter, see how well our model can predict this meter.
         for meter in testing_meters:
             print(f"Now testing on {meter}")
-            test_meter_df = dataset.dataframe.filter(pl.col("meter") == meter)
-            test_syllable_tensors = np.array(test_meter_df.select("syllable_tensors").to_series().to_list())
-            test_label_tensors = np.array(test_meter_df.select("label_tensors").to_series().to_list())
+            test_meter_lines = [d for d in  dataset.list_with_poetry_objects if d.get("meter") == meter]
+            syllable_tensors = np.array([d["syllables"] for d in test_meter_lines]) 
+            word_tensors = np.array([d["words"] for d in test_meter_lines])
+            label_tensors = np.array([d["labels"] for d in test_meter_lines])
+            character_tensors = np.array([d["characters"] for d in test_meter_lines])
 
             # Now test the model on our smaller datasets.
             y_pred, y_true = generate_y_pred_true(
                 model,
-                [syllable_test, word_test],
-                label_test
+                [syllable_tensors, word_tensors, character_tensors],
+                label_tensors
             ) 
 
             report: dict = classification_report(
