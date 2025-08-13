@@ -16,33 +16,33 @@ class Pedecerto:
             cleaned_dataset = clean_dataset(dataset)
             util.write_json(cleaned_dataset, f"{destination_path}/{file_name}.json")
 
-    def _clean_extra(ll):
-        """Remove all corrupt lines from a set of bs4 <line>s, but also those that are uncertain
+    # def _clean_extra(ll):
+    # """Remove all corrupt lines from a set of bs4 <line>s, but also those that are uncertain
 
-        Args:
-            ll (list of bs4 <line>): Lines to clean
+    # Args:
+    # ll (list of bs4 <line>): Lines to clean
 
-        Returns:
-            (list of bs4 <line>): The lines, with the corrupt ones removed.
-        """
-        temp = []
+    # Returns:
+    # (list of bs4 <line>): The lines, with the corrupt ones removed.
+    # """
+    # temp = []
 
-        for l in ll:
-            if l.has_attr("feature"):
-                if l["feature"] != "spondaic":
-                    temp.append(l)
-            else:
-                temp.append(l)
+    # for line in lines:
+    # if line.has_attr("feature"):
+    # if line["feature"] != "spondaic":
+    # temp.append(line)
+    # else:
+    # temp.append(line)
 
-        ll = temp
+    # ll = temp
 
-        ll = [
-            l
-            for l in ll
-            if l.has_attr("pattern")
-            and l["pattern"] != "corrupt"
-            and l["pattern"] != "not scanned"
-            and l["pattern"] != "SSSS"
-        ]
+    # ll = [
+    # l
+    # for l in ll
+    # if l.has_attr("pattern")
+    # and l["pattern"] != "corrupt"
+    # and l["pattern"] != "not scanned"
+    # and l["pattern"] != "SSSS"
+    # ]
 
-        return ll
+    # return ll

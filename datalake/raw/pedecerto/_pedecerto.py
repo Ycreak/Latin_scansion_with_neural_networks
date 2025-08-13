@@ -1,4 +1,4 @@
-import utilities as util
+import datalake.utilities as util
 from mqdq import rhyme as mqdq_rhyme
 from bs4 import BeautifulSoup
 import dataclasses
@@ -20,63 +20,53 @@ class Pedecerto:
         NB: the XML files are stripped of their headers, leaving the body to be processed.
         """
         # Add all entries to process to a list
-        xml_files = util.create_files_list(conf.PEDECERTO_XML_PATH, "xml")
-        cache_list: list[str] = util.create_files_list(conf.PEDECERTO_XML_PATH, "json")
-        cache_list = [name.replace(".json", "") for name in cache_list]
+        xml_files = util.create_files_list(source_path, "xml")
 
         # Process all entries added to the list
         for entry in xml_files:
-            if entry.replace(".xml", "") not in cache_list:
-                self.convert_pedecerto_xml_to_dictionary(entry)
+            cache: dict = {"lines": []}
+            with open(f"{source_path}/{entry}") as fh:
+                text_name = entry.split(".")[0]
+                print(f"processing {text_name}")
+                # Use beautiful soup to process the xml
+                soupedEntry = BeautifulSoup(fh, "xml")
+                # Retrieve author from the xml file
+                author = str(soupedEntry.author.string)
+                # Clean the lines (done by MQDQ)
+                soupedEntry = self._clean(soupedEntry("line"))
 
-    def convert_pedecerto_xml_to_dictionary(self, xml_name: str):
-        cache: dict = {"lines": []}
-        with open(conf.PEDECERTO_XML_PATH + xml_name) as fh:
-            text_name = xml_name.split(".")[0]
-            print(f"processing {text_name}")
-            # Use beautiful soup to process the xml
-            soupedEntry = BeautifulSoup(fh, "xml")
-            # Retrieve the title and author from the xml file
-            text_title = str(soupedEntry.title.string)
-            author = str(soupedEntry.author.string)
-            # Clean the lines (done by MQDQ)
-            soupedEntry = self._clean(soupedEntry("line"))
+                for line in range(len(soupedEntry)):
+                    line_list: list = []
 
-            for line in range(len(soupedEntry)):
-                line_list: list = []
+                    # Process the entry. It will append the line to the df
+                    if not soupedEntry[line][
+                        "name"
+                    ].isdigit():  # We only want lines that are certain
+                        continue
+                    if (
+                        soupedEntry[line]["pattern"] == "not scanned"
+                    ):  # These lines we also skip
+                        continue
+                    if (
+                        soupedEntry[line]["meter"] == "H"
+                        or soupedEntry[line]["meter"] == "P"
+                    ):  # We only want hexameters or pentameters
+                        line_list, success = self._process_line(soupedEntry[line])
+                        if success:
+                            # Only add the line if no errors occurred.
+                            cache["lines"].append(
+                                {
+                                    "author": author,
+                                    "meter": self._get_meter(
+                                        soupedEntry[line]["meter"]
+                                    ),
+                                    "line": line_list,
+                                }
+                            )
+                    else:
+                        continue  # interestingly, some pedecerto xml files use "metre" instead of "meter"
 
-                try:
-                    book_title = int(soupedEntry[line].parent.get("title"))
-                except:
-                    book_title = 1  # if we cant extract a title (if there isnt any like ovid ibis) -> just 1.
-
-                # Process the entry. It will append the line to the df
-                if not soupedEntry[line][
-                    "name"
-                ].isdigit():  # We only want lines that are certain
-                    continue
-                if (
-                    soupedEntry[line]["pattern"] == "not scanned"
-                ):  # These lines we also skip
-                    continue
-                if (
-                    soupedEntry[line]["meter"] == "H"
-                    or soupedEntry[line]["meter"] == "P"
-                ):  # We only want hexameters or pentameters
-                    line_list, success = self._process_line(soupedEntry[line])
-                    if success:
-                        # Only add the line if no errors occurred.
-                        cache["lines"].append(
-                            {
-                                "author": author,
-                                "meter": self._get_meter(soupedEntry[line]["meter"]),
-                                "line": line_list,
-                            }
-                        )
-                else:
-                    continue  # interestingly, some pedecerto xml files use "metre" instead of "meter"
-
-        util.write_json(cache, f"{conf.PEDECERTO_DICTIONARY_PATH}/{text_name}.json")
+            util.write_json(cache, f"{destination_path}/{text_name}.json")
 
     def _clean(self, lines):
         """Remove all corrupt lines from a set of bs4 <line>s

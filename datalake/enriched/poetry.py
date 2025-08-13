@@ -14,6 +14,7 @@ class Poetry:
             f"{raw_bucket_path}/pedecerto", "json"
         )
         pedecerto_files = [f"{raw_bucket_path}/pedecerto/" + s for s in pedecerto_files]
+
         hypotactic_files: list = util.create_files_list(
             f"{raw_bucket_path}/hypotactic", "json"
         )
