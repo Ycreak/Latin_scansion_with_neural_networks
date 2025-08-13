@@ -1,11 +1,12 @@
 import datalake.utilities as util
-      
-import pandas as pd 
+
+import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
 import os
 import re
+
 
 class Plotter:
     """
@@ -15,7 +16,9 @@ class Plotter:
     def __init__(self) -> None:
         pass
 
-    def retrieve_scores_from_classification_report_list(self, dict_with_lists_of_classification_reports: dict) -> dict:
+    def retrieve_scores_from_classification_report_list(
+        self, dict_with_lists_of_classification_reports: dict
+    ) -> dict:
         """
         We output the results of the neural networks in a list of classification reports per meter/experiment.
         This function reads through all the meters/experiments and retrieves the relevant f1 scores for us to plot.
@@ -25,9 +28,12 @@ class Plotter:
 
         for meter, entries in dict_with_lists_of_classification_reports.items():
             average_f1_scores = {
-                "long": sum(entry["long"]["f1-score"] for entry in entries) / len(entries),
-                "short": sum(entry["short"]["f1-score"] for entry in entries) / len(entries),
-                "elision": sum(entry["elision"]["f1-score"] for entry in entries) / len(entries),
+                "long": sum(entry["long"]["f1-score"] for entry in entries)
+                / len(entries),
+                "short": sum(entry["short"]["f1-score"] for entry in entries)
+                / len(entries),
+                "elision": sum(entry["elision"]["f1-score"] for entry in entries)
+                / len(entries),
             }
             average_f1_scores_per_meter[meter] = average_f1_scores
 
@@ -41,7 +47,7 @@ class Plotter:
         entries = os.listdir(directory)
 
         # Define a regular expression pattern to match the timestamp format in filenames
-        pattern = re.compile(r'\d{4}-\d{2}-\d{2}_\d{2}:\d{2}:\d{2}\.json$')
+        pattern = re.compile(r"\d{4}-\d{2}-\d{2}_\d{2}:\d{2}:\d{2}\.json$")
 
         # Filter files that match the timestamp pattern and have a .json extension
         timestamped_files = [entry for entry in entries if pattern.fullmatch(entry)]
@@ -59,10 +65,16 @@ if __name__ == "__main__":
     plotter = Plotter()
 
     # experiment = 'run_lstm_on_each_meter_type'
-    experiment = 'run_combination_lstm_on_smaller_meters'
+    experiment = "run_combination_lstm_on_smaller_meters"
 
-    latest_experiment_json = plotter.find_latest_timestamped_json(f'neural_networks/experiments/{experiment}')
-    f1_scores_per_meter = plotter.retrieve_scores_from_classification_report_list(util.read_json(f"neural_networks/experiments/{experiment}/{latest_experiment_json}"))
+    latest_experiment_json = plotter.find_latest_timestamped_json(
+        f"neural_networks/experiments/{experiment}"
+    )
+    f1_scores_per_meter = plotter.retrieve_scores_from_classification_report_list(
+        util.read_json(
+            f"neural_networks/experiments/{experiment}/{latest_experiment_json}"
+        )
+    )
     # Display the results
     for meter, scores in f1_scores_per_meter.items():
         print(f"{meter}: {scores}")
@@ -72,7 +84,9 @@ if __name__ == "__main__":
 
     # Create a heatmap using Seaborn
     plt.figure(figsize=(8, 4))
-    sns.heatmap(df_heatmap, annot=True, cmap="Blues", cbar_kws={"label": "Average F1 Score"})
+    sns.heatmap(
+        df_heatmap, annot=True, cmap="Blues", cbar_kws={"label": "Average F1 Score"}
+    )
     plt.title("Average F1 Scores by Meter and Category")
     plt.ylabel("Meter")
     plt.xlabel("Category")

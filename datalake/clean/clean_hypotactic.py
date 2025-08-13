@@ -1,6 +1,7 @@
 import datalake.utilities as util
 from datalake.clean.clean import clean_dataset
 
+
 class Hypotactic:
     def run(self, source_path: str, destination_path: str) -> None:
         """
@@ -9,10 +10,10 @@ class Hypotactic:
         the lines property, per syllable, the syllable itself, its length and its parent word
         is provided.
         """
-        hypotactic_files: list = util.create_files_list(source_path, 'json')
+        hypotactic_files: list = util.create_files_list(source_path, "json")
 
         for file in hypotactic_files:
-            file_name: str = file.split('.')[0]
+            file_name: str = file.split(".")[0]
             print(f"Processing {file}")
             dataset = util.read_json(f"{source_path}/{file}")
             cleaned_dataset = clean_dataset(dataset)

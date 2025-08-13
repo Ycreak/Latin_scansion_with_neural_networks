@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.options import Options
 import time
 
+
 class Harvester:
     def __init__(self):
         self.options = Options()
@@ -16,7 +17,7 @@ class Harvester:
 
         # Wait for the JavaScript to populate the data
         try:
-            element = WebDriverWait(driver, 10).until(
+            _ = WebDriverWait(driver, 10).until(
                 EC.presence_of_element_located((By.CSS_SELECTOR, "div.line"))
             )
             # Disable macrons by clicking on the checkbox
