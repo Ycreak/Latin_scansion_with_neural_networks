@@ -33,5 +33,7 @@ The datalake follows the medallion architecture, where the landing zone will ret
 The whole idea of the datalake is to quickly harmonize datasources and for each line of poetry, provide the syllables, words and characters that make up the line, as well as the label (_long_, _short_, or _elision_) for each syllable.
 
 <a name="LSTM"/>
+
 ## LSTM
 Currently the only neural network implemented is the LSTM, as it seemed to work best. We designed a couple of experiments which can be run. The model itself is situated in its own file and can be tweaked.
+
