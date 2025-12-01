@@ -7,3 +7,5 @@ scikit-learn
 seaborn
 matplotlib
 pandas
+
+pudb

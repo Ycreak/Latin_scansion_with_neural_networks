@@ -24,11 +24,10 @@ class Experiment:
     """
 
     def __init__(self) -> None:
-        self.FOLDS = 2
         self.EPOCHS: int = 3
         self.BATCH_SIZE: int = 32
 
-    def run(self) -> None:
+    def run(self, save_model: bool = False) -> None:
         """
         This experiment trains lstms on the bigger datasets (dactylic, trochaic and ia6) and tries to scan the
         smaller datasets like scazon, hendecasyllables and senarii.
@@ -36,9 +35,7 @@ class Experiment:
         # Read the dataframe
         print("Reading parquet file.")
         df = pl.read_parquet("datalake/bucket/enriched/poetry/poetry_dataframe.parquet")
-        df = df.filter(
-            (pl.col("meter") == "elegy")
-        )  # TODO: elegy seems faulty. filter it away for now
+        df = df.filter(pl.col("meter") != "elegy") # TODO: elegy seems faulty. filter it away for now
 
         # Filter dataframe where we have at least 1000 lines
         candidate_meters_with_length = get_candidate_meters_from_df(df, 1000)
@@ -110,6 +107,9 @@ class Experiment:
             verbose=True,
         )
 
+        if save_model:
+            model.save('neural_networks/models/combination_lstm_on_smaller_meters.keras')
+
         # Create a dict where we can save our results to
         results = defaultdict(list)
 
@@ -152,4 +152,4 @@ class Experiment:
 
 if __name__ == "__main__":
     experiment = Experiment()
-    experiment.run()
+    experiment.run(save_model=True)

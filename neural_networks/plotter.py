@@ -90,4 +90,5 @@ if __name__ == "__main__":
     plt.title("Average F1 Scores by Meter and Category")
     plt.ylabel("Meter")
     plt.xlabel("Category")
+    plt.savefig('picture.png')
     plt.show()
