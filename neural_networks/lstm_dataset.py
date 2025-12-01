@@ -164,10 +164,3 @@ class LSTMDataset:
             dictionary["words"] = padded_word_tensors[i]
             dictionary["labels"] = padded_label_tensors[i]
             dictionary["characters"] = padded_character_tensors[i]
-
-        # Add the tensors as a new column to the DataFrame
-        # self.dataframe = poetry_line_per_row_df.with_columns(
-        # pl.Series("word_tensors", padded_word_tensors),
-        # pl.Series("syllable_tensors", padded_syllable_tensors),
-        # pl.Series("label_tensors", padded_label_tensors)
-        # )

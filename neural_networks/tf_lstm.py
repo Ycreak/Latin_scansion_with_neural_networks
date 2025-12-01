@@ -15,7 +15,7 @@ class TFLSTM:
         self.lstm_layer_units: int = 10
         self.LEARNING_RATE: float = 0.001
 
-    def create_model_with_word_tensors(
+    def create_syllable_word_character_model(
         self, dataset: LSTMDataset
     ) -> tf.keras.models.Model:
         # These are padded, so all the same size. But to be sure, we calculate for each feature
@@ -91,50 +91,6 @@ class TFLSTM:
         )
 
         return model
-
-    def create_model(self, dataset: LSTMDataset) -> tf.keras.models.Model:
-        """
-        Creates and returns the LSTM model
-        :param dataset (LSTMDataset) from which to create the model
-        :return tf.keras.models.Model
-        """
-        # As the input length is the same for all lines of poetry, we can pick the length of the first syllable tensor.
-        input_length = len(
-            dataset.dataframe.select("syllable_tensors").to_series().to_list()[0]
-        )
-        # Initiate the model structure
-        input_layer = tf.keras.layers.Input(shape=(input_length,))
-
-        model = tf.keras.layers.Embedding(
-            input_dim=len(dataset.syllable_encoder.classes_),
-            output_dim=self.embedding_output_dim,
-            input_length=input_length,
-        )(input_layer)
-
-        model = tf.keras.layers.Bidirectional(
-            tf.keras.layers.LSTM(
-                units=self.lstm_layer_units,
-                return_sequences=True,
-                recurrent_dropout=0.1,
-            )
-        )(model)
-
-        model = tf.keras.layers.Dense(
-            len(dataset.label_encoder.classes_), activation="softmax"
-        )(model)
-
-        model = tf.keras.models.Model(input_layer, model)
-
-        model.compile(
-            optimizer=tf.keras.optimizers.Adam(learning_rate=self.LEARNING_RATE),
-            # Loss function to minimize
-            loss=tf.keras.losses.SparseCategoricalCrossentropy(),
-            # List of metrics to monitor
-            metrics=["accuracy"],
-        )
-
-        return model
-
 
 if __name__ == "__main__":
     lstm = TFLSTM()

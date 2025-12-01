@@ -1,4 +1,5 @@
 from sklearn.metrics import classification_report
+import pickle
 import os
 import polars as pl
 from collections import defaultdict
@@ -94,7 +95,7 @@ class Experiment:
 
         # Create a new model for training.
         print("Creating the model.")
-        model = tf_lstm.create_model_with_word_tensors(dataset)
+        model = tf_lstm.create_syllable_word_character_model(dataset)
 
         # Then train using the features we have created
         print("Fitting the model.")
@@ -107,8 +108,21 @@ class Experiment:
             verbose=True,
         )
 
+        # In order to reuse the model later, we need to save the model itself and the encoders.
+        # The latter will allow us to translate a sentence like 'arma virumque cano' into integers
+        # readable for the model.
         if save_model:
+            # Save the model
             model.save('neural_networks/models/combination_lstm_on_smaller_meters.keras')
+            # Save the encoders 
+            with open('neural_networks/models/syllable_encoder.pickle', 'wb') as file:
+                pickle.dump(dataset.syllable_encoder, file)
+            with open('neural_networks/models/word_encoder.pickle', 'wb') as file:
+                pickle.dump(dataset.word_encoder, file)
+            with open('neural_networks/models/character_encoder.pickle', 'wb') as file:
+                pickle.dump(dataset.character_encoder, file)
+            with open('neural_networks/models/label_encoder.pickle', 'wb') as file:
+                pickle.dump(dataset.label_encoder, file)
 
         # Create a dict where we can save our results to
         results = defaultdict(list)

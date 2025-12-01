@@ -78,7 +78,7 @@ class Experiment:
 
                 # Create a new model for training.
                 print("Creating model.")
-                model = tf_lstm.create_model_with_word_tensors(dataset)
+                model = tf_lstm.create_syllable_word_character_model(dataset)
 
                 print("Creating train and test sets.")
                 syllable_train, syllable_test = (
