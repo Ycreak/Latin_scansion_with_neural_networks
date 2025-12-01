@@ -1,0 +1,19 @@
+[project]
+name = "Latin scansion with neural networks"
+version = "1.0.0"
+description = "In this project we try to teach a neural network to scan Latin poetry"
+
+dependencies = [
+  # rtcompat for my old machine
+  "polars[rtcompat]",
+  "torch",
+  "pytorch-crf",
+  "tensorflow",
+  "scikit-learn",
+  "seaborn",
+  "matplotlib",
+  "pandas",
+  "pudb",
+  "tqdm"
+]
+
