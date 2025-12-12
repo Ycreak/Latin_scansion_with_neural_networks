@@ -1,0 +1,17 @@
+# Flask
+flask
+flask_cors
+flask_restful
+flask_jsonpify
+
+# Scansion
+mqdqparser
+IPython==7.34.0
+polars[rtcompat]
+
+# Neural net
+torch
+pytorch-crf
+tensorflow
+scikit-learn
+tqdm
