@@ -46,10 +46,10 @@ class Experiment:
         df_with_candidate_meters = df.filter(pl.col("meter").is_in(candidate_meters))
 
         # We can train on datasets with 10k lines or more, and we will test on the smaller sets.
-        training_meters = [
+        training_meters: list[str] = [
             obj["meter"] for obj in candidate_meters_with_length if obj["lines"] > 10000
         ]
-        testing_meters = [
+        testing_meters: list[str] = [
             obj["meter"]
             for obj in candidate_meters_with_length
             if obj["lines"] <= 10000
