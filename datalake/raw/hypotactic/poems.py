@@ -21,10 +21,10 @@ class Poems:
         """
         hypotactic_poem_files: list = util.create_files_list(source_path, "poem")
 
-        for poem in hypotactic_poem_files:
-            file_name = poem.split(".")[0]
-            print(f"doing soup on {poem}")
-            page = util.read_pickle(f"{source_path}/{poem}")
+        for file in hypotactic_poem_files:
+            file_name = file.split(".")[0]
+            print(f"doing soup on {file}")
+            page = util.read_pickle(f"{source_path}/{file}")
 
             soup = BeautifulSoup(page, "html.parser")
             # One file can contain multiple poems
@@ -77,7 +77,7 @@ class Poems:
                     line_list = line_list[:-1]
 
                     all_lines.append(
-                        {"author": author, "meter": meter, "line": line_list}
+                            {"author": author, "meter": meter, "file_name": file_name, "line": line_list}
                     )
 
             util.write_json(all_lines, f"{destination_path}/{file_name}.json")
