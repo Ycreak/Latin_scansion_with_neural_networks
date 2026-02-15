@@ -23,8 +23,8 @@ class Pedecerto:
         xml_files = util.create_files_list(source_path, "xml")
 
         # Process all entries added to the list
-        for entry in xml_files:
-            cache: dict = {"lines": []}
+        for entry in sorted(xml_files):
+            cache: list = []
             with open(f"{source_path}/{entry}") as fh:
                 text_name = entry.split(".")[0]
                 print(f"processing {text_name}")
@@ -54,12 +54,13 @@ class Pedecerto:
                         line_list, success = self._process_line(soupedEntry[line])
                         if success:
                             # Only add the line if no errors occurred.
-                            cache["lines"].append(
+                            cache.append(
                                 {
                                     "author": author,
                                     "meter": self._get_meter(
                                         soupedEntry[line]["meter"]
                                     ),
+                                    "file_name": text_name,
                                     "line": line_list,
                                 }
                             )

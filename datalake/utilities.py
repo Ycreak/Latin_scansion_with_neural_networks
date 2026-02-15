@@ -85,4 +85,4 @@ def create_files_list(path, substring):
         if file.find(substring) != -1:
             list.append(file)
 
-    return list
+    return sorted(list)

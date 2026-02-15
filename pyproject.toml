@@ -2,18 +2,35 @@
 name = "Latin_scansion_with_neural_networks"
 version = "1.0.0"
 description = "In this project we try to teach a neural network to scan Latin poetry"
+requires-python = ">=3.12"
 
+# Core dependencies (required for the project to run)
 dependencies = [
-  # rtcompat for my old machine
-  "polars[rtcompat]",
-  "torch",
-  "pytorch-crf",
-  "tensorflow",
-  "scikit-learn",
-  "seaborn",
-  "matplotlib",
-  "pandas",
-  "pudb",
-  "tqdm"
+  "polars[rtcompat]>=1.35.2",  # rtcompat for my old machine
+  "unidecode>=1.4.0",
 ]
 
+# Optional dependencies (grouped by purpose)
+[project.optional-dependencies]
+datalake = [
+  "mqdqparser>=0.6.2",
+  "ipython<9.0",  # use older ipython version to prevent display error
+  "tqdm>=4.67.1",
+]
+
+neural_networks = [
+  "torch>=2.9.1",
+  "pytorch-crf>=0.7.2",
+  "tensorflow>=2.20.0",
+  "scikit-learn>=1.7.2",
+]
+
+plotter = [
+  "pandas>=2.3.3",
+  "seaborn>=0.13.2",
+  "matplotlib>=3.10.7",
+]
+
+dev_tools = [
+  "pudb>=2025.1.3",
+]

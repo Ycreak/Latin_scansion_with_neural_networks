@@ -73,6 +73,6 @@ class Prose:
                 # Remove the last entry from the line, which is a superfluous space
                 line_list = line_list[:-1]
 
-                all_lines.append({"author": author, "meter": meter, "line": line_list})
+                all_lines.append({"author": author, "meter": meter, "file_name": file_name, "line": line_list})
 
             util.write_json(all_lines, f"{destination_path}/{file_name}.json")

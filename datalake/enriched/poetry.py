@@ -24,6 +24,11 @@ class Poetry:
 
         all_files = pedecerto_files + hypotactic_files
 
+        # We listed all files we think have weak meter (later or worse authors).
+        # For each line, we will denote whether it is from this set of meter.
+        with open('datalake/enriched/weak_poetry.txt', 'r') as file:
+            weak_poetry_list = file.readlines()
+
         print("Building dataframe.")
         all_rows = []
         line_counter = 1  # global line number across all files
@@ -31,16 +36,18 @@ class Poetry:
             lines = util.read_json(file_path)
 
             for line_data in lines:
-                author = line_data["author"]
                 meter = line_data["meter"]
+                file_name = line_data["file_name"]
+                weak_poetry = file_name in weak_poetry_list
 
                 for entry in line_data["line"]:
                     if "-" in entry:
                         # We encode spaces a bit differently.
                         all_rows.append(
                             {
-                                "author": author,
                                 "meter": meter,
+                                # This should be put in curated
+                                "weak_poetry": weak_poetry,
                                 "line_number": line_counter,
                                 "syllable": "-",
                                 "label": "space",
@@ -50,8 +57,9 @@ class Poetry:
                     else:
                         all_rows.append(
                             {
-                                "author": author,
                                 "meter": meter,
+                                # This should be put in curated
+                                "weak_poetry": weak_poetry,
                                 "line_number": line_counter,
                                 "syllable": entry["syllable"],
                                 "label": entry["length"],
