@@ -27,7 +27,7 @@ class LSTMDataset:
         self.dataframe: pl.DataFrame
         self.list_with_poetry_objects: list = []
 
-    def run(self, df: pl.DataFrame) -> None:
+    def run(self, df: pl.DataFrame, syllable_encoder = None, label_encoder = None, word_encoder = None, character_encoder = None) -> None:
         print("Building dataframe with one row per line of poetry.")
         poetry_line_per_row_df = df.group_by("line_number").agg(
             [
@@ -49,13 +49,20 @@ class LSTMDataset:
             self.PADDING,
         ]  # add space and padding chars
 
-        # An LSTM can only accept integers, so we use one-hot encoding to turn our strings into integers.
-        # We do this for all our inputs and our labels. First, create the encoders themselves.
-        print("Creating encoders.")
-        self.syllable_encoder: LabelEncoder = LabelEncoder().fit(all_syllables)
-        self.label_encoder: LabelEncoder = LabelEncoder().fit(all_labels)
-        self.word_encoder: LabelEncoder = LabelEncoder().fit(all_words)
-        self.character_encoder: LabelEncoder = LabelEncoder().fit(all_characters)
+        if syllable_encoder and label_encoder and word_encoder and character_encoder:
+            print("Using given encoders.")
+            self.syllable_encoder: LabelEncoder = syllable_encoder 
+            self.label_encoder: LabelEncoder =label_encoder 
+            self.word_encoder: LabelEncoder =word_encoder 
+            self.character_encoder: LabelEncoder =character_encoder
+        else:
+            # An LSTM can only accept integers, so we use one-hot encoding to turn our strings into integers.
+            # We do this for all our inputs and our labels. First, create the encoders themselves.
+            print("Creating encoders.")
+            self.syllable_encoder: LabelEncoder = LabelEncoder().fit(all_syllables)
+            self.label_encoder: LabelEncoder = LabelEncoder().fit(all_labels)
+            self.word_encoder: LabelEncoder = LabelEncoder().fit(all_words)
+            self.character_encoder: LabelEncoder = LabelEncoder().fit(all_characters)
 
         # For every syllable we have, create a character tensor, which is a list with a tensor for each character in the syllable.
         all_unique_syllables = list(set(all_syllables))
@@ -74,7 +81,7 @@ class LSTMDataset:
                 char_tensor_for_current_syllable.append(char_index)
 
             # So now we have for a single syllable a list with per character an integer as one-hot encoding. We need to pad this tensor to be as long
-            # as the longest syllable in the dataset, such that every tensor has the same length. We ue the padding integer to pad each tensor.
+            # as the longest syllable in the dataset, such that every tensor has the same length. We use the padding integer to pad each tensor.
             while len(char_tensor_for_current_syllable) < max_syllable_length:
                 char_tensor_for_current_syllable.append(
                     self.character_encoder.transform([self.PADDING])[0]

@@ -1,5 +1,5 @@
 [project]
-name = "Latin scansion with neural networks"
+name = "Latin_scansion_with_neural_networks"
 version = "1.0.0"
 description = "In this project we try to teach a neural network to scan Latin poetry"
 
