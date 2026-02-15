@@ -568,17 +568,17 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "ipython", specifier = "<9.0" },
-    { name = "matplotlib" },
+    { name = "matplotlib", specifier = ">=3.10.7" },
     { name = "mqdqparser", specifier = ">=0.6.2" },
-    { name = "pandas" },
-    { name = "polars", extras = ["rtcompat"] },
-    { name = "pudb" },
-    { name = "pytorch-crf" },
-    { name = "scikit-learn" },
-    { name = "seaborn" },
-    { name = "tensorflow" },
-    { name = "torch" },
-    { name = "tqdm" },
+    { name = "pandas", specifier = ">=2.3.3" },
+    { name = "polars", extras = ["rtcompat"], specifier = ">=1.35.2" },
+    { name = "pudb", specifier = ">=2025.1.3" },
+    { name = "pytorch-crf", specifier = ">=0.7.2" },
+    { name = "scikit-learn", specifier = ">=1.7.2" },
+    { name = "seaborn", specifier = ">=0.13.2" },
+    { name = "tensorflow", specifier = ">=2.20.0" },
+    { name = "torch", specifier = ">=2.9.1" },
+    { name = "tqdm", specifier = ">=4.67.1" },
     { name = "unidecode", specifier = ">=1.4.0" },
 ]
 
