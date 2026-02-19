@@ -15,10 +15,10 @@ dependencies = [
 datalake = [
   "mqdqparser>=0.6.2",
   "ipython<9.0",  # use older ipython version to prevent display error
-  "tqdm>=4.67.1",
 ]
 
 neural_networks = [
+  "tqdm>=4.67.1",
   "torch>=2.9.1",
   "pytorch-crf>=0.7.2",
   "tensorflow>=2.20.0",

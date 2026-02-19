@@ -16,13 +16,19 @@ For more information about this project, see the [LUCAS website](https://www.uni
 + [Datalake](#Datalake)  
 + [Long short-term memory](#LSTM)  
 
-<a name="Requirements"/>
 
-## Requirements
-The programs are written entirely in Python. Its dependencies can be found in requirements.txt. As always, you can install all dependencies in your Python environment via pip using the following command:
+<a name="Setup"/>
+
+## Setup
+To get the neural network going, install its dependencies using uv: 
+```console 
+uv sync --extra neural_networks
+```
+
+To train a network, make sure the dataset exists in parquet form. Next run:
 
 ```console 
-pip install -r requirements.txt
+PYTHONPATH=. uv run neural_networks/run_combination_lstm_on_smaller_meters.py
 ```
 
 <a name="Datalake"/>
